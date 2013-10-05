@@ -19,6 +19,8 @@ http://www.swharden.com/blog/2013-05-08-realtime-data-plotting-in-python/
 
 http://www.swharden.com/blog/2010-03-05-realtime-fft-graph-of-audio-wav-file-or-microphone-input-with-python-scipy-and-wckgraph/
 
+http://xoomer.virgilio.it/sam_psy/psych/sound_proc/sound_proc_python.html
+
 http://blog.chrisarndt.de/article/499 (de)
 
 <!--

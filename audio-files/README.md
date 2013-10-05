@@ -52,21 +52,20 @@ For most cases it should be sufficient to support the various variants of WAV
 files. There are many conversion programs which allow to convert to and from
 many other formats.
 Probably the most powerful is [SoX](http://sox.sf.net/) -- highly recommended!
-To create `.ogg` and `.mp3` files, for example, [oggenc](http://www.vorbis.com/)
+To create `.ogg` and `.mp3` files, [oggenc](http://www.vorbis.com/)
 and [LAME](http://lame.sourceforge.net/) can be used, respectively.
 
 Example Files
 -------------
 
 Example WAV files with different encodings are available in the directory
-[data/](data/). These files were generated with the script
+[`data/`](data/). These files were generated with the script
 [`generate_example_wav_files.py`](data/generate_example_wav_files.py).
 
 Python Sound File Libraries
 ---------------------------
 
-TODO: nbviewer link!
-[scipy.io](http://nbviewer.ipython.org/)
+[scipy.io](http://nbviewer.ipython.org/urls/raw.github.com/mgeier/python-audio/master/audio-files/audio-files-with-scipy-io.ipynb)
 
 TODO: more!
 

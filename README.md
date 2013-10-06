@@ -3,7 +3,7 @@ Audio Signal Processing in Python
 
 Warning: this is work in progress!
 
-[Reading and Writing Audio Files](audio-files/README.md)
+[Reading and Writing Audio Files](audio-files)
 
 TODO: a lot!
 

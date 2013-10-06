@@ -68,6 +68,26 @@ Python Sound File Libraries
 Here are some IPython notebook files which show how to use some of the available
 libraries.
 
+Special attention is payed to the support for different variants of the WAV
+format.
+
+All of the described libraries can read and write 16-bit WAV files. Most (or
+maybe all) can also read 32-bit PCM (fixed point) file, but those hardly exist
+*in the wild*.
+Only a few can read 24-bit files, which are quite commonly used, mostly in
+professional contexts.
+Also only a few can read 32-bit floating point files. This is unfortunate,
+because many DAW produce such files and most audio processing software uses this
+format internally.
+
+A wide range of sampling rates is available, 44100 Hz and 48000 Hz being the
+most common.
+None of the libraries has problems with different sampling rates, therefore it's
+enough to use only one of them in the examples, namely 44100 Hz.
+
+Only a few libraries support WAVEX files, some display a warning but if you're
+lucky the audio data can still be read successfully.
+
 [Reading and Writing Audio Files with scipy.io](http://nbviewer.ipython.org/urls/raw.github.com/mgeier/python-audio/master/audio-files/audio-files-with-scipy-io.ipynb)
 
 TODO: more!

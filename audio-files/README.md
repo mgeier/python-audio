@@ -1,7 +1,7 @@
 Reading and Writing Audio Files in Python
 =========================================
 
-[back to main page](http://github.com/mgeier/python-audio/blob/master/README.md)
+[back to main page](..)
 
 There are several libraries for reading and writing audio files with Python but
 it's often not clear which is the best one. That's mostly because there is no
@@ -65,7 +65,10 @@ Example WAV files with different encodings are available in the directory
 Python Sound File Libraries
 ---------------------------
 
-[scipy.io](http://nbviewer.ipython.org/urls/raw.github.com/mgeier/python-audio/master/audio-files/audio-files-with-scipy-io.ipynb)
+Here are some IPython notebook files which show how to use some of the available
+libraries.
+
+[Reading and Writing Audio Files with scipy.io](http://nbviewer.ipython.org/urls/raw.github.com/mgeier/python-audio/master/audio-files/audio-files-with-scipy-io.ipynb)
 
 TODO: more!
 

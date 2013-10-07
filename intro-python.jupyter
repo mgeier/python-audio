@@ -5,13 +5,53 @@ markdown
 markdown
     [back to main page](https://github.com/mgeier/python-audio/blob/master)
     
-    TODO: everything!
+    Python is a general-purpose programming language.
+    It is an *interpreted* language, i.e. source code is not compiled into an executable file but it is directly executed (without intermediate steps).
+    A file containing Python code is normally executed by the Python *interpreter* like this:
+    
+        python my_code.py
+    
+    Python also can also act as an interactive interpreter where you can type an run Python code line-by-line.
+    It can be started by simply running
+    
+        python
+    
+    You have the full power of Python in there, but it is not very convenient.
+    A much better alternative is IPython, which is described on a separate page (find it via the main page).
+    
+    TODO: Python 2 vs. 3
+    
+    TODO: multi-paradigm: procedural, OO, a little bit functional
+code 3
+    print("Hello World!")
+  stream stdout
+    Hello World!
+  metadata
+    {
+     "collapsed": false
+    }
 code
     
   metadata
     {
      "collapsed": false
     }
+code 1
+    a = 42
+    a
+  execute_result
+  - text/plain
+    42
+  metadata
+    {
+     "collapsed": false
+    }
+markdown
+    ## Links
+markdown
+    TODO: more links
+    
+    http://python.net/~goodger/projects/pycon/2007/idiomatic/handout.html
 metadata
     {
      "orig_nbformat": 3,

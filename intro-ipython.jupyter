@@ -5,13 +5,129 @@ markdown
 markdown
     [back to main page](https://github.com/mgeier/python-audio/blob/master)
     
-    TODO: everything!
+    interactive ...
+    
+      - classic console
+      - qtconsole
+      - notebook
+    
+    Start like this:
+    
+        ipython3
+    
+    or
+    
+        ipython3 qtconsole
+    
+    or
+    
+        ipython3 notebook
 code
     
   metadata
     {
      "collapsed": false
     }
+code
+    
+  metadata
+    {
+     "collapsed": false
+    }
+code
+    
+  metadata
+    {
+     "collapsed": false
+    }
+markdown
+    Text can be written in [Markdown](http://daringfireball.net/projects/markdown/).
+    
+    Support for $\LaTeX$ equations: $a^2+b^2=c^2$ (using [MathJax](http://www.mathjax.org/)).
+markdown
+    `qtconsole` can also be started from a running notebook session:
+code
+    %qtconsole
+  metadata
+    {
+     "collapsed": false
+    }
+code
+    
+  metadata
+    {
+     "collapsed": false
+    }
+code
+    
+  metadata
+    {
+     "collapsed": false
+    }
+code
+    
+  metadata
+    {
+     "collapsed": false
+    }
+code
+    
+  metadata
+    {
+     "collapsed": false
+    }
+code
+    
+  metadata
+    {
+     "collapsed": false
+    }
+code
+    
+  metadata
+    {
+     "collapsed": false
+    }
+markdown
+    You can also do crazy things like running shell commands (and using their output in Python):
+code 1
+    d =! ddate
+    print(d.n)
+  stream stdout
+    Today is Setting Orange, the 61st day of Bureaucracy in the YOLD 3179
+  metadata
+    {
+     "collapsed": false
+    }
+code 2
+    %%bash
+    tmp=$(tempfile).txt
+    echo some text > $tmp
+    echo more text >> $tmp
+    sed -i s/text/nonsense/ $tmp
+    cat $tmp
+    rm $tmp
+  stream stdout
+    some nonsense
+    more nonsense
+  metadata
+    {
+     "collapsed": false
+    }
+markdown
+    ... but it doesn't stop there, you can also run Ruby, Octave or R code!
+    
+    This is of course beyond the scope of this little tutorial, if you are interested, have a look at these commands:
+    
+        %%ruby
+        %load_ext octavemagic
+        %%octave
+        %load_ext rmagic
+        %%R
+markdown
+    ## Links
+markdown
+    TODO: more links
 metadata
     {
      "orig_nbformat": 3,

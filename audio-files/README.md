@@ -92,7 +92,9 @@ lucky the audio data can still be read successfully.
 
 [Reading and Writing Audio Files with wave](http://nbviewer.ipython.org/urls/raw.github.com/mgeier/python-audio/master/audio-files/audio-files-with-wave.ipynb)
 
-TODO: more!
+[Reading and Writing Audio Files with audioread](http://nbviewer.ipython.org/urls/raw.github.com/mgeier/python-audio/master/audio-files/audio-files-with-audioread.ipynb)
+
+TODO: `scikits.audiolab`
 
 <!--
 vim:textwidth=80

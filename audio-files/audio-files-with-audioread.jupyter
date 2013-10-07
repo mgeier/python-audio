@@ -1,0 +1,106 @@
+nbformat 4
+nbformat_minor 2
+markdown
+    # Reading and Writing Audio Files with audioread
+markdown
+    [back to overview page](https://github.com/mgeier/python-audio/blob/master/audio-files)
+    
+    The module `audioread` can be found there: https://github.com/sampsyo/audioread
+    
+    This isn't really an option because it has the same disadvantages as the wave module (and more) and it has to be installed manually (but at least it's available as Debian package).
+    
+    Advantages:
+    
+    * WAVEX seems to (kinda) work
+    * kinda works for both Python 2 and 3
+    
+    Disadvantages:
+    
+    * always 16-bit values are returned (even if file has different data, e.g. pcm32)
+    * manual de-interleaving and conversion is necessary
+    * the number of channels is wrong in some cases (it should work for 1 and 2-channel files though)
+    * no error/warning messages if something goes wrong
+markdown
+    ## Reading
+markdown
+    I don't recommend the module `audioread`, but you can have a look how it is supposed to work, anyway.
+    
+    First, let's enable inline plotting and load everything NumPy-related into the local namespace:
+code 1
+    %pylab inline
+  stream stdout
+    
+    Welcome to pylab, a matplotlib-based Python environment [backend: module://IPython.zmq.pylab.backend_inline].
+    For more information, type 'help(pylab)'.
+  metadata
+    {
+     "collapsed": false
+    }
+markdown
+    Following code should read a 16-bit WAV file.
+    
+    To convert it to floating point values and to normalize to a range from -1 to 1, we're using the function `pcm2float()`, located in the file [`utility.py`](https://github.com/mgeier/python-audio/blob/master/audio-files/utility.py).
+code 2
+    import audioread
+    from utility import pcm2float
+    
+    temp = bytearray()
+        
+    with audioread.audio_open('data/test_wav_pcm16.wav') as f:
+        framerate = f.samplerate
+        duration = f.duration
+        nchannels = f.channels
+        print("sampling rate = {framerate} Hz, duration = {duration} seconds, channels = {nchannels}".format(**locals()))
+    
+        # chunk size can be specified with 'block_samples' (default 1024):
+        for chunk in f.read_data():
+            temp.extend(chunk)
+    
+    sig = frombuffer(temp, dtype='<i2').reshape(-1, nchannels)
+    
+    normalized = pcm2float(sig, np.float32)
+  stream stdout
+    sampling rate = 44100 Hz, duration = 0.0 seconds, channels = 1
+  metadata
+    {
+     "collapsed": false
+    }
+markdown
+    This is now it normally would be done, but, the number of channels should be 7 and not 1!
+markdown
+    ## Writing
+markdown
+    I won't even try that.
+markdown
+    ## Version Info
+code 3
+    import sys, IPython
+    print("Versions: NumPy = {}; IPython = {}".format(numpy.__version__, IPython.__version__))
+    
+    print("Python interpreter:")
+    print(sys.version)
+    
+    try:
+        print("audioread version =", audioread.__version__)
+    except:
+        import traceback
+        traceback.print_exc()
+  stream stdout
+    Versions: NumPy = 1.7.1; IPython = 0.13.2
+    Python interpreter:
+    3.3.2+ (default, Sep 18 2013, 11:58:01) 
+    [GCC 4.8.1]
+  stream stderr
+    Traceback (most recent call last):
+      File "<ipython-input-3-663a2890bc12>", line 8, in <module>
+        print("audioread version =", audioread.__version__)
+    AttributeError: 'module' object has no attribute '__version__'
+  metadata
+    {
+     "collapsed": false
+    }
+metadata
+    {
+     "orig_nbformat": 3,
+     "orig_nbformat_minor": 0
+    }

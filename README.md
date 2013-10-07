@@ -1,7 +1,13 @@
 Audio Signal Processing in Python
 =================================
 
-Warning: this is work in progress!
+*Warning*: this is work in progress!
+
+[Introduction to Python](http://nbviewer.ipython.org/urls/raw.github.com/mgeier/python-audio/master/intro-python.ipynb)
+
+[Introduction to IPython](http://nbviewer.ipython.org/urls/raw.github.com/mgeier/python-audio/master/intro-ipython.ipynb)
+
+[Introduction to NumPy](http://nbviewer.ipython.org/urls/raw.github.com/mgeier/python-audio/master/intro-numpy.ipynb)
 
 [Reading and Writing Audio Files](audio-files)
 

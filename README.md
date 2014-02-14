@@ -9,9 +9,11 @@ Audio Signal Processing in Python
 
 [Introduction to NumPy](http://nbviewer.ipython.org/urls/raw.github.com/mgeier/python-audio/master/intro-numpy.ipynb)
 
+[Generating Simple Audio Signals](http://nbviewer.ipython.org/urls/raw.github.com/mgeier/python-audio/master/simple-signals.ipynb)
+
 [Reading and Writing Audio Files](audio-files)
 
-TODO: a lot!
+TODO: more topics ...
 
 Links
 =====

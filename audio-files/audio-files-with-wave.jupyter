@@ -1118,13 +1118,16 @@ markdown
     Let's put this into a function, just in case we find ourselves needing to load 24-bit WAV files some time in the future.
 code 17
     def pcm24to32_bytearray(data, nchannels=1):
-        temp = bytearray()
+        assert len(data) % 3 == 0
     
-        # TODO: reserve memory for more efficiency?
+        size = len(data) // 3
     
-        for i in range(0, len(data), 3):
-            temp.append(0)
-            temp.extend(data[i:i+3])
+        temp = bytearray(size * 4)
+    
+        for i in range(size):
+            newidx = i * 4 + 1
+            oldidx = i * 3
+            temp[newidx:newidx+3] = data[oldidx:oldidx+3]
     
         return np.frombuffer(temp, dtype='<i4').reshape(-1, nchannels)
   metadata
@@ -1132,10 +1135,11 @@ code 17
      "collapsed": false
     }
 markdown
-    All this appending smells a bit inefficient, let's try it another way:
+    This looks a bit clumsy, let's try it another way:
 code 18
     def pcm24to32(data, nchannels=1):
-        temp = np.zeros((len(data) / 3, 4), dtype='b')
+        assert len(data) % 3 == 0
+        temp = np.zeros((len(data) // 3, 4), dtype='b')
         
         temp[:, 1:] = np.frombuffer(data, dtype='b').reshape(-1, 3)
     

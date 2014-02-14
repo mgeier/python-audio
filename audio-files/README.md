@@ -96,6 +96,8 @@ lucky the audio data can still be read successfully.
 
 TODO: `scikits.audiolab`
 
+TODO: PySoundFile https://github.com/bastibe/PySoundFile
+
 <!--
 vim:textwidth=80
 -->

@@ -22,6 +22,10 @@ markdown
     or
     
         ipython3 notebook
+    
+    http://ipython.org/notebook.html
+    
+    http://nbviewer.ipython.org/
 code
     
   metadata
@@ -29,7 +33,8 @@ code
      "collapsed": false
     }
 code
-    
+    # magic functions
+    %quickref
   metadata
     {
      "collapsed": false
@@ -58,8 +63,14 @@ code
     {
      "collapsed": false
     }
+code 3
+    help?
+  metadata
+    {
+     "collapsed": false
+    }
 code
-    
+    help??
   metadata
     {
      "collapsed": false
@@ -70,14 +81,47 @@ code
     {
      "collapsed": false
     }
-code
+code 5
+    %pylab inline
+  stream stdout
     
+    Welcome to pylab, a matplotlib-based Python environment [backend: module://IPython.zmq.pylab.backend_inline].
+    For more information, type 'help(pylab)'.
+  metadata
+    {
+     "collapsed": false
+    }
+code
+    # TODO: TikZ backend?
   metadata
     {
      "collapsed": false
     }
 code
     
+  metadata
+    {
+     "collapsed": false
+    }
+code 2
+    %timeit
+    
+    # or
+    
+    %run -t
+  metadata
+    {
+     "collapsed": true
+    }
+code
+    %cpaste
+  metadata
+    {
+     "collapsed": false
+    }
+code
+    %debug # and locals()
+    %run -d
   metadata
     {
      "collapsed": false
@@ -90,6 +134,19 @@ code
     }
 markdown
     You can also do crazy things like running shell commands (and using their output in Python):
+code 11
+    a =! ls *.ipynb
+    a
+  execute_result
+  - text/plain
+    ['intro-ipython.ipynb',
+     'intro-numpy.ipynb',
+     'intro-python.ipynb',
+     'simple-signals.ipynb']
+  metadata
+    {
+     "collapsed": false
+    }
 code 1
     d =! ddate
     print(d.n)

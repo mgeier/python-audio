@@ -1,7 +1,7 @@
 Reading and Writing Audio Files in Python
 =========================================
 
-[back to main page](..)
+[back to main page](../README.md)
 
 There are several libraries for reading and writing audio files with Python but
 it's often not clear which is the best one. That's mostly because there is no

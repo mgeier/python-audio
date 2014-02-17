@@ -3,7 +3,7 @@ nbformat_minor 2
 markdown
     # A Short Introduction to Python
 markdown
-    [back to main page](https://github.com/mgeier/python-audio/blob/master)
+    [back to main page](https://github.com/mgeier/python-audio)
     
     Python is a general-purpose programming language.
     It is an *interpreted* language, i.e. source code is not compiled into an executable file but it is directly executed (without intermediate steps).

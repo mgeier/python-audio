@@ -1,0 +1,119 @@
+nbformat 4
+nbformat_minor 2
+markdown
+    # Syntax Checkers
+markdown
+    There are several tools out there, this is just a random selection:
+markdown
+    ## pylint
+markdown
+    Website: http://www.pylint.org/
+    
+    Docs: http://docs.pylint.org/
+    
+    Tutorial: http://docs.pylint.org/tutorial.html
+    
+    All message codes: http://pylint-messages.wikidot.com/all-codes
+    
+    Google coding style: http://google-styleguide.googlecode.com/svn/trunk/pyguide.html?showone=Lint#Lint
+markdown
+    To show how it works, let's check the file [bad_syntax.py](files/bad_syntax.py):
+code 5
+    !pylint --reports=no bad_syntax.py
+  stream stdout
+    No config file found, using default configuration
+    ************* Module bad_syntax
+    W:  8, 0: Bad indentation. Found 3 spaces, expected 4 (bad-indentation)
+    C:  8, 0: Unnecessary parens after 'print' keyword (superfluous-parens)
+    C:  7, 0: Invalid argument name "x" (invalid-name)
+    C:  7, 0: Missing function docstring (missing-docstring)
+    W:  7,10: Unused argument 'x' (unused-argument)
+  metadata
+    {
+     "collapsed": false
+    }
+markdown
+    TODO: on Debian, enable Python3 support
+markdown
+    If a file named `pylintrc` is available in the current directory, it is used a configuration file.
+    To create a default configuration file, use:
+    
+    ```bash
+    pylint --generate-rcfile > pylintrc
+    ```
+markdown
+    TODO: disabling selected messages
+markdown
+    ## pep8
+markdown
+    http://pypi.python.org/pypi/pep8
+    
+    Checks for style conventions specified in [PEP 8](http://www.python.org/dev/peps/pep-0008/).
+    
+    `pep8` shows a few things that `pylint` doesn't (and the other way round).
+    
+    Again, let's look at the file [bad_syntax.py](files/bad_syntax.py):
+code 2
+    !pep8 --repeat --show-source --show-pep8 bad_syntax.py
+  stream stdout
+    bad_syntax.py:7:1: E302 expected 2 blank lines, found 1
+    def dummy(x):
+    ^
+        Separate top-level function and class definitions with two blank lines.
+    
+        Method definitions inside a class are separated by a single blank line.
+    
+        Extra blank lines may be used (sparingly) to separate groups of related
+        functions.  Blank lines may be omitted between a bunch of related
+        one-liners (e.g. a set of dummy implementations).
+    
+        Use blank lines in functions, sparingly, to indicate logical sections.
+    
+        Okay: def a():\n    pass\n\n\ndef b():\n    pass
+        Okay: def a():\n    pass\n\n\n# Foo\n# Bar\n\ndef b():\n    pass
+    
+        E301: class Foo:\n    b = 0\n    def bar():\n        pass
+        E302: def a():\n    pass\n\ndef b(n):\n    pass
+        E303: def a():\n    pass\n\n\n\ndef b(n):\n    pass
+        E303: def a():\n\n\n\n    pass
+        E304: @decorator\n\ndef a():\n    pass
+    bad_syntax.py:8:4: E111 indentation is not a multiple of four
+       print('silly output')
+       ^
+        Use 4 spaces per indentation level.
+    
+        For really old code that you don't want to mess up, you can continue to
+        use 8-space tabs.
+    
+        Okay: a = 1
+        Okay: if a == 0:\n    a = 1
+        E111:   a = 1
+    
+        Okay: for item in items:\n    pass
+        E112: for item in items:\npass
+    
+        Okay: a = 1\nb = 2
+        E113: a = 1\n    b = 2
+  metadata
+    {
+     "collapsed": false
+    }
+markdown
+    TODO: disabling selected messages
+markdown
+    # Text Editor Support
+markdown
+    Many text editors have plugins to automatically do syntax checks in the background.
+    
+    Here a few links for Vim-users:
+    
+    https://github.com/klen/python-mode
+    
+    https://github.com/scrooloose/syntastic
+    
+    http://www.vim.org/scripts/script.php?script_id=891
+metadata
+    {
+     "orig_nbformat": 3,
+     "orig_nbformat_minor": 0
+    }

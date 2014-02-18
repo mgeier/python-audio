@@ -13,6 +13,8 @@ Audio Signal Processing in Python
 
 [Reading and Writing Audio Files](audio-files)
 
+[Testing Python Code](testing)
+
 TODO: more topics ...
 
 Links

@@ -14,11 +14,14 @@ markdown
     * supports many file formats (thanks to libsndfile)
     * supports 24-bit PCM and 32-bit floating point WAV files
     * WAVEX support
+    * can read parts of audio files
+    * automatic type conversion and normalization
     
     Disadvantages:
     
     * has to be downloaded and installed manually (but it's easy)
     * not widely known (yet!)
+    * needs NumPy (which isn't really a problem at all)
 markdown
     ## Reading
 markdown

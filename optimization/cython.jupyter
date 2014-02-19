@@ -1,0 +1,63 @@
+nbformat 4
+nbformat_minor 2
+code 1
+    %load_ext cythonmagic
+  metadata
+    {
+     "collapsed": false
+    }
+code 2
+    a = 10
+    b = 20
+  metadata
+    {
+     "collapsed": false
+    }
+code 3
+    %%cython_inline
+    return a + b
+  execute_result
+  - text/plain
+    30
+  metadata
+    {
+     "collapsed": false
+    }
+code 4
+    %%cython
+    def testfunc():
+        return 42
+  metadata
+    {
+     "collapsed": false
+    }
+code 5
+    testfunc()
+  execute_result
+  - text/plain
+    42
+  metadata
+    {
+     "collapsed": false
+    }
+code 6
+    %%cython -lm
+    from libc.math cimport sin
+    print 'sin(1)=', sin(1)
+  stream stdout
+    sin(1)= 0.8414709848078965
+  metadata
+    {
+     "collapsed": false
+    }
+code 7
+    # TODO: something useful!
+  metadata
+    {
+     "collapsed": false
+    }
+metadata
+    {
+     "orig_nbformat": 3,
+     "orig_nbformat_minor": 0
+    }

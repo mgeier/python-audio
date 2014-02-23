@@ -26,7 +26,7 @@ links, use your favorite search engine to find more.
 Audio Signal Processing
 -----------------------
 
-http://bastibe.de/posts/Real-Time-Signal-Processing-in-Python.html
+http://bastibe.de/2012-11-02-real-time-signal-processing-in-python.html
 
 http://www.swharden.com/blog/2013-05-09-realtime-fft-audio-visualization-with-python/
 
@@ -34,7 +34,7 @@ http://www.swharden.com/blog/2013-05-08-realtime-data-plotting-in-python/
 
 http://www.swharden.com/blog/2010-03-05-realtime-fft-graph-of-audio-wav-file-or-microphone-input-with-python-scipy-and-wckgraph/
 
-http://xoomer.virgilio.it/sam_psy/psych/sound_proc/sound_proc_python.html
+http://samcarcagno.altervista.org/blog/basic-sound-processing-python/
 
 http://blog.chrisarndt.de/article/499 (de)
 
@@ -55,7 +55,7 @@ Comparison with Other Software
 
 http://wiki.scipy.org/NumPy_for_Matlab_Users
 
-http://bastibe.de/posts/A-Python-Primer-for-Matlab-Users.html
+http://bastibe.de/2013-01-20-a-python-primer-for-matlab-users.html
 
 <!--
 vim:textwidth=80

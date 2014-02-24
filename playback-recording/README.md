@@ -8,7 +8,6 @@ This is work-in-progress!
 There are several libraries for audio playback and/or recording available for
 Python.
 They greatly differ in features, API, requirements, quality, ...
-Many of them are not (or in a very limited way) platform-independent.
 
 ### PySoundCard
 
@@ -41,6 +40,18 @@ Debian package: python-pyglet
 Many codecs supported with [AVbin](http://code.google.com/p/avbin/).
 
 Debian package: libavbin0 and/or libavbin-dev?
+
+### pySFML
+
+http://python-sfml.org/examples.html
+
+Debian packages python-sfml and python3-sfml.
+
+Uses [OpenAL Soft][] for playback/recording and
+[libsndfile][] for audio file handling.
+
+[OpenAL Soft]: http://kcat.strangesoft.net/openal.html
+[libsndfile]: http://www.mega-nerd.com/libsndfile/
 
 ### Snack
 

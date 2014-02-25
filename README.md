@@ -50,6 +50,11 @@ http://scipy-lectures.github.io/
 
 http://pig-in-the-python.blogspot.de/
 
+NumPy
+-----
+
+http://www.loria.fr/~rougier/teaching/numpy/numpy.html
+
 Comparison with Other Software
 ------------------------------
 

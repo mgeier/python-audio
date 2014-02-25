@@ -86,6 +86,15 @@ http://sndobj.sourceforge.net/
 
 http://sourceforge.net/projects/py-jack/
 
+### medussa
+
+http://www.medussa.us  
+https://code.google.com/p/medussa/
+
+### py-portaudio
+
+https://github.com/ranweiler/py-portaudio
+
 <!--
 vim:textwidth=80
 -->

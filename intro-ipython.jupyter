@@ -181,6 +181,8 @@ markdown
         %%octave
         %load_ext rmagic
         %%R
+        
+    See also [Running Scripts from IPython](http://nbviewer.ipython.org/github/ipython/ipython/blob/master/examples/notebooks/Script%20Magics.ipynb)
 markdown
     ## Links
 markdown

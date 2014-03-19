@@ -1,0 +1,102 @@
+nbformat 4
+nbformat_minor 2
+markdown
+    Just some random stuff from the interwebs ...
+code 1
+    import sympy
+    from sympy.galgebra.ga import *
+    sympy.init_printing()
+    Format(ipy=True)
+    def MVlatex(mv, *args) :
+        mv.base_to_blade()
+        return '$$'+str(mv).replace(r'\W', r'\wedge').replace(r'\bm', r'\boldsymbol').replace(r'\lp',r'\left(').replace(r'\rp',r'\right)')+'$$'
+    MV._repr_latex_ = MVlatex
+  metadata
+    {
+     "collapsed": false
+    }
+code 2
+    metric = '1 0 0, 0 1 0, 0 0 1'
+    gamma_x, gamma_y, gamma_z = MV.setup('gamma_x gamma_y gamma_z', metric)
+    gamma_x ^ gamma_y
+  execute_result
+  - text/plain
+    <sympy.galgebra.ga.MV at 0x7f4511d0cbd0>
+  - text/latex
+    $$\boldsymbol{\gamma_{x}\wedge \gamma_{y}}$$
+  metadata
+    {
+     "collapsed": false
+    }
+code 3
+    3 * gamma_x * gamma_y / 2 + (gamma_z ^ gamma_x)
+  execute_result
+  - text/plain
+    <sympy.galgebra.ga.MV at 0x7f45296637d0>
+  - text/latex
+    $$\frac{3}{2}\boldsymbol{\gamma_{x}\wedge \gamma_{y}}-\boldsymbol{\gamma_{x}\wedge \gamma_{z}}$$
+  metadata
+    {
+     "collapsed": false
+    }
+code 4
+    a, b, c, d, e = MV.setup('a b c d e')
+  metadata
+    {
+     "collapsed": false
+    }
+code 5
+    e|(a^b)
+  execute_result
+  - text/plain
+    <sympy.galgebra.ga.MV at 0x7f44ffba35d0>
+  - text/latex
+    $$- \left( b\cdot e\right) \boldsymbol{a}+\left( a\cdot e\right) \boldsymbol{b}$$
+  metadata
+    {
+     "collapsed": false
+    }
+code 6
+    a|b^c
+  execute_result
+  - text/plain
+    <sympy.galgebra.ga.MV at 0x7f44ffb96d90>
+  - text/latex
+    $$- \left( a\cdot c\right) \boldsymbol{b}+\left( a\cdot b\right) \boldsymbol{c}$$
+  metadata
+    {
+     "collapsed": false
+    }
+code 7
+    a|b^c^d
+  execute_result
+  - text/plain
+    <sympy.galgebra.ga.MV at 0x7f44ffb76450>
+  - text/latex
+    $$\left( a\cdot d\right) \boldsymbol{b\wedge c}- \left( a\cdot c\right) \boldsymbol{b\wedge d}+\left( a\cdot b\right) \boldsymbol{c\wedge d}$$
+  metadata
+    {
+     "collapsed": false
+    }
+code 8
+    a|b^c^d^e
+  execute_result
+  - text/plain
+    <sympy.galgebra.ga.MV at 0x7f44ffb3a890>
+  - text/latex
+    $$- \left( a\cdot e\right) \boldsymbol{b\wedge c\wedge d}+\left( a\cdot d\right) \boldsymbol{b\wedge c\wedge e}- \left( a\cdot c\right) \boldsymbol{b\wedge d\wedge e}+\left( a\cdot b\right) \boldsymbol{c\wedge d\wedge e}$$
+  metadata
+    {
+     "collapsed": false
+    }
+code 8
+    
+  metadata
+    {
+     "collapsed": false
+    }
+metadata
+    {
+     "orig_nbformat": 3,
+     "orig_nbformat_minor": 0
+    }

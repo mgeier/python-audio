@@ -1,0 +1,877 @@
+nbformat 4
+nbformat_minor 2
+code 1
+    from sympy import *
+    init_printing()
+  metadata
+    {
+     "collapsed": false
+    }
+code 2
+    a, b, c, w, x, y, z = symbols("a, b, c, w, x, y, z")
+  metadata
+    {
+     "collapsed": false
+    }
+markdown
+    a few amateurish experiments based on the paper "Teaching Quaternions is not Complex" by J. McDonald (http://dx.doi.org/10.1111/j.1467-8659.2010.01756.x)
+code 3
+    A = Matrix([[a, 0], [0, a]])
+    A
+  execute_result
+  - text/plain
+    ⎡a  0⎤
+    ⎢    ⎥
+    ⎣0  a⎦
+  - image/png
+    iVBORw0KGgoAAAANSUhEUgAAADcAAAAyBAMAAAAKOF7GAAAAMFBMVEX///8AAAAAAAAAAAAAAAAA
+    AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAv3aB7AAAAD3RSTlMA74lUMhAiq3bdRLtm
+    mc0lg57xAAAACXBIWXMAAA7EAAAOxAGVKw4bAAABWklEQVQ4Ee3UP0vDQBgG8KdJrzRt0gZ0FMzg
+    0EnyDRKwzv7ZHCTZHC3i4BhBUAQnUQcnP4HZ3AQ/gaU4S8EvIJaii8STe5O8YK44OpihTfO79/Le
+    9eGwmL2h6jKyzMVcf7XKIPorLuYr6fthvRq3e096fMFWrKu0XRhjHbYHMKc67A7QmhTY2Du6kB3k
+    VzRE66PAm7j9mov83vVQlzujliIW4KQ6dKawEoaRx6atpYhCht0hzKIhOTLAeqlWCrtYSuTj3oxL
+    bLpwxnlDncS+MkoDzrER5igOlnZOOW6e7Mufmn9FDfzHX+6QGJ2Fasv4J21fxxeX/LG6J3wAlrV4
+    BwQsCTSOKt+BW/9HqULxKTFhqEKusCETvOYxVCGvRgo5TSsr+bQUcoWQ7wxYQzUVcsJr4JEthUJO
+    eAg8s34o5ISWL/ihQiEnFL3jkFVSyAkZsNu/iDOP1FmH8Re4fFOPyHWzWwAAAABJRU5ErkJggg==
+    
+  - text/latex
+    $$\left[\begin{matrix}a & 0\\0 & a\end{matrix}\right]$$
+  metadata
+    {
+     "collapsed": false
+    }
+code 4
+    B = Matrix([[b, 0], [0, b]])
+    B
+  execute_result
+  - text/plain
+    ⎡b  0⎤
+    ⎢    ⎥
+    ⎣0  b⎦
+  - image/png
+    iVBORw0KGgoAAAANSUhEUgAAADUAAAAyBAMAAAAOzY77AAAAMFBMVEX///8AAAAAAAAAAAAAAAAA
+    AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAv3aB7AAAAD3RSTlMA74lUMhC73c2rRHaZ
+    ImaqCQggAAAACXBIWXMAAA7EAAAOxAGVKw4bAAABfElEQVQ4Ee2UvUoDQRDH/yTZ5Iwxe6Bgp9cp
+    pLk3SMBYe7HQJhAtBQtBsBMCYhGwSGEnBN8gWoakOKJFwMK8gfEJBEXw+9zzbndnJaS2cKvZ+e18
+    7uxiMXjEmJUIAhuz5dUxCKy8YmNuHAl1qYhtzBsHWL9XUgwNg1kuO9TsyWD3wLJi2WeD7QBFT8ZL
+    7BnsFWi7kllnPVdT9iHYhWS1Y3xqNiOaseZIJryT5phsAEZYKGufJ8jSKkS8osrlCzlaxQHwoGp4
+    Q2Wkc8ElMFC1t7BLEDIuEzcQ97raoWZghU5JMWqk5NhO7anwz1AtXNOOsO1wtuK+HGFzSKHVVCxv
+    I1GnjIdTF9mlm0jSe0fbU4w3zXnBUugksqv5yL6HW7ka3SvJ7hykyAyCvXh8GNv9ZiI4F8d/3mbN
+    MX3m6hCqiHEfSTq7lq/fUWYLeVoDH+FWzu60DeFGL37OFmSe2EelpBGmRmlfsfXuKUFgNy2xjXKh
+    ei3/MTbpj5zwt34DDu9ePwjVbq0AAAAASUVORK5CYII=
+    
+  - text/latex
+    $$\left[\begin{matrix}b & 0\\0 & b\end{matrix}\right]$$
+  metadata
+    {
+     "collapsed": false
+    }
+code 5
+    A + B
+  execute_result
+  - text/plain
+    ⎡a + b    0  ⎤
+    ⎢            ⎥
+    ⎣  0    a + b⎦
+  - image/png
+    iVBORw0KGgoAAAANSUhEUgAAAHsAAAAyBAMAAACOvrnoAAAAMFBMVEX///8AAAAAAAAAAAAAAAAA
+    AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAv3aB7AAAAD3RSTlMA74lUMhAiq3bdRLtm
+    mc0lg57xAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAB/0lEQVRIDe2Xv0/CQBTHHy1VoUCb6GiUwUE3
+    /gNJxB3dHAxsjhLj4ODA4ECcTIxx1b8A/AcMf0ITHdwkcTAuxGhInMTSO+7dvfYugpPGm7737n3a
+    3vHjA7A8fIPphjUc+jBf2ZyOBqey4cPClPAIS2tw5+Ys+aq7q/fSgg6HQkPqkuIT7NRxGsMdvuiV
+    sElKOR+sHs5juN1ki+0qNknJbYA9wLkWX8MeOXkNyL5jgeMzBycXrDi++3PrDrsw1QLIfuCU49d1
+    91XBnc+qV8c2kfaLkJbeZQx3FiHfUfBwg15RQBgS8fwAMk3Wwx8+34NaESmRwmL84VMdqJXDFqvf
+    f1nq9wOAQgDtkoAweAHYsaMLr7kO1aiJ393rwiMrIDpKmQ7kYi9crQS3dn20DGP8KjyPhDHnQ7gv
+    MdjRFZq5S4vVOD7bdcMtJIxz2CpjmZ/80creKSty3Hk4xiY5bbcOpSnDpQLHpYopxvBs19RO12I4
+    bTDP/3Hz+RhW/9TRqRYw7Jp5hO5dtYABZx4hOLFAEq54hOCuaoEkfPyRjDxCcGIBEx55hODEAohr
+    PEJw8jWOuMYj38R1HiE4sYC4u84jBCcWEHhK4xGCEwsIXOcRghMLIK7xCMFBtYDAdR6huGoBgTsa
+    j1BcANowftNGDZPjikcmx5XH+u34D3+Q/+zvwBc5N5ANT6aWEAAAAABJRU5ErkJggg==
+    
+  - text/latex
+    $$\left[\begin{matrix}a + b & 0\\0 & a + b\end{matrix}\right]$$
+  metadata
+    {
+     "collapsed": false
+    }
+code 6
+    A - B
+  execute_result
+  - text/plain
+    ⎡a - b    0  ⎤
+    ⎢            ⎥
+    ⎣  0    a - b⎦
+  - image/png
+    iVBORw0KGgoAAAANSUhEUgAAAHsAAAAyBAMAAACOvrnoAAAAMFBMVEX///8AAAAAAAAAAAAAAAAA
+    AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAv3aB7AAAAD3RSTlMA74lUMhAiq3bdRLtm
+    mc0lg57xAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAB40lEQVRIDe2Xu0oDQRSGTy6j5roLWgqmsNAu
+    b2DA2Ec7C9ntLA1iYWGRwiJYCSJiI/oEiS8geYSFWNgZsBA7UQJWxtnbnJkzO5JLm6n+88/5ZrNn
+    N/wJrI2+YLqVHo1sWK7vTEcDq2/bsDIl7GNZA84eL5NPPdh4ljZMOJSbUpck32DfxdKIW1VsklTR
+    hvQAayPeaWCTpApNyAyxNuKb2CMrqwn5bzQifOH4/BpNX723+6oRVo4H+R/ciPAHt/CJJlfst2G5
+    ihMWRxXISm9ZiLNVKHWVZn6DVkVx/sFLQ8i1+D77uOXrrgZQGoBT4Q5d3NQ/fKoLTk3pLHvQSXp0
+    lgcZbXT8zC1QnpTVg1fFiA7PdaGoPTinCk8ZV768dc/nkbCWbP++xApHV24Vb9LC88Vir+ApRlxc
+    wW4t1vFXhp2uH16gyRV7OVNqUey1T4SOccmYTEavzWQQds9xnMWEaj46HJiaAuhrKswROjo1BTRI
+    MoIcIThJAalbk0GOEJykgMZIRpAjBCcpIHVrMsgRgpMUQMaQIwQnKYC4IUfGxE05QnCSAuLqphwh
+    OEkBgacMOUJwkgICN+UIwUkKIG7IEYKDmgICN+UIxdUUELgpRygugPHEHB9vTgldfHQz/iCf7e/A
+    HwEgf6tt0L+PAAAAAElFTkSuQmCC
+    
+  - text/latex
+    $$\left[\begin{matrix}a - b & 0\\0 & a - b\end{matrix}\right]$$
+  metadata
+    {
+     "collapsed": false
+    }
+code 7
+    A * B
+  execute_result
+  - text/plain
+    ⎡a⋅b   0 ⎤
+    ⎢        ⎥
+    ⎣ 0   a⋅b⎦
+  - image/png
+    iVBORw0KGgoAAAANSUhEUgAAAEkAAAAyBAMAAADiuOvtAAAAMFBMVEX///8AAAAAAAAAAAAAAAAA
+    AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAv3aB7AAAAD3RSTlMA74lUMhAiq3bdRLtm
+    mc0lg57xAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAB7UlEQVQ4Ee2Vu0sDQRDGPxNXzesuoAii4BUW
+    sZFUtgn4ACtPGxGRS2dpEIsUKaIIEUEQxAfY6F9grKzUWFoZ1EIQNCCijSBqVESNu5dks7tKsBPB
+    aW535rffzM0xe2jN36OiOfJ5P+q7eypCIN1dfjRUZli0WqBGmlR+NHBiu0QK1yp1ieEI80nUg0J5
+    /XBkVcqdUyhPFE7bJ2o5FhRKj8Jt6xepmomZJWix+aDEWRm4X4SMGxHPHawrPEnUuIFqu+MFLdIC
+    XwohE/JXUChfDq4EzkFkyjKkjFUpWGHcFmvlWfUMnEL19FAI5huopmiuFLxCJ6wgdp2RVwykRQh1
+    fviyzFOoXkt4VxyIY0eCgEUMhMsUibWNzWE0mVaowdlJ21PsqhJVt/9UqSO/2AlyNB8ulSE8yRYb
+    GV6XFiTLQpQvtahI7QMdPCQsdDZWXGsbbDq+2iZzcuoZ2GTHVGtnjhJF3imVkJGxQJ+J69njMlVD
+    Z6zfkCh3I/ZAPkw9wrW+oeionLHbRDc4xeZVyXhhYpXNEB3DUl2gdYXk6ptBHqFl2Etxag04lDpB
+    1Z13RE+DanJqCvSeEI08wJPt1NfpTVOmXEGiXNY3OIgatWlPRqBIIBkWpYCh6d7YOjmNUy/PKBPK
+    7s9TP/vz/egv+glxw3rePy5KMgAAAABJRU5ErkJggg==
+    
+  - text/latex
+    $$\left[\begin{matrix}a b & 0\\0 & a b\end{matrix}\right]$$
+  metadata
+    {
+     "collapsed": false
+    }
+code 8
+    # TODO: division?
+  metadata
+    {
+     "collapsed": false
+    }
+code 9
+    A**2
+  execute_result
+  - text/plain
+    ⎡ 2    ⎤
+    ⎢a   0 ⎥
+    ⎢      ⎥
+    ⎢     2⎥
+    ⎣0   a ⎦
+  - image/png
+    iVBORw0KGgoAAAANSUhEUgAAAEkAAAAzBAMAAAAp5DhIAAAAMFBMVEX///8AAAAAAAAAAAAAAAAA
+    AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAv3aB7AAAAD3RSTlMA74lUMhAiq3bdRLtm
+    mc0lg57xAAAACXBIWXMAAA7EAAAOxAGVKw4bAAACAUlEQVQ4Ee2VP0gbURzHv7nkpeaSmIDSwRZy
+    QylZlIDQpUMO/ANdanSRDpLbHA3SwUmiCIrgVJoWuqSle7OIk7YdHcRQ2knQQBbH4H+Ecr675zvf
+    7+7azIJvuPd+39/n/d73XnLvAbJpB3/kMNjn7BMhPsdiMMsVzbaz6BsdE8kaJqwwjI2OZNEvMwOY
+    q8sx7WMKBRRLNDuT/+0KlPpIIbTxxnIkQmlNSqWy0FoBao9CSFYQPfdTuqGbhMtUoJ8qVHx+5T1e
+    D7+k7stN6FcK9dlKdpCzbVIKcwZi7o4L9+wp0g1KOJGPSp8jUQ1SZYOsGGmgbAapTBNRxT2fVAR1
+    7sxJNJBSdqJcwE7UchKk9WSRbjmKcN9bTX3QCCCCd5g0ndHtOy48m10XCfKcWnvrxoIiqZDggeKb
+    MrjNf7luO6FZj1rdqYQVu+hORerxa4VivzZMhDXnK/J89RZYLQxy/8Qe9RMYCqUGuepRW8FTwp2U
+    aqrUJfCtEFLsC77e1WJ/OVWl1Gz+VSnWHt68o+L865wwCKU/xndEbLvzX2ryBw5up0n3jNfyrXhU
+    gjzPJAXuq0jdPwE789XCJ2C/pPri1aMdJhSv1hJwqEJgp0i2XvioRIF5h7VIHWO3Yvgoll81hSSf
+    08vjC3UReCvKXGh/7ynv5gt9PS66N593i/6Lcm7RG102b1BHbK3lAAAAAElFTkSuQmCC
+    
+  - text/latex
+    $$\left[\begin{matrix}a^{2} & 0\\0 & a^{2}\end{matrix}\right]$$
+  metadata
+    {
+     "collapsed": false
+    }
+code 10
+    A.inv()
+  execute_result
+  - text/plain
+    ⎡1   ⎤
+    ⎢─  0⎥
+    ⎢a   ⎥
+    ⎢    ⎥
+    ⎢   1⎥
+    ⎢0  ─⎥
+    ⎣   a⎦
+  - image/png
+    iVBORw0KGgoAAAANSUhEUgAAAD0AAAA0BAMAAADLQy0SAAAAMFBMVEX///8AAAAAAAAAAAAAAAAA
+    AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAv3aB7AAAAD3RSTlMA74lUMhC7mavdInZm
+    RM3oilN1AAAACXBIWXMAAA7EAAAOxAGVKw4bAAABvklEQVQ4Ea2VvUvDQBjGn7a5ln7ZQLvbvSBx
+    FIcGrIpTqyClUzs6OBQRVBTp4CJdBMXBxW6OVhxacKmDs6uDYMF/QBSxKBLvklyaa3MRxHdI7r3f
+    +zz3keQCmLFg3WTXxUMZwaTxStmMFw8ahop0YV7GSWFORcZUeuoBRcbJRkenQimf0MiZH78Fpvz4
+    GpAvufynabE7BsCTNuQX5003BfmgvD3kAqRJjO5ZMft3Tqje5Z8yaLy4B6Hj513zcyOzfQrcl+Tj
+    4wrYp4XO/o4aRDXCHpyUk1xX9+O2H9eTXbPc7h3eOK/oRTrb8eB8C0vjkPZwnkbXj5NPrK96FXB9
+    RvnuiVypsZzzh+tOj+VOKNtHrM250+80Qv/Ky7lNx9lqiP7PqLTEAoEnVAT7PjzcQOjdh6caSL6N
+    cJXl9vqrdSS/BB7bGbSH/DILhZ0iY2Hrf+PV7Ki/7WTrU3WExPmxD8Zw5hetITGyPsvA1sdVRPpW
+    j3i1OY6xrIvEyjhfuTnwwnx/PBnr5PrxgrLpKOXkRGELkvJIXWEvoJQHtHjDj1db4buSqbfOd1or
+    REAvPsI8363/gwBpkmzO7oH9H34AcRVlBZqxFf8AAAAASUVORK5CYII=
+    
+  - text/latex
+    $$\left[\begin{matrix}\frac{1}{a} & 0\\0 & \frac{1}{a}\end{matrix}\right]$$
+  metadata
+    {
+     "collapsed": false
+    }
+code 11
+    A.det()
+  execute_result
+  - text/plain
+     2
+    a 
+  - image/png
+    iVBORw0KGgoAAAANSUhEUgAAABMAAAAUBAMAAACdextHAAAAMFBMVEX///8AAAAAAAAAAAAAAAAA
+    AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAv3aB7AAAAD3RSTlMAIquJdjLdEETvu2aZ
+    VM0GsGrEAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAAfklEQVQIHWNgAAPmU8chDAYGQwY9GDORIV4A
+    yp7BIN8AE2a4XwBnpsBZzAfgzD1wFocBRwCUE3f3Fkzb/P//gYKMyq7pULlOAa4PECb7bAaeBRAm
+    z3cGNgcIk3MBQz3UnHoDhvsMEIPqLzCs4xUAq+Bz4E5ihqhlVzEV8gAzAdL4GOF11CbxAAAAAElF
+    TkSuQmCC
+    
+  - text/latex
+    $$a^{2}$$
+  metadata
+    {
+     "collapsed": false
+    }
+code 12
+    re = Matrix([[1, 0], [0, 1]])
+    im = Matrix([[0, -1], [1, 0]])
+  metadata
+    {
+     "collapsed": false
+    }
+code 13
+    im**2
+  execute_result
+  - text/plain
+    ⎡-1  0 ⎤
+    ⎢      ⎥
+    ⎣0   -1⎦
+  - image/png
+    iVBORw0KGgoAAAANSUhEUgAAAFYAAAAyBAMAAAA0HTGIAAAAMFBMVEX///8AAAAAAAAAAAAAAAAA
+    AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAv3aB7AAAAD3RSTlMA74lUMhDN3SK7mat2
+    ZkSZHuDOAAAACXBIWXMAAA7EAAAOxAGVKw4bAAABU0lEQVRIDWOQ//+JgRig//8jg7CLKzFKGUJc
+    DBlEiFIJUuSIqpYtAF0n66JTDlAxVLUc8zHUshmwVmBTyzprP4baiwwMatjUMjCcx1A7m4HBHiqI
+    6gYsan8zMLw3gBhMSC3rL6DaA8Sp5QBGlL8CmWpZ08uBoMwBi99YgeYS6wYGoHvtifQbQyUDw31i
+    w+wgA8MyiNfQ0wNmXLAbsMJSF2r4rpavvgA1BEax6pwG+hkMUNVCBXFQo2qHephF6SzBEbdA4VSQ
+    FCKOkxnCG0Ai2EDnV5AoXC2vAANTAjZ1QLHI1ahqOTcwMINFsKnnQVXLv4GB7zM2dSAxNLXxCxj4
+    /hCptl+BgQVnAY9mLilq4xUw3RAGKmLKUzDcy7+AgZlYv7FPYOAlNsx4BBi4EogMB4ZihkAHYtUG
+    ndmCSynXxu97gXLw9IBLHZL48FZLSpuAhLYGALzNaaghGxdBAAAAAElFTkSuQmCC
+    
+  - text/latex
+    $$\left[\begin{matrix}-1 & 0\\0 & -1\end{matrix}\right]$$
+  metadata
+    {
+     "collapsed": false
+    }
+code 13
+    
+  metadata
+    {
+     "collapsed": false
+    }
+code 14
+    a * re + b * im
+  execute_result
+  - text/plain
+    ⎡a  -b⎤
+    ⎢     ⎥
+    ⎣b  a ⎦
+  - image/png
+    iVBORw0KGgoAAAANSUhEUgAAAEUAAAAyBAMAAAD4hAtjAAAAMFBMVEX///8AAAAAAAAAAAAAAAAA
+    AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAv3aB7AAAAD3RSTlMA74lUMhAiq3bdRLtm
+    mc0lg57xAAAACXBIWXMAAA7EAAAOxAGVKw4bAAABhElEQVQ4EWOQ//+JAQ9g+v9fgEHYxRWPEgZW
+    F2cBBhF8KkByLHjVsG6cQFANA18BYTX8BoTVrA8grEYTqATmZrailqkgLjp43nEZrmZhAvcHdHkg
+    n/VfAH8C1BxWGQbeDVjUMH9l4FeAquH9ysDZgKSG9eVMIJjnwPuAIR6mhnEDQ7wDkhoYk+8Cw3oD
+    qDlAxfYMIG+iAf4DDPcDYGoMGPYxJ6ApAHL5FwBdClXD18AznQlTCQP7Ae4LMDWsFSrpXVjUsN6o
+    AYrij3eItlE1WIIPSYjK4RMtiWQ2OhNm13N0CSQ+TM1nJDF0JlQN11d0CSQ+VA3TBCQxdCZUDV9F
+    rwG6VLqGJySJQ9XEP2X4hqaGS4xhP0QIqsY+gAG9wAs8wHAbRc09BlZ0NcBMMwNFzVsGLnTfSzOw
+    fkFR84cBmJ1RANBc5g+sYCGoe34xAK1HAayfGbgfmCGrqWHYi6ICyHnBcLJAAVlNbPsBMBeJCG9y
+    q1gA5kPtQpLDZA5RNcTUTUTUcQAfelby2FwxlwAAAABJRU5ErkJggg==
+    
+  - text/latex
+    $$\left[\begin{matrix}a & - b\\b & a\end{matrix}\right]$$
+  metadata
+    {
+     "collapsed": false
+    }
+code 15
+    theta = symbols("theta")
+    theta
+  execute_result
+  - text/plain
+    θ
+  - image/png
+    iVBORw0KGgoAAAANSUhEUgAAAAoAAAAPBAMAAAAv0UM9AAAAMFBMVEX///8AAAAAAAAAAAAAAAAA
+    AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAv3aB7AAAAD3RSTlMAEGZEu1SZMu/ddqvN
+    iSKgCzzVAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAAYElEQVQIHWNgYGBUYgACE9EEBgb2RoaPDAyc
+    CgxfGRg0GBg+MTBMY2D/ysD8mYHrMwP37907PjBwHmDgB6ILDPUBDPIBDBkMDPIGDL8YGDgMeCcw
+    MLAtePEAaGJWIgMDAFl9FOGNUGSJAAAAAElFTkSuQmCC
+    
+  - text/latex
+    $$\theta$$
+  metadata
+    {
+     "collapsed": false
+    }
+code 16
+    n = cos(theta) * re + sin(theta) * im
+    n
+  execute_result
+  - text/plain
+    ⎡cos(θ)  -sin(θ)⎤
+    ⎢               ⎥
+    ⎣sin(θ)  cos(θ) ⎦
+  - image/png
+    iVBORw0KGgoAAAANSUhEUgAAAKUAAAAyBAMAAADPZgYSAAAAMFBMVEX///8AAAAAAAAAAAAAAAAA
+    AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAv3aB7AAAAD3RSTlMA74lUMhCZIs1Edmar
+    3bsABtMoAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAEj0lEQVRYCe2YXWgcVRiG3+zOZHa72R9o01IV
+    ukSwtlZYvfBC0G5oBK2VrFWKoJi1+AO52oDohVBXRWgv1FGvtUMElSi4iqjohRGqoAYSFGxBxPVC
+    KlFsTWo0Grp+3/mbWWfO7grtnR9k5uw5zzw5Z862522xo7OCC1ipTqeEzRM3XUAl3Il9JWxJMt5K
+    nXe3kKsmDSb0Kf5dHnKSnV4byP54HXCCoeRyLgn7vbbkR6rUZ3FmasB4rVhDhhhLOZFtMHyTYItz
+    loa+RbGCTWVq9S/Dc8Pi3AbkSii24Jb6C4kw/O1WZ3YJyNcxWQGesjq9CTMU8hl6RM3z0NjlcHfP
+    +th//etEpurAcR9v+cAV5sFow3llrnlkAzdv3f9mQP0hzy3p9DZjvHFbA8tuG3liCi1gcWFhBzU/
+    oJ943Qss4Rfg2cD7g0ZDPtfUzkwTe6tfAZO3jCJFTJ5WcAr4k5o30E+8nq+hzM4fgL9pNOTTS9o5
+    VafWKlAsf7/cIGbIB1ZEDyYjQveZ76hOVUly/jWw8yfgry7eOaudxwMgvU7O9sHn1iTjrmK4RM2o
+    kz6qcq/s1Nn5q3EqPnSaeT7UwMc0R1qLu45iQIaXtKbr/ihy6xFnyPM3QO4RvU9UttJev1jGSEu+
+    8+24mjXJe3Qt8GXEyXsk+XCPvEuRaoxX8WR6FIUGfTfmgWmPvsjAg3yJ1TU1nOaFq7WH/HBdzxP3
+    TO+Ed3iPn73qjV0k4BUcerXGqmN8idULH77jH+h8eqBz4sbf5qN8xjfOfz90Und4Jd3qeTf8DGHy
+    fcb493RPKtCtnnfD7ybM4uSXKuoude9z07zbJNDi9No0xnVa3vpdvbYkhNvixGOSyen5yo/2q+Lf
+    Z8LmtD/df+R/Z/939F8Iy/t0WoD70WCRQbEQeYF/d8Q5HoSTOULNl++o94oMBtbsSFV1RZyTZYPh
+    afpto/i9V2QwsGbRVF0Rp4EgkkK+hdVBIgOnCsGC8wJXsnOI/vi8zcfXAJHBsOC8wBVxPlwVPXzh
+    A+MbccbZI4OGQ5bzApdyUlTwzsw7T9w/9wX3UlDIrmMTnXrxyOAeHqvg4NwucG7oYjkvcEmniAqF
+    eWSW8TgtGz8DIxsLn5xNOo5mKs425yQKgcgNUZbPIi7pzHJUIGdB5C7ga3rtTRSbSZHhKNLn8mU4
+    50RuiLKcF7jU2jkqsJNEAfVu5/ggIljseHfXaJzD2YrIDVGWz3Yu5eSowM62cU5VcB+Nx5xZzh17
+    feC8yA3Cqdhup8dRIeKktU/5IrXEIoOZ55rIDWLtiuXTlkvOM81RIeKkPRryU4zEI8NRikFDdfpe
+    iNwg9kix3XskogItXK99DzAczDTIGY8MMy3sdLYgUxa5AQhZzgtccp4cFZzFjTsXN/aduYx6acXu
+    9AM8fowvXeV+NtvAI2Ofg3MDjYQs5wUu6ZTt8JrnKXINEBkMC84LXMnOXF0MUnAKVMN+Myw4L3Al
+    O82xPkhk0BFA5IUeTv57lkvz8lPyVbM6i9jm6bXE8wNFBsVC5AV+zLL25BkN2EvOi/Fv7YvwfwL/
+    AL7sUSihNCVbAAAAAElFTkSuQmCC
+    
+  - text/latex
+    $$\left[\begin{matrix}\cos{\left (\theta \right )} & - \sin{\left (\theta \right )}\\\sin{\left (\theta \right )} & \cos{\left (\theta \right )}\end{matrix}\right]$$
+  metadata
+    {
+     "collapsed": false
+    }
+code 17
+    n * Matrix([x, y])
+  execute_result
+  - text/plain
+    ⎡x⋅cos(θ) - y⋅sin(θ)⎤
+    ⎢                   ⎥
+    ⎣x⋅sin(θ) + y⋅cos(θ)⎦
+  - image/png
+    iVBORw0KGgoAAAANSUhEUgAAALQAAAAyBAMAAAAHCuzEAAAAMFBMVEX///8AAAAAAAAAAAAAAAAA
+    AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAv3aB7AAAAD3RSTlMA74lUMhB2qyJEZt3N
+    u5lcG7FTAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAFJklEQVRYCe2YXWgcVRiG3+zOJLN/2UAbTb1o
+    lwjpjyVuveiNaBOMLVYhYy2NSG2GCKmImArVoBdmgl6oEF31TpGsIiKl1D+QYEXXn14IUdcL0yJK
+    1lKDF7X2JzVGbOL7nT0zsyaZSRWiN34wM9855/3eOXPOIfsQrJs/jxWIa+fPYVXXzSvgjN1dW7A6
+    wtgoAuYh4LUITe3QTjbuKiLZIZ2dkdYjVLx8RwUNSiv6RWFcEXRZZSDxzY3AQemLtj4GGM24CJSC
+    +gWZUbNTaZuGdtZGWkSR1vU5IFXEBaBvgeHSTVG9j2weUhhtXecCrwC/A7dTuny0AMkmZIswmyiO
+    nPVLFHwIg7NO58OMrS5/JPEWP7KCbmo/9a337H+qz+FhONmax67+jTDu6S8BaOeuzKJ+FohV2AzC
+    bHcwbCvZyAxuW7t9v8NBEY0WMFBQldVZm7nke6kSMJw3WowxZJy7Ac4A3wINM4MPnuV3crQmYvEm
+    DABKdhz4wrF+42imCAwNDq5jepiXWpCYHbsYd4FxxKdTORjTz9nIcfBdfmAJ2RIQlzcF8XhjCd8D
+    Skbrr9V+IJUHPgD+oO56XsraRLrM3JzjTVbqfOrSvUyxBsjmVI9xls29RyU+Y2bXOfiV7xUZrb+D
+    tFBXYKnaGnSzqbcx6zBPyPg2jl8yN89XmNO6N48fmClrPr0YtY1pzkVktOYHaGvzAhqbKKqx7u6A
+    Hcx67kkkuXeyIL0FVSWbXxunUU8HJQusuSDmLNQs5WypWcftAdTbstaI11V4Kq4DHuUgt7GuEBPX
+    ZIm3mjiOzAFAyQJr2cY1uEZkh3kp69H8JJ5mY7iIDcZqpHNbbJxgez3Q6Ay7zBorvNXEzxgtAkrG
+    1dALEuPbpqwWkZ3hpax7+vdsohLmY30unml9BM+//mqBbX6WOfUjE6SlWRM9bb+4ULId8w/tmD94
+    wznayqrte8AW2ee89DZKc3GkXK9v2Ev852k/C5IxL7WamEVaJyuets1Lqs+GEvdrcRzxumIOs0hr
+    teAiN0tyDyLlZJyg5WcZV6d75RltPaKlfo1uJ/pP6ewvD6usm3IGlrG2ilXtG9XHsnc5ZoykK/fo
+    WYviH8f/1guW7r9aEKPII31IE8uCOS3Z3MnecMTpdIIiOdZCOIpYgu7QTM51BOJ054LKY5pw0kFX
+    ZJbmn6bLQxyfcBSxiOmdkc4KhC4PcepcTTiKWMR1a7Q1/1RHIc4THX55QDhCLBLR1lGIs33r/dbk
+    AePjU/0Pi1E7N6VKOMxUaGtNONjXejXMtr4CWMjxWCUUccwyUvKbl57Asy6lAeHIT52EttaEY61C
+    p3uriwlVGIk4iWbExDqjkLCWcIRYJLS1Jpx0Cds63iEZ3CKFxJJ8KOLgowlXWZOYHEoDwhGskNDW
+    mnB6KzycZM1sTgojEQe7vppT1mXfWhOOst48Pv72+PiX9ECVcEYdwgV/yLJlKVTWYYhjuXizIAui
+    rQPCkbMioWeNKuH4s/5JCtWChCFOPIeGYo11QDgLtpEwRhm41siv5Te8IIXVbQxBnHgzMi6n7M06
+    IJwzMmWGN+sq4VhXIeZ2duATVcjDx9eFIE5i030bjaGZ3UMzN01eSaOAcIRYJDzrKuGgZ2oDrJPr
+    C1LI0b+BOD7hKGKptQZXe4kY8/qWRRyfcBSxSNmL1doQwsERz3p5xDmhpYpYvDI+QwiHO1VbEPkD
+    5hGO9wrPPYRwYJW1QhVEWmvCSXqT8axDn/8e4qzgPy1W7l8tfwKgHJst0WC6+gAAAABJRU5ErkJg
+    gg==
+    
+  - text/latex
+    $$\left[\begin{matrix}x \cos{\left (\theta \right )} - y \sin{\left (\theta \right )}\\x \sin{\left (\theta \right )} + y \cos{\left (\theta \right )}\end{matrix}\right]$$
+  metadata
+    {
+     "collapsed": false
+    }
+code 18
+    n * (x * re + y * im)
+  execute_result
+  - text/plain
+    ⎡x⋅cos(θ) - y⋅sin(θ)  -x⋅sin(θ) - y⋅cos(θ)⎤
+    ⎢                                         ⎥
+    ⎣x⋅sin(θ) + y⋅cos(θ)  x⋅cos(θ) - y⋅sin(θ) ⎦
+  - image/png
+    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
+    
+  - text/latex
+    $$\left[\begin{matrix}x \cos{\left (\theta \right )} - y \sin{\left (\theta \right )} & - x \sin{\left (\theta \right )} - y \cos{\left (\theta \right )}\\x \sin{\left (\theta \right )} + y \cos{\left (\theta \right )} & x \cos{\left (\theta \right )} - y \sin{\left (\theta \right )}\end{matrix}\right]$$
+  metadata
+    {
+     "collapsed": false
+    }
+markdown
+    quaternions ...
+code 19
+    qw = eye(4)
+    qw
+  execute_result
+  - text/plain
+    ⎡1  0  0  0⎤
+    ⎢          ⎥
+    ⎢0  1  0  0⎥
+    ⎢          ⎥
+    ⎢0  0  1  0⎥
+    ⎢          ⎥
+    ⎣0  0  0  1⎦
+  - image/png
+    iVBORw0KGgoAAAANSUhEUgAAAHgAAABkCAMAAAB6rgQAAAAAP1BMVEX///8AAAAAAAAAAAAAAAAA
+    AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADFBd4eAAAAFHRS
+    TlMAMquZdlQQQO0wRM0iu+/dZol8bIlZUvoAAAAJcEhZcwAADsQAAA7EAZUrDhsAAALoSURBVGgF
+    7ZrtkqIwEEUjRJz1C5zN+z/rJrBTpi8m164QZGvxz4xckkN3EI8U5uDGV2NWevUTz5iDa61/HVfi
+    miHQGhfAh7WYT86A4Ev3DPG/rn3YNn2QqhjA15vLgC9+Nbr+isfz814VC3B3a5sMeLgHxOPyA4K/
+    uliA/Uw2A76N5/0xtYcu1oDdCD67xOmvixXgzrWhuWdnocfTW2WsAF/dIyAO058ZXBn/C+BuKjXd
+    6rEh78aKis20xsfkyTWeAu/GGnB/Cws7pD5OulgDtuMFpE1dQHSxBmz6cMm8Jy/WqliC2+bu+maY
+    fVT+buge/ussyTWqWIJTxArbd3CFpr6ecm/1675U2Lq3ukJTX0+5kVYTJffHvpjvy4qJkpsFfV+A
+    iZIv6vsCTJTcd3o53xdgouQETEZDHIOJkoePRaZiMhrjGEyUnIDJaIw3ASbGTiomozEOFZ/cKUxq
+    mLH7PTJrzEbDz4Hv+FYEUXICJqMhjtfYECUnYDIaYgFmxp5vNRstfV+CiZIv6fsS7Ju51msHr9Vp
+    /zN7K/cy1yr5oxV3NnPjtFYHrv423TbuV9eqEOf96Bo/W02EnsS+qPd9X1ZMhJ7EKt8XYCL0JNb5
+    vgAToSex73TOjGC0AINz44lIYgKG0TEYnRvAJA57ZyrG0TEYnRvAJCZgHL0JMDo3VExiUjGODhWf
+    vn5NDHBuADNj97tn1hhH//6KviTAuRFMYgKG0fEaM6EHJcfjImAYLcA6JVeCYXIJJkJPYpXvS/CL
+    Impt2sG1Ojubd2/1rCW1NuytrtXZ2bwbaTUx9rLYFx35vqyYGHtZLH1fgImxl8Xg+wIMzo0nRFns
+    Z4vNSIDBuRFcFmfA6NwALovDZKmK0bkBXBZvEozODRWXxbmK0bkBXBj72VJrbMC5EVwW58Dg3Agu
+    i3NgcG4EF8aZVusempkdl8r3xZVrNlXFDTu4YnPl1P9rqz/0RHkXnvC29iwXod678Ylya80fRXpE
+    /WULFbUAAAAASUVORK5CYII=
+    
+  - text/latex
+    $$\left[\begin{matrix}1 & 0 & 0 & 0\\0 & 1 & 0 & 0\\0 & 0 & 1 & 0\\0 & 0 & 0 & 1\end{matrix}\right]$$
+  metadata
+    {
+     "collapsed": false
+    }
+code 20
+    qi = zeros(4, 4)
+    qi[0, 3] = qi[2, 1] = 1
+    qi[1, 2] = qi[3, 0] = -1
+    qi
+  execute_result
+  - text/plain
+    ⎡0   0  0   1⎤
+    ⎢            ⎥
+    ⎢0   0  -1  0⎥
+    ⎢            ⎥
+    ⎢0   1  0   0⎥
+    ⎢            ⎥
+    ⎣-1  0  0   0⎦
+  - image/png
+    iVBORw0KGgoAAAANSUhEUgAAAJgAAABkCAMAAABNTAlxAAAAP1BMVEX///8AAAAAAAAAAAAAAAAA
+    AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADFBd4eAAAAFHRS
+    TlMAMquZdlQQQO0wRInN3SJm77t8bMVussMAAAAJcEhZcwAADsQAAA7EAZUrDhsAAANiSURBVGgF
+    7ZvhlqIwDIUrIM4qiM72/Z91WzBAQ9qmJR5lT/lT7FySz0tF7nBUJz1ulfqSrZ94lDrpujHb+Uu4
+    1GBpKm3BTt/CtHAMJFhb35o6TisrM1BdO5PRYJ05rW1/n1WeHVmZuj91BGx4WJJb5+GBaVlZ+6yr
+    GNhz/ICeVzJgcUZZmSndrDqSp1KPYFcd+ZzKyhhgra6tM1fd2MG7ycpsm5hjd32zstM02F1yk5XZ
+    FocFayer4qdyNFZIxnFMTWvsHF3841KUkjFOpeqfln9YfXjt680mKzPlY2tMNeMFto5dYGVlHDDV
+    26+kR/TLUlbGcEy1N3PfEeUSltXVQ/fV8Fox5JV/s5o+MFHAUk0vjhXHUh1I1Zc1VhxLdSBVT68x
+    8SQLWKtEC1Pz6DalwYSTLPR2Ei1MzqPblASTTbLQGSVamIYRNSXBxJMsNF/fosIcjKgpCSaeZKF5
+    CAw1pcDkkywDDDelwOSTLAMMNz0UmFDgbbt+3ropQATWGG5qHbvoC3g9jbKBd1U7AIZT9i/1r07x
+    JAtsITDUlFpjwoEXqMwYAkPxmQQTDrwLWQgMNaXBZAMvgLmJFmbn0W1Kg83iz+0UsFTvi2PFsVQH
+    UvV2jbXN8mwp9fi36e/m6ceBnle+zQd+4YNdLtzsGXqboQQLxzGruTLaMTd7QoPtGE6woGdWc2Uk
+    GMqe0ACPkQQLcmY1JCPBUPaEDsQYvMF66ZnVkIwEQ9mTAIIpDhizGpJRYDh7AgUxMsCY1bCMAsPZ
+    kwCCKQYYsxqWHQoMZ0+whxgZjjGrYZl17PLzx+3JDLzmIAYYTrJuq+UVavr3h/gSR9lzOXizxwFj
+    VkMyao1xA6/B5IChJLt5c68JJCPBUPb0lWKCcau5z4tpMDd7esEiCRaOY1ZzZTQYlPzgWMBSzS+O
+    FcdSHUjVlzVWHEt1IFUfXWOhROtGVG/rLFkELJxo3YjqBcuSBcEiiRZFVB9YniwIZlqF7gRRRPWB
+    5cn2gKGI6gPLk+0AwxHVA5Yp2wGGI6oHLFN2DLB9z2Q9juEky5TtcCwzyXrAcLU9YCii+jrmyfaA
+    oYjqA8uT7QHLS7I+flQtDBZJtG5E9XbMkoXBvL3e/4cClupxcew/c+xLf5Ha2l+ANs011e136cdf
+    pDaN+ge/nUR6PhlFPgAAAABJRU5ErkJggg==
+    
+  - text/latex
+    $$\left[\begin{matrix}0 & 0 & 0 & 1\\0 & 0 & -1 & 0\\0 & 1 & 0 & 0\\-1 & 0 & 0 & 0\end{matrix}\right]$$
+  metadata
+    {
+     "collapsed": false
+    }
+code 21
+    qj = zeros(4, 4)
+    qj[0, 2] = qj[1, 3] = 1
+    qj[2, 0] = qj[3, 1] = -1
+    qj
+  execute_result
+  - text/plain
+    ⎡0   0   1  0⎤
+    ⎢            ⎥
+    ⎢0   0   0  1⎥
+    ⎢            ⎥
+    ⎢-1  0   0  0⎥
+    ⎢            ⎥
+    ⎣0   -1  0  0⎦
+  - image/png
+    iVBORw0KGgoAAAANSUhEUgAAAJgAAABkCAMAAABNTAlxAAAAP1BMVEX///8AAAAAAAAAAAAAAAAA
+    AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADFBd4eAAAAFHRS
+    TlMAMquZdlQQQO0wRInN3SJm77t8bMVussMAAAAJcEhZcwAADsQAAA7EAZUrDhsAAAOBSURBVGgF
+    7Ztxl5owEMRREK8qom2+/2ctCT2PHTc7m1fsSV/4R8kOk98tAZ3j2exC2vbNm2zDzNM0u9B203Z4
+    E65mjDT7EMF278L0xTGqYH177lo/rV9+6b+mxnfSRQe7TKe1H654aG7fK7/egwEmXVSw8RYRzpcc
+    CIw75f293Rtg4KKC3dMFejBcBJpf3hmW4KKChQR2Cs7r1C+3wMBFA+tDGztyCp1oTG6nQG6AoYsG
+    dg3nCLGbX3I8j/ECuQGGLpsC6+dW+U9larBHbnQMJ9U61sxr7OBe/GlJeuQGGE6qgg33uIBG49p+
+    LLD4xi+3wMBFBevSDbb13mD9cgsMXFSwZogfSTf3h6VbboHBpDpYf56+d7i5Gqe83d/CsB/FMljs
+    SBcdbCH/rrcVrLTztWO1Y6UdKNXXNVY7VtqBUr2+xmT2pJ5OOZct8rAOJrMnBXPKmUzkYRUMsicD
+    c8qJDPKwCgbZk4E55Vy2/LqmgkH2ZGBOOZcxMMyeBMwpd8gYGGZPAuaUO2SbBcPsSTrmlDtk2LFj
+    OMq5XxN4uesS7Kf2r07InpL6ec8p57IlmHq7gOz5jCJHnHIuo2CQPSWGsucMvFTGwWT2VFDkkFNO
+    ZDIPq6dSTvs9exWstO+1Y7VjpR0o1cc11nfGo6dSw7X01+npx4aeV671Z/+Fz3ZvF4sMmv37eZJN
+    hxKZLJOOiQyaBWNJ9s+BRCbLJhhk0BwYSbKfhxEZlE2wyXL5FelzBnzlSTYdQWRQXgOMJ9kERmRQ
+    XgHMkWQjGJFheQUwR5KNYESG5W2A9ZfhsV3mZ1yOxe9IsvOpNB8Eo0vs2PHjRzxS3Rxg+GxW9ZkG
+    SeCF8q8P+0PcA8aTbGIlMiivsMYanmQTGJFBeQ0wbz4mgVeWbTCZQXOLx/uElwReWbbBsiivL1Sw
+    0h7XjtWOlXagVF/XWO1YaQdK9foak9mzxNPKx8RVlnUwmT39YHY+Jq6yrIJB9vSCkXxMXKGsgkH2
+    9IJNOusLL3GFsgoG2XMlMOIKZQ0Ms+c6YMQVyxoYZs91wIgrljcFhtkz17GyfExcsax1jEXTHOg0
+    bl2VkGjRBcoqGGRPtDD2LTDiCmUVDLKnAYIlC4y4QlkF8yZYxLJPJXP1BF6ZPZ/nz4yQfExcZVnv
+    WGbifzlcwUq7XTv2n3XsTX+R2sdfgHbdqbTbr9KnX6R2XfMbwCVEekaeyaEAAAAASUVORK5CYII=
+    
+  - text/latex
+    $$\left[\begin{matrix}0 & 0 & 1 & 0\\0 & 0 & 0 & 1\\-1 & 0 & 0 & 0\\0 & -1 & 0 & 0\end{matrix}\right]$$
+  metadata
+    {
+     "collapsed": false
+    }
+code 22
+    qk = zeros(4, 4)
+    qk[1, 0] = qk[2, 3] = 1
+    qk[0, 1] = qk[3, 2] = -1
+    qk
+  execute_result
+  - text/plain
+    ⎡0  -1  0   0⎤
+    ⎢            ⎥
+    ⎢1  0   0   0⎥
+    ⎢            ⎥
+    ⎢0  0   0   1⎥
+    ⎢            ⎥
+    ⎣0  0   -1  0⎦
+  - image/png
+    iVBORw0KGgoAAAANSUhEUgAAAJgAAABkCAMAAABNTAlxAAAAP1BMVEX///8AAAAAAAAAAAAAAAAA
+    AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADFBd4eAAAAFHRS
+    TlMAMquZdlQQQO0wRInN3SJm77t8bMVussMAAAAJcEhZcwAADsQAAA7EAZUrDhsAAAOhSURBVGgF
+    7ZvbduowEEMNCaEFwuWc/P+3NpcOWDIGDU0X0GVehhhZ3kxMQKWERTfeluFFbu3EE8Kiq+r+tnoR
+    rnAYaJbdALZ4FaYLxwHAmmpbVy7KXXPxyt0TXVGGYLv+dDbtPrdCMr4/dQKY6IoyADsch6W3uwTg
+    +kBzqpYCmOhKMgA7jS/MlbCYkdaCVnQlGYB1I9im01+fCpjoSrIYrOmqoRObrraG3K0CmOjKshhs
+    320HksVU7kINAgFMdGXZW4A1U6uyp7LZtefbbrraCR275/p9ZlgWdyxMe2w19+Yfd+5dV1ocwNrT
+    gH8QLgHfT1PZY0F0JRmA1eMFtlIvsD2dcCqD6EoyAAvt8JZ0dLxZKmCqKy6OYM22/7yhc1XLY9cu
+    D3Zec1V0RRmC5ayfMF7AvE0vHSsd83bAqy97rHTM2wGvPtljMyZYY8Eka6NJRRmBzZpgbWlMsjaa
+    VJQB2LwJ1lamJGvDXEkGYL1W+YBF0ZRX4GNRTrJHwCiaMggfi3KSPQDG0ZRB6FiUs+wBMI6mBMKH
+    opxlfwmMoym3iI5FOcuGjq279dlMeVVSND3PzdwR5ST7B3/q1C4XFE0zPOdhUU6yB/aYmmCNjJKs
+    DXMl2SNgaoK1pTHJ2mhSUYZg8yZYWxqTrI0mFWUIloifN1DAvL0vHSsd83bAqx/2WFML31R5jX+q
+    3/ffgrzB95U/fZozzn+TywVmzuzzF2U2X5dHaRs7hpnTjJMqymyeKoe0DWCUOc2YqyizaaKc0jaA
+    UeY0Z66izKbp8vhzPYBR5jRnrqLMpunyHBhnTnOmKspslkOeA+PMadZURZnNcsjfDowzpz1nqqLM
+    Zjnk3LH1x+fkQpnTrLmKMpumy2Ow/x/RmzhlTnPmKspsmi6PweByQZnTnLmKMpumy7NgapLFaGoA
+    2SrL82CYObMriTKbL8oxbcOpNKdXqAXMexZKx0rHvB3w6sseKx3zdsCrxz0mRlNRdoUlSrTJo+iK
+    YGI0FWXJ0pBok0fRFcDEaCrKeGVKtPwwuQKYGE1FGa/cH8cfuPhhcgUwMZqKMl75Dhi5xmBiNBVl
+    V7hudYxdYzAxmooyJxi7vgWYGE1FWfD9BzS7xh1T/6VZT7B8Om+9KskVwMRoKsqYqj++BUauACZG
+    U1HmBCNXAPulwHshvNUxWhzBxGgqyi5A0z1MtPxoQFcES8TPGyhg3t6Xjv2xjr3oL1Kb4Regdb3x
+    dvu39OMvUus6fAG/FUR6B8yuSgAAAABJRU5ErkJggg==
+    
+  - text/latex
+    $$\left[\begin{matrix}0 & -1 & 0 & 0\\1 & 0 & 0 & 0\\0 & 0 & 0 & 1\\0 & 0 & -1 & 0\end{matrix}\right]$$
+  metadata
+    {
+     "collapsed": false
+    }
+code 23
+    qi**2
+  execute_result
+  - text/plain
+    ⎡-1  0   0   0 ⎤
+    ⎢              ⎥
+    ⎢0   -1  0   0 ⎥
+    ⎢              ⎥
+    ⎢0   0   -1  0 ⎥
+    ⎢              ⎥
+    ⎣0   0   0   -1⎦
+  - image/png
+    iVBORw0KGgoAAAANSUhEUgAAALgAAABkCAMAAAACEQqhAAAAP1BMVEX///8AAAAAAAAAAAAAAAAA
+    AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADFBd4eAAAAFHRS
+    TlMAMquZdlQQQO0wRM3dIrvvZol8bJm8xvQAAAAJcEhZcwAADsQAAA7EAZUrDhsAAAOISURBVHgB
+    7ZzrlqIwEISjIM4qKu7k/Z91uUy0YbtN19BB4YQfQ3SKzkfRIJYe3c73y96tZKkHXud2vijb5bAS
+    btd0tHvfge/WwvzkbGLg5+oplkZVcS8L/c6byCPgl6tXgJ/bLqvqi7Rf0+dN5C/Bq2uxV4A3tw7t
+    fp4CCo9t5C/B25lLBfi1vx4dFMp+V2zkFuC+Bz955WXJRm4AXvmic/Lky97Q2B8juQH4xd872N2w
+    inE7I/k2wKtz/VjOw3VZcXJWg9X6VukP0Fy5geNu6PGD+uTsT4m5cgvw+to1dqO9HNrILcDL/gWo
+    0L4A2cgtwF3dveTf1DcrJvLX4MX+5ut9E7vEVff2NlPN7Uzkr8FjxG/8fwZf2vzseHZc6UBuFaVR
+    ZrLsuJmVykIbcxyMbIhJi+VHvONgZPMAXzA/YsHByCZwL5ofseBgZBPA27XiLaoDqwtyFhyMbEBw
+    sLog58DByIZwaxwHq0tyDhyMbEBwsLok3xS4NuF5a37UOX70R3q4HZrwkI01VxWb/Ogv91EKGNmA
+    4GB1Qc71uAMjGxAcrC7IWXA04XmSa1oFrc7nRzw4GNkE8CXzIx48kHzwOoMvfXCy49lxpQOrbpWq
+    VHzRQGnEYrJL+3HwNr+vspiF4ESr7vH/WwUMhEA58fb3+RHvOBgIgfIH+Jz8iAUHAyFQHrjn5Ucs
+    uJDBhBmna1BONtfcvgvVWXAhgyEzjoagnGyrAReqc+BSBkNmpENQTjdVgEvVOXApg6FTkjEoJ1tq
+    gi+p+qbAtYHQj3dauW1+1Dl+/PpDjx8cCIEJD5lL0eNSOvX9xdxkCRkMmXE0BOVkWw24UJ3rcTQQ
+    EiIbAigNNeBCdRbcJrKRaMnzGnABhgcHAyFQHshn5Uc8eCj9wesMvvTByY5nx5UO5FZRGmUmy46b
+    WakstDHHwYQnrZwcApIf8Y6DCU9a+QN8lB+x4GDCk1YeuCf5EQsuZDChxHSdVk5mo7fvLLiQwZAS
+    o2FaOZkqBi5lMKQEHaaV05li4FIGQ2uQcVo5mWiUH3GtkpYErI6AaxOen5qJ5JH8iHNcymDoztMx
+    GAiBcjJTrMedkMGQEqNhWjmZKgouZDCkxGiYVk6mioILGQwpMR7y3+EZa8gjUP7cMg4OJjxp5QF8
+    nB+xJ2eQfvI6gy99dLLj2XGlA0OrrPQXbaruF2LK8qTc17fL+l+0KUv3DwNXR0QOHhakAAAAAElF
+    TkSuQmCC
+    
+  - text/latex
+    $$\left[\begin{matrix}-1 & 0 & 0 & 0\\0 & -1 & 0 & 0\\0 & 0 & -1 & 0\\0 & 0 & 0 & -1\end{matrix}\right]$$
+  metadata
+    {
+     "collapsed": false
+    }
+code 24
+    qj**2
+  execute_result
+  - text/plain
+    ⎡-1  0   0   0 ⎤
+    ⎢              ⎥
+    ⎢0   -1  0   0 ⎥
+    ⎢              ⎥
+    ⎢0   0   -1  0 ⎥
+    ⎢              ⎥
+    ⎣0   0   0   -1⎦
+  - image/png
+    iVBORw0KGgoAAAANSUhEUgAAALgAAABkCAMAAAACEQqhAAAAP1BMVEX///8AAAAAAAAAAAAAAAAA
+    AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADFBd4eAAAAFHRS
+    TlMAMquZdlQQQO0wRM3dIrvvZol8bJm8xvQAAAAJcEhZcwAADsQAAA7EAZUrDhsAAAOISURBVHgB
+    7ZzrlqIwEISjIM4qKu7k/Z91uUy0YbtN19BB4YQfQ3SKzkfRIJYe3c73y96tZKkHXud2vijb5bAS
+    btd0tHvfge/WwvzkbGLg5+oplkZVcS8L/c6byCPgl6tXgJ/bLqvqi7Rf0+dN5C/Bq2uxV4A3tw7t
+    fp4CCo9t5C/B25lLBfi1vx4dFMp+V2zkFuC+Bz955WXJRm4AXvmic/Lky97Q2B8juQH4xd872N2w
+    inE7I/k2wKtz/VjOw3VZcXJWg9X6VukP0Fy5geNu6PGD+uTsT4m5cgvw+to1dqO9HNrILcDL/gWo
+    0L4A2cgtwF3dveTf1DcrJvLX4MX+5ut9E7vEVff2NlPN7Uzkr8FjxG/8fwZf2vzseHZc6UBuFaVR
+    ZrLsuJmVykIbcxyMbIhJi+VHvONgZPMAXzA/YsHByCZwL5ofseBgZBPA27XiLaoDqwtyFhyMbEBw
+    sLog58DByIZwaxwHq0tyDhyMbEBwsLok3xS4NuF5a37UOX70R3q4HZrwkI01VxWb/Ogv91EKGNmA
+    4GB1Qc71uAMjGxAcrC7IWXA04XmSa1oFrc7nRzw4GNkE8CXzIx48kHzwOoMvfXCy49lxpQOrbpWq
+    VHzRQGnEYrJL+3HwNr+vspiF4ESr7vH/WwUMhEA58fb3+RHvOBgIgfIH+Jz8iAUHAyFQHrjn5Ucs
+    uJDBhBmna1BONtfcvgvVWXAhgyEzjoagnGyrAReqc+BSBkNmpENQTjdVgEvVOXApg6FTkjEoJ1tq
+    gi+p+qbAtYHQj3dauW1+1Dl+/PpDjx8cCIEJD5lL0eNSOvX9xdxkCRkMmXE0BOVkWw24UJ3rcTQQ
+    EiIbAigNNeBCdRbcJrKRaMnzGnABhgcHAyFQHshn5Uc8eCj9wesMvvTByY5nx5UO5FZRGmUmy46b
+    WakstDHHwYQnrZwcApIf8Y6DCU9a+QN8lB+x4GDCk1YeuCf5EQsuZDChxHSdVk5mo7fvLLiQwZAS
+    o2FaOZkqBi5lMKQEHaaV05li4FIGQ2uQcVo5mWiUH3GtkpYErI6AaxOen5qJ5JH8iHNcymDoztMx
+    GAiBcjJTrMedkMGQEqNhWjmZKgouZDCkxGiYVk6mioILGQwpMR7y3+EZa8gjUP7cMg4OJjxp5QF8
+    nB+xJ2eQfvI6gy99dLLj2XGlA0OrrPQXbaruF2LK8qTc17fL+l+0KUv3DwNXR0QOHhakAAAAAElF
+    TkSuQmCC
+    
+  - text/latex
+    $$\left[\begin{matrix}-1 & 0 & 0 & 0\\0 & -1 & 0 & 0\\0 & 0 & -1 & 0\\0 & 0 & 0 & -1\end{matrix}\right]$$
+  metadata
+    {
+     "collapsed": false
+    }
+code 25
+    qk**2
+  execute_result
+  - text/plain
+    ⎡-1  0   0   0 ⎤
+    ⎢              ⎥
+    ⎢0   -1  0   0 ⎥
+    ⎢              ⎥
+    ⎢0   0   -1  0 ⎥
+    ⎢              ⎥
+    ⎣0   0   0   -1⎦
+  - image/png
+    iVBORw0KGgoAAAANSUhEUgAAALgAAABkCAMAAAACEQqhAAAAP1BMVEX///8AAAAAAAAAAAAAAAAA
+    AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADFBd4eAAAAFHRS
+    TlMAMquZdlQQQO0wRM3dIrvvZol8bJm8xvQAAAAJcEhZcwAADsQAAA7EAZUrDhsAAAOISURBVHgB
+    7ZzrlqIwEISjIM4qKu7k/Z91uUy0YbtN19BB4YQfQ3SKzkfRIJYe3c73y96tZKkHXud2vijb5bAS
+    btd0tHvfge/WwvzkbGLg5+oplkZVcS8L/c6byCPgl6tXgJ/bLqvqi7Rf0+dN5C/Bq2uxV4A3tw7t
+    fp4CCo9t5C/B25lLBfi1vx4dFMp+V2zkFuC+Bz955WXJRm4AXvmic/Lky97Q2B8juQH4xd872N2w
+    inE7I/k2wKtz/VjOw3VZcXJWg9X6VukP0Fy5geNu6PGD+uTsT4m5cgvw+to1dqO9HNrILcDL/gWo
+    0L4A2cgtwF3dveTf1DcrJvLX4MX+5ut9E7vEVff2NlPN7Uzkr8FjxG/8fwZf2vzseHZc6UBuFaVR
+    ZrLsuJmVykIbcxyMbIhJi+VHvONgZPMAXzA/YsHByCZwL5ofseBgZBPA27XiLaoDqwtyFhyMbEBw
+    sLog58DByIZwaxwHq0tyDhyMbEBwsLok3xS4NuF5a37UOX70R3q4HZrwkI01VxWb/Ogv91EKGNmA
+    4GB1Qc71uAMjGxAcrC7IWXA04XmSa1oFrc7nRzw4GNkE8CXzIx48kHzwOoMvfXCy49lxpQOrbpWq
+    VHzRQGnEYrJL+3HwNr+vspiF4ESr7vH/WwUMhEA58fb3+RHvOBgIgfIH+Jz8iAUHAyFQHrjn5Ucs
+    uJDBhBmna1BONtfcvgvVWXAhgyEzjoagnGyrAReqc+BSBkNmpENQTjdVgEvVOXApg6FTkjEoJ1tq
+    gi+p+qbAtYHQj3dauW1+1Dl+/PpDjx8cCIEJD5lL0eNSOvX9xdxkCRkMmXE0BOVkWw24UJ3rcTQQ
+    EiIbAigNNeBCdRbcJrKRaMnzGnABhgcHAyFQHshn5Uc8eCj9wesMvvTByY5nx5UO5FZRGmUmy46b
+    WakstDHHwYQnrZwcApIf8Y6DCU9a+QN8lB+x4GDCk1YeuCf5EQsuZDChxHSdVk5mo7fvLLiQwZAS
+    o2FaOZkqBi5lMKQEHaaV05li4FIGQ2uQcVo5mWiUH3GtkpYErI6AaxOen5qJ5JH8iHNcymDoztMx
+    GAiBcjJTrMedkMGQEqNhWjmZKgouZDCkxGiYVk6mioILGQwpMR7y3+EZa8gjUP7cMg4OJjxp5QF8
+    nB+xJ2eQfvI6gy99dLLj2XGlA0OrrPQXbaruF2LK8qTc17fL+l+0KUv3DwNXR0QOHhakAAAAAElF
+    TkSuQmCC
+    
+  - text/latex
+    $$\left[\begin{matrix}-1 & 0 & 0 & 0\\0 & -1 & 0 & 0\\0 & 0 & -1 & 0\\0 & 0 & 0 & -1\end{matrix}\right]$$
+  metadata
+    {
+     "collapsed": false
+    }
+code 26
+    qi * qj == qk
+  execute_result
+  - text/plain
+    True
+  metadata
+    {
+     "collapsed": false
+    }
+code 27
+    qj * qk == qi
+  execute_result
+  - text/plain
+    True
+  metadata
+    {
+     "collapsed": false
+    }
+code 28
+    qk * qi == qj
+  execute_result
+  - text/plain
+    True
+  metadata
+    {
+     "collapsed": false
+    }
+code 29
+    qi**2 == qj**2 == qk**2 == -1 * qw
+  execute_result
+  - text/plain
+    True
+  metadata
+    {
+     "collapsed": false
+    }
+code 30
+    q = w * qw + x * qi + y * qj + z * qk
+    q
+  execute_result
+  - text/plain
+    ⎡w   -z  y   x⎤
+    ⎢             ⎥
+    ⎢z   w   -x  y⎥
+    ⎢             ⎥
+    ⎢-y  x   w   z⎥
+    ⎢             ⎥
+    ⎣-x  -y  -z  w⎦
+  - image/png
+    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
+    
+  - text/latex
+    $$\left[\begin{matrix}w & - z & y & x\\z & w & - x & y\\- y & x & w & z\\- x & - y & - z & w\end{matrix}\right]$$
+  metadata
+    {
+     "collapsed": false
+    }
+code 31
+    q_conj = w * qw - x * qi - y * qj - z * qk
+    q_conj
+  execute_result
+  - text/plain
+    ⎡w   z   -y  -x⎤
+    ⎢              ⎥
+    ⎢-z  w   x   -y⎥
+    ⎢              ⎥
+    ⎢y   -x  w   -z⎥
+    ⎢              ⎥
+    ⎣x   y   z   w ⎦
+  - image/png
+    iVBORw0KGgoAAAANSUhEUgAAALwAAABkCAMAAAAL+qrbAAAAP1BMVEX///8AAAAAAAAAAAAAAAAA
+    AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADFBd4eAAAAFHRS
+    TlMAMquZdlQQQO0wRIlmze+7It18bEH54hwAAAAJcEhZcwAADsQAAA7EAZUrDhsAAAS4SURBVHgB
+    7ZzrmqIwDIaLFGYW8MAu93+tmwKxkKaQdjoiPu0PqT0kHx8V9BVVxTCWizpR6SfNShVDqaFUJ9Ku
+    OqP4MhjxxZl0W61dFm/NeGktO/9SuxfJPsz5ui017F13Vaq61Yv93Ko2/a1RRbc1hOmbUz3EaWo4
+    PT4a3RqBUFznW1XBGUjd4ZrVDM04aPehvmtdlsFXOUh1g9ja5JOUugXBvVY9GGuKI/5RqdL0DcbG
+    +8OM2S/mAD2CtWOq+30/wziihTztUKtqluWIh/4bHJViMANKYVQYVgi019f+Wa6FmlOpYV4FTjIy
+    3kxQ18WeOuLNYgHd2hxPBYdJWJqA/bQhG7Ax8AK/3FNGfNlDdLPkFRxXYamitE8LdPJJmGh6K2MO
+    ARRG/Ki7N6aLjZ+0CxbOmNM+jKnGB9u2Uavq6cWt/eI1vF6bG1hZCM81qui7ttNX6XArr4QF3Iyn
+    BtvmrzVDpe5wZnrgKZlxXpVlq+uL7nCMP9zcAzva3SK0q/rS6nI8NezmgAGgSde6tbo48ZJA6caM
+    J+a4cIeKv8ACraUXQmb/DhUPF0t1953kGbG06VDxDbyp+MmHuEPFUydDn2fxoY6lGp+dT+VkaJzs
+    fKhjqcZn51M5GRonOx/qWKrxn+y8ACbFQCoCj6RHgkKqbeclMCkCUlF4JBVPIdWOeAi7A5OQHIVA
+    KgqPhOIx1RNSrcRTyGOC7sEk+CAfDKnMh/8lPPKJJ3rmVBZSGfFfw5dvuhLApChIZRV4UzMdBFL9
+    BfEb30lJYFIMpJpzzvyFkck3jR/WLaRaLRtnhggmhUMqCo+cvL4GAqk2xctgUjCkcuCRT6vTTiDV
+    pnghTAqFVA48ckT6Ggik2hTvi3Fo+wJSnUo8hVSnEk8h1anEU0h1KvH0tZbFU0de9dw4X+PXJK9K
+    mirPY/za8ieoNpWSiDh5zUeYlmRKdj6JjRFBsvMRpiWZ8nnOU7gjtUnGkmIoFSpYQzDWeQp3cOrO
+    VsiSIigVJiYQjBPvwB2cu7OVsSSMHkKpMLGhDQsIxol34A7OJVvChJwbkcjw+ekcXXIrFU1gIiwh
+    mBH/9f2H5CFwh/RuPV3eiOQbF0eppmgrCPbvm4NOBO74VLjtqxuR3O6pJYpSTVPXEIxbNvNNWvI7
+    kGaVUpYUTqnQBgLBePEE7uDc7a2YJQVTKsxLIRgvnsAdnLy9lbOkUEqFeSkE48Wb0Qu4g5PfbcuK
+    p3Dn3USjHlY8hTs4+N22rHgKd95NNOphxWPnu2+z+KOOUHY+Ox/hQF42EaYlmZKdT2JjRJDsfIRp
+    Saawzsvgkc0fDqnW8MhG4mp+SMWJF8IjmygYUhF4ZCNxNT+k4sTL4JHNgxjpeQeS7fLUCDzyjJqa
+    MToDqTjxJrTkRiTMKYVUOH7cLuHRqoM+2YBUnHgzXQKPbJpwSLWCRzYQW/NCKo94ETyymYIh1Roe
+    2UBszQupOPFSeGQzkTuQbIenRuCRZxQ2eyEVI14MjzA4YJKgn8mF/hzPC6kY8XJ49FQfCKkoPHrG
+    8VR8kIoR74mw13wApEoi/ihIlUT8UZAqifijIFUS8Xsvh9/q/wDxJ/5nIXj7bkr4T7h/azkI4o7/
+    LKS1+g/bkzt/zBp2jgAAAABJRU5ErkJggg==
+    
+  - text/latex
+    $$\left[\begin{matrix}w & z & - y & - x\\- z & w & x & - y\\y & - x & w & - z\\x & y & z & w\end{matrix}\right]$$
+  metadata
+    {
+     "collapsed": false
+    }
+code 32
+    q.transpose() == q_conj
+  execute_result
+  - text/plain
+    True
+  metadata
+    {
+     "collapsed": false
+    }
+code 32
+    
+  metadata
+    {
+     "collapsed": false
+    }
+metadata
+    {
+     "orig_nbformat": 3,
+     "orig_nbformat_minor": 0
+    }

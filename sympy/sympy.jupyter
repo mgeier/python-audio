@@ -1,0 +1,2361 @@
+nbformat 4
+nbformat_minor 2
+markdown
+    # Some Random SymPy Stuff
+code 1
+    from sympy import *
+    init_printing()
+    
+    # for older SymPy versions:
+    #%load_ext sympy.interactive.ipythonprinting
+    
+    # for even older IPython/SymPy versions:
+    #%load_ext sympyprinting
+  metadata
+    {
+     "collapsed": false
+    }
+code 2
+    x, y = symbols("x, y")
+  metadata
+    {
+     "collapsed": false
+    }
+code 3
+    (pi + x)**2
+  execute_result
+  - text/plain
+           2
+    (x + π) 
+  - image/png
+    iVBORw0KGgoAAAANSUhEUgAAAEgAAAAbBAMAAAAt2dQtAAAAMFBMVEX///8AAAAAAAAAAAAAAAAA
+    AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAv3aB7AAAAD3RSTlMAMmYiu80QdonvRN2Z
+    VKvu110NAAAACXBIWXMAAA7EAAAOxAGVKw4bAAABZElEQVQoFY2Sv0vDQBTHv0na/CBE+w+oWcQ1
+    qJOTKDgJdomDWAiIdBPFQSctguBQpKM4qZPgYDdxEIqzQzcHcXARR0HI4BLf5d21HJamb7j3vt/7
+    8O5dckBRNFeTIgRuNFYthPzI+CmEvCvrtxACgnQEyN8dAWoSY4S0DA6zQr7ZoWV+MJC7H7Te4hpY
+    HwKV6aDa+wqchgZtaYo2vSz7hhdp9qum7BbLO82FDqHGu+KC9aOFQ/kxJORkFB1A7FIsAXbDfPCr
+    LCV0NrE/M0fONLtPgJu4aSBHY8joutGe2H9j6JI6obzIAr2ZSvgU1hT7BAHjPNFpHD/G8aZwJtEW
+    SUJ0HNUVJCL3Oz0j//fy7jR4kBzDSXJGHWenyF+RHPwcuO+uYZYZBTltXAjnhW1quHNQPwlZKagU
+    4ks4G2z78u46JJXV4iJ/LtKjdNMvqXL51sCyZutiW8lhj67XwAoV/i+bct4/Xs5GamR386YAAAAA
+    SUVORK5CYII=
+    
+  - text/latex
+    $$\left(x + \pi\right)^{2}$$
+  metadata
+    {
+     "collapsed": false
+    }
+code 4
+    eq = ((x + y)**2 * (x + 1))
+    eq
+  execute_result
+  - text/plain
+                   2
+    (x + 1)⋅(x + y) 
+  - image/png
+    iVBORw0KGgoAAAANSUhEUgAAAIoAAAAbBAMAAABRkwqxAAAAMFBMVEX///8AAAAAAAAAAAAAAAAA
+    AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAv3aB7AAAAD3RSTlMAMmYiu80QdonvRN2Z
+    VKvu110NAAAACXBIWXMAAA7EAAAOxAGVKw4bAAACD0lEQVQ4Ea2UvS8EQRiHf3fr9va+uP/ANvqN
+    qFRCQiPumlX4SDYRoeI6JMJFohPRINH4aEgUSlGQa0QjohMRCYVER0iu0PC+88HNZkWxppjZ+b3P
+    PDs7kywQu630B7EdcLzmcnxLzku8x7dkdqyP+BagUP8PS67yH5YVkiRc6iJbsijjhBtZplAQyRo9
+    dUQjqQB4lKVfCC4ycYBdYFCiod4qBUBKhtGEqBGRGL3vRboqUdWPydHufwmgaiZhe4081TKfn6/I
+    GCluNLNIFnuNZyZRqGiCR0kAh40hTAtGuWgSpkUSAF/TxELnrHqFsRdRDBHaMnkBa0MuJ0M3baua
+    PM6V+bXhvbRxZBLaUr1F+hUQBHAKOIFTL3i8IGy548gklMW6PkdTFyAIYIv2ghTNZTO/qJVDk1AW
+    G5tooVMQhGAg5sQv+/6J748IH9+RZMiiCcf3h9d9v0ZBto7W4reF9kvPRQQ8hr9IXI9J6HPJlzFH
+    vLpAOrtCsIh0wI6wRZ9uA6EtTQ8YIF6d7ipwdF1Cu3CELZecmoS25Luyb1QUhNjS1MzEkss8NX26
+    V9tnLjDEEW26gdAW+3mef5SCAHLqipmnpi1iYq3xYBLaAuTLgCToF1ETC3S3px94dCrcm0TW5Qx4
+    wvSOJmjaw1l0G5dxJHGMPqoq4te/FAvU8si/1P588YegT3N5QVRLejL9m/gCd/R8g+k5mUIAAAAA
+    SUVORK5CYII=
+    
+  - text/latex
+    $$\left(x + 1\right) \left(x + y\right)^{2}$$
+  metadata
+    {
+     "collapsed": false
+    }
+code 5
+    expand(eq)
+  execute_result
+  - text/plain
+     3      2      2      2            2
+    x  + 2⋅x ⋅y + x  + x⋅y  + 2⋅x⋅y + y 
+  - image/png
+    iVBORw0KGgoAAAANSUhEUgAAASgAAAAYBAMAAAC7JH0zAAAAMFBMVEX///8AAAAAAAAAAAAAAAAA
+    AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAv3aB7AAAAD3RSTlMAEHarIkSJZt3NVLsy
+    me8Q6PJIAAAACXBIWXMAAA7EAAAOxAGVKw4bAAADSUlEQVRIDZ2WPUwUURSF7yw7u+v+4AQSShww
+    ocO/GCOV0xiNhRIKKxPWxWi1kU4bG2JjJbFytQATK4y6SkmM21qBdgSNaGKijYLxL8Rknffuu3Pv
+    m9kZE7Z4777znXNmdpgAAPhpzHhmSm6FjddJkZRM2HyR3koF8Z0ztdlaO06j8yWYiObEkAULQd98
+    IvAfQWRq9eJWqvsmrAa7gqWg+iM1mAKsTC39O32Cc5MpFQBZsH8y/zM1mAKszHAnxaXkp94uYXk7
+    I5iCODNwJ8Wi5bndwpKflezNRCb+ouffrXQoVFijqceeCZuxgGyNoegoMtWdSNXDIBSi9+GGjexT
+    FizGv41stWuiE2eGO/nfKDsB7ocBvhqjW3c7ZlQbOVCKoC0jPA8XcCAoWhGolSAqUQZKQfEDamUf
+    988AJzo4vlp6JF90csSgLWtYvbf0DF0ERSsCtRLUCmeg2pgJtBY5Frzopr51u8hsB54iaFUj6+92
+    t+yMaEWgViuJmYH9J8f8no7bnjN6dKqhmdP04Sw+L+pgqB22PPQG8ubZK0owHKmVHQRZcerFudK8
+    rtULOQDcXzAE1/1bWi6UN+EgusjB0AqiXH8COfOUFKWMaGUHQVYKXmG7HOhavZADoNSGi3DVe6jl
+    M+Fv/BV0kYOhFdRyfnEdKm30q5Uy3CocBgrFgT0iLOMbAB7cN8Vevw/fcaYLMNS6JTvwEfb6Jhtu
+    BAGoVTgMFArIcKHVuvul1VpTbblDajU3AjDtVf+GZ+lgmJTdbVjtqILwIzPcahwCykwY9jCt1ug7
+    PYZ8AOGNOMjWIbeJU+RgqIAthz/tA2jXawS5lR0EheIdhFyPm6quQS54EL6sI9i9DBX96PjqAioL
+    VaMcmpcxqFeCopUdBFmZXnwJp3rET19uHnd3Klv5WYQbMG0m0yGhsthyre2aPxE6TtcVrewgyMrg
+    6MAVczUrvtDt/nGOjIxd0yrAYON9gKPpkFABW3aOjcv/7+i6opUdBFnBC/FKDlZoWjdDiiMuh28I
+    f+JQE3IwJIWDOLnysTHsm3fon4YUhy1PwL5JToMNNWAHQVZEMmss+RU/i8fZHDyPS7Fz0pFUYpH4
+    0R19G5cyz1PjnUwOkHREyj9nXAiYJhQ2HQAAAABJRU5ErkJggg==
+    
+  - text/latex
+    $$x^{3} + 2 x^{2} y + x^{2} + x y^{2} + 2 x y + y^{2}$$
+  metadata
+    {
+     "collapsed": false
+    }
+code 6
+    diff(cos(x**2)**2 / (1 + x), x)
+  execute_result
+  - text/plain
+             ⎛ 2⎞    ⎛ 2⎞      2⎛ 2⎞
+      4⋅x⋅sin⎝x ⎠⋅cos⎝x ⎠   cos ⎝x ⎠
+    - ─────────────────── - ────────
+             x + 1                 2
+                            (x + 1) 
+  - image/png
+    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
+    
+  - text/latex
+    $$- \frac{4 x \cos{\left (x^{2} \right )}}{x + 1} \sin{\left (x^{2} \right )} - \frac{\cos^{2}{\left (x^{2} \right )}}{\left(x + 1\right)^{2}}$$
+  metadata
+    {
+     "collapsed": false
+    }
+code 7
+    x = Symbol('x', positive=True)
+    x > 0
+  execute_result
+  - text/plain
+    True
+  metadata
+    {
+     "collapsed": false
+    }
+code 8
+    exp(I * pi)
+  execute_result
+  - text/plain
+    -1
+  - image/png
+    iVBORw0KGgoAAAANSUhEUgAAABgAAAAPBAMAAAAMihLoAAAAJ1BMVEX///8AAAAAAAAAAAAAAAAA
+    AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAilU6eAAAADHRSTlMAEM3dMiK7mat272a9noTYAAAACXBI
+    WXMAAA7EAAAOxAGVKw4bAAAALklEQVQIHWNggANFOIuBIewggiNWgcRh4CSTI2QMAioMZBsAcxB7
+    1+FuGBtMAwDSnw2AS5zPhQAAAABJRU5ErkJggg==
+    
+  - text/latex
+    $$-1$$
+  metadata
+    {
+     "collapsed": false
+    }
+code 9
+    oo
+  execute_result
+  - text/plain
+    ∞
+  - image/png
+    iVBORw0KGgoAAAANSUhEUgAAABMAAAALBAMAAABv+6sJAAAALVBMVEX///8AAAAAAAAAAAAAAAAA
+    AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADAOrOgAAAADnRSTlMAEKvvZom7mXYyzVQiRHuO
+    wuMAAAAJcEhZcwAADsQAAA7EAZUrDhsAAABqSURBVAgdY2BgEGAAAhDBqPzYgYEhrKiBgYFtAscr
+    BqkNDFMZGDwZGPYlrGRgYDnAAJRgBSlhcAAxGfJAzAYwM/klULsDgyMDA0eM8QEGjgMM7AwM4Qzz
+    bBlcgRLlahsYGOuMA4DK4bYBAA/GFFwDPj79AAAAAElFTkSuQmCC
+    
+  - text/latex
+    $$\infty$$
+  metadata
+    {
+     "collapsed": false
+    }
+code 10
+    a, b, c = symbols("a, b, c")
+  metadata
+    {
+     "collapsed": false
+    }
+code 11
+    expand(sin(a + b), trig=True)
+  execute_result
+  - text/plain
+    sin(a)⋅cos(b) + sin(b)⋅cos(a)
+  - image/png
+    iVBORw0KGgoAAAANSUhEUgAAAP8AAAAVBAMAAAB7+SUdAAAAMFBMVEX///8AAAAAAAAAAAAAAAAA
+    AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAv3aB7AAAAD3RSTlMAMnZUzRC73UTviSKZ
+    ZqszMyTAAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAEK0lEQVRIDc2WUWhbVRjH/9fcm6S5zRKnMIu4
+    xuqDVB1hD4r60KCZqIwZQQabYwllCGNqg+KDDjTgg0yQVmUqdJNYB45Ox/WlUNQtTvFhCkYRBBXM
+    CoKIZa2zo87Z+v/Ovefc03L37qE393++33fu+d/vfKEB/nfjhtBRvpjsLMRXomaN01XyWxNYIyIK
+    jZ3XY+w3In0ujlmKeOdbnCfRgVKcOANvfxPYkPwaM1Gixs6leKVbi7QbxywleAfnSXSwHSduY0qP
+    00ocshRpOCpaxPdhLa9qa2XfBV/gZehjNjVacKHMqXmcQRRmcRKe1JnehFb2nTi7xIChW21qdF8A
+    jLNY2GVClhAajgj7V+sAsk0j7zMqFoJzKkVTy8BHRZP4MtX7MnPLJhYLoeEgdm4aqsys4NojG7eU
+    GMx1+HFqalMN+IAKe6bfgzc13MLGrTdzKtidu41PVZSRyACxP9ZzHvxsaI5BRXcMfR49zzs7Xcbu
+    oeNqs4j6v9/4rMI7gSaeAu4v+f+Qpbus8STGKL/n5b+BgWBTgFGvgUyE69vATKEyQgMKp3twR3E6
+    YPRJHtJftUKAfIWz2bIz6RxEuqQ2UxSHgvQCBB+qoS0G9gP/MjfDl9vVxZeUd/JyKxgpPg8MXncY
+    uQiP1MBvjVAZoYGsYBpIT6DAV8AzQGoJhTZSTc6qSC1m2nAW1WaKekfR32BSE5mLt0IM7AP+ZG5f
+    C/imhqcpB3nVO4DDri+0XxwNOBf8BTwaECojNADBYqCCQonRt4H+CurcdIG1uMzIYBm4pDYL6RIy
+    TCT2jq12xMDjsYE34S3KEl7jTEot00Bj98PyGDGwHVlaUgaOVavPVavbCQSLgYYx4HYwzhajgay8
+    2QhXXlSbKQN9DdSLysDHyC9bBngEfL/UggdIr5oKfBXgFz6CmCfVzy+i7uSwAr5gywCPgEfBUsrX
+    xlTgstpMHQGLMwKF7wbmLQNsQu8CK3lP2GbsAZSPsBIvtbGhG/bosjTJuiZMCbYMsAkLLZ5z2IRV
+    lrGvg+yy2kw1Yb2MfSnVo3fVcEDqzz+pVK4H3Isfem3ga079o8gFA0U8lDqMdBDieTxBIlRGWAGF
+    WX99BCf5b6Cb7rATeGG2ixPOa3DbajOA1C3lX2BXE7/y3Y+tzau/bl49d8ffPZ5XE9g7fP1cC3iA
+    S7H3zAn4Z0+2sh/efpxTwXu2dKkU5T00INg5v/LI+ZVrxt5hlAfknZmncFv88P4YDvDJ9G9qM86F
+    zr176pYIM2KNg1r7E1rZd40NDQ3YKaIzQRSZXU/WUCTgn/WKXEkr+66xoa/a1Oh8J5JTJmQJQ5GA
+    5aTVeNRaEUuNk2mcdyCUXiUOWSqiSMJ+I0rUSdY6So2TaZwb/eTQfmOglP5Bkog/DZPzuhLr1ob4
+    StQk+10lfzKBNSKiIP4PvzMnUkUr/wUAAAAASUVORK5CYII=
+    
+  - text/latex
+    $$\sin{\left (a \right )} \cos{\left (b \right )} + \sin{\left (b \right )} \cos{\left (a \right )}$$
+  metadata
+    {
+     "collapsed": false
+    }
+code 12
+    simplify(sin(x)**2 + cos(x)**2)
+  execute_result
+  - text/plain
+    1
+  - image/png
+    iVBORw0KGgoAAAANSUhEUgAAAAgAAAAPBAMAAAArJJMAAAAAJFBMVEX///8AAAAAAAAAAAAAAAAA
+    AAAAAAAAAAAAAAAAAAAAAAAAAADHJj5lAAAAC3RSTlMAzRAiu5mrdu/dZmiL4QAAAAAJcEhZcwAA
+    DsQAAA7EAZUrDhsAAAAjSURBVAgdY2BgEGJgYDDZxMCgEgYkGNhJJVgzdmYB9TEwAACPpQrvlUCH
+    cAAAAABJRU5ErkJggg==
+    
+  - text/latex
+    $$1$$
+  metadata
+    {
+     "collapsed": false
+    }
+code 13
+    factor(x**3 + 6 * x**2 + 11*x + 6)
+  execute_result
+  - text/plain
+    (x + 1)⋅(x + 2)⋅(x + 3)
+  - image/png
+    iVBORw0KGgoAAAANSUhEUgAAAMEAAAAVBAMAAAANw5eWAAAAMFBMVEX///8AAAAAAAAAAAAAAAAA
+    AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAv3aB7AAAAD3RSTlMAMmYiu80QdonvRN2Z
+    VKvu110NAAAACXBIWXMAAA7EAAAOxAGVKw4bAAACwElEQVRIDbWVu4sTURTGvzxm8py4WFkIxhUr
+    LYJuo2wR9Q9ICsfCBwyorDYSEHZT7QbxsYW4EbXQKtiIWGxARQXFFFsuS0DQwmbVQuyiYCwWiefc
+    RzJnnbiVt7j3nnO+8/vmztwQ4P+PWHGcx25T2D5OEJ/QlVhxnEIhpqKrJ4CCBiTKUYrplSPAJ12J
+    RCQWr3Y1glARY6pPyaoqOEFE3V3HUguOrkQipuH9UIhUI9zvlnR0bo0d6irQs1Wd1ZtCgEwTulki
+    YBQLXWwoRMYwdaNXM6QUO1xUwR2T0ssHvWTaKHyH2+RIImAUj1vuT4V4ojvMLB2cLqWzbaEw/U6f
+    HXCGaxJhHaDeEiFukmRm/nBdP7x0SHeoyJM79+XRDdrTMA60y9ExuXsTYqRwOqr7KPU34i9yVdZC
+    OsQ5mSwCF7Cv9pzrYYflBrCXUxIxdNjxmmqEeEM+QbrvlVi7ycFrUyrXBa5jKXinBMN+4BklPnJS
+    IkaK9G0CtvGAzgCnzEoa8gyxHqUyLSDAca7yGL6lfJmiXZySiJEC9wMQgsrAthrPad8/dc/3O7xX
+    d2noAPziJK75/ivfP6328zxbB4sIKQ4ClS470BFJOEGPyUOeQV0jfkuI0c1UguETeh0QQ10jibCK
+    QYBKkW8ifSYvWEAqUADpMPzS71M9zEqHncDl0ZcOIazDXeBtib/0LWC5W8EB3S8d8h3KpteR/Z3s
+    JYpaYb5D4uXiWhtY5aREWIdJePRqCUHnvDQ3c8X0W4f8t43PgNOC+sW5X2frk7TlYRycwWBADic5
+    JRFWkV1daSlErsQiO6yDjg+p5aktqtU46FyiyatEWAetIES8o7d6zhbDkf4Z7w+n8DAcpWscSYRU
+    MOJYuEXs3aoKk+KUQnFeR1sgIv8+wuhEWVDDgUFvgbCXJNyp93tMytyzvwVxc7p/Iv4AakC5V6GQ
+    HjwAAAAASUVORK5CYII=
+    
+  - text/latex
+    $$\left(x + 1\right) \left(x + 2\right) \left(x + 3\right)$$
+  metadata
+    {
+     "collapsed": false
+    }
+code 14
+    simplify(cos(x)/sin(x))
+  execute_result
+  - text/plain
+      1   
+    ──────
+    tan(x)
+  - image/png
+    iVBORw0KGgoAAAANSUhEUgAAAD4AAAAvBAMAAABJZWRJAAAAMFBMVEX///8AAAAAAAAAAAAAAAAA
+    AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAv3aB7AAAAD3RSTlMAzRAiu5mrdu/dZkRU
+    iTJPL/blAAAACXBIWXMAAA7EAAAOxAGVKw4bAAABcElEQVQ4Ee2RPUjDUBSFT5Jaq7GlQ9E1i+gi
+    ZhSnCgpudio4WRB1UkMHOwUHcdVK0bkgVXQQN0eDuhtcHBsdFOrQgog/iPW+5uXVxFJXQe/Q951z
+    3ru53AL+kjS/Dihlqm0uTyy3zYHV/zywUr/8YT/pzZ2i/8FfV/X29RvXU+FDHbUeTklyP+wwULkS
+    h6R5GGfQ7ynvND1Ag0pCclgTxiBRz5OQLqh5YUgWsPc6b2HfNHCzfr9iUBRNAXJu9uTaRWxTjwLS
+    QMJQHikPFYEhHBhbQDcbkOUbONUwCbyR7rKAK5S1c/LZpyhHzJzRMQY8E0eOAQ0JIsRq9EO5nNCr
+    DsabuUtebkh5VG81nrP+iH1AptWx/r2wh21cPjg8Z/OdddaQ5fNNw44kUa5476MZqO+hmkLXOlL0
+    PryoK3O5gb67+tLFS6bRVF7ImocUSTTq9yoIa0TQV2j+IbTCFhXSuSnHW6SAkuS2uBi4Nsr1Lp2f
+    e4l4hDH4kW8AAAAASUVORK5CYII=
+    
+  - text/latex
+    $$\frac{1}{\tan{\left (x \right )}}$$
+  metadata
+    {
+     "collapsed": false
+    }
+code 15
+    f1 = 1 / ((a + 1) * (a + 2))
+    f1
+  execute_result
+  - text/plain
+           1       
+    ───────────────
+    (a + 1)⋅(a + 2)
+  - image/png
+    iVBORw0KGgoAAAANSUhEUgAAAIIAAAAvBAMAAADdrw/+AAAAMFBMVEX///8AAAAAAAAAAAAAAAAA
+    AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAv3aB7AAAAD3RSTlMAzRAiu5mrdu/dZjKJ
+    RFRer8KoAAAACXBIWXMAAA7EAAAOxAGVKw4bAAACC0lEQVRIDe2UO0wbQRCGf9/Z+G2d06BUviJC
+    dL7CQtA5IjRpcEFog2ggUSTcxyhCpEiQECiF6eCkVCiNpVR0boAiKVImnSVEjUWHIHFmZs+POy05
+    S26Q4i1ud2a++XdndnVAyIjYIUBY2FwcUcFY2BhRAXg3VpB7GvdB2vAQ3sPyXt1Vhxl/xx0YqgOd
+    UcdQu/wfUNq9r84vKhAKlPQCj4CJhoS0gPniWaMLEKoZpWtyWhLQAlPI/PaAeHMw33CU9WSZFWps
+    6IFV4IMHJLwclZmrqhlxVphmQw98BDYaCvjlpajJrxBpkVcPFGxWEOCUIPPN2086hUyFvAxg5vzE
+    5hm9LYAjGwI8J/dPJ9qWeB+QKlIWeRnIbmMxACB7BwhwCBg7iJUDgCjk9slLAKZdLAUAJMt0IgZ2
+    gdg1ktUAIArptgLw0sZBABDJLpAoo9ggIJPPP97K5yvM+hXew7gNAivkEAU6ZLGJK9jkGGiUKGT3
+    ycVl3iHXNvzAJUwHAlCjii08zTl+QBRSFjkJMP4gal34gHQFcUd18gyIVFP1jMQDdxHjggjAJI5X
+    mkJ0b3Pu++kr6iAD9GCMtW8zmxLvKcTWb16T9A8FYKr2dY3X/TILnc6NByQdiXif7hbKnOUpFEjx
+    QXoj6/aWtDhnIxTA/GCOb21YYoYC2h+IpEZVgaGA6fo2HjA+q/W/gb9fh7sjP8fEcgAAAABJRU5E
+    rkJggg==
+    
+  - text/latex
+    $$\frac{1}{\left(a + 1\right) \left(a + 2\right)}$$
+  metadata
+    {
+     "collapsed": false
+    }
+code 16
+    apart(f1)
+  execute_result
+  - text/plain
+        1       1  
+    - ───── + ─────
+      a + 2   a + 1
+  - image/png
+    iVBORw0KGgoAAAANSUhEUgAAAI4AAAAsBAMAAABBB53eAAAAMFBMVEX///8AAAAAAAAAAAAAAAAA
+    AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAv3aB7AAAAD3RSTlMAEM3dMiK7mat272aJ
+    RFQidGHIAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAByElEQVRIDWNgwAKYBLAIYgopYgqhiLDmE2VO
+    2EcUXRgcxvR+YswRqyBgDgPDfGLMYeAcNQcjDpAFRsMHOTQw2XQLn4r1FhswrUcXYe/63I0uNvT4
+    jAHUcTPfhFFz8IUAwfARMgYBFQaG/9jBB4jpMHP4sav6j88NcDkeJSXlRUpKBXAB8hkw95BvAkTn
+    sDInvCwFFh54/UWgomdsYDh/AWoQ7waYiZg0zopeFKKWQ4CBawGmNrgIVBnuiv4lRCmXAQPHF7gu
+    TAZUGe6KHqqA6SNZ5rD2TDGEWAqziIGBGbNNEXHSWQBVGVrFcSuA7QOqAgaG+wcgIgiSdylDPpQH
+    sw7VHMbVDOwJEBUwBQwMZggDoCypDQxlUCZMGao57B8ZmCegmQMzGMm0egEGS7zmcCUwyDsAVRxS
+    UrJSUlIHq50B1YFELWNgBMchkjJU98gfYHjPAAlBmIP5ChhCkYwAMRn/MPB9YIQIwpShmfOAIYkv
+    AKwCpsCdgWEqRAucZPzHwKbwFJ85TBO4LXhQFLDanKkwgJsAZWgybG44gKIMLR0ydh6JmIuigAlY
+    hmKYIzHHtfMCijLcFT3MXxDlOEmCym7j1IoigawMAGt/qLcv8MeSAAAAAElFTkSuQmCC
+    
+  - text/latex
+    $$- \frac{1}{a + 2} + \frac{1}{a + 1}$$
+  metadata
+    {
+     "collapsed": false
+    }
+code 17
+    z = Symbol('z')
+    f = sin(x*y) + cos(y*z)
+    f
+  execute_result
+  - text/plain
+    sin(x⋅y) + cos(y⋅z)
+  - image/png
+    iVBORw0KGgoAAAANSUhEUgAAAKAAAAAVBAMAAAAz5vjYAAAAMFBMVEX///8AAAAAAAAAAAAAAAAA
+    AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAv3aB7AAAAD3RSTlMAMnZUzRC73UTviSKZ
+    ZqszMyTAAAAACXBIWXMAAA7EAAAOxAGVKw4bAAACz0lEQVQ4EbVUTWgTQRT+tsluNtmkVhE82S6R
+    HqxBc1GpCi4Yq8c9iGAPWooUpChFvfUSeil6aSwVCvUQioLUogGhEFRYpXgQ0VgKQlVIRUH8gUax
+    1FqtbyaZnZ2QHn2X+b7vvffNvJlNgP8e24M7vAqShlgrBeRES5Voo1K0eiQGmmsVQU3FMwpdrDJt
+    VaphV2JCjsIakKOKFlYYJx2qJKheUHXBmvIC8bWOMm1CKcCpGg3Zqi5YVN1Iz/GEtVnkYQ74kINw
+    uso3MhxWy3EE2o6kM/MXW29s2W1TMuYBevLL0CS6n8C6zjnrEYb6s6k0upO3eR/p01Q+baPoYnic
+    Pfg0TgIDuAB02dZvKjBI7MZr+zLynWhaQsIhkUIYFtPahDYIw+Z9wHk6QyiHPdB7Uy+obh5XXOSZ
+    4TngDwkRGvEW7rkHrfQsjB6EBpidNMwgVInkoVV4H3AJuB930AcdVpnq9iOyvAvM8CzwnYRoFnDR
+    RYNgFJtsaEskUtROqK8RbqNNV3kfME7lUZu3trK6Nug31z1m2CcNq8j8ibaWqmEskzk2lsl4gMk2
+    PZwFlnkfN8SIq1UoRWlm+ACJlYAhG5kGogPGHeykMnVk/4RrvI+PjFk05YBDzA/DOAB8CxiyR9lL
+    j9EOo8zk+kfJ0PRRD+YK7+OPQmVUG/LQTIbz6HTRz+atjRwrw/xhLFklxHtMeqW4x/b17xDFEu5o
+    1xDO8z7gLuWeYqSEbQtzxwk/x9W5hWzr+sfW9cV9v8p8RP19e8c7epXPKfqOwlnwEJ+N/rWjgIdT
+    n3gfZdiHfXryZQFeYixLmJmqMSgp3SKKNSoMZbaKIgW2zgrZosusi7eCf8CZLDBZoybdbaNI0NU5
+    +opIxWyB/NXgWxK9iF6a2/ETG4B+RGzDFskTAsjV/4MdSrXQL1HYy4I6NAMz+djX+n0kwSMJgTdB
+    0hDT9yAjUcA/yrOz2e5GeOoAAAAASUVORK5CYII=
+    
+  - text/latex
+    $$\sin{\left (x y \right )} + \cos{\left (y z \right )}$$
+  metadata
+    {
+     "collapsed": false
+    }
+code 18
+    integrate(f, x)
+  execute_result
+  - text/plain
+                 ⎛⎧    0       for y = 0⎞
+                 ⎜⎪                     ⎟
+    x⋅cos(y⋅z) + ⎜⎨-cos(x⋅y)            ⎟
+                 ⎜⎪──────────  otherwise⎟
+                 ⎝⎩    y                ⎠
+  - image/png
+    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
+    
+  - text/latex
+    $$x \cos{\left (y z \right )} + \begin{cases} 0 & \text{for}\: y = 0 \\- \frac{1}{y} \cos{\left (x y \right )} & \text{otherwise} \end{cases}$$
+  metadata
+    {
+     "collapsed": false
+    }
+code 19
+    integrate(exp(-x**2), x)
+  execute_result
+  - text/plain
+      ___       
+    ╲╱ π ⋅erf(x)
+    ────────────
+         2      
+  - image/png
+    iVBORw0KGgoAAAANSUhEUgAAAFoAAAAtBAMAAADcoWFIAAAAMFBMVEX///8AAAAAAAAAAAAAAAAA
+    AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAv3aB7AAAAD3RSTlMAInarRM2ZVBDdiWbv
+    uzJCz3LGAAAACXBIWXMAAA7EAAAOxAGVKw4bAAACR0lEQVRIDY2US2gTURSG/xkTm5mxYwQ3IqVR
+    d1VUqkhVfGxcdCEqig8QOqsqFDGrom4cUl24K4KPnYFCF3UzCG7sphQRlS6qGwUpBrJwIwRENFYk
+    nntvzkzuJJ3bA7nn/8/57uQ+MgHaMdiSwdaQDxr6Wts6q1mD2Vg2AFr7geZM5poJ6OwXpjudSbsR
+    bHGCgQmUfVr23LcdL7asC8Zu+GW3uNcM504SI5bdjxEzvYfuxS4RV5dzsidYlZ+AI5gJNLNR0S38
+    A16J3ATNM8bNIp4SZE/jvZEFBgOvSlh/hCM9aT9SZa8m8oamE4rcFbnhz6I2wI3jQvirk+z1/P2e
+    3MhlrualuBp7rqt8Qya7ylWl7gbs9XxA2k1FrhYWhMrHnusqK3o0KV5KZKysiZniqcU75+pLEp+l
+    RmXX1qESIGQ6RsPcW7y59RfHZOcLXVzVe+jQD+RlGiVPd7SIKyQU/QRwQ7fZR8u93U37v+bnj+J8
+    TL+mZyO/LMAG1J9OPALeb9G4SB/1bKKBzSUxNsSgh/9D+ISmlRBXQwh0HI8oynhEZ9BB0y77wn2w
+    w967bES4jsc0cUVOngHOlL9iO5lxWdCHwqGh8HTrE+qtj6JBXz+1s/I8InlBB3s5h45OhbXQzuMr
+    NaW6Ry/gmltSagru2m/ZB6bvt8UIsMS1rjzAFZ72DjhR42I6W2KDFB5vYCzMoBWrj89C3We63Gpm
+    O9V0llOFTKve2Ewkadr7E21Wk7D4fMywH8BeP71tbvaw+ZlMjLVaf1hn5f8s44ht+ysKLAAAAABJ
+    RU5ErkJggg==
+    
+  - text/latex
+    $$\frac{\sqrt{\pi}}{2} \operatorname{erf}{\left (x \right )}$$
+  metadata
+    {
+     "collapsed": false
+    }
+code 20
+    integrate(exp(-x**2), (x, -oo, oo))
+  execute_result
+  - text/plain
+      ___
+    ╲╱ π 
+  - image/png
+    iVBORw0KGgoAAAANSUhEUgAAAB0AAAAVBAMAAABI7vhRAAAAMFBMVEX///8AAAAAAAAAAAAAAAAA
+    AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAv3aB7AAAAD3RSTlMAInarRM2ZVBDdiWbv
+    uzJCz3LGAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAAr0lEQVQYGWNggADG/2DwAcplYHaAsSC0KCqX
+    IR2VzzEBlc9WgMrvROUyrEblg7TrAx3wDSrMtIGBa12RtKIAkO8CxJwMDM8ZFjI9ADKZjgIJJSBm
+    uMDcACQl9B0YGEC28xkAVQFB/wUG7gVAmm0DfwOQYmD7yMAJYvQ38DsAKQbGbwy7QLQmA88CEM1g
+    3zADRN1mYF4AohneL08A0zCC9WgDjAmm2WGuhIkGwhhAGgDwdic2xV4k0wAAAABJRU5ErkJggg==
+    
+  - text/latex
+    $$\sqrt{\pi}$$
+  metadata
+    {
+     "collapsed": false
+    }
+code 21
+    integrate(x + sinh(x), x)
+  execute_result
+  - text/plain
+     2          
+    x           
+    ── + cosh(x)
+    2           
+  - image/png
+    iVBORw0KGgoAAAANSUhEUgAAAHYAAAAvBAMAAADECCMdAAAAMFBMVEX///8AAAAAAAAAAAAAAAAA
+    AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAv3aB7AAAAD3RSTlMAEHarIkSJZt3NVLsy
+    me8Q6PJIAAAACXBIWXMAAA7EAAAOxAGVKw4bAAACWElEQVRIDZ2VMWjUUBjH/zlzSS6GM7QgiEu4
+    SgcX6yA6VAyiKBTLTcVBNKCeOBwcDoKbqFMX66CYLr1JRFErLYgc6oGjw2VykUIHBQURK14V2hrz
+    Lu/Ly3W49r1vyPf/Xv6/vJdHvhcgjfoblyvpZPg7ZqQhDli+81uVLVf1rioL2CvqrOWps3V11IzU
+    2SmcU4Wd2ScvFdihkZOjXjmOf8qzWmDeshS/KcM1Vmxffk5GaCjNq5GM2uWps502XDXadg+goMhe
+    aL7DKbVpMVwZutKQYB1uNtvbhT48IOcEiXESW2XtNjnukSiRyGXNzxWZXOCqENCQUDSSHCCe0EIR
+    W/ZpTFsmJfJg9qwwzgpJiljtY62J3ZXLcPZXZrBwfMRjDna89DovlWwoF8RONp3Pzh3s9PYCN9Fq
+    6L1D+FXSAbzzbuQgLokNYa9bAZz18y4CvAX+MMM0QJ33GLGIFOastpGUnSawaq3tA14Dv9j9L6Lz
+    OqzOhRGGD7+FYQQUmfVFFVjTrsYRWoKlztvMJv7N826cgNnN2GTNyXJ6nZfbcjbIQrwv7HKEYvcR
+    cDhjk72izhuwV5MNXHK+oxQ8d7GYsRcB6ryldK78lebVjo76OFM7hKlr16vv4/Gn/8YSW7JQ6rz7
+    jNKXWm2W0yCW6v5s+VTry0wNw8j9QIu8QcnTn8W/x/DYnYPAj37HgGqR7u3pia/AsTYNbZUnyJA+
+    ZM6VYHX+SqZPD7nrkpLOxVVpJAOs+UxKi0/SRAYUxjIpLZ5B96WhFHAiFPxUSl9P1+pHpCEOzMXx
+    XxX2P1JGkgckOnonAAAAAElFTkSuQmCC
+    
+  - text/latex
+    $$\frac{x^{2}}{2} + \cosh{\left (x \right )}$$
+  metadata
+    {
+     "collapsed": false
+    }
+code 22
+    diff(_, x)
+  execute_result
+  - text/plain
+    x + sinh(x)
+  - image/png
+    iVBORw0KGgoAAAANSUhEUgAAAGgAAAAVBAMAAABYjraNAAAAMFBMVEX///8AAAAAAAAAAAAAAAAA
+    AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAv3aB7AAAAD3RSTlMAEHarIkSJZt3NVLsy
+    75nQ6/gxAAAACXBIWXMAAA7EAAAOxAGVKw4bAAABkUlEQVQ4EbWTMUvDUBSFTzRN2yTSUkEUHEIF
+    xckijkKziIOCjt0MiHQrXTsJji7WQTCCKE6OpQjFqcVRkLaIg1t/gAjSXbwvefc1oYhdDPSe8+49
+    X+6jpcC/PnY1fH2y8+uaFycc2Y+ezOxIxSabMe16sjVfkOacM2k2gWpu7BgeLAlNeTwcOdExHe5H
+    lKEZl5taj53QKLTbkROGSvJMcgXklraWnaDD0NPdqt4u2Ncf+XXA2hAVqNBHRivQvORJqh6FtAZS
+    oAXpJvZcWC1RgRZUtAYja3yZoquul+jDEJDVQ6YqK3AKFb2HhnQjQBSEsyYtIKiOjCMr8EabZLRL
+    eZrQY/j+5bvvD8jO3XwHUCOAghpAHBVQt4MsidqkuzjeF5tiEF2PoyWY2TVMxSDTw3R1DKIvgqM1
+    HNy2sS3eojaZfVgurYlvOoSKfmI2nytXY1CivHJkF4eLxeFz+5UMVZrTj8vRizAeg6KtkU+57PUe
+    O6EJuTHaUz45YGs47P7WB44ssJlA1Z9Q0RNAurx80sUPZ91bJ3Tj4mcAAAAASUVORK5CYII=
+    
+  - text/latex
+    $$x + \sinh{\left (x \right )}$$
+  metadata
+    {
+     "collapsed": false
+    }
+code 23
+    limit(sin(pi * x) / x, x, 0)
+  execute_result
+  - text/plain
+    π
+  - image/png
+    iVBORw0KGgoAAAANSUhEUgAAAAwAAAAJBAMAAAD0ltBnAAAALVBMVEX///8AAAAAAAAAAAAAAAAA
+    AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADAOrOgAAAADnRSTlMAdpmJMlQiZrurEN1E71u8
+    6TcAAAAJcEhZcwAADsQAAA7EAZUrDhsAAAA+SURBVAgdY2CQe/fu3SMGZpPAdLEEBlcGM0YHBiBo
+    4FwAJFkmcIM4TAV8IN66BXwHgJQ0A68BkGpn4DRgAADO5AwIf9stDwAAAABJRU5ErkJggg==
+    
+  - text/latex
+    $$\pi$$
+  metadata
+    {
+     "collapsed": false
+    }
+code 24
+    e = 1/(x + y)
+    e
+  execute_result
+  - text/plain
+      1  
+    ─────
+    x + y
+  - image/png
+    iVBORw0KGgoAAAANSUhEUgAAADEAAAAuBAMAAABzMuxhAAAAMFBMVEX///8AAAAAAAAAAAAAAAAA
+    AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAv3aB7AAAAD3RSTlMAzRAiu5mrdu/dZkSJ
+    VDL+6OvUAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAA4klEQVQ4EWNgQAJCSGwUpsknFC6CoxKGS4aB
+    fVSGNeNnFiKshh/rPw7wYeh7lckAlx94C4iVUS+zroEohunRCWdgbmJgYDrANZ1TAGwMTObADQb2
+    DwwMPAo8n3gNkGWYLwQysDgA9TAwAkkwgOphYmhn4AebDyF5BAUlGwUFA4BquD8xvH8AUgskFUA0
+    A8weVgGGChBXoZ6BXQEkAZdhSWBwA3L3X/BnsAJLwGVYHbh/AUXUytVPLUCVYcop/QwRgZEwexgY
+    gDahAO4FEG4ig/4GFAk4ZzqDO5yNythe+gAoAACKO0xXfsBZ5wAAAABJRU5ErkJggg==
+    
+  - text/latex
+    $$\frac{1}{x + y}$$
+  metadata
+    {
+     "collapsed": false
+    }
+code 25
+    e.series(x)
+  execute_result
+  - text/plain
+              2    3    4    5        
+    1   x    x    x    x    x     ⎛ 6⎞
+    ─ - ── + ── - ── + ── - ── + O⎝x ⎠
+    y    2    3    4    5    6        
+        y    y    y    y    y         
+  - image/png
+    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
+    
+  - text/latex
+    $$\frac{1}{y} - \frac{x}{y^{2}} + \frac{x^{2}}{y^{3}} - \frac{x^{3}}{y^{4}} + \frac{x^{4}}{y^{5}} - \frac{x^{5}}{y^{6}} + \mathcal{O}\left(x^{6}\right)$$
+  metadata
+    {
+     "collapsed": false
+    }
+code 26
+    series(exp(x), x)
+  execute_result
+  - text/plain
+             2    3    4     5        
+            x    x    x     x     ⎛ 6⎞
+    1 + x + ── + ── + ── + ─── + O⎝x ⎠
+            2    6    24   120        
+  - image/png
+    iVBORw0KGgoAAAANSUhEUgAAAVoAAAAwBAMAAACiZ6/NAAAAMFBMVEX///8AAAAAAAAAAAAAAAAA
+    AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAv3aB7AAAAD3RSTlMAzRAiu5mrdu/dZlSJ
+    RDLkM64aAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAFz0lEQVRoBdVYXWgcVRQ+ezeb/d9kiyIiIUOV
+    Jg+BDlgfDEgWqdInEyWJfSi6WGjUB10iSX0omBYFRZSoFX0QXfAH9SVLS+2DYLdiuijB7oNVEGn2
+    QcEHoUm0qbE/67l35mbu7JyzyTYL0YHs3vN95zvz5c7dO2cGoIVj/gGLya6c4xjIMRKAzDODRZbc
+    MpGyO7vpIpFiJEczkFxhCIB0fZXltk7E7cyfdJVIObFEMzDQxO1XFiNqBxyrhq9zdSLMrMNkE7dV
+    rlp7cP6y9tfoM2RONHH76JRFq9qDxgtMnb7bGCIleLfCTuYYWVvgebYK9yv7sIlbAMH8DtjTtEIk
+    RtjszFWSEoUmbjtswf4OyGqtgb/ARVrQXwv/QzLJsbHLRZJBMG6H+WXCiTaNZ+748n46OW4njtEM
+    NDGUslL8xWLKbQrum77vSCFWry8FshWTqZyzGxlx+OBPFYCPVkuNDMZKBQsHCGrrkCgn3ol3U3V4
+    ZgA+K7xBSRDjVYygJRiv2UoyMHuyBM98Deetk8xZeBUjaAkWEMrRAp6x4BZagiivYiSpSpFhSLir
+    QMII8swVTtJURYp6wjMkzoCXamDRFMtkbuAccger8gkyVSeM5kUB2PnySTBIWi9A1GpEZcwzJ6JL
+    MElJmqr8gl/dMFbCwY9+jo8WS8MwSNIsk77asRQukhoAVtWQv8ONu05j/5PiqjWIYNfhvu/oXJYR
+    E5NHPm+so2NWpRIu7Px2WS2BiL74QyPpWYA3Jav/AV1qu7+j+R8uPq4aiCHL9bK7BAhMYbRnZbvt
+    NZx/In0MossSXG/5uqqAfcgQwF3j2q2wG2QAdwYQDbAMUcXV8IxK0BUj+X5cBnWJveoqIVSUcxsv
+    AkS126ReJToH4LQ3bBixDFHFlfKMStAVF61RjHstfCbWziCdS3YDyB76v+b2bSih22H8S8zgh3N8
+    PG+h0xnCrds8yTT9/8qx/2AZfgZ5RpV2K6ZvqGgffqonU6dbU1ga5zowt0bzxHri/w/eE8+YbiPO
+    5X8JsY6cv1vDm2PQrdE8bYPbjiXpPSN3sFDe3+PJ9wOBuTWaJ+227h2yFh4so2ewy5Oo8+NNuuBI
+    DUbluLRbMaTmVi2C+Ii/Wwvjs5/jNpXN3n40m0Uejyvq82w2+242e6sa+z9YxlfFp+GZhnN1qnU7
+    ZCMs59bs8ci5Ba950jMoVf6DZfQM+tNlxDMq162Yku/GRI+EHLdetybfawVWgtE8sZ7WV4I6kfnB
+    e+IZpXfPJepFvL9WJdSZ8/d41J5gNk/b4BbmVk9eOCjNqv3V7NZw/408ufa04vSVMpun7XCbHl57
+    zDEk59Ls1nzvg4grZbq9Z/Qhp4j6NJlU5XuP8aq4gt805zGwAyA8trcG4sBUTdNmRRd7TXPOd6hg
+    xOmiETjDnz1E5OG8Wk1Bpgce9vLWq2jBcc2tM6rt2wWp6xAqibc0bZxLQw2vG3Zbmtjwu9OC2AyZ
+    FSrDXoJwBdEXA5xq+54AeBk+BTgboD3gd28oR5/4w2ZRbBacrTCQNCf3xuDhCgaJ53S5Db0C8Gzt
+    QYAzVlCqkc6SHqnv931R0wDvMYzbfbTOFZQZt70WusW9ddHvyFdLdJthomxGG47jOCXEsfzHVJWA
+    EUJBwmbcIv3BzsvotkBrFXrK5PaYwcbjxTKVI5aLXpPvT0BBH/XGxrkhpa+FrwFcIou6dZLmxD/i
+    L75RdJxMEHUL9lskhYIy7zae29AtWXVzoG9zNiRrAHPkUkBBssa7HQWBc9t0JRhnaXU4zQiOotsi
+    xaFgAFi30TwArtsz5sWmqtwclhyBu0kl7gnk3ErBF4cO/T0RUKl1ewrCNi6VOStAtwPAO+hzZB3c
+    MfdThCsI3h1U25cZgaj9PJi3QarITWLh9xbGZ0ltR1msP/gbCVrwl4G5Qzm39y7MPwXxkng9SLcB
+    CeFTCe0W5sdrxAlcwTd1t8XzUlTb11uvr4GoTFNSL/V/PfoX0LjCXF+s8nwAAAAASUVORK5CYII=
+    
+  - text/latex
+    $$1 + x + \frac{x^{2}}{2} + \frac{x^{3}}{6} + \frac{x^{4}}{24} + \frac{x^{5}}{120} + \mathcal{O}\left(x^{6}\right)$$
+  metadata
+    {
+     "collapsed": false
+    }
+code 27
+    solve(x**4 - x**2 - 1, x)
+  execute_result
+  - text/plain
+    ⎡     ___________⎤
+    ⎢    ╱       ___ ⎥
+    ⎢   ╱  1   ╲╱ 5  ⎥
+    ⎢  ╱   ─ + ───── ⎥
+    ⎣╲╱    2     2   ⎦
+  - image/png
+    iVBORw0KGgoAAAANSUhEUgAAAGIAAAAmBAMAAADNQlNHAAAAMFBMVEX///8AAAAAAAAAAAAAAAAA
+    AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAv3aB7AAAAD3RSTlMAEO+Zu3ZEIondVKsy
+    Zs2TEEIcAAAACXBIWXMAAA7EAAAOxAGVKw4bAAACXUlEQVQ4EYWUP2hUQRDGvzvDy7t/8ZHGziMR
+    LPUUsVaM2F6hhYL4QDiDCjlQrJScXJEyaSSlQSJoGtOICCInKhaCF7AThDOVWpxeYQRTPGdm573b
+    fb47B2535pv57e5bdg7TsweQWPQ/Ozo7g+mknJwVO8j2XaJYy66yVZcohXYu23eJQnaRo7rENSeX
+    HbjE8ewiUS/xNZLnEmOuymvpag5R3iT1jWZS00Tw/t1n1hzCXwNeP0+VavgQCxEv6BKFgJTHWpKa
+    erj6SiRnj5ssZROVLTTMGg5xcTQxBVw+d4TzDvElm5hcAy4A+7CeJnK9bGJ+gNwJTlWbNNh7VOos
+    J9+R47zYV+wJgTOo0ugQE1KSEEVZgGqwEPCdrGIxSBH7OYsHMtIwJKZazyi+izan7FM9YuHG/ac8
+    kQ0Jb2eTYr/dYlmJT+y/4GFoQwI/5LwmZQhvl6OVYTV7FvHWyhjizjZX1GjYq2/aIkRiOYp+kmyI
+    znIHKNEvMb/f/3ao3+dFUqbf0a0DBUn5x+QtkG+dCmifCpRUIt+jdyPSEl5qyib8ZokqxJQoDQDT
+    sqvoNk3KJgrN8m+XKP6Jr+ogFsN/iXw4ueMSuV1Iy7L6RE9s70FfRacQ01NhG9yyYvd09rbUkalQ
+    1ygmljvUM2J+TR13kjfFUkx0W9KypHx0KzWqJOvERL4nLQt4La+jVfY0j+saxkRpIC0LfNhYD+xS
+    45e/b5xMEcVfPaMclr9KzSZT3rwpjuM9clF8F0nVCCcmnBYYUWvkGVTnTrN7fmxZkjw7N4DXuMLx
+    7UQc69xqhH8BZfiqGtBwPIoAAAAASUVORK5CYII=
+    
+  - text/latex
+    $$\begin{bmatrix}\sqrt{\frac{1}{2} + \frac{\sqrt{5}}{2}}\end{bmatrix}$$
+  metadata
+    {
+     "collapsed": false
+    }
+code 28
+    solve([x + y - 1, x - y - 1], [x,y])
+  execute_result
+  - text/plain
+    {x: 1, y: 0}
+  - image/png
+    iVBORw0KGgoAAAANSUhEUgAAAH0AAAAaBAMAAABoX070AAAAMFBMVEX///8AAAAAAAAAAAAAAAAA
+    AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAv3aB7AAAAD3RSTlMAMolUmc0idhCru+9m
+    3URozekSAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAB0ElEQVQ4EZ2UvUoDQRSFj7vGTKKJeYMEVGws
+    9g2CgoU2prARLBbEStFFBAkWmUZC0MLG2oBaRIREwdr0IiKIf42PEBRFbcR7xyQ7bjZxyS0mc885
+    3/zshgXQM4SuKj7+i03aXeHAYpHB8CePXdUZU5GMDxuSPqIriYn1BHVHrPjxfWXJVtsKWeKOzD0O
+    +PDicF+y1bYugREy2/FATrZl2SgBaUp0zX8BNUvn89mVNYdXfuShdX8x7GBJkhHbpUG8EU9xtX+0
+    SEJq4D6WYeecBirv+Q2zghwb25zqewWSqTq/TQsZ0vg0bXIa5eUXejM4bphN/lrSWrMkC4SK9OOW
+    l5f9Dj6atqD9+fzGDXBlK3mQWq28PGqy58X16f5pi9otB+a8kpMJSNdvuT8mEa64/hPAZ1fsKi1k
+    yhzCHfkSorsuvwlakO6QoIGff80qY5lt7fmLdxYaNY1alefq+SNmiVNqmv+fwkZ+TNn19z918VjF
+    s6RIowqjMzbP1fuHGM3y1k2enZaK238kPrCnOvMDWjqSEd9aW5925nc0IOZEHa0NxFc1IL5R/9hp
+    2n/3/xP1bdT3x6j4ekHEWxWak0GyPpnIgxLNAx8vgBQ/CRD6L/ID1aNrABrAsl8AAAAASUVORK5C
+    YII=
+    
+  - text/latex
+    $$\begin{Bmatrix}x : 1, & y : 0\end{Bmatrix}$$
+  metadata
+    {
+     "collapsed": false
+    }
+code 29
+    solve([x + y - a, x - y - c], [x,y])
+  execute_result
+  - text/plain
+    ⎧   a   c     a   c⎫
+    ⎨x: ─ + ─, y: ─ - ─⎬
+    ⎩   2   2     2   2⎭
+  - image/png
+    iVBORw0KGgoAAAANSUhEUgAAANEAAAAaBAMAAADbO6SrAAAAMFBMVEX///8AAAAAAAAAAAAAAAAA
+    AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAv3aB7AAAAD3RSTlMAMolUmc0idhCru+9m
+    3URozekSAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAC8ElEQVRIDbWWQWgTQRSG/2zSZps021w8iaRg
+    sRcPgR4EL6ZgqRTBiuYgqCyoJ8UuKsSC0BUstVSxHsRrQAWVgtHSq+Yg6EW0IFYPavQmCNGDtafq
+    vNmZ2dnZTW590Jn3vvnf/LvN7CYAUjuxxeGMBgZj7hYbAWfqZJHdoNGIa7XbBgGsmhdjEWCPTxcj
+    gIrhGo3PaOibpDEa9moq7v8l1YiqzOpmseSbrNDaTugBDUlOmUrqHa3pkanb8SvWBdiPHZGaiglc
+    pekODUlO+XJ2kdZY2C6fgHxZJB2nZUzH1pYD0tHplpt77QeatCe6B1yRdJrsdSxdNxfXA9DRKV8s
+    /RQ9yqmnhYq5T7R+mtpsRglwEhlCodPc9PkL/OI/calzd89B0aOcesdf+YKJyR7ycJZYIfhX/7h4
+    qSmW1HT6ymXKuVOuzj6Mwf61wiQj9gpxPZSTDoPcSjcwQ+kCtXYN7rTA7sXyrY20m6jt4nQqM4nH
+    iU0x+NYHeo8ybKOnzqak6OLk5z38TeiZ/UxxWF+xVoE3LicD7M7C+EfBSqtaPbFSrVZYOiBQKALa
+    fup3WHPFr7CmjJo4mvWQPs7XSkX4PDGHLveEMWQbpj655i5TZSDtzyDra6Kh+7JSTtbEAU3A00fI
+    Leos7FJUoHaRETp77fITnKNVcfYsV705lNMuOqr2H1LJmEC7Sbk4e1qXVEjEzx7tOV+b2817EDxP
+    BTclHm4opw8oucBXX27C5vnhQwyp50nrIkohkXIKcDjmW72bolJOzzHVAhw3VLFsTK+0Lokl6ujE
+    Pjn5reE0ZRf2+UC/qujdbMvrEVR1haoAdXEqeKFYZmssuSELNhe8nKFK6ApQF6chbUeRWhWWNNmf
+    DKc2KlMxJ3QFqLNTf8XYg5Uv48ggCV0C8e9cq2HoqfyObyZ1Bp2iyYw6oUug91x5zDca2A+zIyMP
+    TbhtZG9cGBEldAnU95EL0/cieiry4m2lL7zgb0KdmHlCV4CcJVO6pfV/rMy8P+mJlX0AAAAASUVO
+    RK5CYII=
+    
+  - text/latex
+    $$\begin{Bmatrix}x : \frac{a}{2} + \frac{c}{2}, & y : \frac{a}{2} - \frac{c}{2}\end{Bmatrix}$$
+  metadata
+    {
+     "collapsed": false
+    }
+code 30
+    var('m:q')
+  execute_result
+  - text/plain
+    (m, n, o, p, q)
+  - image/png
+    iVBORw0KGgoAAAANSUhEUgAAALQAAAAaBAMAAADs9WufAAAAMFBMVEX///8AAAAAAAAAAAAAAAAA
+    AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAv3aB7AAAAD3RSTlMAMkS7zRCZdiKJ71Rm
+    q90icBAQAAAACXBIWXMAAA7EAAAOxAGVKw4bAAACOElEQVRIDbWUP2hTURSHv7zmveZfk+Cogxl1
+    UIMFFadMdhLe4CRKMig6aXBoQBGUgi0UTKDF4qAGRKRbZh3yZkEaUBFxsIKKxaFttJJSFM+tvOSe
+    N/edIffc7/7u79137nkB9hFD1I1nohyDM0eMadKPwzodiOuVOJzhK6S24rGehnQtHusmZDrxWOcD
+    DsZyi+CVeQXOo7nGe2fpeOT4h0/N3q5HGA+mSwo5C3cb7xSBe43ZEuNtLkm5x05SvcGLiKI2WXcH
+    EXa/FEHpiR8saJHznU8+zhaTcCBfodliRSsSnS+kNjVjGdYUmk/2ohvPB7yVL3GTs+BXS3R93qg9
+    uG6f3IZmnnTqH4X8Qocn+rquY06Q6vNNlF24Bs/VHshuMFHRLFMmta3RMZ/Tmjw1tqR2zKlNvddw
+    Bq6WeBUKgT5QtUU6UqPHuL/VPnd792XF3lgvIy/vVeaVhExLytRSrBAYquIMuWcKuDuMVaTWA1Nh
+    eYAUNdlqub9sUbPEYq5YFdkwvB4n0Kqf7C9qMsWKPF465Kb8rjLeI/uhyLr9/kdh5hZ59R/z0LS1
+    rXL6S1c14WKjK6JcG7mGUTh3RnmYHQqT4Wir0qsG20Smpo3la8yUZAwjFybWGFj5/9RWJWuG2USm
+    0tYk63j2tVwwOh1uoOcys1XVjlm2iUylran6JNoyhhGEyWiMHMgsBKPV7PpUhMh08W8NXkvy0azt
+    fXwWy3N7byuOOVPnbC0O75ld05dxWF+Ow3To+Q/0hoTwNP49UQAAAABJRU5ErkJggg==
+    
+  - text/latex
+    $$\begin{pmatrix}m, & n, & o, & p, & q\end{pmatrix}$$
+  metadata
+    {
+     "collapsed": false
+    }
+code 31
+    var('r:5')
+  execute_result
+  - text/plain
+    (r₀, r₁, r₂, r₃, r₄)
+  - image/png
+    iVBORw0KGgoAAAANSUhEUgAAANUAAAAaBAMAAADS0ATRAAAAMFBMVEX///8AAAAAAAAAAAAAAAAA
+    AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAv3aB7AAAAD3RSTlMAMkS7zRCZdiKJ71Rm
+    q90icBAQAAAACXBIWXMAAA7EAAAOxAGVKw4bAAACYUlEQVRIDb1VPYgTQRT+ds/dbHbXZVGwsUjs
+    TKMBfwqrdBaHsIggHkICytmmETmrrWzdKmkMXCMiNttccwcasFGrgIiFIFbaKBdERVA535vJ7c3s
+    LFyVfbAz73358n15LzMJgGOoIRrCw+rWYAV7xi5Hkjq88Ihd7tRihYha8n7W49UYAE166ghvDvh5
+    HU7k8RVo1XM0gFvAG7LsvOvcM7uzJ1fHQxOuJh+ucR+4TWrZ+fySKdpcWV3ZNOFq8uEaZxOcA6z8
+    G05hY6OkezKa2TGOl1BJHl0sjV7C40kJlhrokkgrxhXAcb4DYRbMdNmk3wZOfNRBSW6mR3s6LjTc
+    qcuqSggNBHyvHrbxmbZgDkQxyjftBb/pOS9qCHJq/VYxyhl2s5BWLYTGDeGVc19we0A/xTONJb9K
+    04vJftujUWjBsFTSYD4OuLvoi738TJx9ugFaPOXK6IvJ1EZ5CBJei/lFJVjD2mJyK8Vb2miUfM++
+    wPlB1X7Ij85e/d4+RjuTaeRDnSzh65dLZKHRdNiLziEde5yhh2yfALsJpYuwP3HCXpHaBJOBET0q
+    WWjQDLs6WWi8El50kclORD8GfQV2KquDVczw9EEts3BAu0mG9Qcok52h8KLfDb8t3x21+RyGslBW
+    4TVVAJF26EKa5LXY+wuUycH6+i/CaLxuJnUag2AG3JSFsm5T7kwVgFNrdedCBTlKw8cmWf5vcW/W
+    5kJnNKJpThdFsT3YfV/RgL+3N68gW+NJanYLvPyXI6RO8KHQXWpCvxXAtaVaFOKvOQsGRb3ExOsK
+    8Z0lWhTSblKktST/AWrgkc7SltYcAAAAAElFTkSuQmCC
+    
+  - text/latex
+    $$\begin{pmatrix}r_{0}, & r_{1}, & r_{2}, & r_{3}, & r_{4}\end{pmatrix}$$
+  metadata
+    {
+     "collapsed": false
+    }
+code 32
+    m = symbols('m')
+    M = Matrix([[1, m], [3, 4]])
+    M
+  execute_result
+  - text/plain
+    ⎡1  m⎤
+    ⎢    ⎥
+    ⎣3  4⎦
+  - image/png
+    iVBORw0KGgoAAAANSUhEUgAAAD0AAAAyBAMAAAAdGs4PAAAAMFBMVEX///8AAAAAAAAAAAAAAAAA
+    AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAv3aB7AAAAD3RSTlMA74lUMhDNIruZq3bd
+    ZkRVk0nZAAAACXBIWXMAAA7EAAAOxAGVKw4bAAABb0lEQVQ4Ee3Vv0vDQBQH8G9+XK/V1ATUxcFG
+    cXTo4ORSwbr3P2hxcyuuDgZcdLGdBP0HhC6Nm3Sxk4NTJx0N3QTB0lIERWuuCcld8FoHF8E3JO/d
+    5zgu90iC3KgPSaijkYX54o6EQYrbFhZkysb10FOl72eFTmsTnZw0Jzpw86vevTxoud1rL96/uL59
+    7JJ3T7MkrudvQfvI9iROyCe0IWYciUPrIdOG4so8U4Fh46Vais5X3J9io+zhjOYlfujhEdhVo/Uv
+    cncdrkHPQAvYXIucMzEN+ycOctW//+j92F894g5tnOp1dgvOj9ZR4PvDxHDYNfDZAcw2K7m4clgR
+    +NwyyhVWxkHvHVZE/Umur6ZE32OzuXgQXF8f7zZ24goOrGzF6GcqEq4sCr4hOK0iPeCd2IKbQ6Q/
+    eNcajeaS648Ez6c4MF5593N/zI/Asx0U2Gw+TIdV4fk8nZ/y5udq7Y11JPQExuUf8Gnf9yn/hy81
+    6lu54xcQbAAAAABJRU5ErkJggg==
+    
+  - text/latex
+    $$\left[\begin{matrix}1 & m\\3 & 4\end{matrix}\right]$$
+  metadata
+    {
+     "collapsed": false
+    }
+code 33
+    M.inv()
+  execute_result
+  - text/plain
+    ⎡  3⋅m           -m    ⎤
+    ⎢──────── + 1  ────────⎥
+    ⎢-3⋅m + 4      -3⋅m + 4⎥
+    ⎢                      ⎥
+    ⎢    -3           1    ⎥
+    ⎢  ────────    ────────⎥
+    ⎣  -3⋅m + 4    -3⋅m + 4⎦
+  - image/png
+    iVBORw0KGgoAAAANSUhEUgAAANEAAAA3BAMAAABgCbJDAAAAMFBMVEX///8AAAAAAAAAAAAAAAAA
+    AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAv3aB7AAAAD3RSTlMA74lUMhB2q5lmu80i
+    3UR8CheWAAAACXBIWXMAAA7EAAAOxAGVKw4bAAADiklEQVRYCdWYPWgUQRTHXy67l12z+QAjFha5
+    xqSwMI0iNp4m2iaxSKPgETBKRAxK0igY0uQSEU+wkCC6hYLYJIKIsgrXiOVFLCxUSCdWHorENJ4z
+    k7udj517u7MkBKfYfTP7/u+3czM377EAUuvrH5H629ZxSo6/bcGlwE7OrUoDW9nprf0UwzkrYm+r
+    7Eyt1g27h06K8Ubz7sKpi9nJvDhoaN+/NzE78VgU2UOD3dAjjsDYS3B/lFqms1PSsNhpj90zDzdg
+    78gFUQNgqSRw/HeXoWvNycmOvOctx5G8sVX4C3NcQq0oyfoFM3AcOgZkR4CzmwP205txJGgrkLgf
+    5QAqaTTvbZDfcxIqluwIcLgxcCWW1JLP+l413xCwu0rqKLt7vCqZ1VJG8iMdA1KFzMr1c1IElWT1
+    9Zc7p+ANvN8v+ZmRvkF72bsqT10lqeGFvsGcBFVo/k+kM19pexG+ezOjPqeuGtKo9kAQfAiCVyxM
+    k72HRKhVdf+nZu9ksvd0MZR10mSnXQ1Zwh2RGZ9uKMK7TyyZJGenTuZ5rLFZE5IWYDEkAKxRu/U3
+    uSgkKTux2dgHVdJ876cS1Tdpc/BIeOJT+3SUBOCscDdGyp5TSdyhiXVLGPepfV5HErMTIw2GpO9C
+    AMy0e4DnJ594Woc0JCk7MVIuJGHRhWf2pQLw/ERJGVtDkrITJbllUxLAopCfKOmBRDr6jDSyIjw7
+    XQ+eB0FpDBKTWmmIJyTy8EA9P7UFwb7gtV2QSMSBNDk70TkdKd5ZYI+SXsgqVUo8P/lkjxeLf8hm
+    lXe5nJ3YOkGlsfcSsr7A3RGenwgJwIuuk5ydGMldvpYQUXc7MX4DeH7y6ejS+oA6p7pz/cZIusNF
+    dov0LJ8PcVP+9bgHtRx6kQ8XOhLXrPlV7jIbmhiJOcmHS6jDjFaBxP1iSQDi4cKFiJWWRLatYUtJ
+    ooeLYUtJIoeLIQhSk4bJn8GopSOxw8WIQ46fdHuPHi6mpG6dIHaX08PFrHm31wsaRSxJo0k3tCMk
+    +y0tez/nIbagjUwqiWJH5hR5U6ygjTizAUyBzAktaLUkVIGRsIJWT8IUCAktaLUkVIGSkIK2CQlR
+    YCTzghZTYKQUBa34gYYWPEIJrCWZF7QJFFrS5iKYF7SogpCUr27hWpsXtIiCfXVTviSGJPOCFlGw
+    L4lhaNRgBS3qoT40V2xGYAWtGgztRxT/AOMWj7EJTEfkAAAAAElFTkSuQmCC
+    
+  - text/latex
+    $$\left[\begin{matrix}\frac{3 m}{- 3 m + 4} + 1 & - \frac{m}{- 3 m + 4}\\- \frac{3}{- 3 m + 4} & \frac{1}{- 3 m + 4}\end{matrix}\right]$$
+  metadata
+    {
+     "collapsed": false
+    }
+code 34
+    m11, m12, m21, m22 = symbols("m11, m12, m21, m22")
+    b1, b2 = symbols("b1, b2")
+    A = Matrix([[m11, m12],[m21, m22]])
+    A
+  execute_result
+  - text/plain
+    ⎡m₁₁  m₁₂⎤
+    ⎢        ⎥
+    ⎣m₂₁  m₂₂⎦
+  - image/png
+    iVBORw0KGgoAAAANSUhEUgAAAGgAAAAyBAMAAABCJ4MDAAAAMFBMVEX///8AAAAAAAAAAAAAAAAA
+    AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAv3aB7AAAAD3RSTlMA74lUMhBEqyJ2u93N
+    ZplQnf8bAAAACXBIWXMAAA7EAAAOxAGVKw4bAAABo0lEQVRIDe2WsUrDUBSG/zZprNaKqIuT2cSl
+    UnyAKta9g3uL+ADiplPBxc1OgpuLgosUn6Dgg+jm0A5VsHaL99xr7vUkp0PqJPTAhXD/+5Hwk3wE
+    G9EHMs129I7V+kEmBof1KtayIXR6bwaZ0nQRweblzVmwdS/1KGUayi88oHmNKuDfmuVwnlUeGyrS
+    0H6ph6sQL/Dfuno5BizLt+d6MdRotlBr4BzwumY5imWltj+OIdSAPrAuQSzLtYojCw2AJwTjgnAn
+    sAzep4VWUBhhqXchQSxDqRND6p7lIRbDUIB4hopiTHtBF/Mn8E53BYhn5VcL0YWZdHtxYko6wrHa
+    SHwa3rIK1ZJG7fvPO3cpqNj/6tCSGNrPRdEwBUmHhb3E4wknhK0Z9FPKrIg/FyEJMX7lpExX7oRI
+    MiRhuuGZJEuSIQnz11hZUibKUsuQPnk3VpaUibLUMuSQlSVlsixJhgnIylKLUpIlyTABWVlqUUqy
+    JBlyyMlSi1KSJcmQQ06WlImyJBlyyPVImSRLLcMJsqRMlCXJcJIsKfsvspzq122an8Rv50XFB+Ww
+    4SIAAAAASUVORK5CYII=
+    
+  - text/latex
+    $$\left[\begin{matrix}m_{11} & m_{12}\\m_{21} & m_{22}\end{matrix}\right]$$
+  metadata
+    {
+     "collapsed": false
+    }
+code 35
+    b = Matrix([[b1], [b2]])
+    b
+  execute_result
+  - text/plain
+    ⎡b₁⎤
+    ⎢  ⎥
+    ⎣b₂⎦
+  - image/png
+    iVBORw0KGgoAAAANSUhEUgAAAB4AAAAyBAMAAAC5cHbcAAAAMFBMVEX///8AAAAAAAAAAAAAAAAA
+    AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAv3aB7AAAAD3RSTlMA74lUMhC73c2rRHaZ
+    ImaqCQggAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAA9klEQVQoFWOQ//+JAQb0/39kEHZxhXEZQlwM
+    GUTgPBDDEcRnTSyACYL5DBwTUPn8Bqj89QGofHUYF2IeQ+fuw1ARiPk/AvgvMLiBhMB85q8M/Ao+
+    0+F8ngaGeAUGczif4wDDegMkPv8DhvMByPwFrHIMSHzOB2wHkPmsp+cBzUKYB+Rg4RuCBCH+BbHu
+    1M9G4YPEkOXpyKdLfDAdOwrzHzg+dBlmwPjg+Khl8L8A9T84PqQY7i+A8iHxwWAPTAXg8OMHxwdD
+    NUw/JD6YDsD4kPh4A+QihTeXApcDMt/D2AxmHkghg/z//0ASET9gQSL46OkdLT8AABDBTMmz6EtE
+    AAAAAElFTkSuQmCC
+    
+  - text/latex
+    $$\left[\begin{matrix}b_{1}\\b_{2}\end{matrix}\right]$$
+  metadata
+    {
+     "collapsed": false
+    }
+code 36
+    A**2
+  execute_result
+  - text/plain
+    ⎡    2                               ⎤
+    ⎢ m₁₁  + m₁₂⋅m₂₁    m₁₁⋅m₁₂ + m₁₂⋅m₂₂⎥
+    ⎢                                    ⎥
+    ⎢                                 2  ⎥
+    ⎣m₁₁⋅m₂₁ + m₂₁⋅m₂₂   m₁₂⋅m₂₁ + m₂₂   ⎦
+  - image/png
+    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
+    
+  - text/latex
+    $$\left[\begin{matrix}m_{11}^{2} + m_{12} m_{21} & m_{11} m_{12} + m_{12} m_{22}\\m_{11} m_{21} + m_{21} m_{22} & m_{12} m_{21} + m_{22}^{2}\end{matrix}\right]$$
+  metadata
+    {
+     "collapsed": false
+    }
+code 37
+    A * b
+  execute_result
+  - text/plain
+    ⎡b₁⋅m₁₁ + b₂⋅m₁₂⎤
+    ⎢               ⎥
+    ⎣b₁⋅m₂₁ + b₂⋅m₂₂⎦
+  - image/png
+    iVBORw0KGgoAAAANSUhEUgAAAJEAAAAyBAMAAACufiRQAAAAMFBMVEX///8AAAAAAAAAAAAAAAAA
+    AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAv3aB7AAAAD3RSTlMA74lUMhC73c2rRHaZ
+    ImaqCQggAAAACXBIWXMAAA7EAAAOxAGVKw4bAAACkElEQVRIDe2XsWtTQRzHv03ymvSZ9gUVHAR9
+    m4odWhw6dKjQ6uTwXJyU6OCiHaL/gAERUuhQHHQIlCDOtqvWIeDQioMBV8X8B5aUggbi836/u/Tl
+    3rucD9PJ9uDg7nfffnr9vZd+CM6HHYw8MmFYwqmlayOD4CwtlnB6dA4Rckxy7lVS4W6dGR6TJBTW
+    hkcGT1YGN/pakbwZvRzf3VGFvfhBtFekjSAqmVbzsujumw5lTZEuDE/wiSJlLO1UpJWtD/wT7qVv
+    W3X38oM4WJEK9feyDYacJDk/A6+F60Bm/CHK7zArHupdOSVTkcrP0MP0chDLUUW9Bdl9eP6Nl8Bi
+    vorvPn4g97HCU11OkRYCdDKtiaqe44oiFaso+5gDgnIDIv4CyIqW0NTutAOnk2/lenqOK4pUaGJj
+    hkhYALaBsxrpYq32qFZbFaercPfGGpNdPScrsk9eG58DJu0Aj+H2HPOdfqMo3gPRC2g5rihSwzkH
+    Jp2E00Wx+sVM6uJmG8hvAlqOK5I00R5vMklcfGoXBd83k9axDGAa0HNU6X+CP62LteiTW8GJNWSf
+    XzWTbr9tA1PNeI4qiiQWYlDHD4bx2fHpK7w+SMknwxX518kT8T5GI1sSKTHleNNfiN/99Mr9aEcZ
+    WRkgfX1SjxKT2782aUaV/mosDHf7a9EwkZGVAVJ0/E+rY1K6th2FPh2bk96F/8acZEOypxzDzUk5
+    qznJhmRPnZQ0J+Xs5mQbpjAn5ezmZBsqks2clPuLOcmGiTsZzMnWJJfK/wVe0pxkwwTJYE62JrlU
+    kgzmJBsmSAZzsjWt5iQbJkgGc1LObk6yYYLE74RuTtpZzck2TGFOytnNSTZMY07KHRFzHt63skP7
+    pvgHtPgwPGoS2XsAAAAASUVORK5CYII=
+    
+  - text/latex
+    $$\left[\begin{matrix}b_{1} m_{11} + b_{2} m_{12}\\b_{1} m_{21} + b_{2} m_{22}\end{matrix}\right]$$
+  metadata
+    {
+     "collapsed": false
+    }
+code 38
+    A.det()
+  execute_result
+  - text/plain
+    m₁₁⋅m₂₂ - m₁₂⋅m₂₁
+  - image/png
+    iVBORw0KGgoAAAANSUhEUgAAAKYAAAAMBAMAAAAaIdvMAAAAMFBMVEX///8AAAAAAAAAAAAAAAAA
+    AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAv3aB7AAAAD3RSTlMARImrIna7EFTvMt3N
+    ZpneUCSWAAAACXBIWXMAAA7EAAAOxAGVKw4bAAABrElEQVQoFWWTMUscURSFvxk32dnZuAxbauGA
+    SWMhIcQ0ptgiglXcIFqbQtOF+QEBhUBQLDSB1LGSFGIW0Uohi1XIj4iCoIUWazRYbu59a96diQcO
+    vPPNzOHeGYZg+MXMWPDoNV53ib+kh/rTielmfTYxeIeE9+dZfMUKxHM9Gxl9m6EuKF1olv8k0Tps
+    Qnh6Bp64JPRrtc1UyhHxScvZSNjoa6sLlfHSAaXf9HfYHoeHPMeIJqXZYsJaxjOIWj17Um3E12rt
+    fLev+gnl8iXRDX1zsAq7fGsY0aSUNTiHz9bpSSUpXarlppyiDrUWlabr/MhUgicuaecF7BBcl/2c
+    RnQg51wltTbVlKFG5ibSHY1o0s5PyDa19qR1ekJVplHnVUmR13VRWup17oERJEmnrCbv+0Ga+k4j
+    jEqZOi9Z9ggOQ/c04TG6/i3RJJ1Bi3uPiZ5s+E4j/XKLuqBBmIb3I73OX3LNiCbd3evfd/eAOgPO
+    RgonnSgNNoy5VOxclw8i9op/LL9Re/DfQf6TreUPmVGXhHqVzq+aag+odLsdtZHC6eX3Mb50uzmm
+    SehfvbOmkHFrGOwAAAAASUVORK5CYII=
+    
+  - text/latex
+    $$m_{11} m_{22} - m_{12} m_{21}$$
+  metadata
+    {
+     "collapsed": false
+    }
+code 39
+    A.inv()
+  execute_result
+  - text/plain
+    ⎡ 1          m₁₂⋅m₂₁                -m₁₂        ⎤
+    ⎢─── + ────────────────────  ───────────────────⎥
+    ⎢m₁₁      2 ⎛      m₁₂⋅m₂₁⎞      ⎛      m₁₂⋅m₂₁⎞⎥
+    ⎢      m₁₁ ⋅⎜m₂₂ - ───────⎟  m₁₁⋅⎜m₂₂ - ───────⎟⎥
+    ⎢           ⎝        m₁₁  ⎠      ⎝        m₁₁  ⎠⎥
+    ⎢                                               ⎥
+    ⎢          -m₂₁                       1         ⎥
+    ⎢   ───────────────────         ─────────────   ⎥
+    ⎢       ⎛      m₁₂⋅m₂₁⎞               m₁₂⋅m₂₁   ⎥
+    ⎢   m₁₁⋅⎜m₂₂ - ───────⎟         m₂₂ - ───────   ⎥
+    ⎣       ⎝        m₁₁  ⎠                 m₁₁     ⎦
+  - image/png
+    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
+    eiBia/4H6cC42oziP8UAAAAASUVORK5CYII=
+    
+  - text/latex
+    $$\left[\begin{matrix}\frac{1}{m_{11}} + \frac{m_{12} m_{21}}{m_{11}^{2} \left(m_{22} - \frac{m_{12} m_{21}}{m_{11}}\right)} & - \frac{m_{12}}{m_{11} \left(m_{22} - \frac{m_{12} m_{21}}{m_{11}}\right)}\\- \frac{m_{21}}{m_{11} \left(m_{22} - \frac{m_{12} m_{21}}{m_{11}}\right)} & \frac{1}{m_{22} - \frac{m_{12} m_{21}}{m_{11}}}\end{matrix}\right]$$
+  metadata
+    {
+     "collapsed": false
+    }
+markdown
+    from https://github.com/sympy/sympy/wiki/Matrices-eigenvalues
+code 40
+    M = Matrix(4, 4, lambda i, j: i * j + 1)
+    M
+  execute_result
+  - text/plain
+    ⎡1  1  1  1 ⎤
+    ⎢           ⎥
+    ⎢1  2  3  4 ⎥
+    ⎢           ⎥
+    ⎢1  3  5  7 ⎥
+    ⎢           ⎥
+    ⎣1  4  7  10⎦
+  - image/png
+    iVBORw0KGgoAAAANSUhEUgAAAIIAAABkCAMAAAB9wBhQAAAAP1BMVEX///8AAAAAAAAAAAAAAAAA
+    AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADFBd4eAAAAFHRS
+    TlMAMquZdlQQQO0wRM0iu+/dZol8bIlZUvoAAAAJcEhZcwAADsQAAA7EAZUrDhsAAARKSURBVGgF
+    7VvbtqMgDEVRz5l6ZYb//9YhUCgJEI51HVcf8EUkmGxDuGzSik7bqxe3X7uzLESn5WCu8XYE4gC7
+    vQYI3f3WXxYPCmGeXsJM6ZrYKqQqCIRl1RyEa2ILIFWBIEyr7BkI18QWQE4FgmBaDQyEy2KLIrHQ
+    IIBfmheaF+z4aLHwdMPHjQjZb3rvD99L9H5NbLVlVFAvUKs3PDcI4OTmheYFP9haLLRYKMYCJRq+
+    IdwXKde1zLwWpdT6A1rYyVgpnZpSohG1noD4Kv2IquLiAppHXVzkQtt9DUUooBGRIxpR694SrW2L
+    quLioMEDeo/rcuVhYyCYFxKiESnZrPa+RIIfm/HPpOfojVxxOeb3IcyWaRUhWHv1jlDiAgT3TTtL
+    +WYcaqkbjuUyhIdWqd5nTaf2GoJpEJchkHCmcNRWHrTQFvBf7AiJQ4kiEGLbuAOKEQBmIHzpr6CK
+    GxGm0cCciS0LaFnt0Az6cGGynUgg/CUHPTyEEbramcK64UnbOF25uWns4dJbbyIiXGhqMrUsBDez
+    DvZrg4ZQcDPOrgvi0E5cmJqW3SwCsi9NfwdMzaOOP/BlNi5pHE/YCxmiEb07u4PKEgTxkGYZK60g
+    QY9atUZsCUMI7e4sNAjg7eaF5gU/6iAWpoFbWXzLX7svZjL7tHzEr31sUfEnDkqWyvBcZTYx1Ul2
+    kej2XholKt78ES+wVKbGVTZYxviF8nArnY53PghChcrUuMqs+tJewgeCdJuJGEEyQXNblhpXQYq9
+    UXx3HaDQFhd5wTTnIFhtDFf5AQSr4oE76zQEhqv0xzFI9IHYBf4Jb5pOdYSZxFiusppJdikSbw9A
+    KMK9T3uhxlXW4r7uiWEySwK6TkOocBUhazvogVJvgPD1/SfA4sKxwlV6q7t8BPK0kTDCf994meIg
+    VLjKZiFIlnjDAQQdOGc6osJVHKneqZ+Dg13B/FKB1JyBUOEqdv4+tgqZGisQeCpT4yqLVL2s7X6W
+    jZ7JUS8QJ93x2CCAl5sXmhf8aGux0GKhGAsclYGXSErF6wFJhqZEYig+lU9SRZtMEo4slbH6kh1H
+    sJKjKUEIhaB8NivVtPslFUGoUBlQQ1MqUPe8cjTFy8z9pfyweR3lNxYIgmnI7ZqMOEmpRDZyNCUS
+    v5Svdt80+u3VSQhJSgXbEILQFCx+fp/buj38efk5CGlKBdswB/G0In52ECa3b3p4BnwKQialElsw
+    ZUpTsNhBWFxep/PpnVMQoLdJMgHbSGgKFl+HkEupEBs+ynG1f/IdYQP3nY7IplS8dncvTxpW7iAI
+    FwvjG+GYTakgCClNQWI/4h3Q481BadJfTMynNCULYbBTk/SddiocQSFJqSAbKU1BYu8FscMEHbKJ
+    GEKFyphBR1MqyEZKU2LxS/mkzG/Aw1kIhhC/cVu5QQBXNy98lBfsyTA9gLlhSIR/iUzwX41hYI/Q
+    fweP/ZfIMIj/kf8+d5Iq4UMAAAAASUVORK5CYII=
+    
+  - text/latex
+    $$\left[\begin{matrix}1 & 1 & 1 & 1\\1 & 2 & 3 & 4\\1 & 3 & 5 & 7\\1 & 4 & 7 & 10\end{matrix}\right]$$
+  metadata
+    {
+     "collapsed": false
+    }
+code 41
+    M.eigenvals()
+  execute_result
+  - text/plain
+    ⎧          ____           ____       ⎫
+    ⎨0: 2, - ╲╱ 61  + 9: 1, ╲╱ 61  + 9: 1⎬
+    ⎩                                    ⎭
+  - image/png
+    iVBORw0KGgoAAAANSUhEUgAAAUoAAAAaBAMAAAAj/gh1AAAAMFBMVEX///8AAAAAAAAAAAAAAAAA
+    AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAv3aB7AAAAD3RSTlMAMolUmc0idhCru+9m
+    3URozekSAAAACXBIWXMAAA7EAAAOxAGVKw4bAAADQUlEQVRYCc1Wz2vUQBT+9kez2W32B/4DLrXS
+    k1Ck4tEVq9AedP2xtGqluQmKVLz0oGCQqmgpW2+C1i7qyYt7UQQVF+9CQQSLiD2IB/FQK2gRa30z
+    ySSzSTbtrJd9h7w3b+b75svMm0kAxLZB1U6vu7asimXjVfCfC3yG/SZ3Ko97KoNDxqrgtROMILUa
+    QhOd0srR/Rv1quG7i8SXVp8y2b+Rjuh+NXyGCeQqp/r2esTa4KOC1wqJZijXc4HGdFm+3qm+A3Jm
+    VG54sRqeC+SPo5gxXZYbiP91G2HBPuDqUrIM7bHV3K2/wFnTS51pUUxqeFelUUecrattt4HnIg7z
+    +gJwBJma/nDecvqv2T5dR7rmpICbQ+EqFfGuyswsEh7jS2A+asvjDRg/uZbLliNpt+3zZcQ9nlYH
+    UxHvqszPIvfDmRAYt6JVUlll6ny0X2W1hpRULC2uD0U8V5mpAdUScr/YvIt8cuCT5QRh7hKQP9x3
+    kLr8KrtpLf8wiM3TQqUinqucPg9MFBFbIXL9CZsCyLFGmOWWKEtlWR1Dd39QZXwZXextHZ6gynbw
+    BtWQdoxYhUoKuWVrTuB3F8v0GaDXqq4i+SyoEiPYydfSxgVVtoXfUcAbkxirRWfHHVXDjhdOP/WR
+    7F1Bu05Vl6VsfgEGhf4dhzG5xavv4OlpD6+PIDHGJi0hIbPPCnl+r/8GXlOSCtCgRbNVbq9UPlQq
+    bE/I0pFnvC38rgbtNtUX7TDbfWED0EwR+/whE+8pRWc8dC3pcyS9YXDH0QY+951NWKNSq4M+JcJi
+    JaRM0fD5iZJRpBTdrsm6WEtqO/el8RRbTWo6FqKyDbx7X+ItpgtEbZ/Ncz29c6h6qsWkzKdXsxbz
+    9zHdH1SZGtVZAcln3MejjHd+NLjUK5O3GLt9z42vr68hK1UA77IfsZUBHsQHCTD0arFhp521RO/w
+    Ek/w+zJ5Z+2un0cZL6u052p6fmlquY2To24oBUKllBKhj0cZb/+08bUUlJJvSLEU7ilJDTf85kaB
+    oNGcUcZHqtR97GKuLlNEm/N+HlV89I4bmxOx4aj/5+H/6nG6UTrasiUm77jFnp1rcxbTlnjQuQpJ
+    2ddGR8uTxP0DgY8mByc8yAYAAAAASUVORK5CYII=
+    
+  - text/latex
+    $$\begin{Bmatrix}0 : 2, & - \sqrt{61} + 9 : 1, & \sqrt{61} + 9 : 1\end{Bmatrix}$$
+  metadata
+    {
+     "collapsed": false
+    }
+code 42
+    M = Matrix(4, 4, lambda i, j: i * j + 2)
+    M
+  execute_result
+  - text/plain
+    ⎡2  2  2  2 ⎤
+    ⎢           ⎥
+    ⎢2  3  4  5 ⎥
+    ⎢           ⎥
+    ⎢2  4  6  8 ⎥
+    ⎢           ⎥
+    ⎣2  5  8  11⎦
+  - image/png
+    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
+    AAAASUVORK5CYII=
+    
+  - text/latex
+    $$\left[\begin{matrix}2 & 2 & 2 & 2\\2 & 3 & 4 & 5\\2 & 4 & 6 & 8\\2 & 5 & 8 & 11\end{matrix}\right]$$
+  metadata
+    {
+     "collapsed": false
+    }
+code 43
+    M.eigenvals()
+  execute_result
+  - text/plain
+    {0: 2, 2: 1, 20: 1}
+  - image/png
+    iVBORw0KGgoAAAANSUhEUgAAAMUAAAAaBAMAAAD1foU5AAAAMFBMVEX///8AAAAAAAAAAAAAAAAA
+    AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAv3aB7AAAAD3RSTlMAMolUmc0idhCru+9m
+    3URozekSAAAACXBIWXMAAA7EAAAOxAGVKw4bAAACkUlEQVRIDbVVz2sTQRh9+bXZtMk2B++GqvRo
+    Dt4bxR7SU0APCkL3oB4EaQ+iFA8uoqCN0ngQBJWuqAdFMAqeROxdxPgDsV7qfxCsivVQ43wzs7M7
+    s6FZIpnD7Pe9933vZX7sBkBqF0Y2nP1CesYdmQVwwifx/CbNIxvPSbnQYNOlKbko7nV89h5/hpOB
+    5LyQ4pF18HEZ9oEz5Sh+hJKHNHGPQ7juUsKH3cLebzLui1hPPY0GriL9F7mq/TmCn+IbdJMQ8ii2
+    kabliFHwMN4OEv7UEfvBiqfRwC3gJd4Ae0J8qa57jLWQ4QgvGe+g8D0sZpGJXPA0GngFrJQfAdMR
+    Qhy0WsdEC84P1ZbbND1MJOYx5zGPP0C3qlTkZVIeyzU4v4ldkyWlcFUaUmrxNObB0PUrP5nHAvFC
+    JbKOMR+YryC1wUj7BZWw0a3wR2QSSLPBoT4ezobFFHZSn1SJeDSZdeChNL+qKAg0pI9HyVceskV4
+    vPMA6zCDlityrySd9WWgHjrSx2MWNluH2CvRJTzS74G3LkMmasiEZw4sKu0g0JG4R54dFDuP6WrQ
+    oD4glxeQOcbQko9i5JQzNZwMaykykLjHPlgu207amWCIdXD9eWadbyPbCDhgB3A2zCgykJhHqoa8
+    ex6YibQJj26ZQXSv8BFNisWNsD5M1jv2L5YHgyOUhPdK43F6cvddlKr2MyqK3yv+vbp47gax4mbn
+    er1eB+seR/gkEBaK96P+em1V4zHX623BnlqkHypVsre37rBYvYOcMSbHNQAjHcTL8m09ioammQ7i
+    k3hcM0WNfBCfxGPV0DTTQbys33avTM0hc/4/mG4P2Z2s7RMvO+olqx6qqvCFt2XuD9WdqMl5kqjs
+    /4v+AR75ret2XVCqAAAAAElFTkSuQmCC
+    
+  - text/latex
+    $$\begin{Bmatrix}0 : 2, & 2 : 1, & 20 : 1\end{Bmatrix}$$
+  metadata
+    {
+     "collapsed": false
+    }
+code 44
+    M = Matrix(4, 4, lambda i, j: i * j + 3)
+    M
+  execute_result
+  - text/plain
+    ⎡3  3  3  3 ⎤
+    ⎢           ⎥
+    ⎢3  4  5  6 ⎥
+    ⎢           ⎥
+    ⎢3  5  7  9 ⎥
+    ⎢           ⎥
+    ⎣3  6  9  12⎦
+  - image/png
+    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
+    AAAAAElFTkSuQmCC
+    
+  - text/latex
+    $$\left[\begin{matrix}3 & 3 & 3 & 3\\3 & 4 & 5 & 6\\3 & 5 & 7 & 9\\3 & 6 & 9 & 12\end{matrix}\right]$$
+  metadata
+    {
+     "collapsed": false
+    }
+code 45
+    M.eigenvals()
+  execute_result
+  - text/plain
+    ⎧          _____            _____        ⎫
+    ⎨0: 2, - ╲╱ 109  + 13: 1, ╲╱ 109  + 13: 1⎬
+    ⎩                                        ⎭
+  - image/png
+    iVBORw0KGgoAAAANSUhEUgAAAXQAAAAaBAMAAABVxLr+AAAAMFBMVEX///8AAAAAAAAAAAAAAAAA
+    AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAv3aB7AAAAD3RSTlMAMolUmc0idhCru+9m
+    3URozekSAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAEyUlEQVRYCdVXW2gcVRj+9jY7e1+K71lSJaCW
+    LKLg247aCumLAY1N1eIg9YI+dAU1lAoZpCIYS9ZXq2ZFX3wx24cUUdHBFx+quHgpVpDuQ58UTG1r
+    jWKt//+fs3Pb2Wy2FSQHMnPmu/zz7T9nTnYBJHZi3PHk1cgYt4CnNxYjlc571GaTc1Vh99ibiWK5
+    t2PRawFzvWtxwXiIbdmNsc3G7NiWYYbHhxEj8EKNBLnxc6TrIwpvnb5n69KQMs+pJfrRqbsCzMG9
+    7wSuBqfHCMo4gLiOTt0bVTD32OS7QZihmGF2CZwHzLufq/LBjmqIMyZvDrWKIJ1aot+PY77LbGG6
+    x/ywQa0yVh2AXeYneMYOC5kzLDRcHxa5f+nN+Pk9TSs2UzdPY8k1TnqMmjB3EKm/AzBDgejFDpL8
+    BNTIOSh0+hcxZ2qV+d6KA3HlOsi1lci05Sxc9iIqXQXTUSDvKjCh5/fqDGU5BdyE48AbitOVFLdY
+    xxXfIvJA9HwLKfkwIil0kfvNFw/Mki5Biw7EVZlFUltTTS0lrvwplv1miHygDgG30h/vE+8DDed3
+    YNoRlVeJuV96JjHeUNuKrBU+VFooX/TIzMbm0Xmpc3RxLbeR/UdZvRsSRyO4YFgeM+j5qeh/Aut3
+    /kVVe6LyKqmcoQUTiJ5vA8sWyn+w6Yw4gZJupL4Mn17kS8oirgJ1XS9F74Yq5wPiKrXkFB896xJJ
+    WcxLFL25Rl1nAPAqqZwZS1AVLhB9qQkcqiFxgWiT3DLWa3oSOZV7BHCrOLq4kueRkU8duCHnTOyy
+    WIalWTkNRv+V8BJzlMWgm0/UpoFHKQyNcPQd3wmow6noReqtwc3pRxcJH370ZuHJEQqSlfL96NiH
+    2+K7fks14B2InuUuLbDCi55ppuK7njwRqKSiY1cVX9kEL9f0gtGSdFtP9Mk88BON76vGK7SspVWy
+    YMRVXNihXxOvVypn4cNAkYHoT/Gy7rKCspjU9fUmvnh2ui4er5LO+bEjsBw0ZO5D6hECKhZS/msK
+    HPaV4ZlJr9LnAlGWvivHL0Zybu7A2tycxSRxho18sOJAdND7XayxmrPQWm9w6hUnXIm5J4BV9YlY
+    LXI63eHSYiG4RGX4/nqkLNbHjvts/CAEZem7Mi0l9XpFXGUDeb2O+vJIvfRllBzGOB4t0K/5Yj8D
+    kbV+1cGqK7AcVNfLvHvzDpPtID3rszcAL/hXodkhS7WKOyuu4klM2EoSjF5oo3Q54CR5ZBiX9PPj
+    LEeAPThlJ7TFq8TcR8BZ2zer6Lylq+8w32KpSnP1EhvfTM50Q/8GfGNuQ7WKo4Nd2XmTlxwP74bE
+    FV00mgz6O0y04oqjnh9nKdXNE3jeedllS6ASc18iJVtYaIfxo7+08Lp4ZOvM0Lf/Ls46gkQOiQu3
+    CzLz2RkX4rpxb09r+tGFO7f7A4HVvi5QpOLETosV6eNX3oQ5dbiKpLb40YUr79Z3kHACBb4IyE0i
+    h7IdAdTlw/OxMIP96MMEkYqZNWeYclSlEdGL8XUbVjxOaNkdSgkRqZiibWXIGFVpRPTX4stm7Hh8
+    C2i04oNb8AyT+Gs9RuHGYNcH/ZcV5VdSsnN9gf4fd8ni++53+LjNxlsOB06FfkRuj4/ws7s9cg5J
+    +S/dY4IMGRi11wAAAABJRU5ErkJggg==
+    
+  - text/latex
+    $$\begin{Bmatrix}0 : 2, & - \sqrt{109} + 13 : 1, & \sqrt{109} + 13 : 1\end{Bmatrix}$$
+  metadata
+    {
+     "collapsed": false
+    }
+code 46
+    from sympy.abc import x
+    M = Matrix(4, 4, lambda i, j: i * j + x)
+    M
+  execute_result
+  - text/plain
+    ⎡x    x      x      x  ⎤
+    ⎢                      ⎥
+    ⎢x  x + 1  x + 2  x + 3⎥
+    ⎢                      ⎥
+    ⎢x  x + 2  x + 4  x + 6⎥
+    ⎢                      ⎥
+    ⎣x  x + 3  x + 6  x + 9⎦
+  - image/png
+    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
+    
+  - text/latex
+    $$\left[\begin{matrix}x & x & x & x\\x & x + 1 & x + 2 & x + 3\\x & x + 2 & x + 4 & x + 6\\x & x + 3 & x + 6 & x + 9\end{matrix}\right]$$
+  metadata
+    {
+     "collapsed": false
+    }
+code 47
+    M.eigenvals()
+  execute_result
+  - text/plain
+    ⎧               _________________                  _________________       ⎫
+    ⎨              ╱    2                             ╱    2                   ⎬
+    ⎩0: 2, 2⋅x - ╲╱  4⋅x  + 8⋅x + 49  + 7: 1, 2⋅x + ╲╱  4⋅x  + 8⋅x + 49  + 7: 1⎭
+  - image/png
+    iVBORw0KGgoAAAANSUhEUgAAAmsAAAAaBAMAAAAagwaaAAAAMFBMVEX///8AAAAAAAAAAAAAAAAA
+    AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAv3aB7AAAAD3RSTlMAMolUmc0idhCru+9m
+    3URozekSAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAFQ0lEQVRYCeVXbWgcRRh+7i67t5fcXe+HfyVn
+    GqmUQk4UURBy1VZo/xjQCC2W7A8rglXPoqahPzIIJZQoPbBa4wdZsYUqYqoQ0Yp6FLRILY1i/SiI
+    pyD+M2ltatqi5zszO7Oz95FAPraFDNzM+z7vvLPP+9zs7C6A2Fostdm1pbWlXt/MX2ku2Y3yaptd
+    86qLslNVI637MDO8yM0V57LT4zUl53i/tLbTSI+7qT7DjdxceS4f8pqWo8h7DXEybuyS4UZurjyX
+    I7wmIZtzzzO5oMBHtr4VOMKyN71rxOuCcKYIucFHO6r2f+EJzmB3NYwoL1YEXdlVrhxvPNjVlQ8g
+    iwW2sK45l5c5DSGbVXB+0OycMnqq2hPGfsTrtDDjbQXyzmkkUXfbtwEv6WDIyHgYrdgfhTCcocdL
+    WUP2BNO2NK45l0C2U8DNml2KoeOY9oTxKvBpGDG9F8lJHtdIpiRNx5Xj3YB54EDhwF4PrwOvhaff
+    R3+lRKh3Do8z7UijnkuwHI9HwCWQ7R2gl0lWQMcUUueVI8fPgPFcGDK8DWTv2q6Bbt9K+PKtl8Xo
+    uMJhf+lhFuhhIqTgPHCTAGQ3zAyHm/VcVJ6cFgGXQLbLwHRB0bPmGmQbYPPIJo62vJYtXfQXUvVM
+    HwUvRjeFI255zhVguCpCGkbW11vADbLVcwnyaH4UXIRs7R5d7CLJxrlmyoIqMnXHE6G/MmfwlT/X
+    yXioT1aAtEuyjQw9ubuE3/GbDKt6UrUTFRjJCsdXlodJ2m2UT03DaBe+z6VBNgqGuAR5FImCi5Bt
+    lOSyLwCdebrqaB911KbzYjC67AU8j9OlswbEzb/ol6HfCLbDyad/zPTFHrjtKI8YOtw/y8xkVadT
+    sjz0AAPEwJzu702fSxPZwlzUcpFxOcNIsQeJsZaN0+ftnByMnh56t9ApdIcBkZmkzYJB+uVJtjiL
+    zyXcjlptRk5S9aQ3DnxuJis8DsuDVUrU7zbHz5erNJEtzEUtFxmX+LfAaZfYObTbxE0qmaLN841g
+    2AowkoY3Z8cv1M7myHyMn0tTtLFyfLfB8mA0Vc/XSF9lKpniCr8VlgecfLqnQGAAI9knfL9rIpvB
+    xciLjsu+EhIPc3p0tvVK8oLskOjNLlnm3j8mJOwDHtJ50C0oJF1T0hPi/f07Jvv7iwR8TCcALS6T
+    A9zJw/IojHEGBDDd9ALlEd4aZTO5mHlRcRGSPcXlopuS37F+SxTxqLL98XbYLmLnaUeFW9slZBhw
+    19jY1UOkTo62pG7+ruL3XKpiJPt4Ymxs/BOu8zaZoTYhDpT1EmQ0ylbHRedFxWU6R7T4kxR7gc00
+    +I2+k55TthzpKyjp3pmcwZ4wDvsiTkjoOBJsGEkWTFD10FdAu5mscHpD9HBKf8JquLMYrNFEtnou
+    Oi8qLuJJKj6uMgXnA85VPL3s77q2TDmzJvcnurrfzP7dPmNXTJTb4+wnCV2hN78J7DLiqp4/GE6a
+    yQoH1nh4lu2ryBwN9xYFEDxJ5+ei8yLhQtQC2Zx1Q3znyfc2iz4Kp+jdiAN+G6jV/nUO7dn9jQL0
+    2Lm2KOz1tTf2D45sqOhAcMbHDnZXzWRdZ3ziciW+6X0/RcOPFwSSKfNhyxc/V+bnovMQCRdTNp+5
+    OWRd02tpW5OsVSyoJzyjBd4C5rnzcgnyIuGygGzpcK2tvAQ9hFu0bKV5oAXeAuZrzMslyIuEywKy
+    vdC85gb0oQZk+YHricsCslWWv/pFr3g9cQGO8DrixxZdzSpN/F7UvY2t0vIXWXZKvnEl3l5k/upM
+    y763Outejqr/B+eok/UHXGFqAAAAAElFTkSuQmCC
+    
+  - text/latex
+    $$\begin{Bmatrix}0 : 2, & 2 x - \sqrt{4 x^{2} + 8 x + 49} + 7 : 1, & 2 x + \sqrt{4 x^{2} + 8 x + 49} + 7 : 1\end{Bmatrix}$$
+  metadata
+    {
+     "collapsed": false
+    }
+markdown
+    from https://groups.google.com/forum/#!topic/sympy/mISLFQcEUIM
+code 48
+    f = Piecewise((0, x <= -1), (Rational(1, 2), x < 1), (0, True))
+    f
+  execute_result
+  - text/plain
+    ⎧ 0   for x ≤ -1
+    ⎪               
+    ⎨1/2  for x < 1 
+    ⎪               
+    ⎩ 0   otherwise 
+  - image/png
+    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
+    
+  - text/latex
+    $$\begin{cases} 0 & \text{for}\: x \leq -1 \\\frac{1}{2} & \text{for}\: x < 1 \\0 & \text{otherwise} \end{cases}$$
+  metadata
+    {
+     "collapsed": false
+    }
+code 49
+    #integrate(f.subs(x, x - y) * f(x), y)
+  metadata
+    {
+     "collapsed": false
+    }
+code 50
+    integrate(Heaviside(x + 1) / 2 - Heaviside(x - 1) / 2, (x, -10, -5))
+  execute_result
+  - text/plain
+    -5/2
+  - image/png
+    iVBORw0KGgoAAAANSUhEUgAAAB0AAAAqBAMAAAC9wk0pAAAAMFBMVEX///8AAAAAAAAAAAAAAAAA
+    AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAv3aB7AAAAD3RSTlMAEM3dMnaZRO+JqyJm
+    u1R/iy+4AAAACXBIWXMAAA7EAAAOxAGVKw4bAAAAuElEQVQoFWNggANVAbcCOAfI6P//FZnLoLl0
+    Awp/AQqPgQGdv+ZoCoqKiwz7UcxnYOA1QFHAwPYbic+lwMD5HYnPocDA9hGJz8bAwKyAxOdOYDiB
+    4sBtsxKRpAeKKWQMAioMDP9B4AMNnbEt9wqy6YwLGOYjhzeXAANHA5ICDgMGri9IfKaPqHygFDNy
+    eAP59ROQ1AOZtqhctguo/ChULl8Cw25kETcGhmgkPrflzCwDJD4TMLgMGAByBym2etAMvAAAAABJ
+    RU5ErkJggg==
+    
+  - text/latex
+    $$- \frac{5}{2}$$
+  metadata
+    {
+     "collapsed": false
+    }
+code 51
+    q=Piecewise((0, x < 0), (x, x < 1), (0, True))
+    q
+  execute_result
+  - text/plain
+    ⎧0  for x < 0
+    ⎪            
+    ⎨x  for x < 1
+    ⎪            
+    ⎩0  otherwise
+  - image/png
+    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
+    AElFTkSuQmCC
+    
+  - text/latex
+    $$\begin{cases} 0 & \text{for}\: x < 0 \\x & \text{for}\: x < 1 \\0 & \text{otherwise} \end{cases}$$
+  metadata
+    {
+     "collapsed": false
+    }
+code 52
+    q.args
+  execute_result
+  - text/plain
+    ((0, x < 0), (x, x < 1), (0, True))
+  - image/png
+    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
+    Z/97+Q8qW1AAZ3ifGQAAAABJRU5ErkJggg==
+    
+  - text/latex
+    $$\begin{pmatrix}\begin{pmatrix}0, & x < 0\end{pmatrix}, & \begin{pmatrix}x, & x < 1\end{pmatrix}, & \begin{pmatrix}0, & \mathrm{True}\end{pmatrix}\end{pmatrix}$$
+  metadata
+    {
+     "collapsed": false
+    }
+markdown
+    from https://groups.google.com/forum/#!topic/sympy/tt8IA3y2sfQ
+code 53
+    f = Lambda(x, exp(-x**2))
+    f
+  execute_result
+  - text/plain
+           2
+         -x 
+    x ↦ ℯ   
+  - image/png
+    iVBORw0KGgoAAAANSUhEUgAAAGIAAAAmBAMAAADNQlNHAAAAMFBMVEX///8AAAAAAAAAAAAAAAAA
+    AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAv3aB7AAAAD3RSTlMAEER23c0yIu+Jq5m7
+    ZlSYClZZAAAACXBIWXMAAA7EAAAOxAGVKw4bAAACUUlEQVQ4EXVTPYgTURD+nptkc2t+FrnmTJED
+    T9TKhJyCBDEIYmOxcIWFyi2IdVIJVkmlIJw/3B1o5cKBtoKCrSJioxBBweZQQbA0/qCImDjzktzO
+    2315xez3ffPNZN5kFxBnW2AbVFFCdYKEIGnu7ktgv1QIH/QTgqQFLAFOJCWoqwZNkCyq1PCCoXoP
+    DZoin0npGmO0DZYqUGdJ8iKpn5Mkjfdyw9w3kXB/C5KG6skCiysis7sliAnnmhfvZ0Y/WXyvM3t0
+    zNf0wxbqXnByoncXGSxr1g31wxbCbH8q528xWg05fuCQOKVXdJ4B5c404QWE3Ju67vFUtDzbCCeq
+    MyDgHG4xPcPBetzBBnRTypZ4o15W7/Wv1c2i2jrU8CfZ3JDAFecP0x8cVOPBvnUGBNebnTGSUf0j
+    dlTxpjXEAt7WTo0dSx13Ooos4cYRVqmZy8W4jXv+F21wb6ASamQGmoc6najRG8MDwsf5icFba7wx
+    vWNG13VCdFtUoX9jch1KliMKlkMVHsDLGk+F3C8o7SvbLkEZmqpCP0PXUXpXn+gfqusKfh1o2NSh
+    UR5Rf14Wr3jXsDBw+6gG1CVApZPywx3i0ugpNkYrwHVKq636sW0gw99N83g/XYDc91h8EUMcENiE
+    JfER3hEpW/dxeq4X2776O1jNrihEOy5UY1sxVpOoHLsgq5O+mLc7MS72YjwbbYqU0i+WEKxwTapH
+    JJmBSz2ZyIeS2XFGXBwoBnaXVN9JAjw3qYW510xxPjR5ms1/NDX3tMnT7HVSupwUElwtkvAfd+R0
+    FKPX7mUAAAAASUVORK5CYII=
+    
+  - text/latex
+    $$\Lambda {\left (x, e^{- x^{2}} \right )}$$
+  metadata
+    {
+     "collapsed": false
+    }
+code 54
+    conv = Integral(f(x-y)*f(y), (y, -oo, oo))
+    conv
+  execute_result
+  - text/plain
+    ∞                    
+    ⌠                    
+    ⎮     2          2   
+    ⎮   -y   -(x - y)    
+    ⎮  ℯ   ⋅ℯ          dy
+    ⌡                    
+    -∞                   
+  - image/png
+    iVBORw0KGgoAAAANSUhEUgAAALIAAABGBAMAAACap9NUAAAAMFBMVEX///8AAAAAAAAAAAAAAAAA
+    AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAv3aB7AAAAD3RSTlMAEHaZVCKJq0S73TLv
+    Zs2LrggmAAAACXBIWXMAAA7EAAAOxAGVKw4bAAADuklEQVRYCe2YTWwTRxTH/2t77V2vE1tEhKoX
+    u/GhRCUkCoQLEvKtKh/CrVS4VOo2qlIpHAg5RBFEIYoEEREiBqmqqhZqkBAIDvWxB9oEVLWHCint
+    ITdUI4Q4IWwI34IwG++bnf2wkzheTp7L+73/e/P3erIzWS9gjg3bgS++payBURo9dTnUp6UaaGla
+    BYCxNHCi8c4tQGsZCPnirF4Dfmu8c6iA0Q/vSj2Nd8bCtoI0+CDhg3PT8v2twI5vfPqs8JG/fXJO
+    TlzyybnbJ1/gil/O8mO/nAOvvZ21ge+9Cza1VpdasrXyRMU05+pQqyte9J7XiqTjoPrS2Zhhp7ur
+    y2qarXqE7raaDJJ0ew78bgiOLqGne15IRJTuixmgOr4CEC6wz3N0CXN+YWXPscnhNOnqknKAs0to
+    WhJYRKmvXUwBj1vlJ7i6rDnaK4s5nRzCxeiSo5IH+nd+bH5D5TtEE+iAq4t7oOW5xZz0sjbHExO0
+    IgKJ8ehEJQ3HEzeAT51NYh7x2ILyB/kAW0L7UHLQ8JC0z6fRCZyiFFB+7rGSZYq9EIXQj2ycRUSP
+    pCz5M0NMKENMeQpUMoxgGPjDakI8IyQGJtmDjGtEJ2LmeloljX0LraSRcBX/AFOUsTiTEBID9885
+    BCONFmZcqpTH1+F8mPTrSglYoIzFQYGX8TC7FNdQhi+4NFzEps39H5E+1VkERilj8Z7Ay/hIJ0Xq
+    T2dN3ojzJrV39FG9i8CIUladB4okySOfLKK9F/JNUoClDPF0VtZNHlGKFVIu44CpQSUwYkQ/wx40
+    mXllnM6qZeh7ESiRAnmJrlP+E20FU983YMJXGWkn9SrchymhBZ3tbCpJtxEsypldUHMkIcQ3d+R2
+    x79cJhj7rytBjD2cTOCLHiwjqku4hXiK94TfEsaHiITotUGFMmEsh+QElDJmCyRBfUIY14mE+Ezg
+    GpjUsR+JYBFbrKbYInFMB1KUUPwLYD84VhzJDC6EsuoQfrBarS0YKKItaxUqtJUdk07NI29NtVwJ
+    I5hT3ljFmTnO6a55zgSB3juEtaI0fOjgZkgjaXau0Oj2+rtRcc2RrTQfx93XyWtrhXHjBuHj1wLH
+    dcMlnBM8+EYRtHpxMi1cpvayXpuV5gVWuRVW8nHXI7b/Ve56/Uq0VP/c2jOrPS7WnrWa6mxqNV31
+    9Pwv3Cf1zK8+52j10jorvt10inA2rfMabdPD+UjOJjQsUfM3sg0zsxnJ/cdseTNprsB7WYHmS+Ll
+    Za789mppviQWb7rGvyR+B3C8vdoG1PzQAAAAAElFTkSuQmCC
+    
+  - text/latex
+    $$\int_{-\infty}^{\infty} e^{- y^{2}} e^{- \left(x - y\right)^{2}}\, dy$$
+  metadata
+    {
+     "collapsed": false
+    }
+code 55
+    conv.subs({x:0})
+  execute_result
+  - text/plain
+    ∞           
+    ⌠           
+    ⎮       2   
+    ⎮   -2⋅y    
+    ⎮  ℯ      dy
+    ⌡           
+    -∞          
+  - image/png
+    iVBORw0KGgoAAAANSUhEUgAAAG8AAABGBAMAAAAwSNetAAAAMFBMVEX///8AAAAAAAAAAAAAAAAA
+    AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAv3aB7AAAAD3RSTlMAEHaZVCKJq0S73TLv
+    Zs2LrggmAAAACXBIWXMAAA7EAAAOxAGVKw4bAAACuUlEQVRIDe1XPWgTYRh+Ll7uJ0nbw6IVEXq0
+    4CataIUitB10qCANIrgInlE7uDR2kKKiWRTaJXUQ6aCNhSq4eIvgICagog5iRHBwMQriaKq1/oHx
+    Lsn33dvkLrncIv58y/u8z893P9+XuxxQHWu3A/uOss5/FaamF8WBqO4/UXWGgDO9wPmWg21A+xIg
+    BgmqN4E7LQdFE1Mb3wj9LQfxcpspHH+vtR78VxI7Dge7UunEo2DB7tRCsGBfsBhwI2Aw/DFgMPTD
+    Oxgdv+QtqsUGGma8xY6Ct9aObu/9n3X5TUmDW6uz7fGetS9frx3D2QopvKsXGTNvMuTURWTj5a5L
+    c8haVKolrP4xDqVsWhhYbxfXEf3uSo9pF5K4Fim5q3ak7YtrcAHGUjTnKlVJ2XXjSP3hDZnQrBOc
+    vu/gCop9pYw4Z42LwAtANmSdSMsEl2G39TyuG4qhmJFUjNxvpc42lquLAfd2jWoRM00UKUOaMpwg
+    F8K1Z6USlMmrvLdeFP2kKcMPBmOERG+cYauuwxXeHUhkR4QjOg5qnEJphOGZeNhg2KonlQLrlIeY
+    1yQxB/KwCJfYUcIP0Gkyq1X3jvNmUx5D2L+mgDlOQeQ7Tn7a89zhV6FhDdehxXSQNZd+MktHkqG6
+    +gSCtdppLUoeFuonZuswGKqtwgrEomCdbSjnSDG+I2IGoDsCQcIy1MJuXIZKTsrZOKECOtmNIikb
+    vsWrpIFBpPOOkM5x3LuF8Jy1Qdfm25MpdCWGycR9yVWWxs0Qkc95HYV4KlAu2LeWj1smh01ARFd1
+    YuHrTzh3qPTsJEL0G2lagaGVVtzEK9PrJXxTGCk2tbgbGr1x3BNVNqs3lL3F176XsWaOUzW97zbo
+    aiiffR+CGqWMPEt731jN3I37NlNjOHGatv/xb78Df8JX4Kj9v0T7q78CfwHOwJXSadK9NgAAAABJ
+    RU5ErkJggg==
+    
+  - text/latex
+    $$\int_{-\infty}^{\infty} e^{- 2 y^{2}}\, dy$$
+  metadata
+    {
+     "collapsed": false
+    }
+code 56
+    l = lambdify(x, Integral(f(x), (x, -oo, oo)))
+    #l(3) # doesn't work!
+  metadata
+    {
+     "collapsed": false
+    }
+code 57
+    l = lambdify(x, Integral(f(x), (x, -oo, oo)), "sympy")
+    l(x)
+  execute_result
+  - text/plain
+    ∞         
+    ⌠         
+    ⎮     2   
+    ⎮   -x    
+    ⎮  ℯ    dx
+    ⌡         
+    -∞        
+  - image/png
+    iVBORw0KGgoAAAANSUhEUgAAAGcAAABGBAMAAAAjn5dZAAAAMFBMVEX///8AAAAAAAAAAAAAAAAA
+    AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAv3aB7AAAAD3RSTlMAEHaZVCKJq0S73TLv
+    Zs2LrggmAAAACXBIWXMAAA7EAAAOxAGVKw4bAAACnklEQVRIDe1VPWgTURz/veNy+bimPVJoQMTG
+    FlIXTVDrEtADcRAHo4M6KMbooiC2TkWLxkGwU7PaJUehCg5tEBQHIUVRcQsODoIYXZykqdb6BcaL
+    8b130ffSdxlc9C3/3//38ZK793HAr0GGbQSSNm3VavzaTHZ39raamboSCD5II5SlvVKtAksWYCuZ
+    qckNzTgwC7RXqvsQvDJv9St5mSl6MoOB+XHW/9Ngxwn/j2+MP/EfGizM+g+l/EeAm12EAu+7CGnf
+    JKG7p+UHJlyXhIohR6IAfTWJVCPLEgWopGWS7sgUpNxzKB4b5M9UKosjIB1OWUOSQf+BnEwyv4qU
+    fGakvNBwRFKTi34SKJp1KVIQ8JQKijaEiXdUd+vUQ0/zE/Z8bmP2XneHBXz0sivepokHhSto1k1u
+    DP1h2b/IVYaOG47BGhgOxy10rvg74/bxTfmNnO5Nc9xCSznGDAyNMszB4XzFRmzkSDLBuYZNcWgO
+    hyjmNfQIJYvkorORGiMDjSzFR22SoZjX9VXshGEZyzozQue7aPLZZoubKdpl4QYIeouUcKvxnTWi
+    rQE8BWmuZF+C+YDwB9asMuQBZBV6nbinrgz+N3r4aj8GNI+9BckKwrU9upWCxkOeDbEFRPDK3+DF
+    WG7aLuEYn3B6kWFt60uGOYgn75wvxIdiZ6ucS41xrIwueyZQDi2Ula3cyNeWc2sh88taDoGuCVdU
+    YPRSwfbD7pXkOFKXa1JFevtLE65QSXRSJdqrbpbpgmSyjnQ3bzzUdpF2nJ6KhhMsUqxcw879rLKZ
+    GgP5ixT+r3/tDcS2AwdP+fs5MjE1p4+aCV8p9+6eHAauKoZan/4o0Ot+unXFUMvmhsK3gHu+QnoZ
+    E+tek7SvEJ5vK5Mzby210A/Rc4RWJfisLQAAAABJRU5ErkJggg==
+    
+  - text/latex
+    $$\int_{-\infty}^{\infty} e^{- x^{2}}\, dx$$
+  metadata
+    {
+     "collapsed": false
+    }
+markdown
+    from http://www.mare.ee/indrek/misc/convolution.pdf
+code 58
+    import sympy.abc
+    
+    # Convolute two "one-piece" functions. Arguments F and G
+    # are tuples in form (h(x) , a_h, b_h), where h(x) is
+    # the function and [a_h, b_h) is the range where the functions
+    # are non-zero.
+    def convolute_onepiece(x, F, G):
+        f, a_f, b_f = F
+        g, a_g, b_g = G
+        # make sure ranges are in order, swap values if necessary
+        if b_f - a_f > b_g - a_g:
+            f, a_f, b_f, g, a_g, b_g = g, a_g, b_g, f, a_f, b_f
+        y = sympy.Dummy('y')
+        i = sympy.integrate(f.subs(x, y) * g.subs(x, x-y), y)
+        return [
+            (i.subs(y, x-a_g) - i.subs(y, a_f), a_f+a_g, b_f+a_g),
+            (i.subs(y, b_f) - i.subs(y, a_f), b_f+a_g, a_f+b_g),
+            (i.subs(y, b_f) - i.subs(y, x-b_g), a_f+b_g, b_f+b_g) ]
+    
+    # Two "flat" functions, uniform centered PDFs
+    F=(sympify(0.5), -1, 1)
+    G=(sympify(0.05), -10, 10)
+    convolute_onepiece(sympy.abc.x, F, G)
+  execute_result
+  - text/plain
+    [(0.025⋅x + 0.275, -11, -9), (0.05, -9, 9), (-0.025⋅x + 0.275, 9, 11)]
+  - image/png
+    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
+    
+  - text/latex
+    $$\begin{bmatrix}\begin{pmatrix}0.025 x + 0.275, & -11, & -9\end{pmatrix}, & \begin{pmatrix}0.05, & -9, & 9\end{pmatrix}, & \begin{pmatrix}- 0.025 x + 0.275, & 9, & 11\end{pmatrix}\end{bmatrix}$$
+  metadata
+    {
+     "collapsed": false
+    }
+markdown
+    from https://github.com/fperez/sympy/blob/master/sympy/solvers/tests/test_pde.py
+code 59
+    from sympy import (Derivative as D, Eq, exp, sin, Function, Symbol, symbols, cos, log)
+  metadata
+    {
+     "collapsed": false
+    }
+code 60
+    x, y, z, t = symbols("x,y,z,t")
+    c = Symbol("C", real=True)
+    Phi = Function('Phi')
+    F, R, T, X, Y, Z, u = map(Function, 'FRTXYZu')
+    r, theta, z = symbols('r,theta,z')
+    
+    # Something simple :)
+    eq = Eq(D(F(x, y, z), x) + D(F(x, y, z), y) + D(F(x, y, z), z))
+    eq
+  execute_result
+  - text/plain
+    ∂                ∂                ∂                 
+    ──(F(x, y, z)) + ──(F(x, y, z)) + ──(F(x, y, z)) = 0
+    ∂x               ∂y               ∂z                
+  - image/png
+    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
+    
+  - text/latex
+    $$\frac{\partial}{\partial x} F{\left (x,y,z \right )} + \frac{\partial}{\partial y} F{\left (x,y,z \right )} + \frac{\partial}{\partial z} F{\left (x,y,z \right )} = 0$$
+  metadata
+    {
+     "collapsed": false
+    }
+code 61
+    pde_separate_mul(eq, F(x, y, z), [Y(y), u(x, z)])
+  execute_result
+  - text/plain
+    ⎡d           ∂             ∂          ⎤
+    ⎢──(Y(y))    ──(u(x, z))   ──(u(x, z))⎥
+    ⎢dy          ∂x            ∂z         ⎥
+    ⎢────────, - ─────────── - ───────────⎥
+    ⎣  Y(y)        u(x, z)       u(x, z)  ⎦
+  - image/png
+    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
+    
+  - text/latex
+    $$\begin{bmatrix}\frac{\frac{d}{d y} Y{\left (y \right )}}{Y{\left (y \right )}}, & - \frac{\frac{\partial}{\partial x} u{\left (x,z \right )}}{u{\left (x,z \right )}} - \frac{\frac{\partial}{\partial z} u{\left (x,z \right )}}{u{\left (x,z \right )}}\end{bmatrix}$$
+  metadata
+    {
+     "collapsed": false
+    }
+code 62
+    pde_separate_mul(eq, F(x, y, z), [X(x), Y(y), Z(z)])
+  execute_result
+  - text/plain
+    ⎡d           d          d       ⎤
+    ⎢──(X(x))    ──(Z(z))   ──(Y(y))⎥
+    ⎢dx          dz         dy      ⎥
+    ⎢────────, - ──────── - ────────⎥
+    ⎣  X(x)        Z(z)       Y(y)  ⎦
+  - image/png
+    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
+    
+  - text/latex
+    $$\begin{bmatrix}\frac{\frac{d}{d x} X{\left (x \right )}}{X{\left (x \right )}}, & - \frac{\frac{d}{d z} Z{\left (z \right )}}{Z{\left (z \right )}} - \frac{\frac{d}{d y} Y{\left (y \right )}}{Y{\left (y \right )}}\end{bmatrix}$$
+  metadata
+    {
+     "collapsed": false
+    }
+code 63
+    # wave equation
+    wave = Eq(D(u(x, t), t, t), c**2*D(u(x, t), x, x))
+    wave
+  execute_result
+  - text/plain
+      2                 2         
+     ∂              2  ∂          
+    ───(u(x, t)) = C ⋅───(u(x, t))
+      2                 2         
+    ∂t                ∂x          
+  - image/png
+    iVBORw0KGgoAAAANSUhEUgAAAOoAAAAwBAMAAADtH/s0AAAAMFBMVEX///8AAAAAAAAAAAAAAAAA
+    AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAv3aB7AAAAD3RSTlMAZokiELtEzTLvmd1U
+    q3Z1ltcVAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAEhUlEQVRYCa2XTYgcRRTH//0xPT0fuxnJQVEP
+    Ezcg7MGMAQOebCIiIu4sGC9KzKAXg2jmol72MDl5CjshmoMH7YMxIKjRHIQVwoIGTAzsoIheEpol
+    Bw9md2LWEIw4vqrq7qnurkxPbe+DmX713qvf64/qev2ASOZf9iK12FEHZLZmusWyhbO1QLWWe2tH
+    smqBKh3r9o5knRpkPDJHCetbhbNqgebwTAeoBYWz6oCMLtw+MF84qRaoSilvwvALZ9UGreA1vFE4
+    LQGmB7kP40N36cqhwll1QO6Stfefymg0LJpVC3S0h5n/imZk83VAFmUs78QOoQWaod2hQst42xJt
+    91qgXV2g3dx2TsTbvRao7QOb3vazxtu9FqgdAN9sPyni7V4LVBqgulgga1w3tEDW109/nk16PGV6
+    IDWWh2HdUIOQJhk9Pre+pyUzuG6lr35GxCYDFw5fbewf1w0VCBkSfk9CpFHZkwawzwO00tMyexK4
+    fDKnbiRJeL6FcpoTj9djjSn1IZC0MKv9igdUb+XUjdS8NWC2yWar5FTCWKULfS5hYYMy+/hw+jl1
+    I0nCWTrbfgYlDM65hKPWpByrCRMNvmIW159cN1Ik/o4upUk4+CWsD2D6dEobv7z9GPe/deRwwE2J
+    aOsuG9o9+lOKiuT8+ve18eobT/MvYXaIUgM4iIeCb4WDHgbo84TEfI+Lz9ScOqUksRWC++mXEKtx
+    FqVF1FaBvdjnfS+c9DBQT950+rq7k5iZHqhJbIXgJ4wSMrTxMSoB7XKAh3ciEtswXXaWslS4wQ5N
+    CQwbqElshWBZxnDd2cJyj2cFoltos+qbyVrjWX/MECKDioR2h9zZrNVz2KS7t0pO9w7ElThDunCx
+    GM3vuAzITW8qic/+lKIi4RhDvinFm2c+pVFpgJcMj62mH2hVXed+s1vvhatJirf+ooHp0V9GeJ1X
+    kfAo6ObIq2kOv9H06qLzkQlzAOff0tBqoN0l22CB/vw0fK2BOjvRjIg6ryLhCzsAWLERzQlwHsst
+    ev9+/vPEH+x22teur99H95o2IOtVCi13KDYh9pmrn0mGiENzeH+oIuGJDZrxLv1EcwKcxlOdGELb
+    fSivh8cnI8O9jhGHvsLk/jBLsvr87Xf7vKpgzYuJD8YaPWEuYpuKzRklbHKEXeoPsyQzoOdFmW/y
+    qoILY1SJbjYXO8xqd8dOpSY4oUvqDzMkPBsGrYDtGWzzjSSuxUZoiSdHEarjSmScjxRaFIuhHpHw
+    IjOw5gRszxjfC7I+zlyS7JZ0tco5wmX4UkiaZLTIyZsTVlWcptOTgnVVzsHCjQPrQU6dZ+SjvMtZ
+    A96/ctHTTSXFc47dNC7Uujl1niaFzQlVlU9GIwmiqwqO6Zlb9dbkOs/IYXNS5DOcn6Dg2ChHi2fi
+    aYvmhFeViXF5TsEBdgV5kczf9lmXw6vKNOH3jBEcqmI9qk+50g5Yl8OrSm7spADBqXubmPUmxQkf
+    1SPqcnhVyQ+eECE4x1aPZN501STRnPCqonJPbROcFzYW9jSmmaNsTqaZmIrR4fwPblJoz5btIx0A
+    AAAASUVORK5CYII=
+    
+  - text/latex
+    $$\frac{\partial^{2}}{\partial t^{2}}  u{\left (x,t \right )} = C^{2} \frac{\partial^{2}}{\partial x^{2}}  u{\left (x,t \right )}$$
+  metadata
+    {
+     "collapsed": false
+    }
+code 64
+    res = pde_separate_mul(wave, u(x, t), [X(x), T(t)])
+    res
+  execute_result
+  - text/plain
+    ⎡  2          2      ⎤
+    ⎢ d          d       ⎥
+    ⎢───(X(x))  ───(T(t))⎥
+    ⎢  2          2      ⎥
+    ⎢dx         dt       ⎥
+    ⎢─────────, ─────────⎥
+    ⎢   X(x)      2      ⎥
+    ⎣            C ⋅T(t) ⎦
+  - image/png
+    iVBORw0KGgoAAAANSUhEUgAAAKwAAAAqBAMAAADc9q0uAAAAMFBMVEX///8AAAAAAAAAAAAAAAAA
+    AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAv3aB7AAAAD3RSTlMAEO+Zu3ZEIt2JZlTN
+    MqsS70CeAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAEbklEQVRIDZ2WW4gbVRzGvzHJJJPLbqwWXSib
+    bn3SB1mkYhWqo1R9sl3Rira2DFrr5WEbEfXNpihIRdk8GJGCMIgr+tQ8eQM14INSKUbQB0uhqUtF
+    QehWvKwFu37nMnPOTCab1QNzzv/8z+/7MrfM/wBW++H1pjUbH66T993WeC+LWIPfsOWaGOw5F+J4
+    PcEI/oYtM9hg6ystezY+HsXbttuATf/l3q7B27aPwjmbPMHn5bSbTMazNC9pBdu2x3DF020pem+l
+    n/89gKNmp2KjZBDx5eu3Xrr1oqYVbGzLu1/GwmpLKp2/4QVAvi5nXl8Oqc7wE/XyMt6V9Eko2Nh+
+    jM1GeBsx4DGVcHyzYCLDb0TOx4eC5oukYGN7smapD+8NaHC3NrlHj4nB8N+i1EYgaPFiSNjYHvH2
+    GtnEdSIm1Nm+v4/dZsFENt8ImG+huO0LDRvbJxdvMZryRca1Hgr1X0sBPjMLJrL5Q3wIpFHtQsHG
+    1ggYPfsVO9dHDScYHEisZUzeVDQmmxrWtqtWI+K0DwW0HTD8i8dpHqmW5HdyVdCPcJRw6mzzeELo
+    p1DyeVniWK4B8yKX2TQvb5kP7HeaCk7ZVtHgbeJLUvmHQwuHvZYHvJ9pKZKKrxEWNG6M4Ng2x6xo
+    HxE4P4NNK23gCKYf6NwL/KSWkr0WkHd/vkSYNOb3aTi2dWelyvnSEu/Rcc/KxSEFL/AUDK9pCce2
+    XigF07wHccurqBLGGSugYBGweEUrOLJdfLBZfGjPwLlpylK6ym/aSsUhBd6Loc0rWsHattK+DBXX
+    b5dWV2Ihg0/lhHd3qAkBWkjwklawtq32vwMKc0PqkQkhcHojl7Vtqd7pevmgO5JLLwhBZTZMp6O5
+    tnWP3RdOLHb6UXrsKATFc81RnLYdtfx/88rW+odnh8sp/2xKZ8lmn21RXV03ZTY8tbY1UlPRSNK2
+    vPAadt0lPjWynRr2MZnyzps3NsW25u2lXUvnQ6WphQpI2qLRxhtcuF0tZtdGtVY8AecOiG3NWRxH
+    ORCaah9vZdrmlgnAnVOL/JLFrdGLQxmcCYB3RPVy5rAVlabQ8Ot3paJSZ1v84wPm8+rW6nKnwFJq
+    d3Yt09+LbVCtjqNwpYZfs3xf4ilb/BgyXeIxVBsfl3zUFcSvXK62Qc6fjKl55tXt0T81bXs8JMK6
+    MVwbxYJponqwyW2QK35C1JqveVMGHIdesOLDLSYPsNika6MTcsG0yVkZy22Q12JMjah7rs9xyHbK
+    FRcka1eqNpYlHnfccKAYqml+wJEadzNPp8c4bcu93EtM8ms2rjbmfCBXJ8c2GbITX8DBVapap235
+    enzOR3k1xtZGvAJHv6M4Q4nQ5ObaKPMq2BKPbPq3uvPNUT7V+lq1UergLXX0yc4v/MIUNe65PiYC
+    uTyDxo47FWj6Qqjjnh7XMRRCCVVFf/+OC3APJt9IkfdFx7cllMP6Ol9in4j+uYOBnKS7p1Qiszam
+    2WguNc4gmmaNFfEQAFXusoCMnNQU9P3Gv6NCW1xBPn0DAAAAAElFTkSuQmCC
+    
+  - text/latex
+    $$\begin{bmatrix}\frac{\frac{d^{2}}{d x^{2}}  X{\left (x \right )}}{X{\left (x \right )}}, & \frac{\frac{d^{2}}{d t^{2}}  T{\left (t \right )}}{C^{2} T{\left (t \right )}}\end{bmatrix}$$
+  metadata
+    {
+     "collapsed": false
+    }
+code 65
+    # Laplace equation in cylindrical coords
+    eq = Eq(1/r * D(Phi(r, theta, z), r) + D(Phi(r, theta, z), r, 2) +
+            1/r**2 * D(Phi(r, theta, z), theta, 2) + D(Phi(r, theta, z), z, 2))
+    eq
+  execute_result
+  - text/plain
+                                                           2                
+                                                          ∂                 
+                                        ∂                ───(Φ(r, θ, z))    
+      2                 2               ──(Φ(r, θ, z))     2                
+     ∂                 ∂                ∂r               ∂θ                 
+    ───(Φ(r, θ, z)) + ───(Φ(r, θ, z)) + ────────────── + ─────────────── = 0
+      2                 2                     r                  2          
+    ∂r                ∂z                                        r           
+  - image/png
+    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
+    
+  - text/latex
+    $$\frac{\partial^{2}}{\partial r^{2}}  \Phi{\left (r,\theta,z \right )} + \frac{\partial^{2}}{\partial z^{2}}  \Phi{\left (r,\theta,z \right )} + \frac{1}{r} \frac{\partial}{\partial r} \Phi{\left (r,\theta,z \right )} + \frac{1}{r^{2}} \frac{\partial^{2}}{\partial \theta^{2}}  \Phi{\left (r,\theta,z \right )} = 0$$
+  metadata
+    {
+     "collapsed": false
+    }
+code 66
+    # Separate z
+    res = pde_separate_mul(eq, Phi(r, theta, z), [Z(z), u(theta, r)])
+    res
+  execute_result
+  - text/plain
+    ⎡  2            2                            2         ⎤
+    ⎢ d            ∂                            ∂          ⎥
+    ⎢───(Z(z))    ───(u(θ, r))   ∂             ───(u(θ, r))⎥
+    ⎢  2            2            ──(u(θ, r))     2         ⎥
+    ⎢dz           ∂r             ∂r            ∂θ          ⎥
+    ⎢─────────, - ──────────── - ─────────── - ────────────⎥
+    ⎢   Z(z)        u(θ, r)       r⋅u(θ, r)      2         ⎥
+    ⎣                                           r ⋅u(θ, r) ⎦
+  - image/png
+    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
+    
+  - text/latex
+    $$\begin{bmatrix}\frac{\frac{d^{2}}{d z^{2}}  Z{\left (z \right )}}{Z{\left (z \right )}}, & - \frac{\frac{\partial^{2}}{\partial r^{2}}  u{\left (\theta,r \right )}}{u{\left (\theta,r \right )}} - \frac{\frac{\partial}{\partial r} u{\left (\theta,r \right )}}{r u{\left (\theta,r \right )}} - \frac{\frac{\partial^{2}}{\partial \theta^{2}}  u{\left (\theta,r \right )}}{r^{2} u{\left (\theta,r \right )}}\end{bmatrix}$$
+  metadata
+    {
+     "collapsed": false
+    }
+code 67
+    # Lets use the result to create a new equation...
+    eq = Eq(res[1], c)
+    eq
+  execute_result
+  - text/plain
+        2                            2             
+       ∂                            ∂              
+      ───(u(θ, r))   ∂             ───(u(θ, r))    
+        2            ──(u(θ, r))     2             
+      ∂r             ∂r            ∂θ              
+    - ──────────── - ─────────── - ──────────── = C
+        u(θ, r)       r⋅u(θ, r)      2             
+                                    r ⋅u(θ, r)     
+  - image/png
+    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
+    
+  - text/latex
+    $$- \frac{\frac{\partial^{2}}{\partial r^{2}}  u{\left (\theta,r \right )}}{u{\left (\theta,r \right )}} - \frac{\frac{\partial}{\partial r} u{\left (\theta,r \right )}}{r u{\left (\theta,r \right )}} - \frac{\frac{\partial^{2}}{\partial \theta^{2}}  u{\left (\theta,r \right )}}{r^{2} u{\left (\theta,r \right )}} = C$$
+  metadata
+    {
+     "collapsed": false
+    }
+code 68
+    # ...and separate theta...
+    res = pde_separate_mul(eq, u(theta, r), [T(theta), R(r)])
+    res
+  execute_result
+  - text/plain
+    ⎡  2                      2                   ⎤
+    ⎢ d                   2  d                    ⎥
+    ⎢───(T(θ))           r ⋅───(R(r))     d       ⎥
+    ⎢  2                      2         r⋅──(R(r))⎥
+    ⎢dθ              2      dr            dr      ⎥
+    ⎢─────────, - C⋅r  - ──────────── - ──────────⎥
+    ⎣   T(θ)                 R(r)          R(r)   ⎦
+  - image/png
+    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
+    
+  - text/latex
+    $$\begin{bmatrix}\frac{\frac{d^{2}}{d \theta^{2}}  T{\left (\theta \right )}}{T{\left (\theta \right )}}, & - C r^{2} - \frac{r^{2} \frac{d^{2}}{d r^{2}}  R{\left (r \right )}}{R{\left (r \right )}} - \frac{r \frac{d}{d r} R{\left (r \right )}}{R{\left (r \right )}}\end{bmatrix}$$
+  metadata
+    {
+     "collapsed": false
+    }
+code 69
+    # ...or r...
+    res = pde_separate_mul(eq, u(theta, r), [R(r), T(theta)])
+    res
+  execute_result
+  - text/plain
+    ⎡            2                        2       ⎤
+    ⎢        2  d                        d        ⎥
+    ⎢       r ⋅───(R(r))     d         -───(T(θ)) ⎥
+    ⎢            2         r⋅──(R(r))     2       ⎥
+    ⎢   2      dr            dr         dθ        ⎥
+    ⎢C⋅r  + ──────────── + ──────────, ───────────⎥
+    ⎣           R(r)          R(r)         T(θ)   ⎦
+  - image/png
+    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
+    
+  - text/latex
+    $$\begin{bmatrix}C r^{2} + \frac{r^{2} \frac{d^{2}}{d r^{2}}  R{\left (r \right )}}{R{\left (r \right )}} + \frac{r \frac{d}{d r} R{\left (r \right )}}{R{\left (r \right )}}, & - \frac{\frac{d^{2}}{d \theta^{2}}  T{\left (\theta \right )}}{T{\left (\theta \right )}}\end{bmatrix}$$
+  metadata
+    {
+     "collapsed": false
+    }
+metadata
+    {
+     "orig_nbformat": 3,
+     "orig_nbformat_minor": 0
+    }

@@ -682,6 +682,73 @@ code 26
      "collapsed": false
     }
 code 27
+    pi.evalf(100)
+  execute_result
+  - text/plain
+    3.1415926535897932384626433832795028841971693993751058209749445923078164062862
+    08998628034825342117068
+  - image/png
+    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
+    YiBvPd6agPQ/ALgCyvGUUdcAAAAASUVORK5CYII=
+    
+  - text/latex
+    $$3.141592653589793238462643383279502884197169399375105820974944592307816406286208998628034825342117068$$
+  metadata
+    {
+     "collapsed": false
+    }
+code 28
     solve(x**4 - x**2 - 1, x)
   execute_result
   - text/plain
@@ -712,7 +779,7 @@ code 27
     {
      "collapsed": false
     }
-code 28
+code 29
     solve([x + y - 1, x - y - 1], [x,y])
   execute_result
   - text/plain
@@ -737,7 +804,7 @@ code 28
     {
      "collapsed": false
     }
-code 29
+code 30
     solve([x + y - a, x - y - c], [x,y])
   execute_result
   - text/plain
@@ -769,7 +836,7 @@ code 29
     {
      "collapsed": false
     }
-code 30
+code 31
     var('m:q')
   execute_result
   - text/plain
@@ -795,7 +862,7 @@ code 30
     {
      "collapsed": false
     }
-code 31
+code 32
     var('r:5')
   execute_result
   - text/plain
@@ -822,7 +889,7 @@ code 31
     {
      "collapsed": false
     }
-code 32
+code 33
     m = symbols('m')
     M = Matrix([[1, m], [3, 4]])
     M
@@ -849,7 +916,7 @@ code 32
     {
      "collapsed": false
     }
-code 33
+code 34
     M.inv()
   execute_result
   - text/plain
@@ -887,7 +954,7 @@ code 33
     {
      "collapsed": false
     }
-code 34
+code 35
     m11, m12, m21, m22 = symbols("m11, m12, m21, m22")
     b1, b2 = symbols("b1, b2")
     A = Matrix([[m11, m12],[m21, m22]])
@@ -916,7 +983,7 @@ code 34
     {
      "collapsed": false
     }
-code 35
+code 36
     b = Matrix([[b1], [b2]])
     b
   execute_result
@@ -940,7 +1007,7 @@ code 35
     {
      "collapsed": false
     }
-code 36
+code 37
     A**2
   execute_result
   - text/plain
@@ -984,7 +1051,7 @@ code 36
     {
      "collapsed": false
     }
-code 37
+code 38
     A * b
   execute_result
   - text/plain
@@ -1014,7 +1081,7 @@ code 37
     {
      "collapsed": false
     }
-code 38
+code 39
     A.det()
   execute_result
   - text/plain
@@ -1038,7 +1105,7 @@ code 38
     {
      "collapsed": false
     }
-code 39
+code 40
     A.inv()
   execute_result
   - text/plain
@@ -1107,7 +1174,7 @@ code 39
     }
 markdown
     from https://github.com/sympy/sympy/wiki/Matrices-eigenvalues
-code 40
+code 41
     M = Matrix(4, 4, lambda i, j: i * j + 1)
     M
   execute_result
@@ -1150,7 +1217,7 @@ code 40
     {
      "collapsed": false
     }
-code 41
+code 42
     M.eigenvals()
   execute_result
   - text/plain
@@ -1183,7 +1250,7 @@ code 41
     {
      "collapsed": false
     }
-code 42
+code 43
     M = Matrix(4, 4, lambda i, j: i * j + 2)
     M
   execute_result
@@ -1229,7 +1296,7 @@ code 42
     {
      "collapsed": false
     }
-code 43
+code 44
     M.eigenvals()
   execute_result
   - text/plain
@@ -1257,7 +1324,7 @@ code 43
     {
      "collapsed": false
     }
-code 44
+code 45
     M = Matrix(4, 4, lambda i, j: i * j + 3)
     M
   execute_result
@@ -1304,7 +1371,7 @@ code 44
     {
      "collapsed": false
     }
-code 45
+code 46
     M.eigenvals()
   execute_result
   - text/plain
@@ -1344,7 +1411,7 @@ code 45
     {
      "collapsed": false
     }
-code 46
+code 47
     from sympy.abc import x
     M = Matrix(4, 4, lambda i, j: i * j + x)
     M
@@ -1399,7 +1466,7 @@ code 46
     {
      "collapsed": false
     }
-code 47
+code 48
     M.eigenvals()
   execute_result
   - text/plain
@@ -1443,7 +1510,7 @@ code 47
     }
 markdown
     from https://groups.google.com/forum/#!topic/sympy/mISLFQcEUIM
-code 48
+code 49
     f = Piecewise((0, x <= -1), (Rational(1, 2), x < 1), (0, True))
     f
   execute_result
@@ -1490,13 +1557,13 @@ code 48
     {
      "collapsed": false
     }
-code 49
+code 50
     #integrate(f.subs(x, x - y) * f(x), y)
   metadata
     {
      "collapsed": false
     }
-code 50
+code 51
     integrate(Heaviside(x + 1) / 2 - Heaviside(x - 1) / 2, (x, -10, -5))
   execute_result
   - text/plain
@@ -1516,7 +1583,7 @@ code 50
     {
      "collapsed": false
     }
-code 51
+code 52
     q=Piecewise((0, x < 0), (x, x < 1), (0, True))
     q
   execute_result
@@ -1561,7 +1628,7 @@ code 51
     {
      "collapsed": false
     }
-code 52
+code 53
     q.args
   execute_result
   - text/plain
@@ -1602,7 +1669,7 @@ code 52
     }
 markdown
     from https://groups.google.com/forum/#!topic/sympy/tt8IA3y2sfQ
-code 53
+code 54
     f = Lambda(x, exp(-x**2))
     f
   execute_result
@@ -1632,7 +1699,7 @@ code 53
     {
      "collapsed": false
     }
-code 54
+code 55
     conv = Integral(f(x-y)*f(y), (y, -oo, oo))
     conv
   execute_result
@@ -1672,7 +1739,7 @@ code 54
     {
      "collapsed": false
     }
-code 55
+code 56
     conv.subs({x:0})
   execute_result
   - text/plain
@@ -1707,14 +1774,14 @@ code 55
     {
      "collapsed": false
     }
-code 56
+code 57
     l = lambdify(x, Integral(f(x), (x, -oo, oo)))
     #l(3) # doesn't work!
   metadata
     {
      "collapsed": false
     }
-code 57
+code 58
     l = lambdify(x, Integral(f(x), (x, -oo, oo)), "sympy")
     l(x)
   execute_result
@@ -1751,7 +1818,7 @@ code 57
     }
 markdown
     from http://www.mare.ee/indrek/misc/convolution.pdf
-code 58
+code 59
     import sympy.abc
     
     # Convolute two "one-piece" functions. Arguments F and G
@@ -1824,13 +1891,13 @@ code 58
     }
 markdown
     from https://github.com/fperez/sympy/blob/master/sympy/solvers/tests/test_pde.py
-code 59
+code 60
     from sympy import (Derivative as D, Eq, exp, sin, Function, Symbol, symbols, cos, log)
   metadata
     {
      "collapsed": false
     }
-code 60
+code 61
     x, y, z, t = symbols("x,y,z,t")
     c = Symbol("C", real=True)
     Phi = Function('Phi')
@@ -1886,7 +1953,7 @@ code 60
     {
      "collapsed": false
     }
-code 61
+code 62
     pde_separate_mul(eq, F(x, y, z), [Y(y), u(x, z)])
   execute_result
   - text/plain
@@ -1932,7 +1999,7 @@ code 61
     {
      "collapsed": false
     }
-code 62
+code 63
     pde_separate_mul(eq, F(x, y, z), [X(x), Y(y), Z(z)])
   execute_result
   - text/plain
@@ -1976,7 +2043,7 @@ code 62
     {
      "collapsed": false
     }
-code 63
+code 64
     # wave equation
     wave = Eq(D(u(x, t), t, t), c**2*D(u(x, t), x, x))
     wave
@@ -2019,7 +2086,7 @@ code 63
     {
      "collapsed": false
     }
-code 64
+code 65
     res = pde_separate_mul(wave, u(x, t), [X(x), T(t)])
     res
   execute_result
@@ -2063,7 +2130,7 @@ code 64
     {
      "collapsed": false
     }
-code 65
+code 66
     # Laplace equation in cylindrical coords
     eq = Eq(1/r * D(Phi(r, theta, z), r) + D(Phi(r, theta, z), r, 2) +
             1/r**2 * D(Phi(r, theta, z), theta, 2) + D(Phi(r, theta, z), z, 2))
@@ -2130,7 +2197,7 @@ code 65
     {
      "collapsed": false
     }
-code 66
+code 67
     # Separate z
     res = pde_separate_mul(eq, Phi(r, theta, z), [Z(z), u(theta, r)])
     res
@@ -2189,7 +2256,7 @@ code 66
     {
      "collapsed": false
     }
-code 67
+code 68
     # Lets use the result to create a new equation...
     eq = Eq(res[1], c)
     eq
@@ -2249,7 +2316,7 @@ code 67
     {
      "collapsed": false
     }
-code 68
+code 69
     # ...and separate theta...
     res = pde_separate_mul(eq, u(theta, r), [T(theta), R(r)])
     res
@@ -2300,7 +2367,7 @@ code 68
     {
      "collapsed": false
     }
-code 69
+code 70
     # ...or r...
     res = pde_separate_mul(eq, u(theta, r), [R(r), T(theta)])
     res

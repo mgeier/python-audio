@@ -26,21 +26,9 @@ markdown
     http://ipython.org/notebook.html
     
     http://nbviewer.ipython.org/
-code
-    
-  metadata
-    {
-     "collapsed": false
-    }
-code
+code 1
     # magic functions
     %quickref
-  metadata
-    {
-     "collapsed": false
-    }
-code
-    
   metadata
     {
      "collapsed": false
@@ -51,14 +39,8 @@ markdown
     Support for $\LaTeX$ equations: $a^2+b^2=c^2$ (using [MathJax](http://www.mathjax.org/)).
 markdown
     `qtconsole` can also be started from a running notebook session:
-code
+code 2
     %qtconsole
-  metadata
-    {
-     "collapsed": false
-    }
-code
-    
   metadata
     {
      "collapsed": false
@@ -69,14 +51,8 @@ code 3
     {
      "collapsed": false
     }
-code
+code 4
     help??
-  metadata
-    {
-     "collapsed": false
-    }
-code
-    
   metadata
     {
      "collapsed": false
@@ -84,58 +60,46 @@ code
 code 5
     %pylab inline
   stream stdout
-    
-    Welcome to pylab, a matplotlib-based Python environment [backend: module://IPython.zmq.pylab.backend_inline].
-    For more information, type 'help(pylab)'.
+    Populating the interactive namespace from numpy and matplotlib
   metadata
     {
      "collapsed": false
     }
-code
+code 6
     # TODO: TikZ backend?
   metadata
     {
      "collapsed": false
     }
-code
+code 7
+    %timeit?
     
+    # or:
+    #%run -t
   metadata
     {
      "collapsed": false
     }
-code 2
-    %timeit
+code 8
+    %debug?
     
-    # or
-    
-    %run -t
+    # or:
+    #%run -d
   metadata
     {
      "collapsed": true
     }
-code
-    %cpaste
-  metadata
-    {
-     "collapsed": false
-    }
-code
-    %debug # and locals()
-    %run -d
-  metadata
-    {
-     "collapsed": false
-    }
-code
-    
+code 9
+    %who?
   metadata
     {
      "collapsed": false
     }
 markdown
-    You can also do crazy things like running shell commands (and using their output in Python):
-code 11
-    a =! ls *.ipynb
+    You can also do crazy things like running shell commands. You can even pass Python names and use the shell output again in Python:
+code 10
+    extension = 'ipynb'
+    a =! ls *.$extension
     a
   execute_result
   - text/plain
@@ -147,16 +111,16 @@ code 11
     {
      "collapsed": false
     }
-code 1
+code 11
     d =! ddate
     print(d.n)
   stream stdout
-    Today is Setting Orange, the 61st day of Bureaucracy in the YOLD 3179
+    Today is Prickle-Prickle, the 6th day of Discord in the YOLD 3180
   metadata
     {
      "collapsed": false
     }
-code 2
+code 12
     %%bash
     tmp=$(tempfile).txt
     echo some text > $tmp
@@ -181,12 +145,12 @@ markdown
         %%octave
         %load_ext rmagic
         %%R
-        
+    
     See also [Running Scripts from IPython](http://nbviewer.ipython.org/github/ipython/ipython/blob/master/examples/notebooks/Script%20Magics.ipynb)
-markdown
-    ## Links
-markdown
-    TODO: more links
+    
+    [Example notebook using Octave](http://nbviewer.ipython.org/github/ipython/ipython/blob/master/examples/notebooks/Octave%20Magic.ipynb)
+    
+    [Example notebook using R](http://nbviewer.ipython.org/github/ipython/ipython/blob/master/examples/notebooks/R%20Magics.ipynb)
 metadata
     {
      "orig_nbformat": 3,

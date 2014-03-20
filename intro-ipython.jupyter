@@ -151,6 +151,10 @@ markdown
     [Example notebook using Octave](http://nbviewer.ipython.org/github/ipython/ipython/blob/master/examples/notebooks/Octave%20Magic.ipynb)
     
     [Example notebook using R](http://nbviewer.ipython.org/github/ipython/ipython/blob/master/examples/notebooks/R%20Magics.ipynb)
+    
+    [Example notebook using Julia](http://nbviewer.ipython.org/github/JuliaLang/IJulia.jl/blob/master/python/doc/JuliaMagic.ipynb)
+markdown
+    IPython can display [all kinds of media](http://nbviewer.ipython.org/github/ipython/ipython/blob/master/examples/notebooks/Part%205%20-%20Rich%20Display%20System.ipynb) and it can even handle the [HTML5 `<audio>` tag](http://nbviewer.ipython.org/github/Carreau/posts/blob/master/07-the-sound-of-hydrogen.ipynb).
 metadata
     {
      "orig_nbformat": 3,

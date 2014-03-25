@@ -1,0 +1,47 @@
+nbformat 4
+nbformat_minor 2
+markdown
+    The *Monty Hall Problem* is totally unintuitive.
+    
+    To illustrate the problem, I tried to create a program that just repeats the thing many times, showing that in the end the theoretical solution is indeed also happening "in practice".
+    
+    But as soon as I was writing this, it got so obvious that it's not even necessary to run the program anymore.
+    
+    * If you guessed right and you switch, you loose, if you don't switch you win.
+    * If you guessed wrong and you switch, you win, if you don't switch you loose.
+    
+    Guessing wrong is twice as likely ($\frac{2}{3}$ vs. $\frac{1}{3}$), so if you switch, you will also win twice as likely.
+code 1
+    from random import randint
+    
+    def monty(N):
+        # win1 .. number of wins when not switching
+        # win2 .. number of wins when switching
+        win1 = win2 = 0
+        for i in range(N):
+            price = randint(1, 3)
+            guess = randint(1, 3)
+            if price == guess:
+                # we win if we don't switch
+                win1 += 1
+            else:
+                # we win if we switch
+                win2 += 1
+        print("repetitions: {}, wins w/o switching: {} %, wins with switching: {} %".format(N, win1/N*100, win2/N*100))
+  metadata
+    {
+     "collapsed": false
+    }
+code 2
+    monty(100000)
+  stream stdout
+    repetitions: 100000, wins w/o switching: 33.326 %, wins with switching: 66.674 %
+  metadata
+    {
+     "collapsed": false
+    }
+metadata
+    {
+     "orig_nbformat": 3,
+     "orig_nbformat_minor": 0
+    }

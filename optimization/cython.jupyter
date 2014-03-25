@@ -1,5 +1,7 @@
 nbformat 4
 nbformat_minor 2
+markdown
+    see also http://nbviewer.ipython.org/github/ipython/ipython/blob/master/examples/notebooks/Cython%20Magics.ipynb
 code 1
     %load_ext cythonmagic
   metadata

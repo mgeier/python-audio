@@ -115,7 +115,7 @@ code 11
     d =! ddate
     print(d.n)
   stream stdout
-    Today is Prickle-Prickle, the 6th day of Discord in the YOLD 3180
+    Today is Prickle-Prickle, the 11th day of Discord in the YOLD 3180
   metadata
     {
      "collapsed": false
@@ -153,6 +153,140 @@ markdown
     [Example notebook using R](http://nbviewer.ipython.org/github/ipython/ipython/blob/master/examples/notebooks/R%20Magics.ipynb)
     
     [Example notebook using Julia](http://nbviewer.ipython.org/github/JuliaLang/IJulia.jl/blob/master/python/doc/JuliaMagic.ipynb)
+markdown
+    Show all available "magic" functions:
+code 13
+    %lsmagic
+  execute_result
+  - text/plain
+    Available line magics:
+    %alias  %alias_magic  %autocall  %automagic  %autosave  %bookmark  %cd  %clear  %colors  %config  %connect_info  %debug  %dhist  %dirs  %doctest_mode  %ed  %edit  %env  %gui  %guiref  %hist  %history  %install_default_config  %install_ext  %install_profiles  %killbgscripts  %less  %load  %load_ext  %loadpy  %logoff  %logon  %logstart  %logstate  %logstop  %lsmagic  %macro  %magic  %man  %matplotlib  %more  %notebook  %page  %pastebin  %pdb  %pdef  %pdoc  %pfile  %pinfo  %pinfo2  %popd  %pprint  %precision  %profile  %prun  %psearch  %psource  %pushd  %pwd  %pycat  %pylab  %qtconsole  %quickref  %recall  %rehashx  %reload_ext  %rep  %rerun  %reset  %reset_selective  %run  %save  %sc  %store  %sx  %system  %tb  %time  %timeit  %unalias  %unload_ext  %who  %who_ls  %whos  %xdel  %xmode
+    
+    Available cell magics:
+    %%!  %%HTML  %%SVG  %%bash  %%capture  %%debug  %%file  %%html  %%javascript  %%latex  %%perl  %%prun  %%pypy  %%python  %%python3  %%ruby  %%script  %%sh  %%svg  %%sx  %%system  %%time  %%timeit  %%writefile
+    
+    Automagic is ON, % prefix IS NOT needed for line magics.
+  - application/json
+    {
+     "cell": {
+      "!": "OSMagics",
+      "HTML": "Other",
+      "SVG": "Other",
+      "bash": "Other",
+      "capture": "ExecutionMagics",
+      "debug": "ExecutionMagics",
+      "file": "Other",
+      "html": "DisplayMagics",
+      "javascript": "DisplayMagics",
+      "latex": "DisplayMagics",
+      "perl": "Other",
+      "prun": "ExecutionMagics",
+      "pypy": "Other",
+      "python": "Other",
+      "python3": "Other",
+      "ruby": "Other",
+      "script": "ScriptMagics",
+      "sh": "Other",
+      "svg": "DisplayMagics",
+      "sx": "OSMagics",
+      "system": "OSMagics",
+      "time": "ExecutionMagics",
+      "timeit": "ExecutionMagics",
+      "writefile": "OSMagics"
+     },
+     "line": {
+      "alias": "OSMagics",
+      "alias_magic": "BasicMagics",
+      "autocall": "AutoMagics",
+      "automagic": "AutoMagics",
+      "autosave": "KernelMagics",
+      "bookmark": "OSMagics",
+      "cd": "OSMagics",
+      "clear": "KernelMagics",
+      "colors": "BasicMagics",
+      "config": "ConfigMagics",
+      "connect_info": "KernelMagics",
+      "debug": "ExecutionMagics",
+      "dhist": "OSMagics",
+      "dirs": "OSMagics",
+      "doctest_mode": "KernelMagics",
+      "ed": "Other",
+      "edit": "KernelMagics",
+      "env": "OSMagics",
+      "gui": "BasicMagics",
+      "guiref": "Other",
+      "hist": "Other",
+      "history": "HistoryMagics",
+      "install_default_config": "DeprecatedMagics",
+      "install_ext": "ExtensionMagics",
+      "install_profiles": "DeprecatedMagics",
+      "killbgscripts": "ScriptMagics",
+      "less": "KernelMagics",
+      "load": "CodeMagics",
+      "load_ext": "ExtensionMagics",
+      "loadpy": "CodeMagics",
+      "logoff": "LoggingMagics",
+      "logon": "LoggingMagics",
+      "logstart": "LoggingMagics",
+      "logstate": "LoggingMagics",
+      "logstop": "LoggingMagics",
+      "lsmagic": "BasicMagics",
+      "macro": "ExecutionMagics",
+      "magic": "BasicMagics",
+      "man": "KernelMagics",
+      "matplotlib": "PylabMagics",
+      "more": "KernelMagics",
+      "notebook": "BasicMagics",
+      "page": "BasicMagics",
+      "pastebin": "CodeMagics",
+      "pdb": "ExecutionMagics",
+      "pdef": "NamespaceMagics",
+      "pdoc": "NamespaceMagics",
+      "pfile": "NamespaceMagics",
+      "pinfo": "NamespaceMagics",
+      "pinfo2": "NamespaceMagics",
+      "popd": "OSMagics",
+      "pprint": "BasicMagics",
+      "precision": "BasicMagics",
+      "profile": "BasicMagics",
+      "prun": "ExecutionMagics",
+      "psearch": "NamespaceMagics",
+      "psource": "NamespaceMagics",
+      "pushd": "OSMagics",
+      "pwd": "OSMagics",
+      "pycat": "OSMagics",
+      "pylab": "PylabMagics",
+      "qtconsole": "KernelMagics",
+      "quickref": "BasicMagics",
+      "recall": "HistoryMagics",
+      "rehashx": "OSMagics",
+      "reload_ext": "ExtensionMagics",
+      "rep": "Other",
+      "rerun": "HistoryMagics",
+      "reset": "NamespaceMagics",
+      "reset_selective": "NamespaceMagics",
+      "run": "ExecutionMagics",
+      "save": "CodeMagics",
+      "sc": "OSMagics",
+      "store": "StoreMagics",
+      "sx": "OSMagics",
+      "system": "OSMagics",
+      "tb": "ExecutionMagics",
+      "time": "ExecutionMagics",
+      "timeit": "ExecutionMagics",
+      "unalias": "OSMagics",
+      "unload_ext": "ExtensionMagics",
+      "who": "NamespaceMagics",
+      "who_ls": "NamespaceMagics",
+      "whos": "NamespaceMagics",
+      "xdel": "NamespaceMagics",
+      "xmode": "BasicMagics"
+     }
+    }
+  metadata
+    {
+     "collapsed": false
+    }
 markdown
     IPython can display [all kinds of media](http://nbviewer.ipython.org/github/ipython/ipython/blob/master/examples/notebooks/Part%205%20-%20Rich%20Display%20System.ipynb) and it can even handle the [HTML5 `<audio>` tag](http://nbviewer.ipython.org/github/Carreau/posts/blob/master/07-the-sound-of-hydrogen.ipynb).
 metadata

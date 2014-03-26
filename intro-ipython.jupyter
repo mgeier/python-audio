@@ -27,6 +27,12 @@ markdown
     
     http://nbviewer.ipython.org/
 code 1
+    ?
+  metadata
+    {
+     "collapsed": false
+    }
+code 1
     # magic functions
     %quickref
   metadata

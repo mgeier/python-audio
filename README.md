@@ -55,6 +55,12 @@ NumPy
 
 http://www.loria.fr/~rougier/teaching/numpy/numpy.html
 
+Python-based Libraries for Signal Processing
+--------------------------------------------
+
+Bob (signal-processing and machine learning toolbox)  
+http://idiap.github.io/bob/
+
 Comparison with Other Software
 ------------------------------
 

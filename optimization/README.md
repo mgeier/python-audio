@@ -15,6 +15,11 @@ First, check for bottlenecks, then optimize!
 
 [PLOP](https://github.com/bdarnell/plop)
 
+TODO
+----
+
+    python -O
+
 <!--
 vim:textwidth=80
 -->

@@ -61,6 +61,11 @@ Python-based Libraries for Signal Processing
 Bob (signal-processing and machine learning toolbox)  
 http://idiap.github.io/bob/
 
+Python in General
+-----------------
+
+http://docs.python-guide.org/en/latest/
+
 Comparison with Other Software
 ------------------------------
 

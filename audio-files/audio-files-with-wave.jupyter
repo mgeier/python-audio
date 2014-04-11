@@ -55,9 +55,7 @@ markdown
 code 2
     %pylab inline
   stream stdout
-    
-    Welcome to pylab, a matplotlib-based Python environment [backend: module://IPython.zmq.pylab.backend_inline].
-    For more information, type 'help(pylab)'.
+    Populating the interactive namespace from numpy and matplotlib
   metadata
     {
      "collapsed": false
@@ -68,7 +66,7 @@ code 3
     import wave
     from contextlib import closing
     
-    # Note: in Python 3.4, wave.open() will return a context manager, closing() won't be necessary anymore
+    # Note: starting from Python 3.4, wave.open() returns a context manager, closing() won't be necessary anymore
   metadata
     {
      "collapsed": false
@@ -184,7 +182,7 @@ code 9
      "collapsed": false
     }
 markdown
-    Note that neither `frombuffer()` nor `reshape()` made a copy of the data. We are still using the buffer of bytes we got from `readframes()`:
+    Note that neither `frombuffer()` nor `reshape()` made a copy of the data. We are still using the buffer of bytes we got from `readframes()`. By using the `.base` attribute of the array we get the result of `frombuffer()` (before `reshape()`) and by using `.base` a second time, we get a reference to the original buffer object:
 code 10
     sig.base.base is data
   execute_result
@@ -222,6 +220,8 @@ code 12
     plot(normalized)
     show()
   display_data
+  - text/plain
+    <matplotlib.figure.Figure at 0x7f5121f27b90>
   - image/png
     iVBORw0KGgoAAAANSUhEUgAAAXgAAAD/CAYAAAD7X81yAAAABHNCSVQICAgIfAhkiAAAAAlwSFlz
     AAALEgAACxIB0t1+/AAAIABJREFUeJzsnXd801X3xz/pLt2DLlYZZSMgQ/beq4qgDz8fHCgiLhTX
@@ -1064,42 +1064,118 @@ code 15
         temp.append(0)
         temp.extend(data[i:i+3])
     
-    frombuffer(temp, dtype=uint8)
+    # Starting with an empty bytearray and extending it on each iteration might be slow.
+    # See further below for how to reserve all necessary memory in the beginning.
+    
+    four_bytes = frombuffer(temp, dtype=uint8).reshape(-1, 4)
+    four_bytes
   execute_result
   - text/plain
-    array([  0, 255, 255, 127,   0, 219, 182, 109,   0, 182, 109,  91,   0,
-           146,  36,  73,   0, 109, 219,  54,   0,  73, 146,  36,   0,  36,
-            73,  18,   0, 242,  82, 115,   0, 222, 103,  68,   0,  67,  88,
-            20,   0, 100, 185, 239,   0,  17, 204, 221,   0, 223,  12, 223,
-             0, 220, 182, 237,   0, 131, 206,  79,   0,  22, 150, 231,   0,
-            47, 160, 173,   0, 191,  25, 190,   0,  11, 203, 243,   0,  74,
-           205,  22,   0,  36,  73,  18,   0, 145, 123,  28,   0, 158,  38,
-           157,   0, 199, 254, 198,   0, 148, 154,  45,   0, 177, 108,  49,
-             0, 178, 220, 247,   0, 220, 182, 237,   0, 111, 132, 227,   0,
-           158,  38, 157,   0,  57,   1,  57,   0, 148, 154,  45,   0,  79,
-           147, 206,   0, 178, 220, 247,   0,  36,  73,  18,   0, 125,  49,
-           176,   0,  22, 150, 231,   0, 209,  95,  82,   0, 191,  25, 190,
-             0, 245,  52,  12,   0,  74, 205,  22,   0, 220, 182, 237,   0,
-            14, 173, 140,   0, 222, 103,  68,   0, 189, 167, 235,   0, 100,
-           185, 239,   0, 239,  51,  34,   0, 223,  12, 223,   0,  36,  73,
-            18,   0,   1,   0, 128,   0, 219, 182, 109,   0,  74, 146, 164,
-             0, 146,  36,  73,   0, 147,  36, 201,   0,  73, 146,  36,   0,
-           220, 182, 237,   0,  14, 173, 140,   0, 222, 103,  68,   0, 189,
-           167, 235,   0, 100, 185, 239,   0, 239,  51,  34,   0, 223,  12,
-           223,   0,  36,  73,  18,   0, 125,  49, 176,   0,  22, 150, 231,
-             0, 209,  95,  82,   0, 191,  25, 190,   0, 245,  52,  12,   0,
-            74, 205,  22,   0, 220, 182, 237,   0, 111, 132, 227,   0, 158,
-            38, 157,   0,  57,   1,  57,   0, 148, 154,  45,   0,  79, 147,
-           206,   0, 178, 220, 247,   0,  36,  73,  18,   0, 145, 123,  28,
-             0, 158,  38, 157,   0, 199, 254, 198,   0, 148, 154,  45,   0,
-           177, 108,  49,   0, 178, 220, 247,   0, 220, 182, 237,   0, 131,
-           206,  79,   0,  22, 150, 231,   0,  47, 160, 173,   0, 191,  25,
-           190,   0,  11, 203, 243,   0,  74, 205,  22,   0,  36,  73,  18,
-             0, 242,  82, 115,   0, 222, 103,  68,   0,  67,  88,  20,   0,
-           100, 185, 239,   0,  17, 204, 221,   0, 223,  12, 223,   0, 220,
-           182, 237,   0, 255, 255, 127,   0, 219, 182, 109,   0, 182, 109,
-            91,   0, 146,  36,  73,   0, 109, 219,  54,   0,  73, 146,  36,
-             0,  36,  73,  18], dtype=uint8)
+    array([[  0, 255, 255, 127],
+           [  0, 219, 182, 109],
+           [  0, 182, 109,  91],
+           [  0, 146,  36,  73],
+           [  0, 109, 219,  54],
+           [  0,  73, 146,  36],
+           [  0,  36,  73,  18],
+           [  0, 242,  82, 115],
+           [  0, 222, 103,  68],
+           [  0,  67,  88,  20],
+           [  0, 100, 185, 239],
+           [  0,  17, 204, 221],
+           [  0, 223,  12, 223],
+           [  0, 220, 182, 237],
+           [  0, 131, 206,  79],
+           [  0,  22, 150, 231],
+           [  0,  47, 160, 173],
+           [  0, 191,  25, 190],
+           [  0,  11, 203, 243],
+           [  0,  74, 205,  22],
+           [  0,  36,  73,  18],
+           [  0, 145, 123,  28],
+           [  0, 158,  38, 157],
+           [  0, 199, 254, 198],
+           [  0, 148, 154,  45],
+           [  0, 177, 108,  49],
+           [  0, 178, 220, 247],
+           [  0, 220, 182, 237],
+           [  0, 111, 132, 227],
+           [  0, 158,  38, 157],
+           [  0,  57,   1,  57],
+           [  0, 148, 154,  45],
+           [  0,  79, 147, 206],
+           [  0, 178, 220, 247],
+           [  0,  36,  73,  18],
+           [  0, 125,  49, 176],
+           [  0,  22, 150, 231],
+           [  0, 209,  95,  82],
+           [  0, 191,  25, 190],
+           [  0, 245,  52,  12],
+           [  0,  74, 205,  22],
+           [  0, 220, 182, 237],
+           [  0,  14, 173, 140],
+           [  0, 222, 103,  68],
+           [  0, 189, 167, 235],
+           [  0, 100, 185, 239],
+           [  0, 239,  51,  34],
+           [  0, 223,  12, 223],
+           [  0,  36,  73,  18],
+           [  0,   1,   0, 128],
+           [  0, 219, 182, 109],
+           [  0,  74, 146, 164],
+           [  0, 146,  36,  73],
+           [  0, 147,  36, 201],
+           [  0,  73, 146,  36],
+           [  0, 220, 182, 237],
+           [  0,  14, 173, 140],
+           [  0, 222, 103,  68],
+           [  0, 189, 167, 235],
+           [  0, 100, 185, 239],
+           [  0, 239,  51,  34],
+           [  0, 223,  12, 223],
+           [  0,  36,  73,  18],
+           [  0, 125,  49, 176],
+           [  0,  22, 150, 231],
+           [  0, 209,  95,  82],
+           [  0, 191,  25, 190],
+           [  0, 245,  52,  12],
+           [  0,  74, 205,  22],
+           [  0, 220, 182, 237],
+           [  0, 111, 132, 227],
+           [  0, 158,  38, 157],
+           [  0,  57,   1,  57],
+           [  0, 148, 154,  45],
+           [  0,  79, 147, 206],
+           [  0, 178, 220, 247],
+           [  0,  36,  73,  18],
+           [  0, 145, 123,  28],
+           [  0, 158,  38, 157],
+           [  0, 199, 254, 198],
+           [  0, 148, 154,  45],
+           [  0, 177, 108,  49],
+           [  0, 178, 220, 247],
+           [  0, 220, 182, 237],
+           [  0, 131, 206,  79],
+           [  0,  22, 150, 231],
+           [  0,  47, 160, 173],
+           [  0, 191,  25, 190],
+           [  0,  11, 203, 243],
+           [  0,  74, 205,  22],
+           [  0,  36,  73,  18],
+           [  0, 242,  82, 115],
+           [  0, 222, 103,  68],
+           [  0,  67,  88,  20],
+           [  0, 100, 185, 239],
+           [  0,  17, 204, 221],
+           [  0, 223,  12, 223],
+           [  0, 220, 182, 237],
+           [  0, 255, 255, 127],
+           [  0, 219, 182, 109],
+           [  0, 182, 109,  91],
+           [  0, 146,  36,  73],
+           [  0, 109, 219,  54],
+           [  0,  73, 146,  36],
+           [  0,  36,  73,  18]], dtype=uint8)
   metadata
     {
      "collapsed": false
@@ -1110,6 +1186,39 @@ markdown
     Next, let's convert it to actual integers and reshape the channels into columns.
 code 16
     sig = frombuffer(temp, dtype='<i4').reshape(-1, nchannels)
+    sig
+  execute_result
+  - text/plain
+    array([[ 2147483392,  1840700160,  1533916672,  1227133440,   920349952,
+              613566720,   306783232],
+           [ 1934815744,  1147657728,   341328640,  -273062912,  -573828864,
+             -552804608,  -306783232],
+           [ 1338934016,  -409594368, -1382011136, -1105608960,  -204797184,
+              382552576,   306783232],
+           [  477860096, -1658413568,  -956381440,   765105152,   829206784,
+             -136531456,  -306783232],
+           [ -477860096, -1658413568,   956381440,   765105152,  -829206784,
+             -136531456,   306783232],
+           [-1338934016,  -409594368,  1382011136, -1105608960,   204797184,
+              382552576,  -306783232],
+           [-1934815744,  1147657728,  -341328640,  -273062912,   573828864,
+             -552804608,   306783232],
+           [-2147483392,  1840700160, -1533916672,  1227133440,  -920349952,
+              613566720,  -306783232],
+           [-1934815744,  1147657728,  -341328640,  -273062912,   573828864,
+             -552804608,   306783232],
+           [-1338934016,  -409594368,  1382011136, -1105608960,   204797184,
+              382552576,  -306783232],
+           [ -477860096, -1658413568,   956381440,   765105152,  -829206784,
+             -136531456,   306783232],
+           [  477860096, -1658413568,  -956381440,   765105152,   829206784,
+             -136531456,  -306783232],
+           [ 1338934016,  -409594368, -1382011136, -1105608960,  -204797184,
+              382552576,   306783232],
+           [ 1934815744,  1147657728,   341328640,  -273062912,  -573828864,
+             -552804608,  -306783232],
+           [ 2147483392,  1840700160,  1533916672,  1227133440,   920349952,
+              613566720,   306783232]], dtype=int32)
   metadata
     {
      "collapsed": false
@@ -1118,10 +1227,12 @@ markdown
     Let's put this into a function, just in case we find ourselves needing to load 24-bit WAV files some time in the future.
 code 17
     def pcm24to32_bytearray(data, nchannels=1):
-        assert len(data) % 3 == 0
+        if len(data) % 3 != 0:
+            raise ValueError("Size of data must be a multiple of 3 bytes")
     
         size = len(data) // 3
-    
+        
+        # reserve memory (initialized with null bytes):
         temp = bytearray(size * 4)
     
         for i in range(size):
@@ -1135,35 +1246,97 @@ code 17
      "collapsed": false
     }
 markdown
-    This looks a bit clumsy, let's try it another way:
+    This looks a bit clumsy (TODO: timing measurements!), let's try it another way:
 code 18
-    def pcm24to32(data, nchannels=1):
-        assert len(data) % 3 == 0
-        temp = np.zeros((len(data) // 3, 4), dtype='b')
-        
-        temp[:, 1:] = np.frombuffer(data, dtype='b').reshape(-1, 3)
+    def pcm24to32_view(data, nchannels=1):
+        if len(data) % 3 != 0:
+            raise ValueError("Size of data must be a multiple of 3 bytes")
     
+        temp = np.zeros((len(data) // 3, 4), dtype='B')
+        temp[:, 1:] = np.frombuffer(data, dtype='B').reshape(-1, 3)
         return temp.view('<i4').reshape(-1, nchannels)
   metadata
     {
      "collapsed": false
     }
 markdown
-    TODO: timing measurements!
+    This is what we're doing here:
+    * create a zero-initialized array of bytes with 4 columns
+    * write the data to the last 3 columns (leaving the first column filled with zeros)
+    * interpret each row (4 bytes) as one integer
+    
+    I think this is better than `pcm24to32_bytearray()`, but it still has a little flaw: the returned array doesn't own it's data.
 code 19
-    sig = pcm24to32(data, nchannels)
+    sig = pcm24to32_view(data, nchannels)
+    sig.flags.owndata
+  execute_result
+  - text/plain
+    False
   metadata
     {
      "collapsed": false
     }
 markdown
-    Finally, we normalize the values to a range from -1 to 1 (see above).
+    This is because a *view* is returned. The original array (with its 4 columns) has exactly the same values as the array `four_bytes` which we were using before.
 code 20
+    all(sig.base == four_bytes)
+  execute_result
+  - text/plain
+    True
+  metadata
+    {
+     "collapsed": false
+    }
+markdown
+    So instead of returning a view, let's turn this around and create the correct array first and use a view internally to copy the data.
+    Additionally, instead of using the `reshape()` method (which would also return a view), we directly set the shape.
+code 21
+    def pcm24to32(data, nchannels=1):
+        if len(data) % 3 != 0:
+            raise ValueError("Size of data must be a multiple of 3 bytes")
+        
+        out = np.zeros(len(data) // 3, dtype='<i4')
+        out.shape = -1, nchannels
+        temp = out.view('B').reshape(-1, 4)
+        temp[:, 1:] = np.frombuffer(data, dtype='B').reshape(-1, 3)
+        return out
+  metadata
+    {
+     "collapsed": false
+    }
+markdown
+    I think this one is better. Now the returned array owns its data:
+code 22
+    sig = pcm24to32(data, nchannels)
+    sig.flags.owndata
+  execute_result
+  - text/plain
+    True
+  metadata
+    {
+     "collapsed": false
+    }
+markdown
+    BTW, the result of all three functions is of course the same:
+code 23
+    all(sig == pcm24to32_view(data, nchannels)), all(sig == pcm24to32_bytearray(data, nchannels))
+  execute_result
+  - text/plain
+    (True, True)
+  metadata
+    {
+     "collapsed": false
+    }
+markdown
+    Finally, we convert the 32-bit integer values to 32-bit floating point values and normalize them to a range from -1 to 1 (see above).
+code 24
     normalized = pcm2float(sig, float32)
     
     plot(normalized)
     show()
   display_data
+  - text/plain
+    <matplotlib.figure.Figure at 0x7f5121c1a110>
   - image/png
     iVBORw0KGgoAAAANSUhEUgAAAXgAAAD/CAYAAAD7X81yAAAABHNCSVQICAgIfAhkiAAAAAlwSFlz
     AAALEgAACxIB0t1+/AAAIABJREFUeJzsnXd8U9X7xz/pLt2DLsoqLbKHTNl7VupC5ae4+CpuUMC9
@@ -1960,7 +2133,7 @@ code 20
     }
 markdown
     WAVEX doesn't work:
-code 21
+code 25
     try:
         w = wave.open('data/test_wavex_pcm16.wav')
     except:
@@ -1970,15 +2143,15 @@ code 21
         print("It works (unexpectedly)!")
   stream stderr
     Traceback (most recent call last):
-      File "<ipython-input-21-6a89dfaf8df6>", line 2, in <module>
+      File "<ipython-input-25-6a89dfaf8df6>", line 2, in <module>
         w = wave.open('data/test_wavex_pcm16.wav')
-      File "/usr/lib/python3.3/wave.py", line 498, in open
+      File "/usr/lib/python3.3/wave.py", line 509, in open
         return Wave_read(f)
-      File "/usr/lib/python3.3/wave.py", line 163, in __init__
+      File "/usr/lib/python3.3/wave.py", line 164, in __init__
         self.initfp(f)
-      File "/usr/lib/python3.3/wave.py", line 143, in initfp
+      File "/usr/lib/python3.3/wave.py", line 144, in initfp
         self._read_fmt_chunk(chunk)
-      File "/usr/lib/python3.3/wave.py", line 269, in _read_fmt_chunk
+      File "/usr/lib/python3.3/wave.py", line 273, in _read_fmt_chunk
         raise Error('unknown format: %r' % (wFormatTag,))
     wave.Error: unknown format: 65534
   metadata
@@ -1987,7 +2160,7 @@ code 21
     }
 markdown
     Let's try 32-bit float:
-code 22
+code 26
     try:
         w = wave.open('data/test_wav_float32.wav')
     except:
@@ -1997,15 +2170,15 @@ code 22
         print("It works (unexpectedly)!")
   stream stderr
     Traceback (most recent call last):
-      File "<ipython-input-22-682ccbeea13c>", line 2, in <module>
+      File "<ipython-input-26-682ccbeea13c>", line 2, in <module>
         w = wave.open('data/test_wav_float32.wav')
-      File "/usr/lib/python3.3/wave.py", line 498, in open
+      File "/usr/lib/python3.3/wave.py", line 509, in open
         return Wave_read(f)
-      File "/usr/lib/python3.3/wave.py", line 163, in __init__
+      File "/usr/lib/python3.3/wave.py", line 164, in __init__
         self.initfp(f)
-      File "/usr/lib/python3.3/wave.py", line 143, in initfp
+      File "/usr/lib/python3.3/wave.py", line 144, in initfp
         self._read_fmt_chunk(chunk)
-      File "/usr/lib/python3.3/wave.py", line 269, in _read_fmt_chunk
+      File "/usr/lib/python3.3/wave.py", line 273, in _read_fmt_chunk
         raise Error('unknown format: %r' % (wFormatTag,))
     wave.Error: unknown format: 3
   metadata
@@ -2016,7 +2189,7 @@ markdown
     ## Writing
 markdown
     TODO
-code 22
+code 26
     
   metadata
     {
@@ -2028,17 +2201,17 @@ markdown
     
 markdown
     ## Version Info
-code 23
+code 27
     import sys, IPython
     print("Versions: NumPy = {}; IPython = {}".format(numpy.__version__, IPython.__version__))
     
     print("Python interpreter:")
     print(sys.version)
   stream stdout
-    Versions: NumPy = 1.7.1; IPython = 0.13.2
+    Versions: NumPy = 1.8.1; IPython = 1.2.1
     Python interpreter:
-    3.3.2+ (default, Sep 18 2013, 11:58:01) 
-    [GCC 4.8.1]
+    3.3.5 (default, Mar 22 2014, 13:24:53) 
+    [GCC 4.8.2]
   metadata
     {
      "collapsed": false

@@ -100,7 +100,15 @@ lucky the audio data can still be read successfully.
 
 ### Other Libraries
 
-sndfileio: https://github.com/gesellkammer/sndfileio
+sndfileio:  
+https://github.com/gesellkammer/sndfileio
+
+pysox:  
+https://pythonhosted.org/pysox/  
+https://pypi.python.org/pypi/pysox
+
+xbob.sox:  
+https://github.com/bioidiap/xbob.sox
 
 <!--
 vim:textwidth=80

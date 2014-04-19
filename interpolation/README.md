@@ -10,21 +10,34 @@ This is work-in-progress!
 Available Open Source Libraries
 -------------------------------
 
-Secret Rabbit Code (aka libsamplerate): http://www.mega-nerd.com/SRC/
+Secret Rabbit Code (aka libsamplerate):  
+http://www.mega-nerd.com/SRC/
 
-FSRC: http://libfsrc.sourceforge.net/
+FSRC:  
+http://libfsrc.sourceforge.net/
 
-Rubber Band Library: http://breakfastquay.com/rubberband/
+Rubber Band Library:  
+http://breakfastquay.com/rubberband/  
 https://bitbucket.org/breakfastquay/rubberband/
 
-SoundTouch Audio Processing Library: http://www.surina.net/soundtouch/index.html
+SoundTouch Audio Processing Library:  
+http://www.surina.net/soundtouch/index.html
 
-Maximilian: http://maximilian.strangeloop.co.uk/
+Maximilian:  
+http://maximilian.strangeloop.co.uk/  
 https://github.com/micknoise/Maximilian
 
-various: https://ccrma.stanford.edu/~jos/resample/Available_Software.html
+libsoxr:  
+http://sourceforge.net/projects/soxr/
+
+various:  
+https://ccrma.stanford.edu/~jos/resample/Available_Software.html
 
 Misc
 ----
 
-Comparison of Sample Rate Converters: http://src.infinitewave.ca/
+Comparison of Sample Rate Converters:  
+http://src.infinitewave.ca/
+
+Sample Rate Conversion in Audacity:  
+http://wiki.audacityteam.org/wiki/Libsoxr

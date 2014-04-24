@@ -20,6 +20,9 @@ Tutorials etc.
 Machine Learning for Hackers:  
 http://slendermeans.org/category/will-it-python.html
 
+CS109 Data Science (video lecture):  
+http://cs109.org/
+
 Case Studies
 ------------
 

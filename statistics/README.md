@@ -14,6 +14,12 @@ Andrew J. Tatem, Carlos A. Guerra, Peter M. Atkinson, Simon I. Hay
 Nature Volume 431, Issue 525, 2004.  
 [supplementary information](http://www.nature.com/nature/journal/v431/n7008/suppinfo/431525a.html)
 
+Tutorials etc.
+--------------
+
+Machine Learning for Hackers:  
+http://slendermeans.org/category/will-it-python.html
+
 Case Studies
 ------------
 

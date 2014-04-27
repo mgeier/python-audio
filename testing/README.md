@@ -20,6 +20,9 @@ Code Coverage
 
 https://pypi.python.org/pypi/coverage
 
+But don't try to blindly increase coverage, read this first:
+[How to Misuse Code Coverage](http://www.exampler.com/testing-com/writings/coverage.pdf)
+
 Testing Frameworks
 ------------------
 

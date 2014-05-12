@@ -23,6 +23,9 @@ http://slendermeans.org/category/will-it-python.html
 CS109 Data Science (video lecture):  
 http://cs109.org/
 
+spurious correlations:  
+http://www.tylervigen.com/
+
 Case Studies
 ------------
 

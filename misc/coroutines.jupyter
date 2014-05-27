@@ -1,0 +1,474 @@
+nbformat 4
+nbformat_minor 2
+markdown
+    # Using Coroutines in Python
+markdown
+    I cannot really explain coroutines, other than they are generator objects with `send()` and `close()` methods. If you need a better explanation, please search the interwebs for it.
+    
+    I'll just give a simple example here, nothing more.
+markdown
+    ## A Serial Connection
+markdown
+    Let's assume we have some kind of connection, e.g. a serial connection to some hardware device.
+    Let's further assume this connection is a context manager which has `read()` and `write()` methods to read and write bytes to/from the device. This could be `serial.Serial` from [PySerial](http://pyserial.sf.net/), for example.
+    
+    Simplified, this could look like:
+code 1
+    class Connection:
+        def __enter__(self):
+            print("opening connection")
+            return self
+        def __exit__(self, *args):
+            print("closing connection")
+        def read(self):
+            print("reading response")
+            return 'data'
+        def write(self, msg):
+            print("sending", msg)
+  metadata
+    {
+     "collapsed": false
+    }
+markdown
+    Of course, this doesn't really do anything, it only *prints* the actions which a proper connection object would *do*.
+markdown
+    Let's further assume that we send a message to the device and the device sends some response. Some time later, it sends another response, probably stating that some action has completed.
+    
+    This is how we could use the `Connection` class:
+code 2
+    with Connection() as c:
+        c.write("please gimme some data!")
+        response1 = c.read()
+        response2 = c.read()
+  stream stdout
+    opening connection
+    sending please gimme some data!
+    reading response
+    reading response
+    closing connection
+  metadata
+    {
+     "collapsed": false
+    }
+markdown
+    As you see, we sent a message and got two responses. The connection was automatically opened and closed thanks to the context manager in the `with` statement.
+markdown
+    Now, let's assume that we want to post-process all data after receiving.
+    No problem:
+code 3
+    with Connection() as c:
+        c.write("please gimme some data!")
+        response1 = "processed " + c.read()
+        print("received:", response1)
+        response2 = "processed " + c.read()
+        # it may take some time until read() returns
+        print("received:", response2)
+  stream stdout
+    opening connection
+    sending please gimme some data!
+    reading response
+    received: processed data
+    reading response
+    received: processed data
+    closing connection
+  metadata
+    {
+     "collapsed": false
+    }
+markdown
+    ## The Problem
+markdown
+    So far, so good. Now what if we want to put this into a function to be re-used by somebody else?
+    
+    We could try this:
+code 4
+    def get_data(msg):
+        with Connection() as c:
+            c.write(msg)
+            response1 = "processed " + c.read()
+            response2 = "processed " + c.read()
+        return response1, response2
+  metadata
+    {
+     "collapsed": false
+    }
+code 5
+    get_data("please gimme some data!")
+  stream stdout
+    opening connection
+    sending please gimme some data!
+    reading response
+    reading response
+    closing connection
+  execute_result
+  - text/plain
+    ('processed data', 'processed data')
+  metadata
+    {
+     "collapsed": false
+    }
+markdown
+    But that's not what we want!
+    
+    We would like to have `response1` first, and then, after some time we want to have `response2`.
+    Probably we also want to decide if we even want to wait for `response2` based on the content of `response1`.
+markdown
+    ## Solution 1
+markdown
+    We could make a class. It could derive from `Connection` add the post-processing step to the extended `read()` method after calling the original `Connection.read()`.
+    
+    But classes are quite boring.
+    
+    So I'll leave that as an exercise for the interested reader and continue with ...
+markdown
+    ## Solution 2
+markdown
+    Let's try it with a generator:
+code 6
+    def get_data_generator(msg):
+        with Connection() as c:
+            c.write(msg)
+            yield "processed " + c.read()
+            yield "processed " + c.read()
+  metadata
+    {
+     "collapsed": false
+    }
+markdown
+    That looks useful! Instead of `return`ing both values in the end, we `yield` the first one and then, after the second `read()` returns, we yield the second value.
+    
+    How do we use this?
+    
+    First we call the *generator function* to get a *generator object*:
+code 7
+    gen = get_data_generator("please gimme some data!")
+  metadata
+    {
+     "collapsed": false
+    }
+markdown
+    Note that the connection wasn't opened yet!
+    
+    Let's get the first response:
+code 8
+    next(gen)
+  stream stdout
+    opening connection
+    sending please gimme some data!
+    reading response
+  execute_result
+  - text/plain
+    'processed data'
+  metadata
+    {
+     "collapsed": false
+    }
+markdown
+    As you see, now the message was sent and the first response was received. The connection is still open.
+    
+    Let's get the next response:
+code 9
+    next(gen)
+  stream stdout
+    reading response
+  execute_result
+  - text/plain
+    'processed data'
+  metadata
+    {
+     "collapsed": false
+    }
+markdown
+    OK, that worked. But the connection is still open. Let's close the generator. This will also close the connection (because the control flow leaves the `with` statement).
+code 10
+    gen.close()
+  stream stdout
+    closing connection
+  metadata
+    {
+     "collapsed": false
+    }
+markdown
+    ## Extending Solution 2 With A Coroutine
+markdown
+    What if we want this whole thing to be a bit more flexible?
+    
+    Let's say we don't want to get always two responses but arbitrary many?
+    
+    What if we want to send data not only in the beginning but also anywhere in between?
+    
+    That's where coroutines come into play!
+    
+    We can use the generator object as before to receive data, but we can use its ``send()`` method to also send data:
+code 11
+    def get_data_coroutine():
+        response = None
+        with Connection() as c:
+            while True:
+                msg = yield response
+                if msg is None:
+                    print("not sending anything")
+                else:
+                    c.write(msg)
+                response = "processed " + c.read()
+  metadata
+    {
+     "collapsed": false
+    }
+markdown
+    Interesting. Now the `yield` is buried somewhere within the code and it isn't a *statement* anymore but suddenly we have a `yield` *expression*.
+    
+    This is how it works: the thing right of `yield` is what you get if you call `next(gen)` or `gen.send("something")`, and on the left side of `yield` you get whatever was sent with `send()`.
+    
+    It looks a little strange in the beginning, but you'll get used to it ...
+    
+    How do we use this?
+    
+    Like before, we call the *generator function* to get a *generator object*, but this time we don't use the message argument (yet).
+code 12
+    gen = get_data_coroutine()
+  metadata
+    {
+     "collapsed": false
+    }
+markdown
+    Note, again, that the connection wasn't opened yet.
+    
+    Now there comes a peculiar thing with coroutines: you have to call `next()` once to move it to the first `yield` expression. This has to be done each time, right after creating the generator object.
+code 13
+    next(gen)
+  stream stdout
+    opening connection
+  metadata
+    {
+     "collapsed": false
+    }
+markdown
+    Now we moved to the first yield expression. We're now already inside the `with` statement, so the connection is already open. From now on we can send stuff:
+code 14
+    response1 = gen.send("please gimme some data!")
+    response1
+  stream stdout
+    sending please gimme some data!
+    reading response
+  execute_result
+  - text/plain
+    'processed data'
+  metadata
+    {
+     "collapsed": false
+    }
+markdown
+    As return value of the `send()` method, we get our first piece of data.
+    
+    Now we can either send more stuff or just receive, whatever we like:
+code 15
+    response2 = next(gen)
+    response2
+  stream stdout
+    not sending anything
+    reading response
+  execute_result
+  - text/plain
+    'processed data'
+  metadata
+    {
+     "collapsed": false
+    }
+code 16
+    response3 = gen.send(None)  # this is the same as next(gen)
+    response3
+  stream stdout
+    not sending anything
+    reading response
+  execute_result
+  - text/plain
+    'processed data'
+  metadata
+    {
+     "collapsed": false
+    }
+code 17
+    response4 = gen.send("gimme more data!")
+    response4
+  stream stdout
+    sending gimme more data!
+    reading response
+  execute_result
+  - text/plain
+    'processed data'
+  metadata
+    {
+     "collapsed": false
+    }
+markdown
+    Once we have enough data, we just close the thing:
+code 18
+    gen.close()
+  stream stdout
+    closing connection
+  metadata
+    {
+     "collapsed": false
+    }
+markdown
+    ## Getting rid of the initial `next()` call
+markdown
+    The first call to `next()` in the previous call was annoying. We can make this go away with a decorator that calls `next()` for us:
+code 19
+    import functools
+    
+    def coroutine(func):
+        @functools.wraps(func)
+        def start(*args, **kwargs):
+            gen = func(*args, **kwargs)
+            next(gen)
+            return gen
+        return start
+  metadata
+    {
+     "collapsed": false
+    }
+markdown
+    We can add this handy decorator on top of our original function definition:
+code 20
+    @coroutine
+    def get_data_coroutine():
+        response = None
+        with Connection() as c:
+            while True:
+                msg = yield response
+                if msg is None:
+                    print("not sending anything")
+                else:
+                    c.write(msg)
+                response = "processed " + c.read()
+  metadata
+    {
+     "collapsed": false
+    }
+markdown
+    Now the connection is opened when we call the generator object and we can directly start to send stuff:
+code 21
+    cr = get_data_coroutine()
+  stream stdout
+    opening connection
+  metadata
+    {
+     "collapsed": false
+    }
+code 22
+    response1 = cr.send("please gimme some data!")
+  stream stdout
+    sending please gimme some data!
+    reading response
+  metadata
+    {
+     "collapsed": false
+    }
+markdown
+    ... and so on and so on ...
+code 23
+    cr.close()
+  stream stdout
+    closing connection
+  metadata
+    {
+     "collapsed": false
+    }
+markdown
+    ## Closing Automatically
+markdown
+    It's easy to forget to call `close()` on the coroutine and if an exception is raised somewhere, we might even be unable to call it at all.
+    
+    To make sure that `close()` is always called, we can wrap it into a context manager:
+code 24
+    import contextlib
+    
+    with contextlib.closing(get_data_coroutine()) as cr:
+        response1 = cr.send("please gimme some data!")
+        response2 = next(cr)
+        response3 = cr.send("a bit more, please!")
+  stream stdout
+    opening connection
+    sending please gimme some data!
+    reading response
+    not sending anything
+    reading response
+    sending a bit more, please!
+    reading response
+    closing connection
+  metadata
+    {
+     "collapsed": false
+    }
+markdown
+    That's it. I'm just wondering why generator objects aren't context managers by default ...
+markdown
+    ## Adding another coroutine
+markdown
+    A very useful property of coroutines is that they can be chained together. Let's make an new coroutine that takes another coroutine but changes all messages and responses to uppercase.
+code 25
+    @coroutine
+    def shouting(other):
+        response = None
+        with contextlib.closing(other) as cr:
+            while True:
+                msg = yield response
+                if msg is not None:
+                    msg = msg.upper()
+                response = cr.send(msg)
+                response = response.upper()
+  metadata
+    {
+     "collapsed": false
+    }
+code 26
+    cr = shouting(get_data_coroutine())
+  stream stdout
+    opening connection
+  metadata
+    {
+     "collapsed": false
+    }
+code 27
+    response1 = cr.send("please gimme some data!")
+    response1
+  stream stdout
+    sending PLEASE GIMME SOME DATA!
+    reading response
+  execute_result
+  - text/plain
+    'PROCESSED DATA'
+  metadata
+    {
+     "collapsed": false
+    }
+code 28
+    response2 = next(cr)
+    response2
+  stream stdout
+    not sending anything
+    reading response
+  execute_result
+  - text/plain
+    'PROCESSED DATA'
+  metadata
+    {
+     "collapsed": false
+    }
+code 29
+    cr.close()
+  stream stdout
+    closing connection
+  metadata
+    {
+     "collapsed": false
+    }
+markdown
+    That's it for now.
+metadata
+    {
+     "orig_nbformat": 3,
+     "orig_nbformat_minor": 0
+    }

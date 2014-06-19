@@ -26,6 +26,9 @@ http://cs109.org/
 spurious correlations:  
 http://www.tylervigen.com/
 
+NIST/SEMATECH e-Handbook of Statistical Methods:  
+http://www.itl.nist.gov/div898/handbook/
+
 Case Studies
 ------------
 

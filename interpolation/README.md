@@ -30,6 +30,10 @@ https://github.com/micknoise/Maximilian
 libsoxr:  
 http://sourceforge.net/projects/soxr/
 
+libresample:
+https://ccrma.stanford.edu/~jos/resample/README-libresample-0.1.3.txt
+https://github.com/intervigilium/libresample
+
 various:  
 https://ccrma.stanford.edu/~jos/resample/Available_Software.html
 

@@ -15,6 +15,17 @@ First, check for bottlenecks, then optimize!
 
 [PLOP](https://github.com/bdarnell/plop)
 
+Parallel Processing
+-------------------
+
+[DistNumPy](https://code.google.com/p/distnumpy/)
+
+[Bohrium](http://bohrium.bitbucket.org/)
+
+[DistArray](http://distarray.readthedocs.org/)
+
+[Distributed Array Protocol](http://distributed-array-protocol.readthedocs.org/)
+
 TODO
 ----
 

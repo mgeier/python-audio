@@ -6,7 +6,7 @@ markdown
     [back to main page](https://github.com/mgeier/python-audio)
     
     Python is a general-purpose programming language.
-    It is an *interpreted* language, i.e. source code is not compiled into an executable file but it is directly executed (without intermediate steps) by an *interpreter*.
+    It is an *interpreted* language, i.e. source code is not compiled into an executable file but it is directly executed by an *interpreter*.
     A file containing Python code can be executed like this:
     
         python my_code.py
@@ -19,9 +19,7 @@ markdown
     You have the full power of Python in there, but it is not very convenient.
     A much better alternative is *IPython*, which is described on a [separate page](http://nbviewer.ipython.org/urls/raw.github.com/mgeier/python-audio/master/intro-ipython.ipynb).
     
-    Actually, this very page you're just reading is a so-called *IPython notebook*, which means that you can view it either as a [static web page](http://nbviewer.ipython.org/urls/raw.github.com/mgeier/python-audio/master/intro-ipython.ipynb) or, if you have IPython installed locally, you can also open the [notebook file](http://raw.github.com/mgeier/python-audio/master/intro-ipython.ipynb) with IPython and run the code in it interactively and you can also change stuff and play around with it.
-markdown
-    Python is a so-called *multi-paradigm* programming language. It is a *procedural* programming language, but it's also a a quite powerful *object-oriented* programming language. Finally, to a limited extent, it could also be called a *functional* programming language.
+    Actually, this very page you're just reading is a so-called *IPython notebook*, which means that you can view it either as a [static web page](http://nbviewer.ipython.org/urls/raw.github.com/mgeier/python-audio/master/intro-python.ipynb) or, if you have IPython installed locally, you can also open the [notebook file](http://raw.github.com/mgeier/python-audio/master/intro-python.ipynb) with IPython and run the code in it interactively and you can also change stuff and play around with it.
 markdown
     ## Python 2 vs. 3
 markdown
@@ -29,7 +27,7 @@ markdown
 markdown
     ## Why "Python"?
 markdown
-    It is named after the famous British comedy group *Monty Python*. If that doesn't ring a bell, you should search the interwebs and watch some videos of them, they are hilarious! In example code, you will often find references to their sketches, e.g. a list may contain `["eggs", "bacon", "spam"]`.
+    It is named after the famous British comedy group *Monty Python*. If that doesn't ring a bell, you should search the interwebs and watch some videos of them, they are hilarious! In Python example code, you will often find references to their sketches, e.g. a list may contain `["eggs", "bacon", "spam"]` which would be a reference to [Monty Python's Spam Sketch](http://www.youtube.com/watch?v=anwy2MPT5RE).
 markdown
     ## Hello World!
 markdown
@@ -193,7 +191,7 @@ code 14
 markdown
     So far, not really surprising results. You can mix `int`s and `float`s. As soon as a `float` is involved, the result is also a `float`.
 markdown
-    **Attention**: division behaves differently in Python 2 and Python 3!
+    **Attention**: integer division behaves differently in Python 2 and Python 3!
     In Python 2, it behaved like in the programming language *C*, i.e. the result was truncated to an integer, e.g. `5 / 2` would return `2` and the result would be of type `int`.
     In Python 3, however, the behavior was changed and now even the division of two `int`s returns a `float`.
 markdown
@@ -214,7 +212,7 @@ markdown
     from __future__ import division
     ```
     
-    Alternatively, you can of course also just convert one of the operands to `float` beforehand.
+    Alternatively, you can of course also just convert one of the operands (or both) to `float` beforehand.
 markdown
     Let's see, what else do we have?
     Powers, for example. While you might be used to the `^` operator from other languages, Python uses `**` for that. The `^` operator is a very different thing, namely logical *xor*. Don't confuse the two!
@@ -267,8 +265,6 @@ code 20
     {
      "collapsed": false
     }
-markdown
-    TODO: link to Python documentation
 markdown
     ## Assignment
 markdown

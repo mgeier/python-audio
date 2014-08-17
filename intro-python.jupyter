@@ -41,6 +41,8 @@ code 1
      "collapsed": false
     }
 markdown
+    Here you can see how a function is called (more precisely, a built-in function named `print`) with one argument. Furthermore, you see how string literals are created.
+markdown
     But now for something completely different:
 markdown
     ## Numbers
@@ -266,59 +268,288 @@ code 20
      "collapsed": false
     }
 markdown
-    ## Assignment
-markdown
-    TODO
-code 20
-    
-  metadata
-    {
-     "collapsed": false
-    }
-markdown
     ## Strings
 markdown
-    TODO
-code 20
-    
+    As we saw above, strings can be written using double quotes:
+code 21
+    "Hello, World!"
+  execute_result
+  - text/plain
+    'Hello, World!'
   metadata
     {
      "collapsed": false
     }
 markdown
-    ## Functions
+    However, it's also possible to write them with single quotes:
+code 22
+    'Hello, World!'
+  execute_result
+  - text/plain
+    'Hello, World!'
+  metadata
+    {
+     "collapsed": false
+    }
 markdown
-    TODO
-code 21
+    To the Python interpreter, this doesn't make a difference. It is, however, common to use double quotes for strings containing natural language and anything that is at some point presented to the user. Single quotes are normally used for short strings which are only used inside a program.
+markdown
+    Both variants have the type `str`:
+code 23
+    type("Hello, World!")
+  execute_result
+  - text/plain
+    str
+  metadata
+    {
+     "collapsed": false
+    }
+markdown
+    You can use `str()` to convert any object to a string:
+code 24
+    str(42)
+  execute_result
+  - text/plain
+    '42'
+  metadata
+    {
+     "collapsed": false
+    }
+markdown
+    There is a special notation for writing multi-line string literals using triple double quotes:
+code 25
+    """One,
+    two,
+    three lines"""
+  execute_result
+  - text/plain
+    'One,\ntwo,\nthree lines'
+  metadata
+    {
+     "collapsed": false
+    }
+markdown
+    The same can also be written with triple single quotes, but this is much less common.
+markdown
+    Strings can be concatenated with the `+` operator:
+code 26
+    "Hello" + "," + " " + "World" + "!"
+  execute_result
+  - text/plain
+    'Hello, World!'
+  metadata
+    {
+     "collapsed": false
+    }
+markdown
+    Unlike in many other programming languages, there is no separate type for single characters in Python. Single characters are simply written as strings which happen to contain only one character.
+markdown
+    There is much more to say about strings. To learn more about them, have a look at the [official `str` documentation](https://docs.python.org/3.3/library/stdtypes.html#textseq).
+markdown
+    ## Lists
+markdown
+    A `list` is a container that can hold arbitrary objects.
+code 27
+    [42, 3.1415, "Ni!"]
+  execute_result
+  - text/plain
+    [42, 3.1415, 'Ni!']
+  metadata
+    {
+     "collapsed": false
+    }
+markdown
+    Empty lists look like this:
+code 28
+    []
+  execute_result
+  - text/plain
+    []
+  metadata
+    {
+     "collapsed": false
+    }
+markdown
+    Of course, lists can also have just a single element:
+code 29
+    [7]
+  execute_result
+  - text/plain
+    [7]
+  metadata
+    {
+     "collapsed": false
+    }
+markdown
+    To concatenate multiple lists, the `+` operator can be used:
+code 30
+    [1, 2] + [3] + [4, 5, 6]
+  execute_result
+  - text/plain
+    [1, 2, 3, 4, 5, 6]
+  metadata
+    {
+     "collapsed": false
+    }
+markdown
+    Like everything else, lists are also objects, and they have a type:
+code 31
+    type([1, 2, 3])
+  execute_result
+  - text/plain
+    list
+  metadata
+    {
+     "collapsed": false
+    }
+markdown
+    We can use this to create a list from some other object (which must be *iterable*):
+code 32
+    list("Hello, World!")
+  execute_result
+  - text/plain
+    ['H', 'e', 'l', 'l', 'o', ',', ' ', 'W', 'o', 'r', 'l', 'd', '!']
+  metadata
+    {
+     "collapsed": false
+    }
+markdown
+    Lists are *mutable* data structures, i.e. their elements can be changed. But more about that later ...
+markdown
+    ## Tuples
+markdown
+    Tuples are quite similar to `list`s, with the main difference that they are *immutable* data structures, i.e. their content cannot be changed. Tuples are created using comma characters:
+code 33
+    42, 3.1415, "Ni!"
+  execute_result
+  - text/plain
+    (42, 3.1415, 'Ni!')
+  metadata
+    {
+     "collapsed": false
+    }
+markdown
+    Just like lists, tuples can also hold arbitrary objects.
+markdown
+    Tuples are often enclosed in parentheses, but those are only really required if otherwise the code would be ambiguous, e.g. when creating a tuple of tuples:
+code 34
+    1, (2, 3), 4
+  execute_result
+  - text/plain
+    (1, (2, 3), 4)
+  metadata
+    {
+     "collapsed": false
+    }
+markdown
+    Another situation where parentheses are obligatory, are empty tuples:
+code 35
+    ()
+  execute_result
+  - text/plain
+    ()
+  metadata
+    {
+     "collapsed": false
+    }
+markdown
+    **Attention**: Putting a single item between parentheses does not create a tuple!
+code 36
+    (7)
+  execute_result
+  - text/plain
+    7
+  metadata
+    {
+     "collapsed": false
+    }
+markdown
+    This is because a tuple is created with an obligatory comma, the parentheses are optional:
+code 37
+    7,
+  execute_result
+  - text/plain
+    (7,)
+  metadata
+    {
+     "collapsed": false
+    }
+markdown
+    It should come as no surprise that tuples also have a type. Note, however, that when used as a function argument, the tuple has to be enclosed in parentheses (otherwise it would be a function call with multiple arguments).
+code 38
+    type((1, 2, 3))
+  execute_result
+  - text/plain
+    tuple
+  metadata
+    {
+     "collapsed": false
+    }
+markdown
+    ## Assignment
+markdown
+    https://docs.python.org/3/reference/simple_stmts.html#assignment-statements
+markdown
+    ### Identifiers (a.k.a. Names)
+markdown
+    A form of abstraction: naming things.
+markdown
+    Binding, re-binding, references.
+markdown
+    ### Multiple Identifiers
+markdown
+    ### Attribute References
+markdown
+    ### Element Access (a.k.a. Subscription)
+markdown
+    ### Slicing
+markdown
+    ## Garbage Collection
+markdown
+    ## Functions
+code 39
     # docstrings
   metadata
     {
      "collapsed": false
     }
-markdown
-    ## Lists, Tuples
-code 22
-    
+code 40
+    # built-in functions
   metadata
     {
      "collapsed": false
     }
+markdown
+    ## `if` Statements
+markdown
+    ## Significant Whitespace
+markdown
+    ## Loops
 markdown
     ## Dictionaries
-code 22
-    
-  metadata
-    {
-     "collapsed": false
-    }
+markdown
+    ## Sets
+markdown
+    ## None
 markdown
     ## Modules
-code 22
-    
-  metadata
-    {
-     "collapsed": false
-    }
+markdown
+    ## Classes
+markdown
+    ## Many More Things ...
+markdown
+    * string formatting
+    * list/set/dict comprehensions
+    * iterators
+    * generators
+    * generator expressions
+    * `if`/`else` expressions
+    * anonymous functions (a.k.a. `lambda`s)
+    * static methods, class methods
+    * "special" methods, operator overloading
+    * properties, descriptors
+    * metaclasses
+    * ...
 markdown
     ## Links
 markdown

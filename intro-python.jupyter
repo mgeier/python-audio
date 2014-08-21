@@ -69,7 +69,7 @@ code 3
      "collapsed": false
     }
 markdown
-    You probably know that "everything in Python is an object", which is also true for numbers. And every object has a type, so let's check that:
+    You probably know that "everything in Python is an object", which is also true for numbers. Numbers are objects. And every object has a type, so let's check that:
 code 4
     type(42)
   execute_result
@@ -342,14 +342,25 @@ code 26
      "collapsed": false
     }
 markdown
+    The `*` operator (followed by an `int`) has a special meaning for a `str`:
+code 27
+    "#" * 79
+  execute_result
+  - text/plain
+    '###############################################################################'
+  metadata
+    {
+     "collapsed": false
+    }
+markdown
     Unlike in many other programming languages, there is no separate type for single characters in Python. Single characters are simply written as strings which happen to contain only one character.
 markdown
     There is much more to say about strings. To learn more about them, have a look at the [official `str` documentation](https://docs.python.org/3.3/library/stdtypes.html#textseq).
 markdown
     ## Lists
 markdown
-    A `list` is a container that can hold arbitrary objects.
-code 27
+    A `list` is a container that can hold arbitrary objects. A `list` can be created by putting objects, separated by commas, between a pair of brackets.
+code 28
     [42, 3.1415, "Ni!"]
   execute_result
   - text/plain
@@ -359,8 +370,8 @@ code 27
      "collapsed": false
     }
 markdown
-    Empty lists look like this:
-code 28
+    An empty list looks like this:
+code 29
     []
   execute_result
   - text/plain
@@ -370,8 +381,8 @@ code 28
      "collapsed": false
     }
 markdown
-    Of course, lists can also have just a single element:
-code 29
+    Of course, a list can also have just a single element:
+code 30
     [7]
   execute_result
   - text/plain
@@ -382,7 +393,7 @@ code 29
     }
 markdown
     To concatenate multiple lists, the `+` operator can be used:
-code 30
+code 31
     [1, 2] + [3] + [4, 5, 6]
   execute_result
   - text/plain
@@ -392,8 +403,19 @@ code 30
      "collapsed": false
     }
 markdown
+    Similar to strings, you can also use the `*` operator (followed by an `int`) to repeat lists:
+code 32
+    [1, 2, 3] * 5
+  execute_result
+  - text/plain
+    [1, 2, 3, 1, 2, 3, 1, 2, 3, 1, 2, 3, 1, 2, 3]
+  metadata
+    {
+     "collapsed": false
+    }
+markdown
     Like everything else, lists are also objects, and they have a type:
-code 31
+code 33
     type([1, 2, 3])
   execute_result
   - text/plain
@@ -403,8 +425,8 @@ code 31
      "collapsed": false
     }
 markdown
-    We can use this to create a list from some other object (which must be *iterable*):
-code 32
+    We can use `list()` to create a list from some other object (which must be *iterable*):
+code 34
     list("Hello, World!")
   execute_result
   - text/plain
@@ -418,8 +440,8 @@ markdown
 markdown
     ## Tuples
 markdown
-    Tuples are quite similar to `list`s, with the main difference that they are *immutable* data structures, i.e. their content cannot be changed. Tuples are created using comma characters:
-code 33
+    Tuples are quite similar to `list`s, with the main difference that they are *immutable* data structures, i.e. their content cannot be changed. Some objects, separated by commas, create a tuple:
+code 35
     42, 3.1415, "Ni!"
   execute_result
   - text/plain
@@ -432,7 +454,7 @@ markdown
     Just like lists, tuples can also hold arbitrary objects.
 markdown
     Tuples are often enclosed in parentheses, but those are only really required if otherwise the code would be ambiguous, e.g. when creating a tuple of tuples:
-code 34
+code 36
     1, (2, 3), 4
   execute_result
   - text/plain
@@ -443,7 +465,7 @@ code 34
     }
 markdown
     Another situation where parentheses are obligatory, are empty tuples:
-code 35
+code 37
     ()
   execute_result
   - text/plain
@@ -454,7 +476,7 @@ code 35
     }
 markdown
     **Attention**: Putting a single item between parentheses does not create a tuple!
-code 36
+code 38
     (7)
   execute_result
   - text/plain
@@ -465,7 +487,7 @@ code 36
     }
 markdown
     This is because a tuple is created with an obligatory comma, the parentheses are optional:
-code 37
+code 39
     7,
   execute_result
   - text/plain
@@ -475,8 +497,21 @@ code 37
      "collapsed": false
     }
 markdown
-    It should come as no surprise that tuples also have a type. Note, however, that when used as a function argument, the tuple has to be enclosed in parentheses (otherwise it would be a function call with multiple arguments).
-code 38
+    Like `str` and `list`, `tuple`s can be concatenated with the `+` operator and repeated with `*`:
+code 40
+    (1, 2) + (3,) * 5
+  execute_result
+  - text/plain
+    (1, 2, 3, 3, 3, 3, 3)
+  metadata
+    {
+     "collapsed": false
+    }
+markdown
+    Note that the parentheses are obligatory in this case.
+markdown
+    It should come as no surprise that tuples also have a type:
+code 41
     type((1, 2, 3))
   execute_result
   - text/plain
@@ -485,6 +520,8 @@ code 38
     {
      "collapsed": false
     }
+markdown
+    Note that when used as a function argument, the tuple has to be enclosed in parentheses (otherwise it would be interpreted as a function call with multiple arguments).
 markdown
     ## Assignment
 markdown
@@ -507,13 +544,13 @@ markdown
     ## Garbage Collection
 markdown
     ## Functions
-code 39
+code 42
     # docstrings
   metadata
     {
      "collapsed": false
     }
-code 40
+code 43
     # built-in functions
   metadata
     {
@@ -532,9 +569,13 @@ markdown
 markdown
     ## None
 markdown
+    ## Exceptions
+markdown
     ## Modules
 markdown
     ## Classes
+markdown
+    ## PEP 8
 markdown
     ## Many More Things ...
 markdown

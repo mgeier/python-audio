@@ -66,6 +66,15 @@ Python in General
 
 http://docs.python-guide.org/en/latest/
 
+Collaboration with Other Software
+---------------------------------
+
+https://github.com/arokem/python-matlab-bridge
+
+https://github.com/ewiger/mlab
+
+https://github.com/bastibe/transplant
+
 Comparison with Other Software
 ------------------------------
 

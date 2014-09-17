@@ -480,6 +480,7 @@ markdown
     Let's check the frequency response of our interpolation filter to check if it's really a low-pass filter.
 code 12
     # TODO: better function to display frequency response?
+    # TODO: use scipy.signal.freqz()?
     # TODO: in dB, log frequency?
     # TODO: x-axis: frequencies (np.fftfreq()?)
     

@@ -66,6 +66,8 @@ Python in General
 
 http://docs.python-guide.org/en/latest/
 
+http://lignos.org/py_antipatterns/
+
 Collaboration with Other Software
 ---------------------------------
 

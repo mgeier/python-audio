@@ -26,6 +26,11 @@ Parallel Processing
 
 [Distributed Array Protocol](http://distributed-array-protocol.readthedocs.org/)
 
+Links
+-----
+
+http://sebastianraschka.com/Articles/2014_multiprocessing_intro.html
+
 TODO
 ----
 

@@ -29,6 +29,9 @@ http://www.tylervigen.com/
 NIST/SEMATECH e-Handbook of Statistical Methods:  
 http://www.itl.nist.gov/div898/handbook/
 
+Implementing a Principal Component Analysis (PCA) in Python step by step:  
+http://sebastianraschka.com/Articles/2014_pca_step_by_step.html
+
 Case Studies
 ------------
 

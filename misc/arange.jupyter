@@ -3,7 +3,7 @@ nbformat_minor 2
 markdown
     # `numpy.arange()` with floats considered harmful
 markdown
-    The examples in this notebook are taken from http://quantumwise.com/forum/index.php?topic=110.0#.VIVgyIctjRZ.
+    A few examples used in this notebook are taken from http://quantumwise.com/forum/index.php?topic=110.0#.VIVgyIctjRZ.
 markdown
     We often need series of regularly spaced numbers. [`numpy.arange()`](http://docs.scipy.org/doc/numpy/reference/generated/numpy.arange.html) is great for that, as long as the step size is an integer.
     
@@ -17,7 +17,7 @@ code 1
 markdown
     ## But when I last tried it worked as expected ...
 markdown
-    [`numpy.arange()`](http://docs.scipy.org/doc/numpy/reference/generated/numpy.arange.html) is NumPy's extension of Python's built-in `range()` function.
+    [`numpy.arange()`](http://docs.scipy.org/doc/numpy/reference/generated/numpy.arange.html) is NumPy's extension of Python's built-in [`range()`](https://docs.python.org/3/library/functions.html#func-range) function.
     The latter only works with integers, which are also no problem for the former:
 code 2
     np.arange(7)  # defaults: start=0, step=1
@@ -92,7 +92,7 @@ markdown
 markdown
     Well, there isn't a single solution for all use cases, it depends on what you need.
     
-    If you know the first and the last value that should be in your range and the total number of values, you should use `numpy.linspace()`.
+    If you know the first and the last value that should be in your range and the total number of values, you should use [`numpy.linspace()`](http://docs.scipy.org/doc/numpy/reference/generated/numpy.linspace.html).
 code 8
     np.linspace(0.5, 1.1, 7)
   execute_result
@@ -225,7 +225,7 @@ code 19
 markdown
     The previous example still works. Good.
 markdown
-    This isn't a very elegant solution, though. The behavior depends on the tolerances used in `numpy.isclose()`, namely `rtol` and `atol`. Let's add those to our function!
+    This isn't a very elegant solution, though. The behavior depends on the tolerances used in [`numpy.isclose()`](http://docs.scipy.org/doc/numpy/reference/generated/numpy.isclose.html), namely `rtol` and `atol`. Let's add those to our function!
 code 20
     def myrange(start, stop, step=1, dtype=None, **kwargs):
         if np.isclose((stop - start) % step, 0.0, **kwargs):

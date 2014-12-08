@@ -1,0 +1,385 @@
+nbformat 4
+nbformat_minor 2
+markdown
+    # `numpy.arange()` with floats considered harmful
+markdown
+    The examples in this notebook are taken from http://quantumwise.com/forum/index.php?topic=110.0#.VIVgyIctjRZ.
+markdown
+    We often need series of regularly spaced numbers. [`numpy.arange()`](http://docs.scipy.org/doc/numpy/reference/generated/numpy.arange.html) is great for that, as long as the step size is an integer.
+    
+    If the step size is a floating-point number, however, the result might not be what you expect.
+code 1
+    import numpy as np
+  metadata
+    {
+     "collapsed": false
+    }
+markdown
+    ## But when I last tried it worked as expected ...
+markdown
+    [`numpy.arange()`](http://docs.scipy.org/doc/numpy/reference/generated/numpy.arange.html) is NumPy's extension of Python's built-in `range()` function.
+    The latter only works with integers, which are also no problem for the former:
+code 2
+    np.arange(7)  # defaults: start=0, step=1
+  execute_result
+  - text/plain
+    array([0, 1, 2, 3, 4, 5, 6])
+  metadata
+    {
+     "collapsed": false
+    }
+code 3
+    np.arange(1, 7)
+  execute_result
+  - text/plain
+    array([1, 2, 3, 4, 5, 6])
+  metadata
+    {
+     "collapsed": false
+    }
+code 4
+    np.arange(1, 7, 2)
+  execute_result
+  - text/plain
+    array([1, 3, 5])
+  metadata
+    {
+     "collapsed": false
+    }
+code 5
+    np.arange(1, 7, 6)
+  execute_result
+  - text/plain
+    array([1])
+  metadata
+    {
+     "collapsed": false
+    }
+markdown
+    The `start` value is always part of the returned range, the `stop` value is never part of it.
+markdown
+    Contrary to `range()`, `numpy.arange()` also works with floating-point numbers.
+code 6
+    np.arange(0.4, 1.1, 0.1)
+  execute_result
+  - text/plain
+    array([ 0.4,  0.5,  0.6,  0.7,  0.8,  0.9,  1. ])
+  metadata
+    {
+     "collapsed": false
+    }
+markdown
+    Also here, as expected, the `stop` value is not part of the range.
+markdown
+    ## So what's the problem?
+markdown
+    The problem is that some numbers (many, actually) cannot be represented exactly as binary floating-point numbers. Doing calculations with floating-point numbers will often lead to rounding errors. And exactly those rounding errors may lead to unexpected results.
+code 7
+    np.arange(0.5, 1.1, 0.1)
+  execute_result
+  - text/plain
+    array([ 0.5,  0.6,  0.7,  0.8,  0.9,  1. ,  1.1])
+  metadata
+    {
+     "collapsed": false
+    }
+markdown
+    Wow, now `stop` is suddenly included in the range! We didn't expect that!
+    
+    That's the reason why care has to be taken when using `np.arange()` with floating-point numbers.
+markdown
+    ## OK, I see the problem now, but what's the solution?
+markdown
+    Well, there isn't a single solution for all use cases, it depends on what you need.
+    
+    If you know the first and the last value that should be in your range and the total number of values, you should use `numpy.linspace()`.
+code 8
+    np.linspace(0.5, 1.1, 7)
+  execute_result
+  - text/plain
+    array([ 0.5,  0.6,  0.7,  0.8,  0.9,  1. ,  1.1])
+  metadata
+    {
+     "collapsed": false
+    }
+markdown
+    In contrast to `np.arange()`, the resulting range includes the last value.
+    
+    If you want it to exclude the last value, you can use the `endpoint` argument (and reduce the number of values by 1).
+code 9
+    np.linspace(0.5, 1.1, 6, endpoint=False)
+  execute_result
+  - text/plain
+    array([ 0.5,  0.6,  0.7,  0.8,  0.9,  1. ])
+  metadata
+    {
+     "collapsed": false
+    }
+markdown
+    If you, however, want to create a range with a given *spacing*, you'd have to manually calculate the *number of values* before being able to use `numpy.linspace()`.
+    
+    It would be great if there were a feature of either `numpy.linspace()` or `numpy.arange()` that would allow specifying a *spacing* but would also avoid the above-mentioned problem.
+    This was discussed years ago on the NumPy mailing list. Sadly, nobody could come up with a good solution.
+    
+    So for now, you're stuck with adding or subtracting small amounts to/from the `stop` value to get the desired behavior.
+code 10
+    step = 0.1
+    np.arange(0.5, 1.1 - step*0.5, step)
+  execute_result
+  - text/plain
+    array([ 0.5,  0.6,  0.7,  0.8,  0.9,  1. ])
+  metadata
+    {
+     "collapsed": true
+    }
+markdown
+    This yields the expected result, but it only works if know that the distance between `start` and `stop` is (approximately) an integer multiple of the spacing.
+code 11
+    assert np.isclose((1.1 - 0.5) % step, 0.0)
+  metadata
+    {
+     "collapsed": false
+    }
+markdown
+    If you want to include the `stop` value, you can do something like this:
+code 12
+    np.arange(0.5, 1.1 + step*0.5, step)
+  execute_result
+  - text/plain
+    array([ 0.5,  0.6,  0.7,  0.8,  0.9,  1. ,  1.1])
+  metadata
+    {
+     "collapsed": false
+    }
+markdown
+    Again, you have to make sure that the spacing fits to the distance:
+code 13
+    assert np.isclose((1.1 - 0.5) % step, 0.0)
+  metadata
+    {
+     "collapsed": false
+    }
+markdown
+    ## Can't this be done automatically?
+markdown
+    Well, let's try ...
+code 14
+    def myrange(start, stop, step=1):
+        # Don't use this function, see below!
+        return np.arange(start, stop - step*0.5, step)
+  metadata
+    {
+     "collapsed": false
+    }
+code 15
+    myrange(0.5, 1.1, 0.1)
+  execute_result
+  - text/plain
+    array([ 0.5,  0.6,  0.7,  0.8,  0.9,  1. ])
+  metadata
+    {
+     "collapsed": false
+    }
+markdown
+    OK, the problematic case from above works. But let's change the `stop` value a little bit:
+code 16
+    myrange(0.5, 1.11, 0.1)
+  execute_result
+  - text/plain
+    array([ 0.5,  0.6,  0.7,  0.8,  0.9,  1. ])
+  metadata
+    {
+     "collapsed": false
+    }
+markdown
+    Here, we would expect `1.1` to be part of the range, because it's clearly smaller than `1.11`. So let's modify our function:
+code 17
+    def myrange(start, stop, step=1):
+        if np.isclose((stop - start) % step, 0.0):
+            stop -= step * 0.5
+        return np.arange(start, stop, step)
+  metadata
+    {
+     "collapsed": false
+    }
+code 18
+    myrange(0.5, 1.11, 0.1)
+  execute_result
+  - text/plain
+    array([ 0.5,  0.6,  0.7,  0.8,  0.9,  1. ,  1.1])
+  metadata
+    {
+     "collapsed": false
+    }
+markdown
+    OK, now `1.1` is part of the range, as expected.
+code 19
+    myrange(0.5, 1.1, 0.1)
+  execute_result
+  - text/plain
+    array([ 0.5,  0.6,  0.7,  0.8,  0.9,  1. ])
+  metadata
+    {
+     "collapsed": false
+    }
+markdown
+    The previous example still works. Good.
+markdown
+    This isn't a very elegant solution, though. The behavior depends on the tolerances used in `numpy.isclose()`, namely `rtol` and `atol`. Let's add those to our function!
+code 20
+    def myrange(start, stop, step=1, dtype=None, **kwargs):
+        if np.isclose((stop - start) % step, 0.0, **kwargs):
+            stop -= step * 0.5
+        return np.arange(start, stop, step, dtype)
+  metadata
+    {
+     "collapsed": false
+    }
+markdown
+    Note that we also enabled the `dtype` argument from `numpy.arange()`.
+code 21
+    myrange(0.5, 1.11, 0.1)
+  execute_result
+  - text/plain
+    array([ 0.5,  0.6,  0.7,  0.8,  0.9,  1. ,  1.1])
+  metadata
+    {
+     "collapsed": false
+    }
+code 22
+    myrange(0.5, 1.11, 0.1, atol=0.02)
+  execute_result
+  - text/plain
+    array([ 0.5,  0.6,  0.7,  0.8,  0.9,  1. ])
+  metadata
+    {
+     "collapsed": false
+    }
+markdown
+    This is a quite constructed example, but it should show that setting the tolerance works
+markdown
+    One difference to `numpy.arange()` is that even when only passing integers, the result consists of floating-point numbers.
+code 23
+    myrange(1, 7)
+  execute_result
+  - text/plain
+    array([ 1.,  2.,  3.,  4.,  5.,  6.])
+  metadata
+    {
+     "collapsed": false
+    }
+markdown
+    We could add this as branch to our function, but I think it isn't that important. And if we really want integers, we can still force them with `dtype`:
+code 24
+    myrange(1, 7, dtype=int)
+  execute_result
+  - text/plain
+    array([1, 2, 3, 4, 5, 6])
+  metadata
+    {
+     "collapsed": false
+    }
+markdown
+    OK, that doesn't look that bad, does it?
+markdown
+    ## But what if I want to include the endpoint?
+markdown
+    OK, you're right. Sometimes, we want the endpoint to be included, so let's try to add this as an option.
+code 25
+    def myrange(start, stop, step=1, endpoint=False, dtype=None, **kwargs):
+        # Don't use this function, see below!
+        if np.isclose((stop - start) % step, 0.0, **kwargs):
+            if endpoint:
+                stop += step * 0.5
+            else:
+                stop -= step * 0.5
+        return np.arange(start, stop, step, dtype)
+  metadata
+    {
+     "collapsed": false
+    }
+code 26
+    myrange(0.5, 1.1, 0.1, endpoint=True)
+  execute_result
+  - text/plain
+    array([ 0.5,  0.6,  0.7,  0.8,  0.9,  1. ,  1.1])
+  metadata
+    {
+     "collapsed": false
+    }
+markdown
+    OK, this seems to work.
+code 27
+    myrange(0.5, 1.11, 0.1, endpoint=True)
+  execute_result
+  - text/plain
+    array([ 0.5,  0.6,  0.7,  0.8,  0.9,  1. ,  1.1])
+  metadata
+    {
+     "collapsed": false
+    }
+markdown
+    Now this is a little strange, because `1.11` is not included. But on the other hand, it isn't even part of the series!
+    
+    As far as I can tell, the argument `endpoint` only really makes sense for integer multiples.
+    For now, I don't know a better solution than to just disallow this case.
+code 28
+    def myrange(start, stop, step=1, endpoint=False, dtype=None, **kwargs):
+        if np.isclose((stop - start) % step, 0.0, **kwargs):
+            if endpoint:
+                stop += step * 0.5
+            else:
+                stop -= step * 0.5
+        elif endpoint:
+            raise ValueError("Invalid stop value for endpoint=True")
+        return np.arange(start, stop, step, dtype)
+  metadata
+    {
+     "collapsed": false
+    }
+code 29
+    myrange(0.5, 1.1, 0.1, endpoint=True)
+  execute_result
+  - text/plain
+    array([ 0.5,  0.6,  0.7,  0.8,  0.9,  1. ,  1.1])
+  metadata
+    {
+     "collapsed": false
+    }
+code 30
+    myrange(0.5, 1.11, 0.1, endpoint=True)
+  error
+  - ename
+    ValueError
+  - evalue
+    Invalid stop value for endpoint=True
+  - traceback
+    [0;31m---------------------------------------------------------------------------[0m
+    [0;31mValueError[0m                                Traceback (most recent call last)
+   ~
+    [0;32m<ipython-input-30-9b3d9a273bf8>[0m in [0;36m<module>[0;34m()[0m
+    [0;32m----> 1[0;31m [0mmyrange[0m[0;34m([0m[0;36m0.5[0m[0;34m,[0m [0;36m1.11[0m[0;34m,[0m [0;36m0.1[0m[0;34m,[0m [0mendpoint[0m[0;34m=[0m[0;32mTrue[0m[0;34m)[0m[0;34m[0m[0m
+    [0m
+   ~
+    [0;32m<ipython-input-28-72bb242b5540>[0m in [0;36mmyrange[0;34m(start, stop, step, endpoint, dtype, **kwargs)[0m
+    [1;32m      6[0m             [0mstop[0m [0;34m-=[0m [0mstep[0m [0;34m*[0m [0;36m0.5[0m[0;34m[0m[0m
+    [1;32m      7[0m     [0;32melif[0m [0mendpoint[0m[0;34m:[0m[0;34m[0m[0m
+    [0;32m----> 8[0;31m         [0;32mraise[0m [0mValueError[0m[0;34m([0m[0;34m"Invalid stop value for endpoint=True"[0m[0;34m)[0m[0;34m[0m[0m
+    [0m[1;32m      9[0m     [0;32mreturn[0m [0mnp[0m[0;34m.[0m[0marange[0m[0;34m([0m[0mstart[0m[0;34m,[0m [0mstop[0m[0;34m,[0m [0mstep[0m[0;34m,[0m [0mdtype[0m[0;34m)[0m[0;34m[0m[0m
+   ~
+    [0;31mValueError[0m: Invalid stop value for endpoint=True
+  metadata
+    {
+     "collapsed": false
+    }
+markdown
+    OK, I guess I'll leave it at that for now.
+    
+    It's not a perfect solution, but probably it works for your use case.
+    
+    Have fun!
+metadata
+    {
+     "orig_nbformat": 3,
+     "orig_nbformat_minor": 0
+    }

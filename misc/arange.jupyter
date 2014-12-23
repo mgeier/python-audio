@@ -308,8 +308,48 @@ code 26
      "collapsed": false
     }
 markdown
-    OK, this seems to work.
+    OK, this seems to work. Let's try another example ...
 code 27
+    myrange(1, 2, 0.2, endpoint=True)
+  execute_result
+  - text/plain
+    array([ 1. ,  1.2,  1.4,  1.6,  1.8])
+  metadata
+    {
+     "collapsed": false
+    }
+markdown
+    What? The endpoint clearly isn't part of the range!
+    
+    The problem is that we check if the result of the modulus operator (`%`) is close to `0.0`, but we should also check the case where it is close to `step`!
+    
+    We should try to add this check:
+code 28
+    def myrange(start, stop, step=1, endpoint=False, dtype=None, **kwargs):
+        # Don't use this function, see below!
+        remainder = (stop - start) % step
+        if np.any(np.isclose(remainder, (0.0, step), **kwargs)):
+            if endpoint:
+                stop += step * 0.5
+            else:
+                stop -= step * 0.5
+        return np.arange(start, stop, step, dtype)
+  metadata
+    {
+     "collapsed": false
+    }
+code 29
+    myrange(1, 2, 0.2, endpoint=True)
+  execute_result
+  - text/plain
+    array([ 1. ,  1.2,  1.4,  1.6,  1.8,  2. ])
+  metadata
+    {
+     "collapsed": false
+    }
+markdown
+    Good, that's settled. Let's try another one:
+code 30
     myrange(0.5, 1.11, 0.1, endpoint=True)
   execute_result
   - text/plain
@@ -323,9 +363,10 @@ markdown
     
     As far as I can tell, the argument `endpoint` only really makes sense for integer multiples.
     For now, I don't know a better solution than to just disallow this case.
-code 28
+code 31
     def myrange(start, stop, step=1, endpoint=False, dtype=None, **kwargs):
-        if np.isclose((stop - start) % step, 0.0, **kwargs):
+        remainder = (stop - start) % step
+        if np.any(np.isclose(remainder, (0.0, step), **kwargs)):
             if endpoint:
                 stop += step * 0.5
             else:
@@ -337,7 +378,7 @@ code 28
     {
      "collapsed": false
     }
-code 29
+code 32
     myrange(0.5, 1.1, 0.1, endpoint=True)
   execute_result
   - text/plain
@@ -346,7 +387,7 @@ code 29
     {
      "collapsed": false
     }
-code 30
+code 33
     myrange(0.5, 1.11, 0.1, endpoint=True)
   error
   - ename
@@ -357,15 +398,15 @@ code 30
     [0;31m---------------------------------------------------------------------------[0m
     [0;31mValueError[0m                                Traceback (most recent call last)
    ~
-    [0;32m<ipython-input-30-9b3d9a273bf8>[0m in [0;36m<module>[0;34m()[0m
+    [0;32m<ipython-input-33-9b3d9a273bf8>[0m in [0;36m<module>[0;34m()[0m
     [0;32m----> 1[0;31m [0mmyrange[0m[0;34m([0m[0;36m0.5[0m[0;34m,[0m [0;36m1.11[0m[0;34m,[0m [0;36m0.1[0m[0;34m,[0m [0mendpoint[0m[0;34m=[0m[0;32mTrue[0m[0;34m)[0m[0;34m[0m[0m
     [0m
    ~
-    [0;32m<ipython-input-28-72bb242b5540>[0m in [0;36mmyrange[0;34m(start, stop, step, endpoint, dtype, **kwargs)[0m
-    [1;32m      6[0m             [0mstop[0m [0;34m-=[0m [0mstep[0m [0;34m*[0m [0;36m0.5[0m[0;34m[0m[0m
-    [1;32m      7[0m     [0;32melif[0m [0mendpoint[0m[0;34m:[0m[0;34m[0m[0m
-    [0;32m----> 8[0;31m         [0;32mraise[0m [0mValueError[0m[0;34m([0m[0;34m"Invalid stop value for endpoint=True"[0m[0;34m)[0m[0;34m[0m[0m
-    [0m[1;32m      9[0m     [0;32mreturn[0m [0mnp[0m[0;34m.[0m[0marange[0m[0;34m([0m[0mstart[0m[0;34m,[0m [0mstop[0m[0;34m,[0m [0mstep[0m[0;34m,[0m [0mdtype[0m[0;34m)[0m[0;34m[0m[0m
+    [0;32m<ipython-input-31-e0f997a67d2f>[0m in [0;36mmyrange[0;34m(start, stop, step, endpoint, dtype, **kwargs)[0m
+    [1;32m      7[0m             [0mstop[0m [0;34m-=[0m [0mstep[0m [0;34m*[0m [0;36m0.5[0m[0;34m[0m[0m
+    [1;32m      8[0m     [0;32melif[0m [0mendpoint[0m[0;34m:[0m[0;34m[0m[0m
+    [0;32m----> 9[0;31m         [0;32mraise[0m [0mValueError[0m[0;34m([0m[0;34m"Invalid stop value for endpoint=True"[0m[0;34m)[0m[0;34m[0m[0m
+    [0m[1;32m     10[0m     [0;32mreturn[0m [0mnp[0m[0;34m.[0m[0marange[0m[0;34m([0m[0mstart[0m[0;34m,[0m [0mstop[0m[0;34m,[0m [0mstep[0m[0;34m,[0m [0mdtype[0m[0;34m)[0m[0;34m[0m[0m
    ~
     [0;31mValueError[0m: Invalid stop value for endpoint=True
   metadata

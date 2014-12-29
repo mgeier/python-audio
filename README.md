@@ -64,7 +64,11 @@ http://idiap.github.io/bob/
 Python in General
 -----------------
 
-http://docs.python-guide.org/en/latest/
+http://docs.python.org/3/tutorial/
+
+http://docs.python-guide.org/
+
+http://python.net/~goodger/projects/pycon/2007/idiomatic/handout.html
 
 http://lignos.org/py_antipatterns/
 

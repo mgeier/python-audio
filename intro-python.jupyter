@@ -739,7 +739,7 @@ code 53
     id(greeting)
   execute_result
   - text/plain
-    139997221629024
+    140616970390624
   metadata
     {
      "collapsed": false
@@ -748,7 +748,7 @@ code 54
     id(the_same_greeting)
   execute_result
   - text/plain
-    139997221629024
+    140616970390624
   metadata
     {
      "collapsed": false
@@ -786,16 +786,87 @@ markdown
     We'll see a bit further down how we can actually modify objects.
 markdown
     ### Multiple Identifiers
-code 56
+markdown
+    Binding a name to an object is nothing special; nearly every programming language can do that in one form or another.
     
+    But Python has a very nice additional feature that not many other languages have, that allows to bind *multiple* identifiers to a sequence of objects.
+    Some people also calle this *tuple unpacking*.
+code 57
+    a, b, c = 42, 3.1415, "Ni!"
   metadata
     {
      "collapsed": false
     }
 markdown
+    This can also be used to easily swap things:
+code 58
+    b, c = c, b
+  metadata
+    {
+     "collapsed": false
+    }
+code 59
+    b
+  execute_result
+  - text/plain
+    'Ni!'
+  metadata
+    {
+     "collapsed": false
+    }
+markdown
+    On the right side, there can be any *iterable* object.
+    We already know a few iterable things: a tuple, a list, a string; but there are many more iterable objects out there, just waiting to be discovered!
+    
+    On the left side, there are several identifiers, separated by commas.
+    They can optionally be enclosed in parentheses or brackes.
+    The number of identifiers must be the same as items in the iterable object on the right.
+    If not, an error is raised.
+    
+    But there is an exception: one of the identifiers may be prefixed with an asterisk, which means that the identifier receives a list of the remaining values, regardless how many they are (the list can also be empty).
+    Maybe this is best shown in an example:
+code 60
+    first, *middle, last = "hello"
+  metadata
+    {
+     "collapsed": false
+    }
+code 61
+    middle
+  execute_result
+  - text/plain
+    ['e', 'l', 'l']
+  metadata
+    {
+     "collapsed": false
+    }
+markdown
+    That's great, isn't it?
+    
+    Note, however, that the thing with the starred identifier is only available since Python 3.0.
+    
+    In this example you can see that a string can also be unpacked, since it is *iterable*.
+markdown
     ### Attribute References
 markdown
+    Every object has attributes.
+    They can be accessed by placing a dot (`.`) and the identifier of the attribute after the object.
+    
+    If an attribute reference is the "*something on the left*" of the equals sign in an assignment statement, it is bound to the object on the right of the equals sign.
+    If an attribute with the given name doesn't yet exist, it is created.
+    
+    Note, however, that not all objects allow attribute assignment and even if they do, only a few special attribute may be allowed to assign to.
+    
+    It is especially hard to find objects that allow attribute assignment within the built-in types we've seen so far.
+    We didn't learn yet how to import stuff from the standard library nor from external libraries; we didn't learn how to create our own classes.
+    
+    Without explaining any of this, I couldn't find an example that shows attribute assignment.
+    Bad luck.
+    But I guess you'll understand it anyway, even without an example.
+markdown
     ### Element Access (a.k.a. Subscription)
+markdown
+    tuples, strings: immutable
 markdown
     ### Slicing
 markdown
@@ -806,18 +877,24 @@ markdown
     ## Garbage Collection
 markdown
     ## Functions
-code 57
+code 62
     # docstrings
   metadata
     {
      "collapsed": false
     }
-code 58
+code 63
     # built-in functions
   metadata
     {
      "collapsed": false
     }
+markdown
+    ## Boolean Values
+markdown
+    ## More Operators
+markdown
+    logic (boolean) operators, in, not in, bit-wise operators
 markdown
     ## `if` Statements
 markdown
@@ -849,6 +926,7 @@ markdown
     * `if`/`else` expressions
     * anonymous functions (a.k.a. `lambda`s)
     * bytes
+    * `*args`, `**kwargs`
     * static methods, class methods
     * "special" methods, operator overloading
     * properties, descriptors

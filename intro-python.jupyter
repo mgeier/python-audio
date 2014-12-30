@@ -769,7 +769,7 @@ code 55
 markdown
     We normally don't care about the actual IDs, if we want to see if two objects are *identical* (which is not the same as *equal*!), we use the `is`-operator.
 markdown
-    If you want to bind several names to one object in one go, you can use a special form of the assignment statement that uses multiple equals signs:
+    If you want to bind several names to the same object in one go, you can use a special form of the assignment statement that uses multiple equals signs:
 code 56
     one = two = three = "data"
   metadata
@@ -789,8 +789,8 @@ markdown
 markdown
     Binding a name to an object is nothing special; nearly every programming language can do that in one form or another.
     
-    But Python has a very nice additional feature that not many other languages have, that allows to bind *multiple* identifiers to a sequence of objects.
-    Some people also calle this *tuple unpacking*.
+    But Python has a very nice additional feature that not many other languages have, that allows to bind *multiple* identifiers to a sequence of objects in a single statement.
+    Some people also calle this *tuple unpacking* or *sequence unpacking*.
 code 57
     a, b, c = 42, 3.1415, "Ni!"
   metadata
@@ -798,7 +798,7 @@ code 57
      "collapsed": false
     }
 markdown
-    This can also be used to easily swap things:
+    This can also be used to easily swap things (again, in a single statement):
 code 58
     b, c = c, b
   metadata
@@ -841,38 +841,45 @@ code 61
      "collapsed": false
     }
 markdown
-    That's great, isn't it?
+    That's great, isn't it? By the way, this is sometimes called *extended unpacking*.
     
-    Note, however, that the thing with the starred identifier is only available since Python 3.0.
+    > Note, however, that the thing with the starred identifier is only available in Python 3.
     
     In this example you can see that a string can also be unpacked, since it is *iterable*.
+    
+    The list of identifiers doesn't have to be a flat list, it can be arbitrarily nested (using parentheses and/or brackets).
+    It doesn't even have to be limited to "plain" identifiers, it can also contain any of the things mentioned below (attribute references, subscripts, slices).
 markdown
     ### Attribute References
 markdown
+    It has been quite a while, but I'm still speaking about different variants of the assignment statement.
+    Until now, we just moved *labels* around, but this one is the first one where we can actually *change* objects.
+    
     Every object has attributes.
     They can be accessed by placing a dot (`.`) and the identifier of the attribute after the object.
     
     If an attribute reference is the "*something on the left*" of the equals sign in an assignment statement, it is bound to the object on the right of the equals sign.
     If an attribute with the given name doesn't yet exist, it is created.
     
-    Note, however, that not all objects allow attribute assignment and even if they do, only a few special attribute may be allowed to assign to.
+    Note, however, that not all objects allow attribute assignment and even if they do, only a few special attributes may be allowed to assign to.
     
     It is especially hard to find objects that allow attribute assignment within the built-in types we've seen so far.
     We didn't learn yet how to import stuff from the standard library nor from external libraries; we didn't learn how to create our own classes.
-    
     Without explaining any of this, I couldn't find an example that shows attribute assignment.
     Bad luck.
     But I guess you'll understand it anyway, even without an example.
 markdown
     ### Element Access (a.k.a. Subscription)
 markdown
-    tuples, strings: immutable
+    TODO: tuples, strings: immutable
 markdown
     ### Slicing
 markdown
     ## Augmented Assignment
 markdown
     https://docs.python.org/3/reference/simple_stmts.html#augmented-assignment-statements
+markdown
+    TODO: mutable vs. immutable
 markdown
     ## Garbage Collection
 markdown
@@ -894,7 +901,7 @@ markdown
 markdown
     ## More Operators
 markdown
-    logic (boolean) operators, in, not in, bit-wise operators
+    TODO: logic (boolean) operators, in, not in, bit-wise operators
 markdown
     ## `if` Statements
 markdown

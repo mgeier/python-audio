@@ -41,7 +41,7 @@ code 1
      "collapsed": false
     }
 markdown
-    Here you can see how a function is called (more precisely, a built-in function named `print`) with one argument. Furthermore, you see how string literals are created.
+    Here you can see how a function is called (more precisely, a [built-in function named `print`](http://docs.python.org/3/library/functions.html#print)) with one argument. Furthermore, you see how string literals are created.
 markdown
     But now for something completely different:
 markdown
@@ -132,6 +132,8 @@ code 8
     }
 markdown
     A `complex` is basically a pair of `float`s, one for the *real part* and one for the *imaginary part*. Complex numbers can come in very handy when doing scientific computations.
+    
+    You can find more information about Python's numeric types in [the official documentation](http://docs.python.org/3/library/stdtypes.html#numeric-types-int-float-complex).
 markdown
     ## Operators
 markdown
@@ -305,7 +307,7 @@ code 23
      "collapsed": false
     }
 markdown
-    You can use `str()` to convert any object to a string:
+    You can use [`str()`](http://docs.python.org/3/library/stdtypes.html#str) to convert any object to a string:
 code 24
     str(42)
   execute_result
@@ -354,13 +356,61 @@ code 27
     }
 markdown
     Unlike in many other programming languages, there is no separate type for single characters in Python. Single characters are simply written as strings which happen to contain only one character.
+    
+    Each character has a numeric equivalent which can be shown by the [`ord()`](http://docs.python.org/3/library/functions.html#ord) function.
+    The function [`chr()`](http://docs.python.org/3/library/functions.html#chr) can be used to convert in the other direction.
+code 28
+    ord(" ")
+  execute_result
+  - text/plain
+    32
+  metadata
+    {
+     "collapsed": false
+    }
+code 29
+    chr(65)
+  execute_result
+  - text/plain
+    'A'
+  metadata
+    {
+     "collapsed": false
+    }
+markdown
+    If you want to create a string that contains formatted numeric values, it's best to use the [`format()` method](https://docs.python.org/3/library/string.html#formatstrings):
+code 30
+    "The value of {} is about {:.3}".format("𝜋", 3.1415)
+  execute_result
+  - text/plain
+    'The value of 𝜋 is about 3.14'
+  metadata
+    {
+     "collapsed": false
+    }
+markdown
+    Here you can also see that Python supports [Unicode characters](https://docs.python.org/3/howto/unicode.html) by default.
+    
+    In older Python code you might find a different way of string formatting:
+code 31
+    "The value of %s is about %.2f" % ("𝜋", 3.1415)
+  execute_result
+  - text/plain
+    'The value of 𝜋 is about 3.14'
+  metadata
+    {
+     "collapsed": false
+    }
+markdown
+    This [old-style string formatting](https://docs.python.org/3/library/stdtypes.html#old-string-formatting) is quite similar to the above, but sometimes less flexible and more error-prone.
+    In case of doubt, you should use the more modern `format()` method.
 markdown
     There is much more to say about strings. To learn more about them, have a look at the [official `str` documentation](https://docs.python.org/3.3/library/stdtypes.html#textseq).
 markdown
     ## Lists
 markdown
     A `list` is a container that can hold arbitrary objects. A `list` can be created by putting objects, separated by commas, between a pair of brackets.
-code 28
+code 32
     [42, 3.1415, "Ni!"]
   execute_result
   - text/plain
@@ -371,7 +421,7 @@ code 28
     }
 markdown
     An empty list looks like this:
-code 29
+code 33
     []
   execute_result
   - text/plain
@@ -382,7 +432,7 @@ code 29
     }
 markdown
     Of course, a list can also have just a single element:
-code 30
+code 34
     [7]
   execute_result
   - text/plain
@@ -393,7 +443,7 @@ code 30
     }
 markdown
     To concatenate multiple lists, the `+` operator can be used:
-code 31
+code 35
     [1, 2] + [3] + [4, 5, 6]
   execute_result
   - text/plain
@@ -404,7 +454,7 @@ code 31
     }
 markdown
     Similar to strings, you can also use the `*` operator (followed by an `int`) to repeat lists:
-code 32
+code 36
     [1, 2, 3] * 5
   execute_result
   - text/plain
@@ -415,7 +465,7 @@ code 32
     }
 markdown
     Like everything else, lists are also objects, and they have a type:
-code 33
+code 37
     type([1, 2, 3])
   execute_result
   - text/plain
@@ -425,12 +475,36 @@ code 33
      "collapsed": false
     }
 markdown
-    We can use `list()` to create a list from some other object (which must be *iterable*):
-code 34
+    We can use [`list()`](http://docs.python.org/3/library/stdtypes.html#list) to create a list from some other object (which must be *iterable*):
+code 38
     list("Hello, World!")
   execute_result
   - text/plain
     ['H', 'e', 'l', 'l', 'o', ',', ' ', 'W', 'o', 'r', 'l', 'd', '!']
+  metadata
+    {
+     "collapsed": false
+    }
+markdown
+    It's very easy to create a list of strings from a single space-separated string:
+code 39
+    "eggs bacon spam".split()
+  execute_result
+  - text/plain
+    ['eggs', 'bacon', 'spam']
+  metadata
+    {
+     "collapsed": false
+    }
+markdown
+    Of course, there are [options available to change the separator](http://docs.python.org/3/library/stdtypes.html#str.split).
+    
+    To combine a sequence of strings into a single string, use the [`join()` method](http://docs.python.org/3/library/stdtypes.html#str.join) (applied to the "glue" string):
+code 40
+    " + ".join(["eggs", "bacon", "spam"])
+  execute_result
+  - text/plain
+    'eggs + bacon + spam'
   metadata
     {
      "collapsed": false
@@ -441,7 +515,7 @@ markdown
     ## Tuples
 markdown
     Tuples are quite similar to `list`s, with the main difference that they are *immutable* data structures, i.e. their content cannot be changed. Some objects, separated by commas, create a tuple:
-code 35
+code 41
     42, 3.1415, "Ni!"
   execute_result
   - text/plain
@@ -454,7 +528,7 @@ markdown
     Just like lists, tuples can also hold arbitrary objects.
 markdown
     Tuples are often enclosed in parentheses, but those are only really required if otherwise the code would be ambiguous, e.g. when creating a tuple of tuples:
-code 36
+code 42
     1, (2, 3), 4
   execute_result
   - text/plain
@@ -465,7 +539,7 @@ code 36
     }
 markdown
     Another situation where parentheses are obligatory, are empty tuples:
-code 37
+code 43
     ()
   execute_result
   - text/plain
@@ -476,7 +550,7 @@ code 37
     }
 markdown
     **Attention**: Putting a single item between parentheses does not create a tuple!
-code 38
+code 44
     (7)
   execute_result
   - text/plain
@@ -487,7 +561,7 @@ code 38
     }
 markdown
     This is because a non-empty tuple is created with an obligatory comma, the parentheses are optional:
-code 39
+code 45
     7,
   execute_result
   - text/plain
@@ -498,7 +572,7 @@ code 39
     }
 markdown
     Like `str` and `list`, `tuple`s can be concatenated with the `+` operator and repeated with `*`:
-code 40
+code 46
     (1, 2) + (3,) * 5
   execute_result
   - text/plain
@@ -511,7 +585,7 @@ markdown
     Note that the parentheses are obligatory in this case.
 markdown
     It should come as no surprise that tuples also have a type:
-code 41
+code 47
     type((1, 2, 3))
   execute_result
   - text/plain
@@ -563,7 +637,7 @@ markdown
     The *"something on the left"* can be a so-called *identifier*.
     This is a *name* that can be *bound* to an object.
     An *identifier* may only contain letters, numbers and underscores and it must not start with a number.
-code 42
+code 48
     answer = 7 * 6
   metadata
     {
@@ -577,7 +651,7 @@ markdown
     In Python, it's not necessary to *declare* identifiers, new identifiers are created by just assigning to them.
     
     Once a name has been assigned, it can be used in an expression, as a *reference* to the original object:
-code 43
+code 49
     answer > 50
   execute_result
   - text/plain
@@ -621,7 +695,7 @@ markdown
     The object itself doesn't have a name (it just has a memory address), but we can *bind* a name to it, in our example the name `answer`.
 markdown
     Now what happens in the following statement?
-code 44
+code 50
     type(answer)
   execute_result
   - text/plain
@@ -647,7 +721,7 @@ markdown
     We learned that a new identifier can be created by just using a name that hasn't been used before in an assignment statement.
     
     But what happens if we assign to a name that has already been used?
-code 45
+code 51
     answer = "Sir Lancelot of Camelot"
   metadata
     {
@@ -659,7 +733,7 @@ markdown
     
     Here we also see that the identifier itself doesn't have a type, it's just a label that is bound to some object.
     The objects themselves do have types; the previous one was of type `int` while the new one is of type `str`.
-code 46
+code 52
     type(answer)
   execute_result
   - text/plain
@@ -676,22 +750,22 @@ markdown
 markdown
     Note that an identifier is only treated specially on the left side of an assignment statement.
     The right side of the assignment statement is just a normal expression which can contain other identifiers (or even the same identifier that is going to be re-bound on the left).
-code 47
+code 53
     greeting = answer + ", nice to meet you!"
   metadata
     {
      "collapsed": false
     }
-code 48
+code 54
     greeting = "My name is " + greeting
   metadata
     {
      "collapsed": false
     }
 markdown
-    Since assignment is a statement, and statements don't return values, we don't see the value of the new object where `greeting` is bound to.
-    To see that, we can use it in an expression:
-code 49
+    Since assignment is a statement which doesn't return a value, we don't see the value of the new object where `greeting` is bound to.
+    Let's see:
+code 55
     greeting
   execute_result
   - text/plain
@@ -702,13 +776,13 @@ code 49
     }
 markdown
     Of course, one object can have multiple labels stuck to it:
-code 50
+code 56
     the_same_greeting = greeting
   metadata
     {
      "collapsed": false
     }
-code 51
+code 57
     the_same_greeting
   execute_result
   - text/plain
@@ -721,7 +795,7 @@ markdown
     Obviously, the returned string has exactly the same characters.
     In other words, it's *equal* to `greeting`.
     We can check this with the *equality operator*:
-code 52
+code 58
     greeting == the_same_greeting
   execute_result
   - text/plain
@@ -735,20 +809,20 @@ markdown
     They are actually two different names for the same object.
     To show that, we can check Python's internal representation of the objects.
     Each object that's currently existing in the Python interpreter, has a unique ID, which we can query with the `id()` function:
-code 53
+code 59
     id(greeting)
   execute_result
   - text/plain
-    140616970390624
+    140018835410640
   metadata
     {
      "collapsed": false
     }
-code 54
+code 60
     id(the_same_greeting)
   execute_result
   - text/plain
-    140616970390624
+    140018835410640
   metadata
     {
      "collapsed": false
@@ -757,7 +831,7 @@ markdown
     As we can see, the two objects have the same ID, so it's actually just one object that happens to have two names bound to it.
     
     Python even has a special operator for checking if two objects are actually the same object: the *identity operator*.
-code 55
+code 61
     greeting is the_same_greeting
   execute_result
   - text/plain
@@ -770,7 +844,7 @@ markdown
     We normally don't care about the actual IDs, if we want to see if two objects are *identical* (which is not the same as *equal*!), we use the `is`-operator.
 markdown
     If you want to bind several names to the same object in one go, you can use a special form of the assignment statement that uses multiple equals signs:
-code 56
+code 62
     one = two = three = "data"
   metadata
     {
@@ -791,7 +865,7 @@ markdown
     
     But Python has a very nice additional feature that not many other languages have, that allows to bind *multiple* identifiers to a sequence of objects in a single statement.
     Some people also calle this *tuple unpacking* or *sequence unpacking*.
-code 57
+code 63
     a, b, c = 42, 3.1415, "Ni!"
   metadata
     {
@@ -799,13 +873,13 @@ code 57
     }
 markdown
     This can also be used to easily swap things (again, in a single statement):
-code 58
+code 64
     b, c = c, b
   metadata
     {
      "collapsed": false
     }
-code 59
+code 65
     b
   execute_result
   - text/plain
@@ -825,13 +899,13 @@ markdown
     
     But there is an exception: one of the identifiers may be prefixed with an asterisk, which means that the identifier receives a list of the remaining values, regardless how many they are (the list can also be empty).
     Maybe this is best shown in an example:
-code 60
+code 66
     first, *middle, last = "hello"
   metadata
     {
      "collapsed": false
     }
-code 61
+code 67
     middle
   execute_result
   - text/plain
@@ -884,13 +958,13 @@ markdown
     ## Garbage Collection
 markdown
     ## Functions
-code 62
+code 68
     # docstrings
   metadata
     {
      "collapsed": false
     }
-code 63
+code 69
     # built-in functions
   metadata
     {

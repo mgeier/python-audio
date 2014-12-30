@@ -13,3 +13,5 @@ http://matplotlib.org/users/artists.html
 https://github.com/rasbt/matplotlib-gallery
 
 http://nbviewer.ipython.org/github/jrjohansson/scientific-python-lectures/blob/master/Lecture-4-Matplotlib.ipynb
+
+http://stanford.edu/~mwaskom/software/seaborn/

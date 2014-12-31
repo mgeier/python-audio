@@ -5,21 +5,23 @@ markdown
 markdown
     [back to main page](https://github.com/mgeier/python-audio)
     
-    Python is a general-purpose programming language.
+    [Python](http://www.python.org/) is a general-purpose programming language.
     It is an *interpreted* language, i.e. source code is not compiled into an executable file but it is directly executed by an *interpreter*.
     A file containing Python code can be executed like this:
     
         python my_code.py
     
-    Python can also act as an interactive interpreter where you can type an run Python code line-by-line.
+    Python can also act as an interactive interpreter where you can type and run Python code line-by-line.
     It can be started by simply running
     
         python
     
     You have the full power of Python in there, but it is not very convenient.
-    A much better alternative is *IPython*, which is described on a [separate page](http://nbviewer.ipython.org/urls/raw.github.com/mgeier/python-audio/master/intro-ipython.ipynb).
+    A much better alternative is [*IPython*](http://ipython.org/), which is described on a [separate page](http://nbviewer.ipython.org/urls/raw.github.com/mgeier/python-audio/master/intro-ipython.ipynb).
     
-    Actually, this very page you're just reading is a so-called *IPython notebook*, which means that you can view it either as a [static web page](http://nbviewer.ipython.org/urls/raw.github.com/mgeier/python-audio/master/intro-python.ipynb) or, if you have IPython installed locally, you can also open the [notebook file](http://raw.github.com/mgeier/python-audio/master/intro-python.ipynb) with IPython and run the code in it interactively and you can also change stuff and play around with it.
+    Actually, this very page you're just reading is a so-called [*IPython notebook*](http://ipython.org/notebook.html), which means that you can view it either as a [static web page](http://nbviewer.ipython.org/urls/raw.github.com/mgeier/python-audio/master/intro-python.ipynb) or, if you have IPython installed locally, you can also open the [notebook file](http://raw.github.com/mgeier/python-audio/master/intro-python.ipynb) with IPython and run the code in it interactively. You can also change stuff and play around with it.
+    To execute a code cell, select it by clicking on it and press Shift+Enter.
+    You can step through all the cells by pressing Shift+Enter repeatedly.
 markdown
     ## Python 2 vs. 3
 markdown
@@ -29,7 +31,7 @@ markdown
 markdown
     It is named after the famous British comedy group *Monty Python*. If that doesn't ring a bell, you should search the interwebs and watch some videos of them, they are hilarious! In Python example code, you will often find references to their sketches, e.g. a list may contain `["eggs", "bacon", "spam"]` which would be a reference to [Monty Python's Spam Sketch](http://www.youtube.com/watch?v=anwy2MPT5RE).
 markdown
-    ## Hello World!
+    ## Hello, world!
 markdown
     According to international law, every programming language tutorial has to start by showing how to print the sentence "Hello, world!" to the screen. This is how it's done in Python:
 code 1
@@ -42,6 +44,7 @@ code 1
     }
 markdown
     Here you can see how a function is called (more precisely, a [built-in function named `print`](http://docs.python.org/3/library/functions.html#print)) with one argument. Furthermore, you see how string literals are created.
+    It's pretty simple.
 markdown
     But now for something completely different:
 markdown

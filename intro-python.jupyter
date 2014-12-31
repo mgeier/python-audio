@@ -31,11 +31,11 @@ markdown
 markdown
     ## Hello World!
 markdown
-    According to international law, every programming language tutorial has to start by showing how to print the sentence "Hello World!" to the screen. This is how it's done in Python:
+    According to international law, every programming language tutorial has to start by showing how to print the sentence "Hello, world!" to the screen. This is how it's done in Python:
 code 1
-    print("Hello World!")
+    print("Hello, world!")
   stream stdout
-    Hello World!
+    Hello, world!
   metadata
     {
      "collapsed": false
@@ -274,10 +274,10 @@ markdown
 markdown
     As we saw above, strings can be written using double quotes:
 code 21
-    "Hello, World!"
+    "Hello, world!"
   execute_result
   - text/plain
-    'Hello, World!'
+    'Hello, world!'
   metadata
     {
      "collapsed": false
@@ -285,10 +285,10 @@ code 21
 markdown
     However, it's also possible to write them with single quotes:
 code 22
-    'Hello, World!'
+    'Hello, world!'
   execute_result
   - text/plain
-    'Hello, World!'
+    'Hello, world!'
   metadata
     {
      "collapsed": false
@@ -298,7 +298,7 @@ markdown
 markdown
     Both variants have the type `str`:
 code 23
-    type("Hello, World!")
+    type("Hello, world!")
   execute_result
   - text/plain
     str
@@ -335,10 +335,10 @@ markdown
 markdown
     Strings can be concatenated with the `+` operator:
 code 26
-    "Hello" + "," + " " + "World" + "!"
+    "Hello" + "," + " " + "world" + "!"
   execute_result
   - text/plain
-    'Hello, World!'
+    'Hello, world!'
   metadata
     {
      "collapsed": false
@@ -477,10 +477,10 @@ code 37
 markdown
     We can use [`list()`](http://docs.python.org/3/library/stdtypes.html#list) to create a list from some other object (which must be *iterable*):
 code 38
-    list("Hello, World!")
+    list("Hello, world!")
   execute_result
   - text/plain
-    ['H', 'e', 'l', 'l', 'o', ',', ' ', 'W', 'o', 'r', 'l', 'd', '!']
+    ['H', 'e', 'l', 'l', 'o', ',', ' ', 'w', 'o', 'r', 'l', 'd', '!']
   metadata
     {
      "collapsed": false
@@ -597,16 +597,151 @@ code 47
 markdown
     Note that when used as a function argument, the tuple has to be enclosed in parentheses (otherwise it would be interpreted as a function call with multiple arguments).
 markdown
-    ## Expressions vs. Statements
+    ## Expressions, Statements, Side Effects
 markdown
     When you write Python code, you write a sequence of *statements*.
     There are several different kinds of statements, some of which will be explained in this notebook.
     
     What we were seeing up to now were *expression statements*.
-    Each of the code cells above holds an expression.
-    Simply put, an *expression* is a piece of code that can be evaluated which leads to some *value*.
+    Each of the code cells above holds an *expression*.
+    Simply put, an *expression* is a piece of code that can be evaluated which results in some *value*, or more generally speaking, some *object*.
     
-    Other kinds of statements can be used to control program flow, define functions and classes, raise exceptions etc.
+    An *expression* may contain arbitrarily many other *expressions*, but no *statements*.
+    
+    A *statement*, however, may contain *expressions* and sometimes also other *statements*.
+    
+    An *expression* always returns a *value*, a *statement* never returns a value.
+    
+    But never say never ...
+    
+    There is this strange thing called *expression statement*, which turns an *expression* into a *statement* by ignoring its return value.
+    But when used in an interactive Python session, this behaves differently!
+    When evaluating a single *statement*, which happens to be an *expression*, on an interactive Python prompt, the result will actually be shown to you.
+    In an IPython notebook, a *code cell* may contain multiple *statements*, and if the *last* one happens to be an *expression statement*, its *value* is returned:
+code 48
+    [2 + 2, 4 + 4, 6 + 6]
+    10 * 9 + 9
+    "Hello, World!"
+    4 < 3
+    7 * 6
+  execute_result
+  - text/plain
+    42
+  metadata
+    {
+     "collapsed": false
+    }
+markdown
+    As you see, there are several *expressions* in the code cell above; all of them are evaluated, but only the result of the last one is shown.
+    
+    So what's the use of those expressions above if we don't see their results?
+    
+    There is none.
+    
+    Unless they have *side effects* ...
+    
+    Some expressions not only return a *value*, they also do some other things which don't have anything to do with returning values.
+    Those other things are called *side effects*.
+    
+    For, example, the `print()` function which we saw at the very top of this page, prints the given arguments to the *standard output*.
+code 49
+    print("Hello, World!")
+    7 * 6
+  stream stdout
+    Hello, World!
+  execute_result
+  - text/plain
+    42
+  metadata
+    {
+     "collapsed": false
+    }
+markdown
+    The string `"Hello, World!"` which is printed by the `print()` function, is *not* the *return value* of the function!
+    What we see here is the so-called *standard output* which, in an IPython notebook, is displayed just below the code cell, but above the actual output values (marked by `Out[...]:`).
+    
+    The actual return value is the result of the last expression in the code cell.
+    
+    So what's the return value of the `print()` function?
+    A function call is just an *expression*, so it should have a return value, right?
+    Let's check:
+code 50
+    print("Hello, world!")
+  stream stdout
+    Hello, world!
+  metadata
+    {
+     "collapsed": false
+    }
+markdown
+    As you can see, there is no `Out[...]:` section above.
+    Does this mean that the line isn't an expression?
+    Or does this mean that, contrary to what I told you, not all expressions return a value?
+    
+    No, I didn't lie to you!
+    
+    By convention, when a Python expression doesn't have anything meaningful to return (like the `print()` function), it returns a special Python object called `None`.
+    This is Python's way of saying "nothing".
+    You see, even "nothing" is an object in Python!
+    
+    So this function returns `None`, but the interactive interpreter, again by convention, doesn't show this, since it's just "nothing", anyway.
+    Let's check:
+code 51
+    None
+  metadata
+    {
+     "collapsed": false
+    }
+markdown
+    Really, we see nothing.
+    
+    We can use the `is`-operator to check if some object is `None` (see below for an explanation of the `is`-operator).
+code 52
+    print("Hello, world!") is None
+  stream stdout
+    Hello, world!
+  execute_result
+  - text/plain
+    True
+  metadata
+    {
+     "collapsed": false
+    }
+markdown
+    Now we can see that the `print()` function prints its argument to the standard output and returns `None`.
+    
+    Very often, one line of code is one statement, but sometimes statements can also span several lines.
+    And we can fit multiple statements into one line by separating them with semicolons:
+code 53
+    print("semicolons are rare in Python code"); 2 + 2
+  stream stdout
+    semicolons are rare in Python code
+  execute_result
+  - text/plain
+    4
+  metadata
+    {
+     "collapsed": false
+    }
+markdown
+    Most of the time, however, this is not necessary.
+    Others will understand your code better if you start each statement on a new line.
+    
+    Another use of the semicolon, in an interactive Python session, is to ignore the value of the last expression (the ones before are ignored anyway):
+code 54
+    7 * 6
+    3.1415
+    2 + 2;
+  metadata
+    {
+     "collapsed": false
+    }
+markdown
+    In a "normal" Python program this is never necessary, because the return value of expressions in *expression statements* is always ignored.
+    
+    You will need this very rarely, don't make it a habit to end your lines with semicolons!
+markdown
+    Until now, we talked about *expression statements*. There are several other kinds of statements which can be used to control program flow, define functions and classes, raise exceptions etc.
     
     Let's continue with a very important statement: the *assignment statement*.
 markdown
@@ -637,7 +772,7 @@ markdown
     The *"something on the left"* can be a so-called *identifier*.
     This is a *name* that can be *bound* to an object.
     An *identifier* may only contain letters, numbers and underscores and it must not start with a number.
-code 48
+code 55
     answer = 7 * 6
   metadata
     {
@@ -651,7 +786,7 @@ markdown
     In Python, it's not necessary to *declare* identifiers, new identifiers are created by just assigning to them.
     
     Once a name has been assigned, it can be used in an expression, as a *reference* to the original object:
-code 49
+code 56
     answer > 50
   execute_result
   - text/plain
@@ -695,7 +830,7 @@ markdown
     The object itself doesn't have a name (it just has a memory address), but we can *bind* a name to it, in our example the name `answer`.
 markdown
     Now what happens in the following statement?
-code 50
+code 57
     type(answer)
   execute_result
   - text/plain
@@ -721,7 +856,7 @@ markdown
     We learned that a new identifier can be created by just using a name that hasn't been used before in an assignment statement.
     
     But what happens if we assign to a name that has already been used?
-code 51
+code 58
     answer = "Sir Lancelot of Camelot"
   metadata
     {
@@ -733,7 +868,7 @@ markdown
     
     Here we also see that the identifier itself doesn't have a type, it's just a label that is bound to some object.
     The objects themselves do have types; the previous one was of type `int` while the new one is of type `str`.
-code 52
+code 59
     type(answer)
   execute_result
   - text/plain
@@ -750,13 +885,13 @@ markdown
 markdown
     Note that an identifier is only treated specially on the left side of an assignment statement.
     The right side of the assignment statement is just a normal expression which can contain other identifiers (or even the same identifier that is going to be re-bound on the left).
-code 53
+code 60
     greeting = answer + ", nice to meet you!"
   metadata
     {
      "collapsed": false
     }
-code 54
+code 61
     greeting = "My name is " + greeting
   metadata
     {
@@ -765,7 +900,7 @@ code 54
 markdown
     Since assignment is a statement which doesn't return a value, we don't see the value of the new object where `greeting` is bound to.
     Let's see:
-code 55
+code 62
     greeting
   execute_result
   - text/plain
@@ -776,13 +911,13 @@ code 55
     }
 markdown
     Of course, one object can have multiple labels stuck to it:
-code 56
+code 63
     the_same_greeting = greeting
   metadata
     {
      "collapsed": false
     }
-code 57
+code 64
     the_same_greeting
   execute_result
   - text/plain
@@ -795,7 +930,7 @@ markdown
     Obviously, the returned string has exactly the same characters.
     In other words, it's *equal* to `greeting`.
     We can check this with the *equality operator*:
-code 58
+code 65
     greeting == the_same_greeting
   execute_result
   - text/plain
@@ -809,20 +944,20 @@ markdown
     They are actually two different names for the same object.
     To show that, we can check Python's internal representation of the objects.
     Each object that's currently existing in the Python interpreter, has a unique ID, which we can query with the `id()` function:
-code 59
+code 66
     id(greeting)
   execute_result
   - text/plain
-    140018835410640
+    140624478761840
   metadata
     {
      "collapsed": false
     }
-code 60
+code 67
     id(the_same_greeting)
   execute_result
   - text/plain
-    140018835410640
+    140624478761840
   metadata
     {
      "collapsed": false
@@ -831,7 +966,7 @@ markdown
     As we can see, the two objects have the same ID, so it's actually just one object that happens to have two names bound to it.
     
     Python even has a special operator for checking if two objects are actually the same object: the *identity operator*.
-code 61
+code 68
     greeting is the_same_greeting
   execute_result
   - text/plain
@@ -844,7 +979,7 @@ markdown
     We normally don't care about the actual IDs, if we want to see if two objects are *identical* (which is not the same as *equal*!), we use the `is`-operator.
 markdown
     If you want to bind several names to the same object in one go, you can use a special form of the assignment statement that uses multiple equals signs:
-code 62
+code 69
     one = two = three = "data"
   metadata
     {
@@ -865,7 +1000,7 @@ markdown
     
     But Python has a very nice additional feature that not many other languages have, that allows to bind *multiple* identifiers to a sequence of objects in a single statement.
     Some people also calle this *tuple unpacking* or *sequence unpacking*.
-code 63
+code 70
     a, b, c = 42, 3.1415, "Ni!"
   metadata
     {
@@ -873,13 +1008,13 @@ code 63
     }
 markdown
     This can also be used to easily swap things (again, in a single statement):
-code 64
+code 71
     b, c = c, b
   metadata
     {
      "collapsed": false
     }
-code 65
+code 72
     b
   execute_result
   - text/plain
@@ -899,13 +1034,13 @@ markdown
     
     But there is an exception: one of the identifiers may be prefixed with an asterisk, which means that the identifier receives a list of the remaining values, regardless how many they are (the list can also be empty).
     Maybe this is best shown in an example:
-code 66
+code 73
     first, *middle, last = "hello"
   metadata
     {
      "collapsed": false
     }
-code 67
+code 74
     middle
   execute_result
   - text/plain
@@ -958,13 +1093,13 @@ markdown
     ## Garbage Collection
 markdown
     ## Functions
-code 68
+code 75
     # docstrings
   metadata
     {
      "collapsed": false
     }
-code 69
+code 76
     # built-in functions
   metadata
     {

@@ -648,10 +648,10 @@ markdown
     
     For, example, the `print()` function which we saw at the very top of this page, prints the given arguments to the *standard output*.
 code 49
-    print("Hello, World!")
+    print("Hello, world!")
     7 * 6
   stream stdout
-    Hello, World!
+    Hello, world!
   execute_result
   - text/plain
     42
@@ -660,7 +660,7 @@ code 49
      "collapsed": false
     }
 markdown
-    The string `"Hello, World!"` which is printed by the `print()` function, is *not* the *return value* of the function!
+    The string `"Hello, world!"` which is printed by the `print()` function, is *not* the *return value* of the function!
     What we see here is the so-called *standard output* which, in an IPython notebook, is displayed just below the code cell, but above the actual output values (marked by `Out[...]:`).
     
     The actual return value is the result of the last expression in the code cell.
@@ -951,7 +951,7 @@ code 66
     id(greeting)
   execute_result
   - text/plain
-    140624478761840
+    140190014800752
   metadata
     {
      "collapsed": false
@@ -960,7 +960,7 @@ code 67
     id(the_same_greeting)
   execute_result
   - text/plain
-    140624478761840
+    140190014800752
   metadata
     {
      "collapsed": false
@@ -989,12 +989,63 @@ code 69
      "collapsed": false
     }
 markdown
-    Now all of the identifiers are bound to the same `str` object.
+    Now all of the identifiers `one`, `two` and `three` are bound to the same `str` object.
     You may not need that very often, but it's still good to know.
 markdown
-    Let's recap:
+    Let me emphasize again:
     An *identifier* in Python isn't a *box* where we can put values into, it's rather a *label* that we attach to an existing object.
+    
+    Many Python tutorials make the mistake of explaining Python "variables" (by which they mean *identifiers*) as "boxes", but that's plain wrong.
+    The error can easily be shown by creating multiple identifiers which are bound to the same object.
+    Let's use the previous example:
+    If `one`, `two` and `three` would actually be "boxes", *each one* of them would have to hold its own copy of the string `"data"`.
+    Therefore, each of the three strings would have to be a different `str` object.
+    But we can easily show that the three *identifiers* are bound to the same one and only one object:
+code 70
+    one is two is three
+  execute_result
+  - text/plain
+    True
+  metadata
+    {
+     "collapsed": false
+    }
+markdown
+    Another misconception that comes with the "box"-analogy, is that an assignment puts the new data at the same memory location where the old data was before, effectively overwriting the old object.
+    
+    This is far from true.
     When assigning to an already existing identifier, we do not change any object, we just stick the *label* onto a different object.
+    The new object must already exist before it is bound to the *identifier*, therefore it *has to* occupy a different memory area than the old object.
+    The old object may or may not be destroyed right after the assignment, but that's a very different story (see [Garbage Collection](#Garbage-Collection)).
+    
+    It can also be easily shown that assignment doesn't overwrite old data:
+code 71
+    number = 0
+    id(number)
+  execute_result
+  - text/plain
+    10771488
+  metadata
+    {
+     "collapsed": false
+    }
+code 72
+    number = 1
+    id(number)
+  execute_result
+  - text/plain
+    10771520
+  metadata
+    {
+     "collapsed": false
+    }
+markdown
+    If the second assignment would overwrite the memory area of the old data, `id()` would return the same value as before.
+    But we see that the IDs are different, therefore, `0` and `1` must be different objects.
+    
+    I'm sorry that I have to repeat my self so often, but this is really important:
+    Assignment to an existing identifier does not modify any object!
+    
     We'll see a bit further down how we can actually modify objects.
 markdown
     ### Multiple Identifiers
@@ -1003,7 +1054,7 @@ markdown
     
     But Python has a very nice additional feature that not many other languages have, that allows to bind *multiple* identifiers to a sequence of objects in a single statement.
     Some people also calle this *tuple unpacking* or *sequence unpacking*.
-code 70
+code 73
     a, b, c = 42, 3.1415, "Ni!"
   metadata
     {
@@ -1011,13 +1062,13 @@ code 70
     }
 markdown
     This can also be used to easily swap things (again, in a single statement):
-code 71
+code 74
     b, c = c, b
   metadata
     {
      "collapsed": false
     }
-code 72
+code 75
     b
   execute_result
   - text/plain
@@ -1037,13 +1088,13 @@ markdown
     
     But there is an exception: one of the identifiers may be prefixed with an asterisk, which means that the identifier receives a list of the remaining values, regardless how many they are (the list can also be empty).
     Maybe this is best shown in an example:
-code 73
+code 76
     first, *middle, last = "hello"
   metadata
     {
      "collapsed": false
     }
-code 74
+code 77
     middle
   execute_result
   - text/plain
@@ -1095,14 +1146,16 @@ markdown
 markdown
     ## Garbage Collection
 markdown
+    ## Comments
+markdown
     ## Functions
-code 75
+code 78
     # docstrings
   metadata
     {
      "collapsed": false
     }
-code 76
+code 79
     # built-in functions
   metadata
     {

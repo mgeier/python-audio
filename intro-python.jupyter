@@ -423,6 +423,8 @@ code 32
      "collapsed": false
     }
 markdown
+    Note that a `list` doesn't contain the actual objects, it just contains *references* to the objects.
+    
     An empty list looks like this:
 code 33
     []
@@ -951,7 +953,7 @@ code 66
     id(greeting)
   execute_result
   - text/plain
-    140190014800752
+    140045865493360
   metadata
     {
      "collapsed": false
@@ -960,7 +962,7 @@ code 67
     id(the_same_greeting)
   execute_result
   - text/plain
-    140190014800752
+    140045865493360
   metadata
     {
      "collapsed": false
@@ -1053,7 +1055,7 @@ markdown
     Binding a name to an object is nothing special; nearly every programming language can do that in one form or another.
     
     But Python has a very nice additional feature that not many other languages have, that allows to bind *multiple* identifiers to a sequence of objects in a single statement.
-    Some people also calle this *tuple unpacking* or *sequence unpacking*.
+    Some people also call this *tuple unpacking* or *sequence unpacking*.
 code 73
     a, b, c = 42, 3.1415, "Ni!"
   metadata
@@ -1134,9 +1136,235 @@ markdown
 markdown
     ### Element Access (a.k.a. Subscription)
 markdown
-    TODO: tuples, strings: immutable
+    Another *thing on the left* of the equals sign in an assignment statement can be an object followed by a pair of brackets with some expression inside.
+    
+    This is normally available for some kind of collection, like for example a `list`.
+code 78
+    mylist = ["one", "two", "five"]
+  metadata
+    {
+     "collapsed": false
+    }
+markdown
+    In case of a `list`, the subscript (the expression inside of the brackets) must be a single integer.
+    
+    Note that Python, like many other programming languages, starts indexing at `0` (which is [the only reasonable choice for a programming language](http://www.cs.utexas.edu/users/EWD/transcriptions/EWD08xx/EWD831.html)).
+    So if we want to address the third element of a list, we have to use the subscript `2`:
+code 79
+    mylist[2] = "three"
+  metadata
+    {
+     "collapsed": false
+    }
+markdown
+    Again, since this is a *statement*, no value is returned.
+code 80
+    mylist
+  execute_result
+  - text/plain
+    ['one', 'two', 'three']
+  metadata
+    {
+     "collapsed": false
+    }
+markdown
+    Note that when assinging to a list element, as always, the value is not copied, but merely a reference inside of the list is bound to the object on the right of the equals sign.
+    
+    To show this, we can assign a single object to multiple list elements:
+code 81
+    mylist[0] = mylist[2]
+  metadata
+    {
+     "collapsed": false
+    }
+markdown
+    The *thing* on the left of the equals sign is again treated specially (because the specified list element is bound to another object).
+    The *thing* on the right side of the equals sign is just a normal expression, consisting of an *identifier* with the *subscript operator*.
+    This expression get's evaluated which results in the object which is stored as the third element of the list `mylist` (the string `"three"`).
+    Strictly speaking, the object is not stored *inside of* the list, the list holds just a reference to this object.
+    
+    This assignment statement binds the reference at the first list element to the very same object.
+    It may seem as if there are two copies of the string stored in the list ...
+code 82
+    mylist
+  execute_result
+  - text/plain
+    ['three', 'two', 'three']
+  metadata
+    {
+     "collapsed": false
+    }
+markdown
+    ... but the `is`-operator tells us that those are just references to a single object:
+code 83
+    mylist[0] is mylist[2]
+  execute_result
+  - text/plain
+    True
+  metadata
+    {
+     "collapsed": false
+    }
+markdown
+    Negative subscripts are also allowed, which let us index a sequence from the end to the beginning.
+    The last element corresponds to the index `-1`.
+code 84
+    mylist[-1] = 'one'
+    mylist
+  execute_result
+  - text/plain
+    ['three', 'two', 'one']
+  metadata
+    {
+     "collapsed": false
+    }
+markdown
+    Note that assignment to elements of a `tuple` or to characters of a `str` is not possible, since both types are *immutable*!
+    
+    However, there are many other *mutable* types which allow *subscription assignment*.
+    Depending on the type, the *subscript operator* may not (only) accept `int` values but (also) `str` or `tuple` or ...
+    
+    One example for such a type is `dict`, which will be explained further down (see [Dictionaries](#Dictionaries)).
 markdown
     ### Slicing
+markdown
+    Slicing is just a special case of numeric *subscription*.
+    Instead of a single number, a range of numbers (a so-called *slice*) is specified.
+markdown
+    First, let's re-bind the *identifier* we used before.
+code 85
+    mylist = ["one", "two", "three", "four", "five"]
+  metadata
+    {
+     "collapsed": false
+    }
+markdown
+    Instead of specifying a single integer as subscript, we use a colon to specify a range of indices.
+code 86
+    mylist[1:4] = 2, 3, 4
+    mylist
+  execute_result
+  - text/plain
+    ['one', 2, 3, 4, 'five']
+  metadata
+    {
+     "collapsed": false
+    }
+markdown
+    As mentioned before, Python starts indexing at `0`.
+    
+    The `stop` value of the slice is also "special", since the slice indices go up to, but not including, the `stop` value.
+    In other words, the subscript in `mylist[start:stop]` describes the half-open interval [`start`, `stop`).
+    
+    This may take some time to get used to, but in the long run you'll see that this is a much more straightforward choice then including the `stop` value in the slice.
+    For more details about this concept, see [Why numbering should start at zero](http://www.cs.utexas.edu/users/EWD/transcriptions/EWD08xx/EWD831.html) from E. W. Dijkstra.
+markdown
+    The `start` and `stop` values are optional.
+    If omitted, the slice starts at the beginning of the sequence or reaches until the end, respectively.
+code 87
+    mylist[:3] = "123"
+    mylist
+  execute_result
+  - text/plain
+    ['1', '2', '3', 4, 'five']
+  metadata
+    {
+     "collapsed": false
+    }
+code 88
+    mylist[3:] = "IV", "V", "VI"
+    mylist
+  execute_result
+  - text/plain
+    ['1', '2', '3', 'IV', 'V', 'VI']
+  metadata
+    {
+     "collapsed": false
+    }
+markdown
+    As you see here, the number of elements on the left of the equals sign doesn't have to be the same as on the right (except when you use a step size other than one, see below).
+    
+    To replace the whole list contents, a single colon (without `start` and `stop`) can be used.
+code 89
+    mylist[:] = 0, 1, 2, 3, 4, 5, 6, 7
+    mylist
+  execute_result
+  - text/plain
+    [0, 1, 2, 3, 4, 5, 6, 7]
+  metadata
+    {
+     "collapsed": false
+    }
+markdown
+    Note that in this case, the actual `list` object is mutated, whereas if an *identifier* is merely re-bound (`mylist = ...`), the original `list` object is *not* mutated.
+    
+    In addition to `start` and `stop`, a slice object can also have a `step` size (specified after a second colon).
+code 90
+    mylist[3::2] = "357"
+    mylist
+  execute_result
+  - text/plain
+    [0, 1, 2, '3', 4, '5', 6, '7']
+  metadata
+    {
+     "collapsed": false
+    }
+markdown
+    The default `step` size is, not surprisingly, `1`.
+    
+    Like `start` and `stop`, the `step` size can also be negative, meaning a reversed order from the end to the beginning:
+code 91
+    mylist[::-2] = "seven", "five", "three", "one"
+    mylist
+  execute_result
+  - text/plain
+    [0, 'one', 2, 'three', 4, 'five', 6, 'seven']
+  metadata
+    {
+     "collapsed": false
+    }
+markdown
+    Note that the colon-operator is only allowed within the brackets of a *subscript*.
+    If you want to create a slice object at a different place, you have to use [`slice()`](http://docs.python.org/3/library/functions.html#slice).
+code 92
+    slice(4)
+  execute_result
+  - text/plain
+    slice(None, 4, None)
+  metadata
+    {
+     "collapsed": false
+    }
+markdown
+    If one of `start`, `stop`, `step` is not specified, it is set to `None`.
+    Like as in the colon-notation, each of them is optional.
+code 93
+    slice(None)
+  execute_result
+  - text/plain
+    slice(None, None, None)
+  metadata
+    {
+     "collapsed": false
+    }
+code 94
+    slice(1, 4)
+  execute_result
+  - text/plain
+    slice(1, 4, None)
+  metadata
+    {
+     "collapsed": false
+    }
+code 95
+    slice(1, None, 2)
+  execute_result
+  - text/plain
+    slice(1, None, 2)
+  metadata
+    {
+     "collapsed": false
+    }
 markdown
     ## Augmented Assignment
 markdown
@@ -1149,13 +1377,13 @@ markdown
     ## Comments
 markdown
     ## Functions
-code 78
+code 96
     # docstrings
   metadata
     {
      "collapsed": false
     }
-code 79
+code 97
     # built-in functions
   metadata
     {
@@ -1177,6 +1405,8 @@ markdown
     ## Dictionaries
 markdown
     ## Sets
+markdown
+    ## Ranges
 markdown
     ## None
 markdown

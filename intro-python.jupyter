@@ -772,7 +772,7 @@ markdown
     This can be one of several quite different things, which are described in the following sections.
     For all the gory details, have a look in [the official Python documentation](http://docs.python.org/3/reference/simple_stmts.html#assignment-statements).
 markdown
-    ### Identifiers (a.k.a. Names)
+    ### Identifiers (a.k.a. Names, a.k.a. Variables)
 markdown
     The *"something on the left"* can be a so-called *identifier*.
     This is a *name* that can be *bound* to an object.
@@ -801,9 +801,9 @@ code 56
      "collapsed": false
     }
 markdown
-    Sometimes, when we want to speak about an *identifier*, we make the mistake of using the word *variable*.
-    This is a term known from other programming languages, where it means "a box where we can store a certain type of value in".
-    Over the course of a program, we can put different values into this box, that's why it's called "variable".
+    Some Python beginners use the wrong mental image when thinking of Python *variables*/*identifiers*.
+    In some other programming languages, a *variable* can be thought of "a box where we can store a certain type of value in".
+    Over the course of a program, we can put different values into this box.
     For example, in the programming language C it might look something like this:
     
     ```C
@@ -826,12 +826,13 @@ markdown
     > Anyway, this isn't a C tutorial ...
     
     In this C-example, the *variable* named `answer` is actually a "box where we can store an `int` value".
-    And later, if we feel like it, we can put another value into the box.
+    And later, if we feel like it, we can put another value into the box, which overwrites (and therefore *destroys*) the old value.
     
     In Python, this is different.
     The *identifier* named `answer` is not a "box".
     It is rather a "label", similar to a sticky note which we can stick onto an (already existing) object.
     In our example, we stick it to an object that has the type `int` and the value `42`.
+    This object was created by the Python interpreter during evaluation of the *expression* `7 * 6`.
     The object itself doesn't have a name (it just has a memory address), but we can *bind* a name to it, in our example the name `answer`.
 markdown
     Now what happens in the following statement?
@@ -885,7 +886,7 @@ code 59
 markdown
     So what happened to the `int` object with the value `42`?
     
-    We cannot access it anymore, because we don't have an identifier that references it.
+    It's *not* overwritten, but we cannot access it anymore, because we don't have an identifier that references it.
     Have a look at [Garbage Collection](#Garbage-Collection) below to see what the Python interpreter does with objects which are not bound to any name.
 markdown
     Note that an identifier is only treated specially on the left side of an assignment statement.
@@ -904,7 +905,7 @@ code 61
     }
 markdown
     Since assignment is a statement which doesn't return a value, we don't see the value of the new object where `greeting` is bound to.
-    Let's see:
+    Let's have a look:
 code 62
     greeting
   execute_result
@@ -997,7 +998,7 @@ markdown
     Let me emphasize again:
     An *identifier* in Python isn't a *box* where we can put values into, it's rather a *label* that we attach to an existing object.
     
-    Many Python tutorials make the mistake of explaining Python "variables" (by which they mean *identifiers*) as "boxes", but that's plain wrong.
+    Many Python tutorials make the mistake of explaining Python *variables* (which should probably better be called *identifiers*) as "boxes", but that's plain wrong.
     The error can easily be shown by creating multiple identifiers which are bound to the same object.
     Let's use the previous example:
     If `one`, `two` and `three` would actually be "boxes", *each one* of them would have to hold its own copy of the string `"data"`.
@@ -1020,7 +1021,7 @@ markdown
     The new object must already exist before it is bound to the *identifier*, therefore it *has to* occupy a different memory area than the old object.
     The old object may or may not be destroyed right after the assignment, but that's a very different story (see [Garbage Collection](#Garbage-Collection)).
     
-    It can also be easily shown that assignment doesn't overwrite old data:
+    It can be easily shown that assignment doesn't overwrite old data:
 code 71
     number = 0
     id(number)
@@ -1046,9 +1047,15 @@ markdown
     But we see that the IDs are different, therefore, `0` and `1` must be different objects.
     
     I'm sorry that I have to repeat my self so often, but this is really important:
-    Assignment to an existing identifier does not modify any object!
+    Assignment to an existing *identifier* does not modify any object!
     
     We'll see a bit further down how we can actually modify objects.
+markdown
+    I try to avoid using the term "variable" for a Python *identifier*, because I think many people will associate this term with a "box", rather than a "label".
+    But it's of course not forbidden to call it *variable*, and sometimes it just sounds more natural.
+    
+    By the way, if you want to use more technical terms instead of "box" and "label", you can use the terms *value semantics* and *reference semantics*, respectively.
+    Python has *reference semantics*.
 markdown
     ### Multiple Identifiers
 markdown

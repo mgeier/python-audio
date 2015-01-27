@@ -1344,7 +1344,7 @@ code 92
     }
 markdown
     If one of `start`, `stop`, `step` is not specified, it is set to `None`.
-    Like as in the colon-notation, each of them is optional.
+    Like in the colon-notation, each of them is optional.
 code 93
     slice(None)
   execute_result
@@ -1427,6 +1427,7 @@ markdown
 markdown
     ## Many More Things ...
 markdown
+    * dir()/help()
     * string formatting
     * list/set/dict comprehensions
     * iterators
@@ -1436,6 +1437,7 @@ markdown
     * anonymous functions (a.k.a. `lambda`s)
     * bytes
     * `*args`, `**kwargs`
+    * globals()/locals()
     * static methods, class methods
     * "special" methods, operator overloading
     * properties, descriptors

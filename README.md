@@ -64,13 +64,19 @@ http://idiap.github.io/bob/
 Python in General
 -----------------
 
+http://cscircles.cemc.uwaterloo.ca/
+
 http://docs.python.org/3/tutorial/
 
 http://docs.python-guide.org/
 
+http://learnpythonthehardway.org/book/
+
 http://python.net/~goodger/projects/pycon/2007/idiomatic/handout.html
 
 http://lignos.org/py_antipatterns/
+
+http://www.digilentinc.com/Classroom/IntroProgramming1/
 
 Collaboration with Other Software
 ---------------------------------

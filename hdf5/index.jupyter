@@ -1,0 +1,15 @@
+nbformat 4
+nbformat_minor 2
+markdown
+    # The HDF5 File Format
+markdown
+    [back to main page](../index.ipynb)
+markdown
+    PyTables: http://www.pytables.org/moin
+    
+    h5py: http://www.h5py.org/docs/index.html
+metadata
+    {
+     "orig_nbformat": 3,
+     "orig_nbformat_minor": 0
+    }

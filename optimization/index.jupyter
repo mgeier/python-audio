@@ -1,0 +1,41 @@
+nbformat 4
+nbformat_minor 2
+markdown
+    # Optimizing Python Code
+markdown
+    [back to main page](../index.ipynb)
+markdown
+    This is work-in-progress!
+markdown
+    First, check for bottlenecks, then optimize!
+    
+    [cProfile and pstats](https://docs.python.org/3.4/library/profile.html)
+    
+        python -m cProfile -o output.prof myscript.py
+    
+    [RunSnakeRun](http://www.vrplumber.com/programming/runsnakerun/)
+    
+    [PLOP](https://github.com/bdarnell/plop)
+markdown
+    ## Parallel Processing
+markdown
+    [DistNumPy](https://code.google.com/p/distnumpy/)
+    
+    [Bohrium](http://bohrium.bitbucket.org/)
+    
+    [DistArray](http://distarray.readthedocs.org/)
+    
+    [Distributed Array Protocol](http://distributed-array-protocol.readthedocs.org/)
+markdown
+    ## Links
+markdown
+    http://sebastianraschka.com/Articles/2014_multiprocessing_intro.html
+markdown
+    ## TODO
+markdown
+        python -O
+metadata
+    {
+     "orig_nbformat": 3,
+     "orig_nbformat_minor": 0
+    }

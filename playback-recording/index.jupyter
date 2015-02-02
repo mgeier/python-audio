@@ -1,0 +1,111 @@
+nbformat 4
+nbformat_minor 2
+markdown
+    # Audio Playback and Recording
+markdown
+    [back to main page](../index.ipynb)
+markdown
+    This is work-in-progress!
+markdown
+    There are several libraries for audio playback and/or recording available for
+    Python.
+    They greatly differ in features, API, requirements, quality, ...
+markdown
+    ## PySoundCard
+markdown
+    http://github.com/bastibe/PySoundCard/
+    
+    uses PortAudio via CFFI
+markdown
+    ## PyAudio
+markdown
+    bindings for PortAudio
+    
+    http://people.csail.mit.edu/hubert/pyaudio/
+markdown
+    ## pygame.mixer
+markdown
+    uses [SDL](http://www.libsdl.org/)
+    
+    http://pygame.org/docs/ref/mixer.html
+    
+    Debian package: python-pygame
+markdown
+    ## pyglet
+markdown
+    http://pyglet.org
+    
+    DirectSound on Windows, ALSA on Linux, OpenAL on Windows/Linux/MacOSX: 
+    
+    http://www.pyglet.org/doc/programming_guide/audio_drivers.html
+    
+    Debian package: python-pyglet
+    
+    Many codecs supported with [AVbin](http://code.google.com/p/avbin/).
+    
+    Debian package: libavbin0 and/or libavbin-dev?
+markdown
+    ## pySFML
+markdown
+    http://python-sfml.org/examples.html
+    
+    Debian packages python-sfml and python3-sfml.
+    
+    Uses [OpenAL Soft][] for playback/recording and
+    [libsndfile][] for audio file handling.
+    
+    [OpenAL Soft]: http://kcat.strangesoft.net/openal.html
+    [libsndfile]: http://www.mega-nerd.com/libsndfile/
+markdown
+    ## Snack
+markdown
+    Depends on Tkinter
+    
+    http://www.speech.kth.se/snack/  
+    http://www.speech.kth.se/snack/man/snack2.2/python-man.html
+    
+    Debian package: libsnack2-alsa
+    
+    no new releases since December 2005!
+markdown
+    ## PyAudiere!
+markdown
+    http://pyaudiere.org/
+    
+    uses audiere: http://audiere.sourceforge.net/
+markdown
+    ## audioloop
+markdown
+    standard Python lib to manipulate raw audio data
+    
+    http://docs.python.org/library/audioop.html
+markdown
+    ## PySndObj
+markdown
+    platform independent, including JACK!
+    
+    http://sndobj.sourceforge.net/
+markdown
+    ## jackclient-python
+markdown
+    http://github.com/spatialaudio/jackclient-python/
+    
+    http://jackclient-python.rtfd.org/
+markdown
+    ## PyJack
+markdown
+    http://sourceforge.net/projects/py-jack/
+markdown
+    ## medussa
+markdown
+    http://www.medussa.us  
+    https://code.google.com/p/medussa/
+markdown
+    ## py-portaudio
+markdown
+    https://github.com/ranweiler/py-portaudio
+metadata
+    {
+     "orig_nbformat": 3,
+     "orig_nbformat_minor": 0
+    }

@@ -1,0 +1,93 @@
+nbformat 4
+nbformat_minor 2
+markdown
+    # Audio Signal Processing in Python
+markdown
+    *Warning*: this is work in progress!
+markdown
+    * [Introduction to Python](intro-python.ipynb)
+    
+    * [Introduction to IPython](intro-ipython.ipynb)
+    
+    * [Introduction to NumPy](intro-numpy.ipynb)
+    
+    * [Generating Simple Audio Signals](simple-signals.ipynb)
+    
+    * [Reading and Writing Audio Files](audio-files/index.ipynb)
+    
+    * [Testing Python Code](testing/)
+markdown
+    TODO: more topics ...
+markdown
+    ## Links
+markdown
+    There are quite a few blog posts and other resources available, here are a few
+    links, use your favorite search engine to find more.
+markdown
+    ### Audio Signal Processing
+markdown
+    http://bastibe.de/2012-11-02-real-time-signal-processing-in-python.html
+    
+    http://www.swharden.com/blog/2013-05-09-realtime-fft-audio-visualization-with-python/
+    
+    http://www.swharden.com/blog/2013-05-08-realtime-data-plotting-in-python/
+    
+    http://www.swharden.com/blog/2010-03-05-realtime-fft-graph-of-audio-wav-file-or-microphone-input-with-python-scipy-and-wckgraph/
+    
+    http://samcarcagno.altervista.org/blog/basic-sound-processing-python/
+    
+    http://blog.chrisarndt.de/article/499 (de)
+markdown
+    ### Signal Processing in General
+markdown
+    http://python-for-signal-processing.blogspot.de/
+markdown
+    ### Scientific Python in General
+markdown
+    http://scipy-lectures.github.io/
+    
+    http://pig-in-the-python.blogspot.de/
+markdown
+    ### NumPy
+markdown
+    http://www.loria.fr/~rougier/teaching/numpy/numpy.html
+markdown
+    ### Python-based Libraries for Signal Processing
+markdown
+    Bob (signal-processing and machine learning toolbox)  
+    http://idiap.github.io/bob/
+markdown
+    ### Python in General
+markdown
+    http://cscircles.cemc.uwaterloo.ca/
+    
+    http://docs.python.org/3/tutorial/
+    
+    http://docs.python-guide.org/
+    
+    http://learnpythonthehardway.org/book/
+    
+    http://python.net/~goodger/projects/pycon/2007/idiomatic/handout.html
+    
+    http://lignos.org/py_antipatterns/
+    
+    http://www.digilentinc.com/Classroom/IntroProgramming1/
+markdown
+    ### Collaboration with Other Software
+markdown
+    https://github.com/arokem/python-matlab-bridge
+    
+    https://github.com/ewiger/mlab
+    
+    https://github.com/bastibe/transplant
+markdown
+    ### Comparison with Other Software
+markdown
+    http://wiki.scipy.org/NumPy_for_Matlab_Users
+    
+    http://bastibe.de/2013-01-20-a-python-primer-for-matlab-users.html
+metadata
+    {
+     "orig_nbformat": 3,
+     "orig_nbformat_minor": 0
+    }

@@ -3,16 +3,14 @@ nbformat_minor 2
 markdown
     # Generating Simple Audio Signals
 markdown
-    [back to main page](https://github.com/mgeier/python-audio)
-    
+    [back to main page](index.ipynb)
+markdown
     We create a simple sine wave as an introductory example using Python and NumPy.
     
     Let's start with some basic Python. We create three numbers and give each of them a name.
     
     > Sometimes these are called *variables*, but that is actually misleading.
     > Think about objects and names. An object is created (in our case a number) and we specify a name by which we want to access this object.
-    
-    
 code 1
     dur = 1.5  # duration in seconds
     freq = 440.  # frequency in Hertz

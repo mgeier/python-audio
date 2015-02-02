@@ -3,8 +3,8 @@ nbformat_minor 2
 markdown
     # Reading and Writing Audio Files with wave
 markdown
-    [back to overview page](https://github.com/mgeier/python-audio/blob/master/audio-files)
-    
+    [back to overview page](index.ipynb)
+markdown
     The `wave` module is part of the Python standard library.
     
     Documentation:

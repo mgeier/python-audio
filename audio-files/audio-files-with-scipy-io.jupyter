@@ -3,8 +3,8 @@ nbformat_minor 2
 markdown
     # Reading and Writing Audio Files with scipy.io
 markdown
-    [back to overview page](https://github.com/mgeier/python-audio/blob/master/audio-files/README.md)
-    
+    [back to overview page](index.ipynb)
+markdown
     The package `scipy.io` is part of [SciPy](http://www.scipy.org/), a library for scientific computing, which itself depends heavily on [NumPy](http://www.numpy.org/).
     
     Documentation: http://docs.scipy.org/doc/scipy/reference/io.html

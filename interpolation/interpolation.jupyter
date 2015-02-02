@@ -3,8 +3,8 @@ nbformat_minor 2
 markdown
     # Interpolation/Fractional Delay/Resampling
 markdown
-    [back to main page](https://github.com/mgeier/python-audio/blob/master)
-    
+    [back to overview page](index.ipynb)
+markdown
     WARNING: this is work-in-progress!
 markdown
     Digital Audio Resampling Home Page: https://ccrma.stanford.edu/~jos/resample/

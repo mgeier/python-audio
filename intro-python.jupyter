@@ -3,8 +3,8 @@ nbformat_minor 2
 markdown
     # A Short Introduction to Python
 markdown
-    [back to main page](https://github.com/mgeier/python-audio)
-    
+    [back to main page](index.ipynb)
+markdown
     [Python](http://www.python.org/) is a general-purpose programming language.
     It is an *interpreted* language, i.e. source code is not compiled into an executable file but it is directly executed by an *interpreter*.
     A file containing Python code can be executed like this:

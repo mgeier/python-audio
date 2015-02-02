@@ -3,6 +3,8 @@ nbformat_minor 2
 markdown
     # Syntax Checkers
 markdown
+    [back to overview page](index.ipynb)
+markdown
     There are several tools out there, this is just a random selection:
 markdown
     ## pylint

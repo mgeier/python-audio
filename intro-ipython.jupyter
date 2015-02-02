@@ -3,8 +3,8 @@ nbformat_minor 2
 markdown
     # A Short Introduction to IPython
 markdown
-    [back to main page](https://github.com/mgeier/python-audio)
-    
+    [back to main page](index.ipynb)
+markdown
     interactive ...
     
       - classic console

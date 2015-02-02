@@ -3,6 +3,8 @@ nbformat_minor 2
 markdown
     # Symbolic Algebra with SymPy
 markdown
+    [back to main page](../index.ipynb)
+markdown
     http://docs.sympy.org/latest/tutorial/
     
     http://nbviewer.ipython.org/github/jrjohansson/scientific-python-lectures/blob/master/Lecture-5-Sympy.ipynb

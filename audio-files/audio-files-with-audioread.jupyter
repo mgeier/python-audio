@@ -3,8 +3,8 @@ nbformat_minor 2
 markdown
     # Reading and Writing Audio Files with audioread
 markdown
-    [back to overview page](https://github.com/mgeier/python-audio/blob/master/audio-files)
-    
+    [back to overview page](index.ipynb)
+markdown
     The module `audioread` can be found there: https://github.com/sampsyo/audioread
     
     This isn't really an option because it has the same disadvantages as the wave module (and more) and it has to be installed manually (but at least it's available as Debian package).

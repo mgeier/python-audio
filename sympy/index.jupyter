@@ -8,6 +8,19 @@ markdown
     http://docs.sympy.org/latest/tutorial/
     
     http://nbviewer.ipython.org/github/jrjohansson/scientific-python-lectures/blob/master/Lecture-5-Sympy.ipynb
+markdown
+    <p xmlns:dct="http://purl.org/dc/terms/">
+      <a rel="license"
+         href="http://creativecommons.org/publicdomain/zero/1.0/">
+        <img src="http://i.creativecommons.org/p/zero/1.0/88x31.png" style="border-style: none;" alt="CC0" />
+      </a>
+      <br />
+      To the extent possible under law,
+      <span resource="[_:publisher]" rel="dct:publisher">
+        <span property="dct:title">Matthias Geier</span></span>
+      has waived all copyright and related or neighboring rights to
+      this work.
+    </p>
 metadata
     {
      "orig_nbformat": 3,

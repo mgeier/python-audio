@@ -1,16 +1,15 @@
 nbformat 4
 nbformat_minor 2
 markdown
-    # Auditory Modeling
+    # Title
 markdown
-    [back to main page](../index.ipynb)
+    [back to main page](index.ipynb)
 markdown
-    This is not even work-in-progress, just some links ...
-    
-    Until now, I only found one Python library for auditory modeling, but I guess
-    that's enough.
+    Text
 markdown
-    [Brian hears](http://www.briansimulator.org/docs/hears.html)
+    ## Subtitle
+markdown
+    Text
 markdown
     <p xmlns:dct="http://purl.org/dc/terms/">
       <a rel="license"

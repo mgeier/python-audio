@@ -92,6 +92,8 @@ markdown
     
     [Reading and Writing Audio Files with wave](audio-files-with-wave.ipynb)
     
+    [Reading and Writing Audio Files with ewave](audio-files-with-ewave.ipynb)
+    
     [Reading and Writing Audio Files with python-wavefile](audio-files-with-python-wavefile.ipynb)
     
     [Reading and Writing Audio Files with audioread](audio-files-with-audioread.ipynb)

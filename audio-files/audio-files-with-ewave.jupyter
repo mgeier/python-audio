@@ -842,7 +842,7 @@ code 6
      "collapsed": false
     }
 markdown
-    Sadly, this doesn't seem to work ...
+    Sadly, this doesn't seem to work ... see https://github.com/melizalab/py-ewave/issues/4
 markdown
     Files with floating point data can be used, WAVEX is supported:
 code 7

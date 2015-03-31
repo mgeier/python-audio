@@ -17,7 +17,6 @@ markdown
     
     * no 24-bit PCM
     * function for rescaling has to be invoked separately
-    * rescaling doesn't seem to work
 markdown
     ## Reading
 code 1
@@ -71,7 +70,7 @@ code 5
     plt.plot(data);
   display_data
   - text/plain
-    <matplotlib.figure.Figure at 0x7fa5880fd828>
+    <matplotlib.figure.Figure at 0x7fe8a80bdac8>
   - image/png
     iVBORw0KGgoAAAANSUhEUgAAAY0AAAEACAYAAABPiSrXAAAABHNCSVQICAgIfAhkiAAAAAlwSFlz
     AAALEgAACxIB0t1+/AAAIABJREFUeJzsnXd8k9X3xz9P2cgqnewloCjIFFRQQEEQFGQjy4ELt18H
@@ -817,32 +816,47 @@ code 5
 markdown
     Obviously, the returned samples have the `dtype` `'int16'` (as stored in the file).
     To be able to do something useful, we'll have to convert it to floating point and normalize it to a range from -1 to 1.
-    It seems there is a function especially made for this:
+    Luckily, there is a function especially made for this:
 code 6
     ewave.rescale(data, 'float32')
   execute_result
   - text/plain
-    array([[ 0.,  0.,  0.,  0.,  0.,  0.,  0.],
-           [ 0.,  0.,  0.,  0.,  0.,  0.,  0.],
-           [ 0.,  0.,  0.,  0.,  0.,  0.,  0.],
-           [ 0.,  0.,  0.,  0.,  0.,  0.,  0.],
-           [ 0.,  0.,  0.,  0.,  0.,  0.,  0.],
-           [ 0.,  0.,  0.,  0.,  0.,  0.,  0.],
-           [ 0.,  0.,  0.,  0.,  0.,  0.,  0.],
-           [ 0.,  0.,  0.,  0.,  0.,  0.,  0.],
-           [ 0.,  0.,  0.,  0.,  0.,  0.,  0.],
-           [ 0.,  0.,  0.,  0.,  0.,  0.,  0.],
-           [ 0.,  0.,  0.,  0.,  0.,  0.,  0.],
-           [ 0.,  0.,  0.,  0.,  0.,  0.,  0.],
-           [ 0.,  0.,  0.,  0.,  0.,  0.,  0.],
-           [ 0.,  0.,  0.,  0.,  0.,  0.,  0.],
-           [ 0.,  0.,  0.,  0.,  0.,  0.,  0.]], dtype=float32)
+    array([[ 0.99996948,  0.8571167 ,  0.71426392,  0.57141113,  0.42855835,
+             0.28570557,  0.14285278],
+           [ 0.90093994,  0.53439331,  0.15893555, -0.12713623, -0.26721191,
+            -0.25741577, -0.14285278],
+           [ 0.62347412, -0.19073486, -0.64352417, -0.51483154, -0.09536743,
+             0.1781311 ,  0.14285278],
+           [ 0.22250366, -0.77224731, -0.44534302,  0.35626221,  0.3861084 ,
+            -0.06356812, -0.14285278],
+           [-0.22250366, -0.77224731,  0.44534302,  0.35626221, -0.3861084 ,
+            -0.06356812,  0.14285278],
+           [-0.62347412, -0.19073486,  0.64352417, -0.51483154,  0.09536743,
+             0.1781311 , -0.14285278],
+           [-0.90093994,  0.53439331, -0.15893555, -0.12713623,  0.26721191,
+            -0.25741577,  0.14285278],
+           [-0.99996948,  0.8571167 , -0.71426392,  0.57141113, -0.42855835,
+             0.28570557, -0.14285278],
+           [-0.90093994,  0.53439331, -0.15893555, -0.12713623,  0.26721191,
+            -0.25741577,  0.14285278],
+           [-0.62347412, -0.19073486,  0.64352417, -0.51483154,  0.09536743,
+             0.1781311 , -0.14285278],
+           [-0.22250366, -0.77224731,  0.44534302,  0.35626221, -0.3861084 ,
+            -0.06356812,  0.14285278],
+           [ 0.22250366, -0.77224731, -0.44534302,  0.35626221,  0.3861084 ,
+            -0.06356812, -0.14285278],
+           [ 0.62347412, -0.19073486, -0.64352417, -0.51483154, -0.09536743,
+             0.1781311 ,  0.14285278],
+           [ 0.90093994,  0.53439331,  0.15893555, -0.12713623, -0.26721191,
+            -0.25741577, -0.14285278],
+           [ 0.99996948,  0.8571167 ,  0.71426392,  0.57141113,  0.42855835,
+             0.28570557,  0.14285278]], dtype=float32)
   metadata
     {
      "collapsed": false
     }
 markdown
-    Sadly, this doesn't seem to work ... see https://github.com/melizalab/py-ewave/issues/4
+    Note: until version 1.0.4 this was broken, but now it works (see https://github.com/melizalab/py-ewave/issues/4).
 markdown
     Files with floating point data can be used, WAVEX is supported:
 code 7
@@ -852,7 +866,7 @@ code 7
     plt.plot(data);
   display_data
   - text/plain
-    <matplotlib.figure.Figure at 0x7fa5a012d470>
+    <matplotlib.figure.Figure at 0x7fe8b80876d8>
   - image/png
     iVBORw0KGgoAAAANSUhEUgAAAX0AAAEACAYAAABfxaZOAAAABHNCSVQICAgIfAhkiAAAAAlwSFlz
     AAALEgAACxIB0t1+/AAAIABJREFUeJzsnXd8U9X7xz+3i+49aCmbVpApyFSgIFOWW3H+ZKh83agI
@@ -1640,7 +1654,7 @@ code 8
     plt.plot(data);
   display_data
   - text/plain
-    <matplotlib.figure.Figure at 0x7fa57ee1a1d0>
+    <matplotlib.figure.Figure at 0x7fe888842c18>
   - image/png
     iVBORw0KGgoAAAANSUhEUgAAAY0AAAEACAYAAABPiSrXAAAABHNCSVQICAgIfAhkiAAAAAlwSFlz
     AAALEgAACxIB0t1+/AAAIABJREFUeJzsnXd8k9X3xz9P2cgqnewloCjIFFRQQEEQFGQjy4ELt18H
@@ -2390,7 +2404,7 @@ code 9
     plt.plot(data);
   display_data
   - text/plain
-    <matplotlib.figure.Figure at 0x7fa57ee176d8>
+    <matplotlib.figure.Figure at 0x7fe8886b0320>
   - image/png
     iVBORw0KGgoAAAANSUhEUgAAAX0AAAEACAYAAABfxaZOAAAABHNCSVQICAgIfAhkiAAAAAlwSFlz
     AAALEgAACxIB0t1+/AAAIABJREFUeJzsnXd8U9X7xz+3i+49aCmbVpApyFSgIFOWW3H+ZKh83agI

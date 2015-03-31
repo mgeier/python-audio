@@ -114,6 +114,12 @@ markdown
     
     pysndfile:  
     http://pythonhosted.org/pysndfile/
+    
+    essentia.standard.AudioLoader:  
+    http://essentia.upf.edu/documentation/reference/std_AudioLoader.html
+    
+    librosa.load:  
+    http://bmcfee.github.io/librosa/
 markdown
     <p xmlns:dct="http://purl.org/dc/terms/">
       <a rel="license"

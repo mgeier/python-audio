@@ -38,12 +38,12 @@ markdown
     ## TODO
 markdown
         python -O
-code
+markdown
+    ## Memory Usage
+markdown
+    http://pythonhosted.org/Pympler/
     
-  metadata
-    {
-     "collapsed": false
-    }
+    http://fa.bianp.net/blog/2013/different-ways-to-get-memory-consumption-or-lessons-learned-from-memory_profiler/
 markdown
     <p xmlns:dct="http://purl.org/dc/terms/">
       <a rel="license"

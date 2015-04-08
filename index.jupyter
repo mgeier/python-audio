@@ -15,11 +15,13 @@ markdown
     
     * [Reading and Writing Audio Files](audio-files/index.ipynb)
     
+    * [Plotting](plotting/index.ipynb)
+    
     * [Testing Python Code](testing/index.ipynb)
 markdown
     TODO: more topics ...
 markdown
-    ## Links
+    ## External Links
 markdown
     There are quite a few blog posts and other resources available, here are a few
     links, use your favorite search engine to find more.

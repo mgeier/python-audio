@@ -1,0 +1,1182 @@
+nbformat 4
+nbformat_minor 2
+markdown
+    # Plotting with `matplotlib`
+markdown
+    [back to overview page](index.ipynb)
+markdown
+    This page is about the general mechanics of plotting with [matplotlib](http://matplotlib.org/), not so much about the plots themselves.
+    For more information about those, have a look at the [External Links](#External-Links) section below.
+markdown
+    ## Outdated Information
+markdown
+    `matplotlib` has been very actively developed in the last few years.
+    Many improvements have been made and the API as well as the recommended usage patterns have changed quite a bit.
+    
+    Sadly, this also means that a lot of documentation out there is outdated and may actually, although well intended, be bad advice.
+    In fact, this very page may be outdated at the time you are reading it!
+    Have a look at this date:
+code 1
+    !date -I
+  stream stdout
+    2015-04-08
+  metadata
+    {
+     "collapsed": false
+    }
+markdown
+    This is the date of the last change to this page.
+    If it's older then half a year or a year, it is very likely to be outdated, so don't read it!
+markdown
+    ## Plotting Step by Step
+markdown
+    There are several different ways of using `matplotlib`, here we provide mainly slow-paced step-by-step instructions that show explicitly what has to be done in order to create a plot.
+    
+    These instructions should help you to create your own individualized plotting functions (see below).
+    
+    You can also use `matplotlib` in a much less explicit and quicker-to-type way called "pylab" (see further below).
+markdown
+    ### Importing `matplotlib`
+markdown
+    There are several ways to do that, some of which are *not recommended* anymore (especially "`from pylab import *"`).
+    
+    As far as I know, this is *currently* the canonical and recommended way to import matplotlib for most use cases:
+code 2
+    import matplotlib.pyplot as plt
+  metadata
+    {
+     "collapsed": false
+    }
+markdown
+    For some specialized cases, you can also import specific classes from certain `matplotlib` sub-modules, e.g.
+    
+        from matplotlib.patches import Polygon, Ellipse
+        from matplotlib.colors import LinearSegmentedColormap
+    
+    There are lots of code examples out there that still use them, but the following imports are [not recommended anymore](http://matplotlib.org/faq/usage_faq.html#matplotlib-pyplot-and-pylab-how-are-they-related) and you should **never use any of these**:
+    
+    <pre style="color:gray">
+    from pylab import *
+    from matplotlib.pyplot import *
+    </pre>
+markdown
+    ### Creating a `Figure` and One or More `Axes` Objects
+markdown
+    Before plotting anything, a [Figure object](http://matplotlib.org/api/figure_api.html#matplotlib.figure.Figure) has to be created.
+    Some commands handle figure creation and selection automatically, but it normally makes your code easier to read if you create figures explicitly.
+    
+    A figure typically contains one or more [Axes objects](http://matplotlib.org/api/axes_api.html#matplotlib.axes.Axes).
+    Most plotting commands work on those.
+    
+    You can create a figure and a single axes object like this:
+code 3
+    fig, ax = plt.subplots()
+  metadata
+    {
+     "collapsed": false
+    }
+markdown
+    There are many options you can pass to [`plt.subplots()`](http://matplotlib.org/api/pyplot_api.html#matplotlib.pyplot.subplots) in order to customize things, have a look at the documentation of [`plt.figure()`](http://matplotlib.org/api/pyplot_api.html#matplotlib.pyplot.figure), [`add_subplot()`](http://matplotlib.org/api/figure_api.html#matplotlib.figure.Figure.add_subplot) and [`GridSpec`](http://matplotlib.org/api/gridspec_api.html#matplotlib.gridspec.GridSpec).
+    
+    If you want more than one `Axes` object, you can specify rows and columns of subplots:
+    
+        fig, (ax1, ax2) = plt.subplots(1, 2)
+    
+    If you want, you can also use [`plt.figure()`](http://matplotlib.org/api/pyplot_api.html#matplotlib.pyplot.figure) to create a figure object first, and then use [`add_axes()`](http://matplotlib.org/api/figure_api.html#matplotlib.figure.Figure.add_axes) and/or [`add_subplot()`](http://matplotlib.org/api/figure_api.html#matplotlib.figure.Figure.add_subplot) to add axes objects.
+    
+    If you want to continue plotting on the previously used `Axes` object, you can use [`plt.gca()`](http://matplotlib.org/api/pyplot_api.html#matplotlib.pyplot.gca) ("get current axes").
+    If no axes object exists, this command creates one for you (it also creates a figure object, if needed).
+    
+    Each figure has a (possibly empty) list of references to all its `Axes` objects ...
+code 4
+    fig.axes
+  execute_result
+  - text/plain
+    [<matplotlib.axes._subplots.AxesSubplot at 0x7efcc9d1d5c0>]
+  metadata
+    {
+     "collapsed": false
+    }
+markdown
+    Obviously, our example figure has one `Axes` object (the one we got from `plt.subplots()` above).
+code 5
+    fig.axes[0] is ax
+  execute_result
+  - text/plain
+    True
+  metadata
+    {
+     "collapsed": false
+    }
+markdown
+    Each `Axes` object has a reference to its (exactly one) parent figure:
+code 6
+    ax.figure
+  execute_result
+  - text/plain
+    <matplotlib.figure.Figure at 0x7efcc9cf8da0>
+  metadata
+    {
+     "collapsed": false
+    }
+markdown
+    So don't worry if you misplace your figure reference, you can always get it from any contained `Axes` object.
+code 7
+    ax.figure is fig
+  execute_result
+  - text/plain
+    True
+  metadata
+    {
+     "collapsed": false
+    }
+markdown
+    ### Plotting Data
+code 8
+    data = [4, 8, 15, 16, 23, 42]
+  metadata
+    {
+     "collapsed": false
+    }
+markdown
+    Once we have an `Axes` object, we can plot data onto it.
+    There are many types of plots (have a look at the [`Axes` documentation](http://matplotlib.org/api/axes_api.html#matplotlib.axes.Axes)), here we'll just use a simple 2D line plot:
+code 9
+    ax.plot(data)
+  execute_result
+  - text/plain
+    [<matplotlib.lines.Line2D at 0x7efcc6f92978>]
+  metadata
+    {
+     "collapsed": false
+    }
+markdown
+    As you can see, this returns a list of graphical objects (in our case it's only one line, but you could plot several lines at once).
+    You can use those objects for fine-tuning the plot and you can also get a reference to the `Axes` object it belongs to:
+code 10
+    _[0].axes is ax
+  execute_result
+  - text/plain
+    True
+  metadata
+    {
+     "collapsed": false
+    }
+markdown
+    If you don't need the returned list, you can hide it by appending a semicolon (this is only necessary in the last line of a code cell).
+    Let's plot again:
+code 11
+    ax.plot(data);
+  metadata
+    {
+     "collapsed": false
+    }
+markdown
+    ### But Wait, I Don't See No Plot!
+markdown
+    Yes, [that's normal](http://matplotlib.org/faq/howto_faq.html#use-show).
+    Opening a window and drawing all the graphical elements of a plot may be computationally expensive, so `matplotlib` doesn't do it right away.
+    You might want to add further elements to your plot and it's enough to actually draw it once you are finished.
+    Also, you might not even want to open a plot window and instead create an image file containing the plot (see below).
+    
+    Once you are finished adding stuff to your plot and you want to show it, use [`plt.show()`](http://matplotlib.org/api/pyplot_api.html#matplotlib.pyplot.show):
+code 12
+    plt.show()
+  metadata
+    {
+     "collapsed": false
+    }
+markdown
+    Now you should see a plot window popping up!
+    
+    The `plt.show()` command blocks execution until the figure window is closed.
+    This is useful if you want to show plots from a Python script, otherwise all plot windows would be closed automatically at the end of the script.
+    It is not very useful in an interactive session, where you should use `matplotlib`'s interactive mode (see [Interactive Plotting](#Interactive-Plotting) below).
+    
+    Please close the plot window to continue.
+markdown
+    ### Plotting to a File
+markdown
+    Analyzing your data in an interactive plot window is nice, but you probably also want to save the plot for later.
+    It's very easy to [save a figure to a file](http://matplotlib.org/api/figure_api.html?highlight=savefig#matplotlib.figure.Figure.savefig), e.g. a PNG file:
+code 13
+    fig.savefig('my_plot.png')
+  metadata
+    {
+     "collapsed": false
+    }
+markdown
+    This creates a file named [my_plot.png](my_plot.png) in the current directory.
+    You can choose the file type by means of the file extension:
+    
+        fig.savefig('my_plot.svg')
+        fig.savefig('my_plot.pdf')
+        fig.savefig('my_plot.eps')
+    
+    You can [save multiple figures to one PDF file with `PdfPages`](http://matplotlib.org/faq/howto_faq.html#save-multiple-plots-to-one-pdf-file).
+    
+    It is also possible to [create PGF files for use in LaTeX documents](http://matplotlib.org/users/pgf.html):
+    
+        fig.savefig('my_plot.pgf')
+    
+    The available image formats depend on the backend, you can get a list for the currently selected backend:
+code 14
+    fig.canvas.get_supported_filetypes_grouped()
+  execute_result
+  - text/plain
+    {'Raw RGBA bitmap': ['raw', 'rgba'],
+     'Portable Document Format': ['pdf'],
+     'Portable Network Graphics': ['png'],
+     'Joint Photographic Experts Group': ['jpeg', 'jpg'],
+     'Tagged Image File Format': ['tif', 'tiff'],
+     'Scalable Vector Graphics': ['svg', 'svgz'],
+     'Encapsulated Postscript': ['eps'],
+     'Postscript': ['ps'],
+     'PGF code for LaTeX': ['pgf']}
+  metadata
+    {
+     "collapsed": false
+    }
+markdown
+    ### Closing a Plot
+markdown
+    `matplotlib` keeps references to all figures and even if you close all plot windows and delete all your own references, the figures are still kept in memory.
+    
+    To release all resources for the current figure, use:
+code 15
+    plt.close()
+  metadata
+    {
+     "collapsed": false
+    }
+markdown
+    To close all figures, use:
+code 16
+    plt.close('all')
+  metadata
+    {
+     "collapsed": false
+    }
+markdown
+    Note that [`plt.clf()`](http://matplotlib.org/api/pyplot_api.html#matplotlib.pyplot.clf) and [`plt.cla()`](http://matplotlib.org/api/pyplot_api.html#matplotlib.pyplot.cla) clears the current figure and axes, respectively, but it doesn't reset the parameters (e.g. figure size) and it doesn't free all resources.
+markdown
+    ## Interactive Plotting
+markdown
+    By default, `matplotlib` is configured for [non-interactive plotting](http://matplotlib.org/faq/usage_faq.html#what-is-interactive-mode), which makes sense for the use in Python scripts.
+code 17
+    plt.isinteractive()
+  execute_result
+  - text/plain
+    False
+  metadata
+    {
+     "collapsed": false
+    }
+markdown
+    In an interactive session (like this IPython notebook), however, it makes much more sense to switch to interactive plotting.
+    
+    `matplotlib` provides the commands [`plt.ion()`](http://matplotlib.org/api/pyplot_api.html#matplotlib.pyplot.ion) and [`plt.ioff()`](http://matplotlib.org/api/pyplot_api.html#matplotlib.pyplot.ioff) to turn interactive mode on and off, respectively.
+    When using IPython, it's even better to use [this "magic" command](http://ipython.org/ipython-doc/stable/interactive/magics.html#magic-matplotlib):
+code 18
+    %matplotlib
+  stream stdout
+    Using matplotlib backend: TkAgg
+  metadata
+    {
+     "collapsed": false
+    }
+markdown
+    This prepares IPython for the use of `matplotlib` and it enables its interactive mode.
+    This doesn't import anything, you still have to use
+code 19
+    import matplotlib.pyplot as plt
+  metadata
+    {
+     "collapsed": false
+    }
+code 20
+    plt.isinteractive()
+  execute_result
+  - text/plain
+    True
+  metadata
+    {
+     "collapsed": false
+    }
+code 21
+    data = [4, 8, 15, 16, 23, 42]
+    fig, ax = plt.subplots()
+    ax.plot(data);
+  metadata
+    {
+     "collapsed": false
+    }
+markdown
+    Now the plot window should open immediately (without calling `plt.show()`) and code cells can be executed even if plot windows are open.
+    
+    The effects of some of `Axes`'s methods are still not immediately visible, e.g.:
+code 22
+    ax.grid()
+  metadata
+    {
+     "collapsed": false
+    }
+markdown
+    Use `fig.canvas.draw()` to update the current figure.
+    Alternatively, you can also use `plt.draw()`.
+code 23
+    fig.canvas.draw()  # or plt.draw()
+  metadata
+    {
+     "collapsed": false
+    }
+markdown
+    If you put all plotting commands into a single code cell, you don't need this.
+markdown
+    ## Inline Plotting
+markdown
+    The interactive plot window is very useful for interactive exploration of your data.
+    However, if you want to share the results of your notebooks with others (or keep them around for future reference), it may be better to embed them directly in the IPython notebook.
+    
+    To do that, switch to "inline" mode:
+code 24
+    %matplotlib inline
+  metadata
+    {
+     "collapsed": false
+    }
+markdown
+    From now on, all plots are shown directly below their code cells.
+    
+    But again, this doesn't import anything, you still have to import whatever you need:
+code 25
+    import matplotlib.pyplot as plt
+  metadata
+    {
+     "collapsed": false
+    }
+code 26
+    data = [4, 8, 15, 16, 23, 42]
+    fig, ax = plt.subplots()
+    ax.plot(data);
+  display_data
+  - text/plain
+    <matplotlib.figure.Figure at 0x7efcc75f4940>
+  - image/png
+    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
+    IiIl6P8Bk38f8nUb3soAAAAASUVORK5CYII=
+    
+  metadata
+    {
+     "collapsed": false
+    }
+markdown
+    Inline plots are saved within the notebook file (with the extension `.ipynb`).
+    Therefore they can be viewed without a running IPython kernel, e.g. on http://nbviewer.ipython.org.
+    
+    You can switch back and forth between using a plot window and inline plotting:
+code 27
+    %matplotlib
+  stream stdout
+    Using matplotlib backend: TkAgg
+  metadata
+    {
+     "collapsed": false
+    }
+markdown
+    ## Advice: Write Your Own Plotting Function!
+markdown
+    You will most likely not just plot once and then move on.
+    More realistically, you'll plot many times while exploring your data and changing some parameters in your calculations.
+    
+    Depending on the task at hand, you'll have certain requirements regarding axis scaling, tick marks, labels etc.
+    
+    Instead of repeating the same commands again and again, you should write an individualized plotting function.
+    Here's an example:
+code 28
+    import matplotlib.pyplot as plt
+    import numpy as np
+    
+    
+    def myplot(data, ax=None):
+        """A special plotting function for my special needs."""
+        if ax is None:
+            ax = plt.gca()
+        x = np.arange(len(data)) * 1000  # my special x-axis needs
+        lines = ax.plot(x, data)
+        ax.set_xlabel("my independent variable / millisomethings")
+        ax.set_ylabel("very interesting unitless values")
+        ax.grid(True)
+        return lines
+  metadata
+    {
+     "collapsed": false
+    }
+markdown
+    Note that this function accepts an optional `ax` argument (as recommended by the [official FAQ](http://matplotlib.org/faq/usage_faq.html#coding-styles)), where an existing `Axes` object can be passed to be drawn on.
+    By default, the current `Axes` object is used.
+    If none exists, a new figure with a new `Axes` object is created automatically.
+    All this is done by [`plt.gca()`](http://matplotlib.org/api/pyplot_api.html#matplotlib.pyplot.gca) ("get current axes").
+    
+    You should think about what is most useful to be returned from this function, in this example it just passes through the list of lines returned by [`plot()`](http://matplotlib.org/api/axes_api.html#matplotlib.axes.Axes.plot).
+    
+    Note that `show()` is not used within the function, as this might not be desired, e.g. if we only want to plot to a file and we don't want to show the plot window.
+    
+    The custom plotting function can be used like this:
+code 29
+    %matplotlib inline
+  metadata
+    {
+     "collapsed": false
+    }
+code 30
+    myplot([3, 2, 4, 1]);
+  display_data
+  - text/plain
+    <matplotlib.figure.Figure at 0x7efcc7657710>
+  - image/png
+    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
+    jtOR/w80lSlGgRFnbQAAAABJRU5ErkJggg==
+    
+  metadata
+    {
+     "collapsed": false
+    }
+markdown
+    By means of the optional `ax` argument it can also be used in more complicated settings, e.g.:
+code 31
+    fig, (ax1, ax2) = plt.subplots(1, 2, sharey=True)
+    fig.set_figwidth(fig.get_figwidth() * 2)
+    fig.subplots_adjust(wspace=0.06)
+    myplot([3, 2, 4, 1], ax=ax1)
+    myplot([2, 3, 1, 5, 4, 0], ax=ax2)
+    ax2.set_ylabel('');
+  display_data
+  - text/plain
+    <matplotlib.figure.Figure at 0x7efcc76b2080>
+  - image/png
+    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
+    Lnrt/xJYruPwTgHvAWOjL8ZyKSzX9niu2xj8n8VoYM+0b7NayrVXRrbZxsCoqGzvAedEz5d0m5Hi
+    Y2wd5crkMavAOsjkcaDAOojle5XUG7ATc0fhqJg6oIjtsULrQBOpiIiIiIgUILaJVERERERE0kgN
+    aBERERGRAqgBLSIiIiJSADWgRUREREQKoAa0iIiIiEgB1IAWERERESmAGtApYWb7mdl5BX7mATM7
+    pFQx1bHuLmZ2az0/u7iZdSt2TDnLH2Bmi9Xxnl9reb7gOjWzFczs5UI+k/PZ/213M+thZmfVjMPM
+    7jGz9euz/IYwswtz7rc2s3G1vO8yM9u1fJGJFE7H2OLRMbY4dIxNNjWgUyKE8FwI4ZpCP0YJ5n8v
+    gyWAU4q9UIuEEPYJIfxSx9trq7f61OmewEsFfsZXNu92z133/+6HEE4IIXxQn+U30AX5vCmEcGkI
+    YWCpgxFpCB1jG07H2KLTMTbB1IAuoegX40Qzu9/MPjSzh81sDzN728w+MrMtzKxRdH/p6DONzOxj
+    M1uqxrL+d7Yh+mV8S7ScT3N+JZuZ9YzW+SqwLGDRa23NrMrMRprZSzZ3jvgqM7vZzEab2Tgz2yJ6
+    voWZ9TKzYWY2ysz2z4njSTN7MYr7mpwYj43KOQzYNuf5ZczscTMbHt22jZ7vEa1jUFSO06OPXA2s
+    GcU0zz80M7vKzE7JedzDzM6K4n3NzN41s/dy4m0dxfQgPsPQKmY22cyWjF5/KqqT983shBrrujF6
+    /rXq7VP90oLqdD7+BrxY6L5Rc7vnrrvGsqrMbPNo33kg2o7vmVn36PU2ZvaOmY2Ntl2rnM/daGYj
+    zOyDaH98Klr/v3KWf3S0H4w2szuj9VwNLBI91wf/R9PYzO6O6uxlM2sWfT73TM7kaJtVb6d1c/aR
+    V6PP3lO9jaLtOsDMxkTlOryWOpYKlM/3yHSM1TFWx1gdY0sh7mkYs3wDWgMzgQ3xL+VI4L7otf2B
+    p6L7lwB/j+7vAfSfz7KOAW6N7j8A9Ivurw98HN0/GJ+y0oAVgJ+i55oCQ4ClovcdkRPHIOCu6P4O
+    wLjo/pVAx+h+K3xK4OZAF+BToCWwMDAZWCla3+fAUtH6BhNNhQn0BbaL7q8KTIju94je1zT63A9A
+    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
+    SUVORK5CYII=
+    
+  metadata
+    {
+     "collapsed": false
+    }
+markdown
+    ## Finally: The Quick and Dirty Way
+markdown
+    The above examples are quite explicit (which is good) and a bit verbose (which might be tedious).
+    
+    If you just want to quickly fire up an IPython console and make some spontaneous throw-away plots, you can use the so-called "pylab" mode using [the "magic" command](http://ipython.org/ipython-doc/stable/interactive/magics.html#magic-pylab)
+    
+        %pylab
+    
+    or
+    
+        %pylab inline
+        
+    Like the command `%matplotlib` we used above, this switches to `matplotlib`'s interactive mode, but in addition it includes a whole lot of convenience functions into the current namespace.
+    That means you don't need to write any `import` statements and you can use the functions without the `plt.` and `np.` prefixes:
+    
+        plot(arange(100)**2)
+    
+    This should significantly reduce the number of characters you have to type (at least on the short term).
+    However, this is not recommended if you want to keep your code, because the resulting code is hard to read for others (and for future you) and [it may cause some subtle errors](http://nbviewer.ipython.org/github/Carreau/posts/blob/master/10-No-PyLab-Thanks.ipynb).
+markdown
+    ## External Links
+markdown
+    http://matplotlib.org/gallery.html
+    
+    http://matplotlib.org/faq/usage_faq.html
+    
+    http://matplotlib.org/users/pyplot_tutorial.html
+    
+    http://matplotlib.org/users/artists.html
+    
+    https://github.com/rasbt/matplotlib-gallery
+    
+    http://nbviewer.ipython.org/github/jrjohansson/scientific-python-lectures/blob/master/Lecture-4-Matplotlib.ipynb
+markdown
+    <p xmlns:dct="http://purl.org/dc/terms/">
+      <a rel="license"
+         href="http://creativecommons.org/publicdomain/zero/1.0/">
+        <img src="http://i.creativecommons.org/p/zero/1.0/88x31.png" style="border-style: none;" alt="CC0" />
+      </a>
+      <br />
+      To the extent possible under law,
+      <span resource="[_:publisher]" rel="dct:publisher">
+        <span property="dct:title">Matthias Geier</span></span>
+      has waived all copyright and related or neighboring rights to
+      this work.
+    </p>
+metadata
+    {
+     "orig_nbformat": 3,
+     "orig_nbformat_minor": 0
+    }

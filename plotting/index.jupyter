@@ -5,20 +5,18 @@ markdown
 markdown
     [back to main page](../index.ipynb)
 markdown
-    ## Links
+    The de-facto standard library for plotting in Python is "matplotlib".
+    
+    * [Plotting with `matplotlib`](matplotlib.ipynb)
 markdown
-    http://matplotlib.org/gallery.html
+    ## External Links
+markdown
+    matplotlib: http://matplotlib.org/
     
-    http://matplotlib.org/users/pyplot_tutorial.html
-    
-    http://matplotlib.org/users/artists.html
-    
-    https://github.com/rasbt/matplotlib-gallery
-    
-    http://nbviewer.ipython.org/github/jrjohansson/scientific-python-lectures/blob/master/Lecture-4-Matplotlib.ipynb
-    
-    http://stanford.edu/~mwaskom/software/seaborn/
-    
+    seaborn: http://stanford.edu/~mwaskom/software/seaborn/
+markdown
+    ### Color Maps
+markdown
     http://earthobservatory.nasa.gov/blogs/elegantfigures/2013/08/05/subtleties-of-color-part-1-of-6/  
     http://earthobservatory.nasa.gov/blogs/elegantfigures/2013/08/06/subtleties-of-color-part-2-of-6/  
     http://earthobservatory.nasa.gov/blogs/elegantfigures/2013/08/12/subtleties-of-color-part-3-of-6/  

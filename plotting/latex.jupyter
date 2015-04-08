@@ -1,0 +1,46 @@
+nbformat 4
+nbformat_minor 2
+markdown
+    # Creating Plots for LaTeX Documents
+markdown
+    [back to overview page](index.ipynb)
+markdown
+    two different Python interfaces for PGFPLOTS:  
+    https://github.com/lucastheis/pypgf  
+    https://github.com/olivierverdier/pygfplots
+    
+    matplotlib PGF backend:  
+    http://matplotlib.org/users/pgf.html
+    
+    convert matplotlib figures to PGFPLOTS:  
+    https://github.com/nschloe/matplotlib2tikz
+markdown
+    Some random PGFPLOTS links:
+    
+    http://pgfplots.net/tikz/examples/
+    
+    http://tex.stackexchange.com/questions/39145/scaling-colormaps-with-pgfplots
+    
+    http://guido.vonrudorff.de/using-matplotlib-colorbars-in-pgfplots/
+    
+    http://tug.org/TUGboat/tb34-2/tb107dugge.pdf (Tufte-style plots)
+    
+    
+markdown
+    <p xmlns:dct="http://purl.org/dc/terms/">
+      <a rel="license"
+         href="http://creativecommons.org/publicdomain/zero/1.0/">
+        <img src="http://i.creativecommons.org/p/zero/1.0/88x31.png" style="border-style: none;" alt="CC0" />
+      </a>
+      <br />
+      To the extent possible under law,
+      <span resource="[_:publisher]" rel="dct:publisher">
+        <span property="dct:title">Matthias Geier</span></span>
+      has waived all copyright and related or neighboring rights to
+      this work.
+    </p>
+metadata
+    {
+     "orig_nbformat": 3,
+     "orig_nbformat_minor": 0
+    }

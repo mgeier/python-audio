@@ -74,7 +74,7 @@ markdown
     
     uses audiere: http://audiere.sourceforge.net/
 markdown
-    ## audioloop
+    ## audioop
 markdown
     standard Python lib to manipulate raw audio data
     

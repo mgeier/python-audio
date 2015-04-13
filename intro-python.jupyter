@@ -17,19 +17,22 @@ markdown
         python
     
     You have the full power of Python in there, but it is not very convenient.
-    A much better alternative is [*IPython*](http://ipython.org/), which is described on a [separate page](http://nbviewer.ipython.org/urls/raw.github.com/mgeier/python-audio/master/intro-ipython.ipynb).
+    A much better alternative is [IPython](http://ipython.org/), which is described on a [separate page](intro-ipython.ipynb).
     
-    Actually, this very page you're just reading is a so-called [*IPython notebook*](http://ipython.org/notebook.html), which means that you can view it either as a [static web page](http://nbviewer.ipython.org/urls/raw.github.com/mgeier/python-audio/master/intro-python.ipynb) or, if you have IPython installed locally, you can also open the [notebook file](http://raw.github.com/mgeier/python-audio/master/intro-python.ipynb) with IPython and run the code in it interactively. You can also change stuff and play around with it.
+    Actually, this very page you're just reading is a so-called [IPython notebook](http://ipython.org/notebook.html), which means that you can view it either as a [static web page](http://nbviewer.ipython.org/urls/raw.github.com/mgeier/python-audio/master/intro-python.ipynb) or, if you have IPython installed locally, you can also open the [notebook file](http://raw.github.com/mgeier/python-audio/master/intro-python.ipynb) with IPython and run the code in it interactively. You can also change stuff and play around with it.
     To execute a code cell, select it by clicking on it and press Shift+Enter.
     You can step through all the cells by pressing Shift+Enter repeatedly.
 markdown
     ## Python 2 vs. 3
 markdown
     TODO
+    
+    Bottom line: use Python 3!
+    The appropriate commands may be called `python3` and `ipython3` on your computer.
 markdown
     ## Why "Python"?
 markdown
-    It is named after the famous British comedy group *Monty Python*. If that doesn't ring a bell, you should search the interwebs and watch some videos of them, they are hilarious! In Python example code, you will often find references to their sketches, e.g. a list may contain `["eggs", "bacon", "spam"]` which would be a reference to [Monty Python's Spam Sketch](http://www.youtube.com/watch?v=anwy2MPT5RE).
+    The programming language *Python* is named after the famous British comedy group *Monty Python*. If that doesn't ring a bell, you should search the interwebs and watch some videos of them, they are hilarious! In Python example code, you will often find references to their sketches, e.g. a list may contain `["eggs", "bacon", "spam"]` which would be a reference to [Monty Python's Spam Sketch](http://www.youtube.com/watch?v=anwy2MPT5RE).
 markdown
     ## Hello, world!
 markdown
@@ -45,7 +48,7 @@ code 1
 markdown
     Here you can see how a function is called (more precisely, a [built-in function named `print`](http://docs.python.org/3/library/functions.html#print)) with one argument. Furthermore, you see how string literals are created.
     It's pretty simple.
-markdown
+    
     But now for something completely different:
 markdown
     ## Numbers
@@ -213,14 +216,14 @@ code 15
      "collapsed": false
     }
 markdown
-    On the other hand, if you want the new behaviour in Python 2, just write this line before your calculations:
+    On the other hand, if you want the new behaviour in Python 2, just write this line before your calculations (in the beginning of your script):
         
     ```python
     from __future__ import division
     ```
     
     Alternatively, you can of course also just convert one of the operands (or both) to `float` beforehand.
-markdown
+    
     Let's see, what else do we have?
     Powers, for example. While you might be used to the `^` operator from other languages, Python uses `**` for that. The `^` operator is a very different thing, namely logical *xor*. Don't confuse the two!
 code 16
@@ -298,7 +301,7 @@ code 22
     }
 markdown
     To the Python interpreter, this doesn't make a difference. It is, however, common to use double quotes for strings containing natural language and anything that is at some point presented to the user. Single quotes are normally used for short strings which only appear inside a program.
-markdown
+    
     Both variants have the type `str`:
 code 23
     type("Hello, world!")
@@ -335,7 +338,7 @@ code 25
     }
 markdown
     The same can also be written with triple single quotes, but this is much less common.
-markdown
+    
     Strings can be concatenated with the `+` operator:
 code 26
     "Hello" + "," + " " + "world" + "!"
@@ -347,7 +350,7 @@ code 26
      "collapsed": false
     }
 markdown
-    The `*` operator (followed by an `int`) has a special meaning for a `str`:
+    The `*` operator (in combination with an `int`) has a special meaning for a `str`:
 code 27
     "#" * 79
   execute_result
@@ -407,7 +410,7 @@ code 31
 markdown
     This [old-style string formatting](https://docs.python.org/3/library/stdtypes.html#old-string-formatting) is quite similar to the above, but sometimes less flexible and more error-prone.
     In case of doubt, you should use the more modern `format()` method.
-markdown
+    
     There is much more to say about strings. To learn more about them, have a look at the [official `str` documentation](https://docs.python.org/3.3/library/stdtypes.html#textseq).
 markdown
     ## Lists
@@ -458,7 +461,7 @@ code 35
      "collapsed": false
     }
 markdown
-    Similar to strings, you can also use the `*` operator (followed by an `int`) to repeat lists:
+    Similar to strings, you can also use the `*` operator (in combination with an `int`) to repeat lists:
 code 36
     [1, 2, 3] * 5
   execute_result
@@ -530,7 +533,7 @@ code 41
      "collapsed": false
     }
 markdown
-    Just like lists, tuples can also hold arbitrary objects.
+    Just like lists, tuples can also hold arbitrary objects (and they contain references, not the actual objects).
 markdown
     Tuples are often enclosed in parentheses, but those are only really required if otherwise the code would be ambiguous, e.g. when creating a tuple of tuples:
 code 42
@@ -565,8 +568,20 @@ code 44
      "collapsed": false
     }
 markdown
-    This is because a non-empty tuple is created with an obligatory comma, the parentheses are optional:
+    This is because parentheses can be used around arbitrary expressions to force [operator precedence](https://docs.python.org/3/reference/expressions.html#operator-precedence).
+    This has nothing to do with `tuple`s:
 code 45
+    (6 + 1) * 6
+  execute_result
+  - text/plain
+    42
+  metadata
+    {
+     "collapsed": false
+    }
+markdown
+    A non-empty tuple is created with an obligatory comma, the parentheses are optional:
+code 46
     7,
   execute_result
   - text/plain
@@ -577,7 +592,7 @@ code 45
     }
 markdown
     Like `str` and `list`, `tuple`s can be concatenated with the `+` operator and repeated with `*`:
-code 46
+code 47
     (1, 2) + (3,) * 5
   execute_result
   - text/plain
@@ -588,9 +603,9 @@ code 46
     }
 markdown
     Note that the parentheses are obligatory in this case.
-markdown
+    
     It should come as no surprise that tuples also have a type:
-code 47
+code 48
     type((1, 2, 3))
   execute_result
   - text/plain
@@ -621,9 +636,9 @@ markdown
     
     There is this strange thing called *expression statement*, which turns an *expression* into a *statement* by ignoring its return value.
     But when used in an interactive Python session, this behaves differently!
-    When evaluating a single *statement*, which happens to be an *expression*, on an interactive Python prompt, the result will actually be shown to you.
+    When evaluating a *statement* which happens to be an *expression*, on an interactive Python prompt, the result will actually be shown to you.
     In an IPython notebook, a *code cell* may contain multiple *statements*, and if the *last* one happens to be an *expression statement*, its *value* is returned:
-code 48
+code 49
     [2 + 2, 4 + 4, 6 + 6]
     10 * 9 + 9
     "Hello, World!"
@@ -647,9 +662,12 @@ markdown
     
     Some expressions not only return a *value*, they also do some other things which don't have anything to do with returning values.
     Those other things are called *side effects*.
+    For more information see [the Wikipedia article][1].
+    
+    [1]: http://en.wikipedia.org/wiki/Side_effect_(computer_science)
     
     For, example, the `print()` function which we saw at the very top of this page, prints the given arguments to the *standard output*.
-code 49
+code 50
     print("Hello, world!")
     7 * 6
   stream stdout
@@ -670,7 +688,7 @@ markdown
     So what's the return value of the `print()` function?
     A function call is just an *expression*, so it should have a return value, right?
     Let's check:
-code 50
+code 51
     print("Hello, world!")
   stream stdout
     Hello, world!
@@ -691,7 +709,7 @@ markdown
     
     So this function returns `None`, but the interactive interpreter, again by convention, doesn't show this, since it's just "nothing", anyway.
     Let's check:
-code 51
+code 52
     None
   metadata
     {
@@ -701,7 +719,7 @@ markdown
     Really, we see nothing.
     
     We can use the `is`-operator to check if some object is `None` (see below for an explanation of the `is`-operator).
-code 52
+code 53
     print("Hello, world!") is None
   stream stdout
     Hello, world!
@@ -717,7 +735,7 @@ markdown
     
     Very often, one line of code is one statement, but sometimes statements can also span several lines.
     And we can fit multiple statements into one line by separating them with semicolons:
-code 53
+code 54
     print("semicolons are rare in Python code"); 2 + 2
   stream stdout
     semicolons are rare in Python code
@@ -733,7 +751,7 @@ markdown
     Others will understand your code better if you start each statement on a new line.
     
     Another use of the semicolon, in an interactive Python session, is to ignore the value of the last expression (the ones before are ignored anyway):
-code 54
+code 55
     7 * 6
     3.1415
     2 + 2;
@@ -745,7 +763,7 @@ markdown
     In a "normal" Python program this is never necessary, because the return value of expressions in *expression statements* is always ignored.
     
     You will need this very rarely, don't make it a habit to end your lines with semicolons!
-markdown
+    
     Until now, we talked about *expression statements*. There are several other kinds of statements which can be used to control program flow, define functions and classes, raise exceptions etc.
     
     Let's continue with a very important statement: the *assignment statement*.
@@ -777,7 +795,7 @@ markdown
     The *"something on the left"* can be a so-called *identifier*.
     This is a *name* that can be *bound* to an object.
     An *identifier* may only contain letters, numbers and underscores and it must not start with a number.
-code 55
+code 56
     answer = 7 * 6
   metadata
     {
@@ -791,7 +809,7 @@ markdown
     In Python, it's not necessary to *declare* identifiers, new identifiers are created by just assigning to them.
     
     Once a name has been assigned, it can be used in an expression, as a *reference* to the original object:
-code 56
+code 57
     answer > 50
   execute_result
   - text/plain
@@ -836,7 +854,7 @@ markdown
     The object itself doesn't have a name (it just has a memory address), but we can *bind* a name to it, in our example the name `answer`.
 markdown
     Now what happens in the following statement?
-code 57
+code 58
     type(answer)
   execute_result
   - text/plain
@@ -862,7 +880,7 @@ markdown
     We learned that a new identifier can be created by just using a name that hasn't been used before in an assignment statement.
     
     But what happens if we assign to a name that has already been used?
-code 58
+code 59
     answer = "Sir Lancelot of Camelot"
   metadata
     {
@@ -874,7 +892,7 @@ markdown
     
     Here we also see that the identifier itself doesn't have a type, it's just a label that is bound to some object.
     The objects themselves do have types; the previous one was of type `int` while the new one is of type `str`.
-code 59
+code 60
     type(answer)
   execute_result
   - text/plain
@@ -891,13 +909,13 @@ markdown
 markdown
     Note that an identifier is only treated specially on the left side of an assignment statement.
     The right side of the assignment statement is just a normal expression which can contain other identifiers (or even the same identifier that is going to be re-bound on the left).
-code 60
+code 61
     greeting = answer + ", nice to meet you!"
   metadata
     {
      "collapsed": false
     }
-code 61
+code 62
     greeting = "My name is " + greeting
   metadata
     {
@@ -906,7 +924,7 @@ code 61
 markdown
     Since assignment is a statement which doesn't return a value, we don't see the value of the new object where `greeting` is bound to.
     Let's have a look:
-code 62
+code 63
     greeting
   execute_result
   - text/plain
@@ -917,13 +935,13 @@ code 62
     }
 markdown
     Of course, one object can have multiple labels stuck to it:
-code 63
+code 64
     the_same_greeting = greeting
   metadata
     {
      "collapsed": false
     }
-code 64
+code 65
     the_same_greeting
   execute_result
   - text/plain
@@ -936,7 +954,7 @@ markdown
     Obviously, the returned string has exactly the same characters.
     In other words, it's *equal* to `greeting`.
     We can check this with the *equality operator*:
-code 65
+code 66
     greeting == the_same_greeting
   execute_result
   - text/plain
@@ -950,20 +968,20 @@ markdown
     They are actually two different names for the same object.
     To show that, we can check Python's internal representation of the objects.
     Each object that's currently existing in the Python interpreter, has a unique ID, which we can query with the `id()` function:
-code 66
+code 67
     id(greeting)
   execute_result
   - text/plain
-    140045865493360
+    140514822506680
   metadata
     {
      "collapsed": false
     }
-code 67
+code 68
     id(the_same_greeting)
   execute_result
   - text/plain
-    140045865493360
+    140514822506680
   metadata
     {
      "collapsed": false
@@ -972,7 +990,7 @@ markdown
     As we can see, the two objects have the same ID, so it's actually just one object that happens to have two names bound to it.
     
     Python even has a special operator for checking if two objects are actually the same object: the *identity operator*.
-code 68
+code 69
     greeting is the_same_greeting
   execute_result
   - text/plain
@@ -985,7 +1003,7 @@ markdown
     We normally don't care about the actual IDs, if we want to see if two objects are *identical* (which is not the same as *equal*!), we use the `is`-operator.
 markdown
     If you want to bind several names to the same object in one go, you can use a special form of the assignment statement that uses multiple equals signs:
-code 69
+code 70
     one = two = three = "data"
   metadata
     {
@@ -1004,7 +1022,7 @@ markdown
     If `one`, `two` and `three` would actually be "boxes", *each one* of them would have to hold its own copy of the string `"data"`.
     Therefore, each of the three strings would have to be a different `str` object.
     But we can easily show that the three *identifiers* are bound to the same one and only one object:
-code 70
+code 71
     one is two is three
   execute_result
   - text/plain
@@ -1022,7 +1040,7 @@ markdown
     The old object may or may not be destroyed right after the assignment, but that's a very different story (see [Garbage Collection](#Garbage-Collection)).
     
     It can be easily shown that assignment doesn't overwrite old data:
-code 71
+code 72
     number = 0
     id(number)
   execute_result
@@ -1032,7 +1050,7 @@ code 71
     {
      "collapsed": false
     }
-code 72
+code 73
     number = 1
     id(number)
   execute_result
@@ -1063,7 +1081,7 @@ markdown
     
     But Python has a very nice additional feature that not many other languages have, that allows to bind *multiple* identifiers to a sequence of objects in a single statement.
     Some people also call this *tuple unpacking* or *sequence unpacking*.
-code 73
+code 74
     a, b, c = 42, 3.1415, "Ni!"
   metadata
     {
@@ -1071,13 +1089,13 @@ code 73
     }
 markdown
     This can also be used to easily swap things (again, in a single statement):
-code 74
+code 75
     b, c = c, b
   metadata
     {
      "collapsed": false
     }
-code 75
+code 76
     b
   execute_result
   - text/plain
@@ -1097,13 +1115,13 @@ markdown
     
     But there is an exception: one of the identifiers may be prefixed with an asterisk, which means that the identifier receives a list of the remaining values, regardless how many they are (the list can also be empty).
     Maybe this is best shown in an example:
-code 76
+code 77
     first, *middle, last = "hello"
   metadata
     {
      "collapsed": false
     }
-code 77
+code 78
     middle
   execute_result
   - text/plain
@@ -1146,7 +1164,7 @@ markdown
     Another *thing on the left* of the equals sign in an assignment statement can be an object followed by a pair of brackets with some expression inside.
     
     This is normally available for some kind of collection, like for example a `list`.
-code 78
+code 79
     mylist = ["one", "two", "five"]
   metadata
     {
@@ -1157,7 +1175,7 @@ markdown
     
     Note that Python, like many other programming languages, starts indexing at `0` (which is [the only reasonable choice for a programming language](http://www.cs.utexas.edu/users/EWD/transcriptions/EWD08xx/EWD831.html)).
     So if we want to address the third element of a list, we have to use the subscript `2`:
-code 79
+code 80
     mylist[2] = "three"
   metadata
     {
@@ -1165,7 +1183,7 @@ code 79
     }
 markdown
     Again, since this is a *statement*, no value is returned.
-code 80
+code 81
     mylist
   execute_result
   - text/plain
@@ -1178,7 +1196,7 @@ markdown
     Note that when assinging to a list element, as always, the value is not copied, but merely a reference inside of the list is bound to the object on the right of the equals sign.
     
     To show this, we can assign a single object to multiple list elements:
-code 81
+code 82
     mylist[0] = mylist[2]
   metadata
     {
@@ -1192,7 +1210,7 @@ markdown
     
     This assignment statement binds the reference at the first list element to the very same object.
     It may seem as if there are two copies of the string stored in the list ...
-code 82
+code 83
     mylist
   execute_result
   - text/plain
@@ -1203,7 +1221,7 @@ code 82
     }
 markdown
     ... but the `is`-operator tells us that those are just references to a single object:
-code 83
+code 84
     mylist[0] is mylist[2]
   execute_result
   - text/plain
@@ -1215,7 +1233,7 @@ code 83
 markdown
     Negative subscripts are also allowed, which let us index a sequence from the end to the beginning.
     The last element corresponds to the index `-1`.
-code 84
+code 85
     mylist[-1] = 'one'
     mylist
   execute_result
@@ -1239,7 +1257,7 @@ markdown
     Instead of a single number, a range of numbers (a so-called *slice*) is specified.
 markdown
     First, let's re-bind the *identifier* we used before.
-code 85
+code 86
     mylist = ["one", "two", "three", "four", "five"]
   metadata
     {
@@ -1247,7 +1265,7 @@ code 85
     }
 markdown
     Instead of specifying a single integer as subscript, we use a colon to specify a range of indices.
-code 86
+code 87
     mylist[1:4] = 2, 3, 4
     mylist
   execute_result
@@ -1268,7 +1286,7 @@ markdown
 markdown
     The `start` and `stop` values are optional.
     If omitted, the slice starts at the beginning of the sequence or reaches until the end, respectively.
-code 87
+code 88
     mylist[:3] = "123"
     mylist
   execute_result
@@ -1278,7 +1296,7 @@ code 87
     {
      "collapsed": false
     }
-code 88
+code 89
     mylist[3:] = "IV", "V", "VI"
     mylist
   execute_result
@@ -1292,7 +1310,7 @@ markdown
     As you see here, the number of elements on the left of the equals sign doesn't have to be the same as on the right (except when you use a step size other than one, see below).
     
     To replace the whole list contents, a single colon (without `start` and `stop`) can be used.
-code 89
+code 90
     mylist[:] = 0, 1, 2, 3, 4, 5, 6, 7
     mylist
   execute_result
@@ -1306,7 +1324,7 @@ markdown
     Note that in this case, the actual `list` object is mutated, whereas if an *identifier* is merely re-bound (`mylist = ...`), the original `list` object is *not* mutated.
     
     In addition to `start` and `stop`, a slice object can also have a `step` size (specified after a second colon).
-code 90
+code 91
     mylist[3::2] = "357"
     mylist
   execute_result
@@ -1320,7 +1338,7 @@ markdown
     The default `step` size is, not surprisingly, `1`.
     
     Like `start` and `stop`, the `step` size can also be negative, meaning a reversed order from the end to the beginning:
-code 91
+code 92
     mylist[::-2] = "seven", "five", "three", "one"
     mylist
   execute_result
@@ -1333,7 +1351,7 @@ code 91
 markdown
     Note that the colon-operator is only allowed within the brackets of a *subscript*.
     If you want to create a slice object at a different place, you have to use [`slice()`](http://docs.python.org/3/library/functions.html#slice).
-code 92
+code 93
     slice(4)
   execute_result
   - text/plain
@@ -1345,7 +1363,7 @@ code 92
 markdown
     If one of `start`, `stop`, `step` is not specified, it is set to `None`.
     Like in the colon-notation, each of them is optional.
-code 93
+code 94
     slice(None)
   execute_result
   - text/plain
@@ -1354,7 +1372,7 @@ code 93
     {
      "collapsed": false
     }
-code 94
+code 95
     slice(1, 4)
   execute_result
   - text/plain
@@ -1363,7 +1381,7 @@ code 94
     {
      "collapsed": false
     }
-code 95
+code 96
     slice(1, None, 2)
   execute_result
   - text/plain
@@ -1384,13 +1402,13 @@ markdown
     ## Comments
 markdown
     ## Functions
-code 96
+code 97
     # docstrings
   metadata
     {
      "collapsed": false
     }
-code 97
+code 98
     # built-in functions
   metadata
     {

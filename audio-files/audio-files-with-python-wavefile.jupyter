@@ -1,5 +1,5 @@
 nbformat 4
-nbformat_minor 2
+nbformat_minor 0
 markdown
     # Reading and Writing Audio Files with python-audiofile
 markdown
@@ -38,8 +38,6 @@ code 3
 code 4
     plt.plot(sig);
   display_data
-  - text/plain
-    <matplotlib.figure.Figure at 0x7f5079b3b160>
   - image/png
     iVBORw0KGgoAAAANSUhEUgAAAXoAAAEACAYAAAC9Gb03AAAABHNCSVQICAgIfAhkiAAAAAlwSFlz
     AAALEgAACxIB0t1+/AAAIABJREFUeJzsnXlYVOUXx793GBZlRxQX3LU0c8u1XDKzNCvNrGwvy0pL
@@ -665,6 +663,8 @@ code 4
     AHa/2CQ/BDBH1UC+YIqHh4ennlPToRseHh4eHgPDO3oeHh6eeg7v6Hl4eHjqObyj5+Hh4ann8I6e
     h4eHp57DO3oeHh6eeg7v6Hl4eHjqObyj5+Hh4ann/D9NSV+UpNVEWgAAAABJRU5ErkJggg==
     
+  - text/plain
+    <matplotlib.figure.Figure at 0x7f5079b3b160>
   metadata
     {
      "collapsed": false
@@ -674,8 +674,6 @@ markdown
 code 5
     plt.plot(sig.T);
   display_data
-  - text/plain
-    <matplotlib.figure.Figure at 0x7f505d3f7cf8>
   - image/png
     iVBORw0KGgoAAAANSUhEUgAAAX0AAAEACAYAAABfxaZOAAAABHNCSVQICAgIfAhkiAAAAAlwSFlz
     AAALEgAACxIB0t1+/AAAIABJREFUeJzsnXdcU9f7xz+XpewNgriFat17z7qx+rN72X6rtdXWLu2y
@@ -1452,6 +1450,8 @@ code 5
     SiVCnb6iKEolQp2+oihKJUKdvqIoSiVCnb6iKEolQp2+oihKJUKdvqIoSiXi/wHGyb97vOm0uQAA
     AABJRU5ErkJggg==
     
+  - text/plain
+    <matplotlib.figure.Figure at 0x7f505d3f7cf8>
   metadata
     {
      "collapsed": false
@@ -1595,8 +1595,6 @@ code 17
     fs, sig = wavefile.load('data/test_wavex_pcm16.wav')
     plt.plot(sig.T);
   display_data
-  - text/plain
-    <matplotlib.figure.Figure at 0x7f505d3f7f98>
   - image/png
     iVBORw0KGgoAAAANSUhEUgAAAX0AAAEACAYAAABfxaZOAAAABHNCSVQICAgIfAhkiAAAAAlwSFlz
     AAALEgAACxIB0t1+/AAAIABJREFUeJzsnXdcU9f7xz+XpewNgriFat17z7qx+rN72X6rtdXWLu2y
@@ -2373,6 +2371,8 @@ code 17
     SiVCnb6iKEolQp2+oihKJUKdvqIoSiVCnb6iKEolQp2+oihKJUKdvqIoSiXi/wHGyb97vOm0uQAA
     AABJRU5ErkJggg==
     
+  - text/plain
+    <matplotlib.figure.Figure at 0x7f505d3f7f98>
   metadata
     {
      "collapsed": false
@@ -2381,8 +2381,6 @@ code 18
     fs, sig = wavefile.load('data/test_wav_pcm24.wav')
     plt.plot(sig.T);
   display_data
-  - text/plain
-    <matplotlib.figure.Figure at 0x7f505d31d710>
   - image/png
     iVBORw0KGgoAAAANSUhEUgAAAX0AAAEACAYAAABfxaZOAAAABHNCSVQICAgIfAhkiAAAAAlwSFlz
     AAALEgAACxIB0t1+/AAAIABJREFUeJzsnXd8U9X7xz+3i+49aCmbVpApyFSgIFOWW3H+ZKh83agI
@@ -3157,6 +3155,8 @@ code 18
     /ermLKWUiiBWT+8opZQKI036SikVQTTpK6VUBNGkr5RSEUSTvlJKRRBN+kopFUE06SulVATRpK+U
     UhHk/wEdRUfjmYSp0AAAAABJRU5ErkJggg==
     
+  - text/plain
+    <matplotlib.figure.Figure at 0x7f505d31d710>
   metadata
     {
      "collapsed": false
@@ -3165,8 +3165,6 @@ code 19
     fs, sig = wavefile.load('data/test_wavex_pcm24.wav')
     plt.plot(sig.T);
   display_data
-  - text/plain
-    <matplotlib.figure.Figure at 0x7f505d3e3080>
   - image/png
     iVBORw0KGgoAAAANSUhEUgAAAX0AAAEACAYAAABfxaZOAAAABHNCSVQICAgIfAhkiAAAAAlwSFlz
     AAALEgAACxIB0t1+/AAAIABJREFUeJzsnXd8U9X7xz+3i+49aCmbVpApyFSgIFOWW3H+ZKh83agI
@@ -3941,6 +3939,8 @@ code 19
     /ermLKWUiiBWT+8opZQKI036SikVQTTpK6VUBNGkr5RSEUSTvlJKRRBN+kopFUE06SulVATRpK+U
     UhHk/wEdRUfjmYSp0AAAAABJRU5ErkJggg==
     
+  - text/plain
+    <matplotlib.figure.Figure at 0x7f505d3e3080>
   metadata
     {
      "collapsed": false
@@ -3949,8 +3949,6 @@ code 20
     fs, sig = wavefile.load('data/test_wav_float32.wav')
     plt.plot(sig.T);
   display_data
-  - text/plain
-    <matplotlib.figure.Figure at 0x7f505d2862e8>
   - image/png
     iVBORw0KGgoAAAANSUhEUgAAAX0AAAEACAYAAABfxaZOAAAABHNCSVQICAgIfAhkiAAAAAlwSFlz
     AAALEgAACxIB0t1+/AAAIABJREFUeJzsnXd8U9X7xz+3i+49aCmbVpApyFSgIFOWW3H+ZKh83agI
@@ -4725,6 +4723,8 @@ code 20
     /ermLKWUiiBWT+8opZQKI036SikVQTTpK6VUBNGkr5RSEUSTvlJKRRBN+kopFUE06SulVATRpK+U
     UhHk/wEdRUfjmYSp0AAAAABJRU5ErkJggg==
     
+  - text/plain
+    <matplotlib.figure.Figure at 0x7f505d2862e8>
   metadata
     {
      "collapsed": false
@@ -4733,8 +4733,6 @@ code 21
     fs, sig = wavefile.load('data/test_wavex_float32.wav')
     plt.plot(sig.T);
   display_data
-  - text/plain
-    <matplotlib.figure.Figure at 0x7f505d29e7b8>
   - image/png
     iVBORw0KGgoAAAANSUhEUgAAAX0AAAEACAYAAABfxaZOAAAABHNCSVQICAgIfAhkiAAAAAlwSFlz
     AAALEgAACxIB0t1+/AAAIABJREFUeJzsnXd8U9X7xz+3i+49aCmbVpApyFSgIFOWW3H+ZKh83agI
@@ -5509,6 +5507,8 @@ code 21
     /ermLKWUiiBWT+8opZQKI036SikVQTTpK6VUBNGkr5RSEUSTvlJKRRBN+kopFUE06SulVATRpK+U
     UhHk/wEdRUfjmYSp0AAAAABJRU5ErkJggg==
     
+  - text/plain
+    <matplotlib.figure.Figure at 0x7f505d29e7b8>
   metadata
     {
      "collapsed": false
@@ -5538,6 +5538,21 @@ markdown
     </p>
 metadata
     {
-     "orig_nbformat": 3,
-     "orig_nbformat_minor": 0
+     "kernelspec": {
+      "display_name": "Python 3",
+      "language": "python",
+      "name": "python3"
+     },
+     "language_info": {
+      "codemirror_mode": {
+       "name": "ipython",
+       "version": 3
+      },
+      "file_extension": ".py",
+      "mimetype": "text/x-python",
+      "name": "python",
+      "nbconvert_exporter": "python",
+      "pygments_lexer": "ipython3",
+      "version": "3.4.3"
+     }
     }

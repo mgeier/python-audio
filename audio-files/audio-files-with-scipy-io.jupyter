@@ -1,5 +1,5 @@
 nbformat 4
-nbformat_minor 2
+nbformat_minor 0
 markdown
     # Reading and Writing Audio Files with scipy.io
 markdown
@@ -85,8 +85,6 @@ code 4
      [ 29522  17511   5208  -4166  -8756  -8435  -4681]
      [ 32767  28086  23405  18724  14043   9362   4681]]
   display_data
-  - text/plain
-    <matplotlib.figure.Figure at 0x7f4bf49442e8>
   - image/png
     iVBORw0KGgoAAAANSUhEUgAAAYYAAAD/CAYAAAD12nFYAAAABHNCSVQICAgIfAhkiAAAAAlwSFlz
     AAALEgAACxIB0t1+/AAAIABJREFUeJzsnXd4VEXbxu/QpENIpYUqIt1CtwAiKkVApCigIKK+gg0L
@@ -808,6 +806,8 @@ code 4
     scTrRqzj/z1ssuhUb8NpthzCHZ39sA7cfcAf8EdizsHiTcdqCB8S/uyWeBZV8+Xw/Y7mxspERERE
     RERERERERERERERERERERERERERERESSw38BYprCXaXjTQsAAAAASUVORK5CYII=
     
+  - text/plain
+    <matplotlib.figure.Figure at 0x7f4bf49442e8>
   metadata
     {
      "collapsed": false
@@ -853,8 +853,6 @@ code 6
      [ 0.90094   0.534393  0.158936 -0.127136 -0.267212 -0.257416 -0.142853]
      [ 0.999969  0.857117  0.714264  0.571411  0.428558  0.285706  0.142853]]
   display_data
-  - text/plain
-    <matplotlib.figure.Figure at 0x7f4bf49100f0>
   - image/png
     iVBORw0KGgoAAAANSUhEUgAAAXgAAAD/CAYAAAD7X81yAAAABHNCSVQICAgIfAhkiAAAAAlwSFlz
     AAALEgAACxIB0t1+/AAAIABJREFUeJzsnXd8U9X7xz/pLt2DTpBZQIaAIIKy98aF46c4QETc2y+i
@@ -1624,6 +1622,8 @@ code 6
     yETlDuBTQuMDNgyJtwRyxb6frPfuSNui8l0YeSdUvd2naZqmaZqmaZqmaZqmaZqmaZqmaZqmaZqm
     aZqmaZqmaZqmaZqmaZrmPP8P3MbRUzIjROoAAAAASUVORK5CYII=
     
+  - text/plain
+    <matplotlib.figure.Figure at 0x7f4bf49100f0>
   metadata
     {
      "collapsed": false
@@ -1640,8 +1640,6 @@ code 7
     /usr/lib/python3/dist-packages/scipy/io/wavfile.py:42: WavFileWarning: Unknown wave file format
       warnings.warn("Unknown wave file format", WavFileWarning)
   display_data
-  - text/plain
-    <matplotlib.figure.Figure at 0x7f4bf487fbe0>
   - image/png
     iVBORw0KGgoAAAANSUhEUgAAAYYAAAD/CAYAAAD12nFYAAAABHNCSVQICAgIfAhkiAAAAAlwSFlz
     AAALEgAACxIB0t1+/AAAIABJREFUeJzsnXd4VEXbxu/QpENIpYUqIt1CtwAiKkVApCigIKK+gg0L
@@ -2363,6 +2361,8 @@ code 7
     scTrRqzj/z1ssuhUb8NpthzCHZ39sA7cfcAf8EdizsHiTcdqCB8S/uyWeBZV8+Xw/Y7mxspERERE
     RERERERERERERERERERERERERERERESSw38BYprCXaXjTQsAAAAASUVORK5CYII=
     
+  - text/plain
+    <matplotlib.figure.Figure at 0x7f4bf487fbe0>
   metadata
     {
      "collapsed": false
@@ -2418,8 +2418,6 @@ code 9
     /usr/lib/python3/dist-packages/scipy/io/wavfile.py:172: WavFileWarning: Chunk (non-data) not understood, skipping it.
       WavFileWarning)
   display_data
-  - text/plain
-    <matplotlib.figure.Figure at 0x7f4bf40982e8>
   - image/png
     iVBORw0KGgoAAAANSUhEUgAAAXgAAAD/CAYAAAD7X81yAAAABHNCSVQICAgIfAhkiAAAAAlwSFlz
     AAALEgAACxIB0t1+/AAAIABJREFUeJzsnXd4VMXXx7+bHtILCQmhBUKvUgSk9x4b2MCGiuJPxd4b
@@ -3190,6 +3188,8 @@ code 9
     wQuqhd2naZqmaZqmaZqmaZqmaZqmaZqmaZqmaZqmaZqmaZqmaZqmaZqmaZrmPP8PqfLj8COunZIA
     AAAASUVORK5CYII=
     
+  - text/plain
+    <matplotlib.figure.Figure at 0x7f4bf40982e8>
   metadata
     {
      "collapsed": false
@@ -3200,8 +3200,6 @@ code 10
     fs, sig = wavfile.read('data/test_wavex_float32.wav')
     plot(sig);
   display_data
-  - text/plain
-    <matplotlib.figure.Figure at 0x7f4bf491e978>
   - image/png
     iVBORw0KGgoAAAANSUhEUgAAAXgAAAEECAYAAAAifS8cAAAABHNCSVQICAgIfAhkiAAAAAlwSFlz
     AAALEgAACxIB0t1+/AAAIABJREFUeJzsvXlsY/l25/fhIm6SqF2lXaRIkVqo2rqW7tq63nt+dmYM
@@ -3942,6 +3940,8 @@ code 10
     5wQCgUAgEAgEAoFAIBAIBAKBQCAQCAQCgUAgEAgEAoFAIBAIBAKBQCAQCAQCgeDe4/8Bg0HzWZ5x
     FDkAAAAASUVORK5CYII=
     
+  - text/plain
+    <matplotlib.figure.Figure at 0x7f4bf491e978>
   metadata
     {
      "collapsed": false
@@ -4011,6 +4011,21 @@ markdown
     </p>
 metadata
     {
-     "orig_nbformat": 3,
-     "orig_nbformat_minor": 0
+     "kernelspec": {
+      "display_name": "Python 3",
+      "language": "python",
+      "name": "python3"
+     },
+     "language_info": {
+      "codemirror_mode": {
+       "name": "ipython",
+       "version": 3
+      },
+      "file_extension": ".py",
+      "mimetype": "text/x-python",
+      "name": "python",
+      "nbconvert_exporter": "python",
+      "pygments_lexer": "ipython3",
+      "version": "3.4.3"
+     }
     }

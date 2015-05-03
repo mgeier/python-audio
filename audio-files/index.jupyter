@@ -101,7 +101,7 @@ markdown
     [Reading and Writing Audio Files with (scikits.)audiolab](audio-files-with-audiolab.ipynb)
 markdown
     ### Other Libraries
-markdown
+    
     sndfileio:  
     https://github.com/gesellkammer/sndfileio
     
@@ -120,6 +120,14 @@ markdown
     
     librosa.load:  
     http://bmcfee.github.io/librosa/
+markdown
+    ### Files for Testing
+    
+    Have a look in the [data/](data/) directory.
+    
+    http://www-mmsp.ece.mcgill.ca/documents/audioformats/
+    
+    http://www.cs.bath.ac.uk/~rwd/cardattrit.html
 markdown
     <p xmlns:dct="http://purl.org/dc/terms/">
       <a rel="license"

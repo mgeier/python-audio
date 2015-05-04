@@ -1,5 +1,5 @@
 nbformat 4
-nbformat_minor 2
+nbformat_minor 0
 markdown
     # Interpolation/Fractional Delay/Resampling
 markdown
@@ -51,8 +51,6 @@ code 4
     ylim(-1.1, 1.1)
     show()
   display_data
-  - text/plain
-    <matplotlib.figure.Figure at 0x7f6e6caf69d0>
   - image/png
     iVBORw0KGgoAAAANSUhEUgAAAYAAAAD7CAYAAABjVUMJAAAABHNCSVQICAgIfAhkiAAAAAlwSFlz
     AAALEgAACxIB0t1+/AAAIABJREFUeJzt3X98zvX+x/HHMnUaOTjl55z83sw0pPTjcIaz1NgSnVAh
@@ -221,6 +219,8 @@ code 4
     pSBERFzK+kYwERGxQwlARMSllABERFxKCUBExKWUAEREXEoJQETEpZQARERcSglARMSl/g9xHnWI
     A8QLwgAAAABJRU5ErkJggg==
     
+  - text/plain
+    <matplotlib.figure.Figure at 0x7f6e6caf69d0>
   metadata
     {
      "collapsed": false
@@ -272,8 +272,6 @@ code 8
     ylim(-1.1, 1.1)
     show()
   display_data
-  - text/plain
-    <matplotlib.figure.Figure at 0x7f6e6c7e3090>
   - image/png
     iVBORw0KGgoAAAANSUhEUgAAAYAAAAD7CAYAAABjVUMJAAAABHNCSVQICAgIfAhkiAAAAAlwSFlz
     AAALEgAACxIB0t1+/AAAIABJREFUeJzt3X18z/X+x/HH2OpEIsrVpogxczGTUOdwNhqVLInoAsVx
@@ -443,6 +441,8 @@ code 8
     8voqBSEi4lLWN4KJiIgdSgAiIi6lBCAi4lJKACIiLqUEICLiUkoAIiIupQQgIuJSSgAiIi71/9xu
     cpkrsMHbAAAAAElFTkSuQmCC
     
+  - text/plain
+    <matplotlib.figure.Figure at 0x7f6e6c7e3090>
   metadata
     {
      "collapsed": false
@@ -488,8 +488,6 @@ code 12
     plot(abs(rfft([0.5, 0.5], fftlength)))
     show()
   display_data
-  - text/plain
-    <matplotlib.figure.Figure at 0x7f6e6c849590>
   - image/png
     iVBORw0KGgoAAAANSUhEUgAAAXgAAAEACAYAAAC57G0KAAAABHNCSVQICAgIfAhkiAAAAAlwSFlz
     AAALEgAACxIB0t1+/AAAIABJREFUeJzt3X9UlVW+x/H3UbCsSC2VhUCDAvIjFSiUylQUFUXFXzVi
@@ -639,6 +637,8 @@ code 12
     4qUU8CLHd56tAAAAH0lEQVQiXkoBLyLipRTwIiJeSgEvIuKlFPAiIl7q/wEFjqgIxLqBcgAAAABJ
     RU5ErkJggg==
     
+  - text/plain
+    <matplotlib.figure.Figure at 0x7f6e6c849590>
   metadata
     {
      "collapsed": false
@@ -656,8 +656,6 @@ code 13
     ylim(0, 1.1)
     show()
   display_data
-  - text/plain
-    <matplotlib.figure.Figure at 0x7f6e6c7e3410>
   - image/png
     iVBORw0KGgoAAAANSUhEUgAAAXgAAAD7CAYAAABgzo9kAAAABHNCSVQICAgIfAhkiAAAAAlwSFlz
     AAALEgAACxIB0t1+/AAAIABJREFUeJzs3Xd8VfX9x/HXHdl7j5ubvYEACqilWrQiTqo4wPXD1Vqt
@@ -975,6 +973,8 @@ code 13
     hLApKfBCCGFTUuCFEMKmpMALIYRNSYEXQgibkgIvhBA2JQVeCCFs6m+fdV7ZcrGGKwAAAABJRU5E
     rkJggg==
     
+  - text/plain
+    <matplotlib.figure.Figure at 0x7f6e6c7e3410>
   metadata
     {
      "collapsed": false
@@ -1018,6 +1018,21 @@ markdown
     </p>
 metadata
     {
-     "orig_nbformat": 3,
-     "orig_nbformat_minor": 0
+     "kernelspec": {
+      "display_name": "Python 3",
+      "language": "python",
+      "name": "python3"
+     },
+     "language_info": {
+      "codemirror_mode": {
+       "name": "ipython",
+       "version": 3
+      },
+      "file_extension": ".py",
+      "mimetype": "text/x-python",
+      "name": "python",
+      "nbconvert_exporter": "python",
+      "pygments_lexer": "ipython3",
+      "version": "3.4.2"
+     }
     }

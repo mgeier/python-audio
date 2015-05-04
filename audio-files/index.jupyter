@@ -120,6 +120,9 @@ markdown
     
     librosa.load:  
     http://bmcfee.github.io/librosa/
+    
+    Python Audio Tools:  
+    http://audiotools.sourceforge.net/
 markdown
     ### Files for Testing
     
@@ -158,6 +161,6 @@ metadata
       "name": "python",
       "nbconvert_exporter": "python",
       "pygments_lexer": "ipython3",
-      "version": "3.4.3"
+      "version": "3.4.2"
      }
     }

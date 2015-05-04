@@ -9,8 +9,21 @@ markdown
 markdown
     [IPython notebook](http://nbviewer.ipython.org/urls/raw.github.com/mgeier/python-audio/master/interpolation/interpolation.ipynb)
 markdown
-    ## Available Open Source Libraries
+    ## Resampling in Python
+    
+    scikits.samplerate:  
+    http://scikits.appspot.com/samplerate
+    
+    numpy.interp:  
+    http://docs.scipy.org/doc/numpy/reference/generated/numpy.interp.html
+    
+    scipy.signal.resample:  
+    http://docs.scipy.org/doc/scipy/reference/generated/scipy.signal.resample.html
+    
+    http://urinieto.com/2011/05/audio-resampling-in-python/
 markdown
+    ## Available Open Source Libraries
+    
     Secret Rabbit Code (aka libsamplerate):  
     http://www.mega-nerd.com/SRC/
     

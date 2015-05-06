@@ -9,7 +9,7 @@ markdown
 markdown
     [IPython notebook](http://nbviewer.ipython.org/urls/raw.github.com/mgeier/python-audio/master/interpolation/interpolation.ipynb)
 markdown
-    ## Resampling in Python
+    ## Resampling/Interpolation in Python
     
     scikits.samplerate:  
     http://scikits.appspot.com/samplerate
@@ -19,6 +19,9 @@ markdown
     
     scipy.signal.resample:  
     http://docs.scipy.org/doc/scipy/reference/generated/scipy.signal.resample.html
+    
+    scipy.interpolate sub-package:  
+    http://docs.scipy.org/doc/scipy/reference/interpolate.html
     
     http://urinieto.com/2011/05/audio-resampling-in-python/
 markdown
@@ -92,6 +95,6 @@ metadata
       "name": "python",
       "nbconvert_exporter": "python",
       "pygments_lexer": "ipython3",
-      "version": "3.4.2"
+      "version": "3.4.3"
      }
     }

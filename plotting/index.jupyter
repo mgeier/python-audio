@@ -8,6 +8,8 @@ markdown
     The de-facto standard library for plotting in Python is "matplotlib".
     
     * [Plotting with `matplotlib`](matplotlib.ipynb)
+    
+    * [Creating Plots for LaTeX Documents](latex.ipynb)
 markdown
     ## External Links
 markdown

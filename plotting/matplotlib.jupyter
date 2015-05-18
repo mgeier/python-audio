@@ -1,5 +1,5 @@
 nbformat 4
-nbformat_minor 2
+nbformat_minor 0
 markdown
     # Plotting with `matplotlib`
 markdown
@@ -360,8 +360,6 @@ code 26
     fig, ax = plt.subplots()
     ax.plot(data);
   display_data
-  - text/plain
-    <matplotlib.figure.Figure at 0x7efcc75f4940>
   - image/png
     iVBORw0KGgoAAAANSUhEUgAAAW8AAAEACAYAAAB8nvebAAAABHNCSVQICAgIfAhkiAAAAAlwSFlz
     AAALEgAACxIB0t1+/AAAGclJREFUeJzt3XuQVOWZx/HvA0gQNaKLAeJ9YzCaNYFS3F2J2ivRVSRG
@@ -482,6 +480,8 @@ code 26
     +nMxz93nN3ewHtIRESlBWgZNRKQEKXmLiJQgJW8RkRKk5C0iUoKUvEVESpCSt4hICVLyFhEpQUre
     IiIl6P8Bk38f8nUb3soAAAAASUVORK5CYII=
     
+  - text/plain
+    <matplotlib.figure.Figure at 0x7efcc75f4940>
   metadata
     {
      "collapsed": false
@@ -548,8 +548,6 @@ code 29
 code 30
     myplot([3, 2, 4, 1]);
   display_data
-  - text/plain
-    <matplotlib.figure.Figure at 0x7efcc7657710>
   - image/png
     iVBORw0KGgoAAAANSUhEUgAAAYsAAAEPCAYAAACzwehFAAAABHNCSVQICAgIfAhkiAAAAAlwSFlz
     AAALEgAACxIB0t1+/AAAIABJREFUeJztnXucHGWV978/EmJALiOCgBCcKIjAB01EIYIug7rcVHQF
@@ -749,6 +747,8 @@ code 30
     5RngHzoc74wBzywcx3GcjrjA7TiO43TEg4XjOI7TEQ8WjuM4Tkc8WDiO4zgd8WDhOI7jdMSDheM4
     jtOR/w80lSlGgRFnbQAAAABJRU5ErkJggg==
     
+  - text/plain
+    <matplotlib.figure.Figure at 0x7efcc7657710>
   metadata
     {
      "collapsed": false
@@ -763,8 +763,6 @@ code 31
     myplot([2, 3, 1, 5, 4, 0], ax=ax2)
     ax2.set_ylabel('');
   display_data
-  - text/plain
-    <matplotlib.figure.Figure at 0x7efcc76b2080>
   - image/png
     iVBORw0KGgoAAAANSUhEUgAAAtAAAAEPCAYAAABr1/P7AAAABHNCSVQICAgIfAhkiAAAAAlwSFlz
     AAALEgAACxIB0t1+/AAAIABJREFUeJzs3XeYFFXWx/HvISiCKOasmLOiYE4Y15wTIohiwrS4Zl0V
@@ -1124,6 +1122,8 @@ code 31
     AycRSpIkSR3YgZYkSZI6sAMtSZIkdWAHWpIkSerADrQkSZLUgR1oSZIkqYM/rzT/wxEH09gAAAAA
     SUVORK5CYII=
     
+  - text/plain
+    <matplotlib.figure.Figure at 0x7efcc76b2080>
   metadata
     {
      "collapsed": false
@@ -1177,6 +1177,21 @@ markdown
     </p>
 metadata
     {
-     "orig_nbformat": 3,
-     "orig_nbformat_minor": 0
+     "kernelspec": {
+      "display_name": "Python 3",
+      "language": "python",
+      "name": "python3"
+     },
+     "language_info": {
+      "codemirror_mode": {
+       "name": "ipython",
+       "version": 3
+      },
+      "file_extension": ".py",
+      "mimetype": "text/x-python",
+      "name": "python",
+      "nbconvert_exporter": "python",
+      "pygments_lexer": "ipython3",
+      "version": "3.4.3+"
+     }
     }

@@ -2,9 +2,13 @@ nbformat 4
 nbformat_minor 0
 markdown
     # Reading and Writing Audio Files in Python
-markdown
+    
     [back to main page](../index.ipynb)
-markdown
+    
+    One-line summary:
+    
+    > Use [PySoundFile](audio-files-with-pysoundfile.ipynb) except if you're a minimalist (then use [the built-in `wave` module](audio-files-with-wave.ipynb)).
+    
     There are several libraries for reading and writing audio files with Python but
     it's often not clear which is the best one. That's mostly because there is no
     single best one. Each one has a different set of features and limitations,
@@ -16,7 +20,7 @@ markdown
     Most of the mentioned libraries can be used on multiple platforms.
 markdown
     ## File Formats
-markdown
+    
     There are a lot of digital audio formats available, but each one of them falls
     into one of two categories: either it's a lossless or a lossy format.  Files in
     lossy formats (e.g. Ogg-Vorbis, MP3) are normally much smaller because
@@ -47,27 +51,26 @@ markdown
     TODO: range of values, e.g. 16-bit: -32768 to 32767
 markdown
     ## Conversion to Other Formats
-markdown
+    
     For most cases it should be sufficient to support the various variants of WAV
     files. There are many conversion programs which allow to convert to and from
     many other formats.
     Probably the most powerful is [SoX](http://sox.sf.net/) -- highly recommended!
+    It's as easy as that to convert a file named `myfile.mp3` to the WAV format (you can use any output file name you want):
+    
+        sox myfile.mp3 myfile.wav
+    
     To create `.ogg` and `.mp3` files, [oggenc](http://www.vorbis.com/)
     and [LAME](http://lame.sourceforge.net/) can be used, respectively.
-markdown
-    ## Example Files
-markdown
-    Example WAV files with different encodings are available in the directory
-    [`data/`](data/). These files were generated with the script
-    [`generate_example_wav_files.py`](data/generate_example_wav_files.py).
+    I like to use this for creating OGG files (the output will get the same name, but with `.ogg` extension):
+    
+        oggenc -q6 myfile.wav
 markdown
     ## Python Sound File Libraries
-markdown
-    Here are some IPython notebook files which show how to use some of the available
-    libraries.
     
-    Special attention is payed to the support for different variants of the WAV
-    format.
+    Here I provide some IPython notebook files which show how to use some of the available
+    libraries.
+    Special attention is paid to the support for different variants of the WAV format.
     
     All of the described libraries can read and write 16-bit WAV files. Most (or
     maybe all) can also read 32-bit PCM (fixed point) file, but those hardly exist
@@ -80,17 +83,16 @@ markdown
     
     A wide range of sampling rates is available, 44100 Hz and 48000 Hz being the
     most common.
-    None of the libraries has problems with different sampling rates, therefore it's
-    enough to use only one of them in the examples, namely 44100 Hz.
+    None of the libraries has problems with different sampling rates, therefore I'm using only one sample rate in the examples, namely 44100 Hz.
     
     Only a few libraries support WAVEX files, some display a warning but if you're
     lucky the audio data can still be read successfully.
-markdown
-    [Reading and Writing Audio Files with PySoundFile](audio-files-with-pysoundfile.ipynb)
+    
+    [Reading and Writing Audio Files with PySoundFile](audio-files-with-pysoundfile.ipynb) (highly recommended!)
     
     [Reading and Writing Audio Files with scipy.io](audio-files-with-scipy-io.ipynb)
     
-    [Reading and Writing Audio Files with wave](audio-files-with-wave.ipynb)
+    [Reading and Writing Audio Files with wave](audio-files-with-wave.ipynb) (part of Python's standard library)
     
     [Reading and Writing Audio Files with ewave](audio-files-with-ewave.ipynb)
     
@@ -100,7 +102,7 @@ markdown
     
     [Reading and Writing Audio Files with (scikits.)audiolab](audio-files-with-audiolab.ipynb)
 markdown
-    ### Other Libraries
+    ### Other Libraries (Untested)
     
     sndfileio:  
     https://github.com/gesellkammer/sndfileio
@@ -124,13 +126,19 @@ markdown
     Python Audio Tools:  
     http://audiotools.sourceforge.net/
 markdown
-    ### Files for Testing
+    ## Example Files (for Testing)
     
-    Have a look in the [data/](data/) directory.
+    Example WAV files with different encodings are available in the directory
+    [`data/`](data/). These files were generated with the script
+    [`generate_example_wav_files.py`](data/generate_example_wav_files.py).
     
-    http://www-mmsp.ece.mcgill.ca/documents/audioformats/
+    More examples can be downloaded from:
     
-    http://www.cs.bath.ac.uk/~rwd/cardattrit.html
+    * http://www.nch.com.au/acm/formats.html
+    
+    * http://www-mmsp.ece.mcgill.ca/documents/audioformats/
+    
+    * http://www.cs.bath.ac.uk/~rwd/cardattrit.html
 markdown
     <p xmlns:dct="http://purl.org/dc/terms/">
       <a rel="license"
@@ -161,6 +169,6 @@ metadata
       "name": "python",
       "nbconvert_exporter": "python",
       "pygments_lexer": "ipython3",
-      "version": "3.4.2"
+      "version": "3.4.3+"
      }
     }

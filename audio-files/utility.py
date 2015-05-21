@@ -72,6 +72,48 @@ def float2pcm(sig, dtype='int16'):
     return (sig * np.iinfo(dtype).max).astype(dtype)
 
 
+def pcm24to32(data, channels=1, normalize=True):
+    """Convert 24-bit PCM data to 32-bit.
+
+    Parameters
+    ----------
+    data : buffer
+        A buffer object where each group of 3 bytes represents one
+        little-endian 24-bit value.
+    channels : int, optional
+        Number of channels, by default 1.
+    normalize : bool, optional
+        If ``True`` (the default) the additional zero-byte is added as
+        least significant byte, effectively multiplying each value by
+        256, which leads to the maximum 24-bit value being mapped to the
+        maximum 32-bit value.  If ``False``, the zero-byte is added as
+        most significant byte and the values are not changed.
+
+    Returns
+    -------
+    numpy.ndarray
+        The content of `data` converted to an `int32` array, where each
+        value was padded with zero-bits in the least significant byte
+        (`normalize=True`) or in the most significant byte
+        (`normalize=False`).
+
+    """
+    if len(data) % 3 != 0:
+        raise ValueError("Size of data must be a multiple of 3 bytes")
+
+    out = np.zeros(len(data) // 3, dtype='<i4')
+    out.shape = -1, channels
+    temp = out.view('uint8').reshape(-1, 4)
+    if normalize:
+        # write to last 3 columns, leave LSB at zero
+        columns = slice(1, None)
+    else:
+        # write to first 3 columns, leave MSB at zero
+        columns = slice(None, -1)
+    temp[:, columns] = np.frombuffer(data, dtype='uint8').reshape(-1, 3)
+    return out
+
+
 @contextlib.contextmanager
 def printoptions(*args, **kwargs):
     """Context manager for temporarily setting NumPy print options.

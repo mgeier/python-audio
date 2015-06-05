@@ -125,6 +125,15 @@ markdown
     
     Python Audio Tools:  
     http://audiotools.sourceforge.net/
+    
+    pyffmpeg:  
+    https://github.com/mhaller/pyffmpeg
+    
+    PyMedia:  
+    http://pymedia.org/
+    
+    openal.loaders (PyAL):  
+    http://pythonhosted.org/PyAL/loaders.html
 markdown
     ## Example Files (for Testing)
     

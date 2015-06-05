@@ -5,25 +5,71 @@ markdown
     
     [back to main page](../index.ipynb)
     
-    This is work-in-progress!
-    
-    There are several libraries for audio playback and/or recording available for
-    Python.
+    There are many libraries for audio playback and/or recording available for Python.
     They greatly differ in features, API, requirements, quality, ...
+    
+    This is just a random selection.
+    
+    See also https://wiki.python.org/moin/Audio and https://wiki.python.org/moin/PythonInMusic.
 markdown
-    ## PySoundCard
+    ## PortAudio Wrappers
+markdown
+    ### PySoundCard
     
     http://github.com/bastibe/PySoundCard/
     
     uses PortAudio via CFFI
 markdown
-    ## PyAudio
+    ### PyAudio
     
-    bindings for PortAudio
+    uses PortAudio via a C extension module
+    
+    Debian packages python-pyaudio and python3-pyaudio
     
     http://people.csail.mit.edu/hubert/pyaudio/
 markdown
-    ## pygame.mixer
+    ###  pyportaudio
+    
+    low-level wrapper for PortAudio functions via CFFI
+    
+    https://github.com/Seteeri/python-cffi-portaudio
+markdown
+    ### music-player-core
+    
+    uses PortAudio and FFmpeg (including libswresample) via a C++ extension module
+    
+    doesn't seem to work on Python 3
+    
+    https://github.com/albertz/music-player-core
+markdown
+    ### medussa
+    
+    uses PortAudio and libsndfile via ctypes
+    
+    uses NumPy
+    
+    Last activity 2013
+    
+    http://www.medussa.us  
+    https://code.google.com/p/medussa/
+    
+    Don't confuse it with https://pypi.python.org/pypi/medusa/ or https://github.com/rahul080327/medusa, which are totally different things.
+markdown
+    ### python2-portaudio
+    
+    https://github.com/jangler/python2-portaudio
+markdown
+    ### py-portaudio
+    
+    not available anymore: https://github.com/ranweiler/py-portaudio
+markdown
+    ### pyPortAudio
+    
+    very old ... http://freenet.mcnabhosting.com/python/pyPortAudio/
+markdown
+    ## SDL Wrappers
+markdown
+    ### pygame.mixer
     
     uses [SDL](http://www.libsdl.org/)
     
@@ -31,7 +77,9 @@ markdown
     
     Debian package: python-pygame
 markdown
-    ## pyglet
+    ## OpenAL Wrappers
+markdown
+    ### pyglet
     
     http://pyglet.org
     
@@ -45,7 +93,7 @@ markdown
     
     Debian package: libavbin0 and/or libavbin-dev?
 markdown
-    ## pySFML
+    ### pySFML
     
     http://python-sfml.org/examples.html
     
@@ -57,7 +105,39 @@ markdown
     [OpenAL Soft]: http://kcat.strangesoft.net/openal.html
     [libsndfile]: http://www.mega-nerd.com/libsndfile/
 markdown
-    ## Snack
+    ### PyAL
+    
+    http://pythonhosted.org/PyAL/audio.html#module-openal.audio
+markdown
+    ## JACK Wrappers
+markdown
+    ### jackclient-python
+    
+    http://github.com/spatialaudio/jackclient-python/
+    
+    http://jackclient-python.rtfd.org/
+markdown
+    ### PyJack
+    
+    http://sourceforge.net/projects/py-jack/
+markdown
+    ## GStreamer
+    
+    https://lazka.github.io/pgi-docs/#Gst-1.0
+    
+    https://lazka.github.io/pgi-docs/#GstAudio-1.0
+    
+    http://gstreamer.freedesktop.org/modules/gst-python.html
+    
+    http://cgit.freedesktop.org/gstreamer/gst-python
+markdown
+    ## Others
+markdown
+    ### pyalsaaudio
+    
+    http://larsimmisch.github.io/pyalsaaudio/
+markdown
+    ### Snack
     
     Depends on Tkinter
     
@@ -68,42 +148,31 @@ markdown
     
     no new releases since December 2005!
 markdown
-    ## PyAudiere!
+    ### PyAudiere!
     
     http://pyaudiere.org/
     
     uses audiere: http://audiere.sourceforge.net/
 markdown
-    ## audioop
+    ### audioop
     
     standard Python lib to manipulate raw audio data
     
     http://docs.python.org/library/audioop.html
 markdown
-    ## PySndObj
+    ### PySndObj
     
     platform independent, including JACK!
     
     http://sndobj.sourceforge.net/
 markdown
-    ## jackclient-python
+    ### PyMedia
     
-    http://github.com/spatialaudio/jackclient-python/
+    extension module with platform-specific back-ends
     
-    http://jackclient-python.rtfd.org/
-markdown
-    ## PyJack
+    last activity around 2008?
     
-    http://sourceforge.net/projects/py-jack/
-markdown
-    ## medussa
-    
-    http://www.medussa.us  
-    https://code.google.com/p/medussa/
-markdown
-    ## py-portaudio
-    
-    https://github.com/ranweiler/py-portaudio
+    http://pymedia.org/
 markdown
     <p xmlns:dct="http://purl.org/dc/terms/">
       <a rel="license"

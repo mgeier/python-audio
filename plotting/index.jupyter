@@ -16,6 +16,10 @@ markdown
     matplotlib: http://matplotlib.org/
     
     seaborn: http://stanford.edu/~mwaskom/software/seaborn/
+    
+    http://worksofscience.net/matplotlib/fig
+    
+    http://worksofscience.net/matplotlib/gridspec
 markdown
     ### Color Maps
 markdown
@@ -31,6 +35,8 @@ markdown
     https://mycarta.wordpress.com/color-palettes/  
     http://nbviewer.ipython.org/urls/dl.dropbox.com/s/5t9jrhr7va3wscj/colors.ipynb  
     http://nbviewer.ipython.org/github/kwinkunks/notebooks/blob/master/Matteo_colourmaps.ipynb
+    
+    http://worksofscience.net/matplotlib/colorbar
 markdown
     <p xmlns:dct="http://purl.org/dc/terms/">
       <a rel="license"

@@ -14,6 +14,12 @@ markdown
 markdown
     ## PortAudio Wrappers
 markdown
+    ### python-sounddevice
+    
+    http://python-sounddevice.rtfd.org/
+    
+    uses PortAudio via CFFI
+markdown
     ### PySoundCard
     
     http://github.com/bastibe/PySoundCard/

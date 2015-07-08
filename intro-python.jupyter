@@ -1,10 +1,10 @@
 nbformat 4
-nbformat_minor 2
+nbformat_minor 0
 markdown
     # A Short Introduction to Python
-markdown
+    
     [back to main page](index.ipynb)
-markdown
+    
     [Python](http://www.python.org/) is a general-purpose programming language.
     It is an *interpreted* language, i.e. source code is not compiled into an executable file but it is directly executed by an *interpreter*.
     A file containing Python code can be executed like this:
@@ -24,18 +24,18 @@ markdown
     You can step through all the cells by pressing Shift+Enter repeatedly.
 markdown
     ## Python 2 vs. 3
-markdown
+    
     TODO
     
     Bottom line: use Python 3!
     The appropriate commands may be called `python3` and `ipython3` on your computer.
 markdown
     ## Why "Python"?
-markdown
+    
     The programming language *Python* is named after the famous British comedy group *Monty Python*. If that doesn't ring a bell, you should search the interwebs and watch some videos of them, they are hilarious! In Python example code, you will often find references to their sketches, e.g. a list may contain `["eggs", "bacon", "spam"]` which would be a reference to [Monty Python's Spam Sketch](http://www.youtube.com/watch?v=anwy2MPT5RE).
 markdown
     ## Hello, world!
-markdown
+    
     According to international law, every programming language tutorial has to start by showing how to print the sentence "Hello, world!" to the screen. This is how it's done in Python:
 code 1
     print("Hello, world!")
@@ -52,7 +52,7 @@ markdown
     But now for something completely different:
 markdown
     ## Numbers
-markdown
+    
     Everybody loves numbers, right? In Python, there are two types of numbers. On the one hand, there are *integers* like
 code 2
     42
@@ -142,7 +142,7 @@ markdown
     You can find more information about Python's numeric types in [the official documentation](http://docs.python.org/3/library/stdtypes.html#numeric-types-int-float-complex).
 markdown
     ## Operators
-markdown
+    
     Numbers are great. Let's see how they interact with each other.
 code 9
     2 + 3
@@ -277,7 +277,7 @@ code 20
     }
 markdown
     ## Strings
-markdown
+    
     As we saw above, strings can be written using double quotes:
 code 21
     "Hello, world!"
@@ -414,7 +414,7 @@ markdown
     There is much more to say about strings. To learn more about them, have a look at the [official `str` documentation](https://docs.python.org/3.3/library/stdtypes.html#textseq).
 markdown
     ## Lists
-markdown
+    
     A `list` is a container that can hold arbitrary objects. A `list` can be created by putting objects, separated by commas, between a pair of brackets.
 code 32
     [42, 3.1415, "Ni!"]
@@ -521,7 +521,7 @@ markdown
     Lists are *mutable* data structures, i.e. their elements can be changed. But more about that later ...
 markdown
     ## Tuples
-markdown
+    
     Tuples are quite similar to `list`s, with the main difference that they are *immutable* data structures, i.e. their content cannot be changed. Some objects, separated by commas, create a tuple:
 code 41
     42, 3.1415, "Ni!"
@@ -618,7 +618,7 @@ markdown
     Note that when used as a function argument, the tuple has to be enclosed in parentheses (otherwise it would be interpreted as a function call with multiple arguments).
 markdown
     ## Expressions, Statements, Side Effects
-markdown
+    
     When you write Python code, you write a sequence of *statements*.
     There are several different kinds of statements, some of which will be explained in this notebook.
     
@@ -769,7 +769,7 @@ markdown
     Let's continue with a very important statement: the *assignment statement*.
 markdown
     ## Assignment
-markdown
+    
     Assignment may seem to be a trivial topic, but there are some subtleties involved.
     So please bear with me, since this is essential stuff.
     
@@ -791,7 +791,7 @@ markdown
     For all the gory details, have a look in [the official Python documentation](http://docs.python.org/3/reference/simple_stmts.html#assignment-statements).
 markdown
     ### Identifiers (a.k.a. Names, a.k.a. Variables)
-markdown
+    
     The *"something on the left"* can be a so-called *identifier*.
     This is a *name* that can be *bound* to an object.
     An *identifier* may only contain letters, numbers and underscores and it must not start with a number.
@@ -972,7 +972,7 @@ code 67
     id(greeting)
   execute_result
   - text/plain
-    140514822506680
+    140480868235344
   metadata
     {
      "collapsed": false
@@ -981,7 +981,7 @@ code 68
     id(the_same_greeting)
   execute_result
   - text/plain
-    140514822506680
+    140480868235344
   metadata
     {
      "collapsed": false
@@ -1045,7 +1045,7 @@ code 72
     id(number)
   execute_result
   - text/plain
-    10771488
+    10383456
   metadata
     {
      "collapsed": false
@@ -1055,7 +1055,7 @@ code 73
     id(number)
   execute_result
   - text/plain
-    10771520
+    10383488
   metadata
     {
      "collapsed": false
@@ -1076,7 +1076,7 @@ markdown
     Python has *reference semantics*.
 markdown
     ### Multiple Identifiers
-markdown
+    
     Binding a name to an object is nothing special; nearly every programming language can do that in one form or another.
     
     But Python has a very nice additional feature that not many other languages have, that allows to bind *multiple* identifiers to a sequence of objects in a single statement.
@@ -1141,7 +1141,7 @@ markdown
     It doesn't even have to be limited to "plain" identifiers, it can also contain any of the things mentioned below (attribute references, subscripts, slices).
 markdown
     ### Attribute References
-markdown
+    
     It has been quite a while, but I'm still speaking about different variants of the assignment statement.
     Until now, we just moved *labels* around, but this one is the first one where we can actually *change* objects.
     
@@ -1160,7 +1160,7 @@ markdown
     But I guess you'll understand it anyway, even without an example.
 markdown
     ### Element Access (a.k.a. Subscription)
-markdown
+    
     Another *thing on the left* of the equals sign in an assignment statement can be an object followed by a pair of brackets with some expression inside.
     
     This is normally available for some kind of collection, like for example a `list`.
@@ -1252,10 +1252,10 @@ markdown
     One example for such a type is `dict`, which will be explained further down (see [Dictionaries](#Dictionaries)).
 markdown
     ### Slicing
-markdown
+    
     Slicing is just a special case of numeric *subscription*.
     Instead of a single number, a range of numbers (a so-called *slice*) is specified.
-markdown
+    
     First, let's re-bind the *identifier* we used before.
 code 86
     mylist = ["one", "two", "three", "four", "five"]
@@ -1392,7 +1392,7 @@ code 96
     }
 markdown
     ## Augmented Assignment
-markdown
+    
     https://docs.python.org/3/reference/simple_stmts.html#augmented-assignment-statements
 markdown
     TODO: mutable vs. immutable
@@ -1418,7 +1418,7 @@ markdown
     ## Boolean Values
 markdown
     ## More Operators
-markdown
+    
     TODO: logic (boolean) operators, in, not in, bit-wise operators
 markdown
     ## `if` Statements
@@ -1444,7 +1444,7 @@ markdown
     ## PEP 8
 markdown
     ## Many More Things ...
-markdown
+    
     * dir()/help()
     * string formatting
     * list/set/dict comprehensions
@@ -1476,6 +1476,21 @@ markdown
     </p>
 metadata
     {
-     "orig_nbformat": 3,
-     "orig_nbformat_minor": 0
+     "kernelspec": {
+      "display_name": "Python 3",
+      "language": "python",
+      "name": "python3"
+     },
+     "language_info": {
+      "codemirror_mode": {
+       "name": "ipython",
+       "version": 3
+      },
+      "file_extension": ".py",
+      "mimetype": "text/x-python",
+      "name": "python",
+      "nbconvert_exporter": "python",
+      "pygments_lexer": "ipython3",
+      "version": "3.4.3+"
+     }
     }

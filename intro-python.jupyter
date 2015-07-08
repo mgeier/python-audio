@@ -824,7 +824,7 @@ markdown
     Over the course of a program, we can put different values into this box.
     For example, in the programming language C it might look something like this:
     
-    ```C
+    ```c
     int answer;
     answer = 7 * 6;
     ```
@@ -837,7 +837,7 @@ markdown
     > You should never declare an uninitialized variable, because if you forget to assign a value to it, this might lead to very strange and hard-to-find errors.
     > In this example, it would be better to do the declaration and initialization in one statement:
     >
-    > ```C
+    > ```c
     > int answer = 7 * 6;
     > ```
     >

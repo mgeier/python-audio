@@ -6,7 +6,7 @@ markdown
     [back to main page](../index.ipynb)
 markdown
     ## Links
-markdown
+    
     http://scikits.appspot.com/talkbox
     
     http://bmcfee.github.io/librosa/
@@ -16,6 +16,8 @@ markdown
     http://nipy.org/nitime/index.html
     
     https://github.com/MTG/sms-tools
+    
+    http://pythonhosted.org/audiolazy/
 markdown
     ### Filter Design
     

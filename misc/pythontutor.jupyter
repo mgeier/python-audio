@@ -1,0 +1,192 @@
+nbformat 4
+nbformat_minor 0
+markdown
+    # Visualizing Code Execution with the *Online Python Tutor*
+    
+    This page contains a few example that show what happens if a Python program is executed step by step.
+    The actual visualizations are created by http://pythontutor.com/.
+markdown
+    ## Embedding into a IPython/Jupyter Notebook
+code 1
+    import IPython
+    import urllib
+    
+    @IPython.core.magic.register_cell_magic
+    def pythontutor(line, cell):
+        """Display cell content as iframe from pythontutor.com.
+        
+        You have to pass the height (in pixels) in the first line, .e.g::
+        
+            %%pythontutor 400
+            x = "Hello, world!"
+            print(x)
+        
+        """
+        url = "http://pythontutor.com/iframe-embed.html#"
+        url += urllib.parse.urlencode({
+            "py": "3",
+            "heapPrimitives": "true",
+            "code": cell,
+            #"origin": "opt-frontend.js",
+            #"cumulative": "false",
+            #"textReferences": "false",
+            #"rawInputLstJSON": [],
+            #"curInstr": "0",
+            #"codeDivWidth": "50%",
+            #"codeDivHeight": "100%",
+            #"resizeContainer": "true",
+        })
+        IPython.display.display(IPython.display.IFrame(url, width="100%", height=line))
+  metadata
+    {
+     "collapsed": false
+    }
+markdown
+    The above code is a mixture of http://jupyter.cs.brynmawr.edu/hub/dblank/public/Examples/Online%20Python%20Tutor.ipynb and https://github.com/kikocorreoso/tutormagic/.
+markdown
+    ## "Variables" are References
+    
+    As explained in the [Python Intro](../intro-python.ipynb), you shouldn't think of variables as *boxes* where you can put stuff of a certain type into.
+    You should rather think of them as *labels* which you can stick onto arbitrary objects (regardless of the type of object).
+code 2
+    %%pythontutor 260
+    answer = 7 * 6
+    answer = "fourty-two"
+  display_data
+  - text/html
+    
+            <iframe
+                width="100%"
+                height="260"
+                src="http://pythontutor.com/iframe-embed.html#heapPrimitives=true&py=3&code=answer+%3D+7+%2A+6%0Aanswer+%3D+%22fourty-two%22"
+                frameborder="0"
+                allowfullscreen
+            ></iframe>
+            
+  - text/plain
+    <IPython.lib.display.IFrame at 0x7ff1802e7d68>
+  metadata
+    {
+     "collapsed": false
+    }
+markdown
+    Click on the "Forward >" button to step through the lines of the program above and look on the right hand side what happens after each line is executed.
+    
+    1. The first line contains an [assignment](../intro-python.ipynb#Assignment).
+    This means the thing to the right of the equals sign is assigned to the thing to the left.
+    The Python interpreter first evaluates the expression on the right hand side, which results in an integer object with the value 42.
+    The memory needed to store the value 42 is handled by the Python interpreter, we don't have to worry about that.
+    As you can see in the visualization above, the object with the value 42 has the type `int` (as well as 7 and 6), which was automatically deduced by the interpreter.
+    Now the resulting object is assigned to an *identifier* named `answer`.
+    Since such a name didn't exist before, a new *identifier* is created.
+    The visualization shows nicely that the variable `answer` isn't a "box" that "contains" the value 42, it's rather a "label" (or "reference") that points to an object somewhere in memory.
+    
+    1. The second line contains another assignment.
+    Again, first the right hand side is evaluated, which results in a string object with the value `"fourty-two"`.
+    Again, the memory where this string is stored is managed by the interpreter automatically.
+    Since this time the identifier named `answer` already exists, it is *re-bound* to the newly created string object.
+    To find out what happens to the object with the value 42, have a look at [garbage collection](../intro-python.ipynb#Garbage-Collection).
+    
+    Note that the variable `answer` doesn't have a type on its own, it just references an object which in turn has a type.
+    We can *re-bind* variables to any objects, they don't have to have the same type at all!
+markdown
+    ## Multiple References to the Same Object
+code 3
+    %%pythontutor 300
+    a = "data"
+    b = a
+    c = d = e = "more data"
+    a = e
+  display_data
+  - text/html
+    
+            <iframe
+                width="100%"
+                height="300"
+                src="http://pythontutor.com/iframe-embed.html#heapPrimitives=true&py=3&code=a+%3D+%22data%22%0Ab+%3D+a%0Ac+%3D+d+%3D+e+%3D+%22more+data%22%0Aa+%3D+e"
+                frameborder="0"
+                allowfullscreen
+            ></iframe>
+            
+  - text/plain
+    <IPython.lib.display.IFrame at 0x7ff180308ac8>
+  metadata
+    {
+     "collapsed": false
+    }
+markdown
+    1. A string object is created and assigned to `a`, i.e. `a` is now a *reference* to the string `"data"`.
+    
+    1. The right hand side is evaluated, resulting in the string object referenced by `a`.
+    This string object is assigned to the new identifier `b`.
+    Now both `a` and `b` point to the same object (no copy is created).
+    
+    1. A new string object is created and assigned to multiple identifiers at once.
+    All point to the same object (no copies are created).
+    
+    1. The object referenced by `e` is assigned to `a`.
+    Note that this doesn't change `b` (since `b` didn't point to `a` but directly to the string object).
+    
+    Note: An identifier can point to any kind of object, but it can *never* point to another identifier!
+    
+    You may have heard the statement "Everything in Python is an object", but this is actually not true.
+    Identifiers are *not* objects (but they "point to" objects).
+markdown
+    ## Small Numbers are Special
+code 4
+    %%pythontutor 340
+    a = 7 * 6
+    b = 2 + 4 * 10
+    c = 42
+    
+    x = 100**2
+    y = 5000 + 5000
+  display_data
+  - text/html
+    
+            <iframe
+                width="100%"
+                height="340"
+                src="http://pythontutor.com/iframe-embed.html#heapPrimitives=true&py=3&code=a+%3D+7+%2A+6%0Ab+%3D+2+%2B+4+%2A+10%0Ac+%3D+42%0A%0Ax+%3D+100%2A%2A2%0Ay+%3D+5000+%2B+5000"
+                frameborder="0"
+                allowfullscreen
+            ></iframe>
+            
+  - text/plain
+    <IPython.lib.display.IFrame at 0x7ff180308ac8>
+  metadata
+    {
+     "collapsed": false,
+     "scrolled": true
+    }
+markdown
+    
+    TODO: implementation detail of CPython ...
+    
+    TODO: it doesn't matter since numbers are immutable ...
+code
+    
+  metadata
+    {
+     "collapsed": true
+    }
+metadata
+    {
+     "kernelspec": {
+      "display_name": "Python 3",
+      "language": "python",
+      "name": "python3"
+     },
+     "language_info": {
+      "codemirror_mode": {
+       "name": "ipython",
+       "version": 3
+      },
+      "file_extension": ".py",
+      "mimetype": "text/x-python",
+      "name": "python",
+      "nbconvert_exporter": "python",
+      "pygments_lexer": "ipython3",
+      "version": "3.4.3+"
+     }
+    }

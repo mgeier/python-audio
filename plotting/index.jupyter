@@ -9,6 +9,8 @@ markdown
     
     * [Getting Started with `matplotlib`](matplotlib.ipynb)
     
+    * [Colormaps in `matplotlib`](matplotlib-colormaps.ipynb)
+    
     * [Properly Sized Color Bars in `matplotlib`](matplotlib-colorbar.ipynb)
     
     * [Using the "notebook" backend](matplotlib-notebook-backend.ipynb)
@@ -60,27 +62,6 @@ markdown
     ### Spectrogram
     
     https://github.com/LCAV/TimeDomainAcousticRakeReceiver/blob/master/pyroomacoustics/stft.py
-markdown
-    ### Color Maps
-    
-    http://earthobservatory.nasa.gov/blogs/elegantfigures/2013/08/05/subtleties-of-color-part-1-of-6/  
-    http://earthobservatory.nasa.gov/blogs/elegantfigures/2013/08/06/subtleties-of-color-part-2-of-6/  
-    http://earthobservatory.nasa.gov/blogs/elegantfigures/2013/08/12/subtleties-of-color-part-3-of-6/  
-    http://earthobservatory.nasa.gov/blogs/elegantfigures/2013/08/19/subtleties-of-color-connecting-color-to-meaning/  
-    http://earthobservatory.nasa.gov/blogs/elegantfigures/2013/08/28/subtleties-of-color-part-5-of-6/  
-    http://earthobservatory.nasa.gov/blogs/elegantfigures/2013/09/10/subtleties-of-color-part-6-of-6/
-    
-    perceptual rainbow:  
-    https://mycarta.wordpress.com/2013/02/21/perceptual-rainbow-palette-the-method/  
-    https://mycarta.wordpress.com/color-palettes/  
-    http://nbviewer.ipython.org/urls/dl.dropbox.com/s/5t9jrhr7va3wscj/colors.ipynb  
-    http://nbviewer.ipython.org/github/kwinkunks/notebooks/blob/master/Matteo_colourmaps.ipynb
-    
-    http://worksofscience.net/matplotlib/colorbar
-    
-    Video: [How We Designed Matplotlib's New Default Colormap (and You Can Too)](https://youtu.be/TojFwkglCKs)
-    
-    http://matplotlib.org/cmocean/
 markdown
     <p xmlns:dct="http://purl.org/dc/terms/">
       <a rel="license"

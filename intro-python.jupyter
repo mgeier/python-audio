@@ -972,7 +972,7 @@ code 67
     id(greeting)
   execute_result
   - text/plain
-    140480868235344
+    140679729945800
   metadata
     {
      "collapsed": false
@@ -981,7 +981,7 @@ code 68
     id(the_same_greeting)
   execute_result
   - text/plain
-    140480868235344
+    140679729945800
   metadata
     {
      "collapsed": false
@@ -1045,7 +1045,7 @@ code 72
     id(number)
   execute_result
   - text/plain
-    10383456
+    10418144
   metadata
     {
      "collapsed": false
@@ -1055,7 +1055,7 @@ code 73
     id(number)
   execute_result
   - text/plain
-    10383488
+    10418176
   metadata
     {
      "collapsed": false
@@ -1075,7 +1075,7 @@ markdown
     By the way, if you want to use more technical terms instead of "box" and "label", you can use the terms *value semantics* and *reference semantics*, respectively.
     Python has *reference semantics*.
 markdown
-    ### Multiple Identifiers
+    ### Multiple Identifiers (And Other Stuff)
     
     Binding a name to an object is nothing special; nearly every programming language can do that in one form or another.
     
@@ -1391,11 +1391,197 @@ code 96
      "collapsed": false
     }
 markdown
+    ## Assignment Recap
+    
+    We were talking quite a long time about the different forms of assignment statements, here's a quick summary:
+    
+    |"thing on the left" | example |
+    |--------------------|---------|
+    | just an identifier | ``myvar = 42`` |
+    | attribute reference | ``myobj.attr = 42`` |
+    | subscript | ``mylist[7] = 42`` |
+    | slice | ``mylist[2:5] = 42, 43, 44`` |
+    | several of the above, possibly nested and starred | ``mylist[:2], (a, *b, myobj.attr) = (0, 1), mylist[-5:]`` |
+markdown
     ## Augmented Assignment
     
-    https://docs.python.org/3/reference/simple_stmts.html#augmented-assignment-statements
+    Let's assume we have a variable that counts things:
+code 103
+    counter = 10
+  metadata
+    {
+     "collapsed": true
+    }
 markdown
-    TODO: mutable vs. immutable
+    If we want to, e.g., decrement this counter by 3, we could write:
+code 104
+    counter = counter - 3
+  metadata
+    {
+     "collapsed": true
+    }
+markdown
+    This yields the expected result ...
+code 105
+    counter
+  execute_result
+  - text/plain
+    7
+  metadata
+    {
+     "collapsed": false
+    }
+markdown
+    ... but it's quite annoying that we have to type the variable's name twice, isn't it?
+    
+    Luckily, Python has *augmented assignment* which we can use to avoid this hideous duplication:
+code 106
+    counter -= 3
+  metadata
+    {
+     "collapsed": true
+    }
+markdown
+    This does exactly the same as before:
+code 107
+    counter
+  execute_result
+  - text/plain
+    4
+  metadata
+    {
+     "collapsed": false
+    }
+markdown
+    Note, however, that this is only true for *immutable* data types (e.g. numbers, strings, tuples).
+    
+    When used with a *mutable* object, it will not *re-bind* the identifier to a new object but it will instead change the actual object!
+    
+    Let's look at an example with a `list` object (which is mutable).
+    First, without augmented assignment:
+code 108
+    original_list = [1, 2, 3]
+    new_list = original_list
+    new_list = new_list + [4, 5, 6]
+  metadata
+    {
+     "collapsed": true
+    }
+markdown
+    The last line creates a new `list` object and re-binds it to the identifier `new_list`.
+code 111
+    new_list
+  execute_result
+  - text/plain
+    [1, 2, 3, 4, 5, 6]
+  metadata
+    {
+     "collapsed": false
+    }
+markdown
+    In this case there is no difference between mutable and immutable types.
+    A new object is created and the original object is untouched:
+code 113
+    original_list
+  execute_result
+  - text/plain
+    [1, 2, 3]
+  metadata
+    {
+     "collapsed": false
+    }
+markdown
+    Now let's see what happens with augmented assignment:
+code 114
+    new_list = original_list
+    new_list += [4, 5, 6]
+  metadata
+    {
+     "collapsed": true
+    }
+markdown
+    When we look at the result, we cannot see yet if a new object was created:
+code 115
+    new_list
+  execute_result
+  - text/plain
+    [1, 2, 3, 4, 5, 6]
+  metadata
+    {
+     "collapsed": false
+    }
+markdown
+    But notice what happened to the original list object:
+code 116
+    original_list
+  execute_result
+  - text/plain
+    [1, 2, 3, 4, 5, 6]
+  metadata
+    {
+     "collapsed": false
+    }
+code 126
+    new_list is original_list
+  execute_result
+  - text/plain
+    True
+  metadata
+    {
+     "collapsed": false
+    }
+markdown
+    Obviously, the original `list` object was mutated and no new `list` object was created.
+    
+    If we try the same augmented assignment with a `tuple` (which is immutable), we observe a different behavior:
+code 124
+    original_tuple = 1, 2, 3
+    new_tuple = original_tuple
+    new_tuple += 4, 5, 6
+  metadata
+    {
+     "collapsed": false
+    }
+markdown
+    At first, it looks the same ...
+code 125
+    new_tuple
+  execute_result
+  - text/plain
+    (1, 2, 3, 4, 5, 6)
+  metadata
+    {
+     "collapsed": false
+    }
+markdown
+    ... but the original `tuple` object is unchanged (obviously, because it's *immutable*!):
+code 122
+    original_tuple
+  execute_result
+  - text/plain
+    (1, 2, 3)
+  metadata
+    {
+     "collapsed": false
+    }
+markdown
+    This difference of behavior of the augmented assignment statement for mutable and immutable objects is often the cause for confusion and possibly also for bugs, so be aware!
+    
+    Augmented assignment is available for all binary operators:
+    `+=`,
+    `-=`,
+    `*=`,
+    `/=`,
+    `//=`,
+    `%=`,
+    `**=`,
+    `>>=`,
+    `<<=`,
+    `&=`,
+    `^=` and
+    `|=`.
+    
+    If you want to know more, have a look at [the docs](https://docs.python.org/3/reference/simple_stmts.html#augmented-assignment-statements).
 markdown
     ## Garbage Collection
 markdown

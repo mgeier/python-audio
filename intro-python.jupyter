@@ -223,9 +223,11 @@ markdown
     ```
     
     Alternatively, you can of course also just convert one of the operands (or both) to `float` beforehand.
+markdown
+    ## More Operators
     
     Let's see, what else do we have?
-    Powers, for example. While you might be used to the `^` operator from other languages, Python uses `**` for that. The `^` operator is a very different thing, namely logical *xor*. Don't confuse the two!
+    Powers, for example. While you might be used to the `^` operator from other languages, Python uses `**` for that. The `^` operator is a very different thing, namely *xor*. Don't confuse the two!
 code 16
     3 ** 2
   execute_result
@@ -275,6 +277,10 @@ code 20
     {
      "collapsed": false
     }
+markdown
+    TODO: logical operators (and, or, not)
+    
+    TODO: list of *all* operators, link to official docs
 markdown
     ## Strings
     
@@ -972,7 +978,7 @@ code 67
     id(greeting)
   execute_result
   - text/plain
-    140679729945800
+    140459999231176
   metadata
     {
      "collapsed": false
@@ -981,7 +987,7 @@ code 68
     id(the_same_greeting)
   execute_result
   - text/plain
-    140679729945800
+    140459999231176
   metadata
     {
      "collapsed": false
@@ -1406,7 +1412,7 @@ markdown
     ## Augmented Assignment
     
     Let's assume we have a variable that counts things:
-code 103
+code 97
     counter = 10
   metadata
     {
@@ -1414,15 +1420,15 @@ code 103
     }
 markdown
     If we want to, e.g., decrement this counter by 3, we could write:
-code 104
+code 98
     counter = counter - 3
   metadata
     {
      "collapsed": true
     }
 markdown
-    This yields the expected result ...
-code 105
+    This yields the expected result (it creates a new number and re-binds the variable `counter`) ...
+code 99
     counter
   execute_result
   - text/plain
@@ -1435,7 +1441,7 @@ markdown
     ... but it's quite annoying that we have to type the variable's name twice, isn't it?
     
     Luckily, Python has *augmented assignment* which we can use to avoid this hideous duplication:
-code 106
+code 100
     counter -= 3
   metadata
     {
@@ -1443,7 +1449,7 @@ code 106
     }
 markdown
     This does exactly the same as before:
-code 107
+code 101
     counter
   execute_result
   - text/plain
@@ -1458,8 +1464,8 @@ markdown
     When used with a *mutable* object, it will not *re-bind* the identifier to a new object but it will instead change the actual object!
     
     Let's look at an example with a `list` object (which is mutable).
-    First, without augmented assignment:
-code 108
+    First, with "normal" assignment and re-binding:
+code 102
     original_list = [1, 2, 3]
     new_list = original_list
     new_list = new_list + [4, 5, 6]
@@ -1468,8 +1474,8 @@ code 108
      "collapsed": true
     }
 markdown
-    The last line creates a new `list` object and re-binds it to the identifier `new_list`.
-code 111
+    The last line creates a new `list` object (as result of the "+" operation) and re-binds it to the identifier `new_list`.
+code 103
     new_list
   execute_result
   - text/plain
@@ -1480,8 +1486,8 @@ code 111
     }
 markdown
     In this case there is no difference between mutable and immutable types.
-    A new object is created and the original object is untouched:
-code 113
+    A new object is created and the original object remains untouched:
+code 104
     original_list
   execute_result
   - text/plain
@@ -1492,7 +1498,7 @@ code 113
     }
 markdown
     Now let's see what happens with augmented assignment:
-code 114
+code 105
     new_list = original_list
     new_list += [4, 5, 6]
   metadata
@@ -1501,7 +1507,7 @@ code 114
     }
 markdown
     When we look at the result, we cannot see yet if a new object was created:
-code 115
+code 106
     new_list
   execute_result
   - text/plain
@@ -1512,7 +1518,7 @@ code 115
     }
 markdown
     But notice what happened to the original list object:
-code 116
+code 107
     original_list
   execute_result
   - text/plain
@@ -1521,7 +1527,7 @@ code 116
     {
      "collapsed": false
     }
-code 126
+code 108
     new_list is original_list
   execute_result
   - text/plain
@@ -1533,8 +1539,8 @@ code 126
 markdown
     Obviously, the original `list` object was mutated and no new `list` object was created.
     
-    If we try the same augmented assignment with a `tuple` (which is immutable), we observe a different behavior:
-code 124
+    If we try the exact same augmented assignment with a `tuple` (which is immutable), we observe a different behavior:
+code 109
     original_tuple = 1, 2, 3
     new_tuple = original_tuple
     new_tuple += 4, 5, 6
@@ -1544,7 +1550,7 @@ code 124
     }
 markdown
     At first, it looks the same ...
-code 125
+code 110
     new_tuple
   execute_result
   - text/plain
@@ -1555,7 +1561,7 @@ code 125
     }
 markdown
     ... but the original `tuple` object is unchanged (obviously, because it's *immutable*!):
-code 122
+code 111
     original_tuple
   execute_result
   - text/plain
@@ -1588,13 +1594,13 @@ markdown
     ## Comments
 markdown
     ## Functions
-code 97
+code 112
     # docstrings
   metadata
     {
      "collapsed": false
     }
-code 98
+code 113
     # built-in functions
   metadata
     {

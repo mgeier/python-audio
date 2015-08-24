@@ -1590,6 +1590,28 @@ markdown
     If you want to know more, have a look at [the docs](https://docs.python.org/3/reference/simple_stmts.html#augmented-assignment-statements).
 markdown
     ## Garbage Collection
+    
+    Remember that Python's variables are not *boxes* where we can put data in, but rather *labels* which we can stick to objects?
+    
+    In other words, variables don't reserve a certain area of memory for their values.
+    The Python interpreter handles all the memory management for us and creates objects for us whenever we ask for them.
+    When we assign something, we merely stick a *label* to an already existing object which the Python interpreter has created for us.
+    
+    This is very convenient because we don't have to bother with the task of reserving the necessary memory for our data and - more importantly - the freeing of memory which is not needed anymore.
+    
+    But how does the Python interpreter know which parts of memory are still needed and which parts can be cleared (and re-used for something else)?
+    
+    *The short answer:*
+    We don't have to care! The Python interpreter just does this automagically! Let's move on to more interesting things!
+    
+    *The slightly longer answer:*
+    Python interpreters typically have some kind of *garbage collector* which is a part of the Python runtime that regularly checks if all objects occupy memory still have some identifier associated with them.
+    If not, the object is destroyed and its memory is marked for re-use.
+    The garbage collector may work significantly differently between different Python interpreters, so you shouldn't count on the details about when and how and if at all garbage collection happens.
+    The Python reference implementation (CPython) uses *reference counting* to help the garbage collector.
+    Whenever we bind an object to a variable, the object's reference count is incremented.
+    If we are re-binding, the reference count of the object the variable was bound to before is decremented.
+    On each run of the garbage collector it just looks for objects with a reference count of 0 and destroys all those objects.
 markdown
     ## Comments
 markdown

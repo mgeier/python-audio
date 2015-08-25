@@ -300,7 +300,7 @@ code 17
      "collapsed": false
     }
 markdown
-    Besides the these *arithmetic operators*, there are also *comparison operators* which return *boolean* values.
+    Besides the these [arithmetic operators](https://docs.python.org/3/library/stdtypes.html#numeric-types-int-float-complex), there are also [comparison operators](https://docs.python.org/3/library/stdtypes.html#comparisons) which return *boolean* values.
 code 18
     3 > 4
   execute_result
@@ -329,9 +329,68 @@ code 20
      "collapsed": false
     }
 markdown
-    TODO: logical operators (and, or, not)
+    Expressions yielding boolean values can be combined with [logical operators](https://docs.python.org/3/library/stdtypes.html#boolean-operations-and-or-not):
+code 5
+    False and True
+  execute_result
+  - text/plain
+    False
+  metadata
+    {
+     "collapsed": false
+    }
+code 6
+    False or True
+  execute_result
+  - text/plain
+    True
+  metadata
+    {
+     "collapsed": false
+    }
+code 9
+    not True
+  execute_result
+  - text/plain
+    False
+  metadata
+    {
+     "collapsed": false
+    }
+markdown
+    Python also provides the [bit-wise operators](https://docs.python.org/3/library/stdtypes.html#bitwise-operations-on-integer-types)
+    `|`,
+    `^`,
+    `&`,
+    `<<`,
+    `>>` and
+    `~`, but you'll need those only if you're into bit-dwiddling, which you probably aren't, right?
+markdown
+    ## Operator Precedence
     
-    TODO: list of *all* operators, link to official docs
+    When using more than one operator in the same expression, you should be aware that some operators bind stronger than others, e.g. multiplication binds stronger than addition (which shouldn't come as a surprise!):
+code 10
+    2 + 4 * 10
+  execute_result
+  - text/plain
+    42
+  metadata
+    {
+     "collapsed": false
+    }
+markdown
+    For the full list of operators and their precedence, have a look at the [official docs](https://docs.python.org/3/reference/expressions.html#operator-precedence).
+    
+    If you want to interfere with the built-in precedence, you can use parentheses (which again shouldn't come as a surprise):
+code 11
+    (2 + 4) * 10
+  execute_result
+  - text/plain
+    60
+  metadata
+    {
+     "collapsed": false
+    }
 markdown
     ## Strings
     
@@ -413,6 +472,28 @@ code 27
   execute_result
   - text/plain
     '###############################################################################'
+  metadata
+    {
+     "collapsed": false
+    }
+markdown
+    Strings also have an `in`-operator, which makes it very simple to check if a string contains a given substring:
+code 12
+    "world" in "Hello, world!"
+  execute_result
+  - text/plain
+    True
+  metadata
+    {
+     "collapsed": false
+    }
+markdown
+    If you are pessimistic, you can also try `not in`:
+code 18
+    "happy" not in "Hello, world!"
+  execute_result
+  - text/plain
+    True
   metadata
     {
      "collapsed": false
@@ -529,6 +610,17 @@ code 36
      "collapsed": false
     }
 markdown
+    Lists also have an `in`-operator (like strings and other sequence types):
+code 15
+    3 in [1, 2, 3]
+  execute_result
+  - text/plain
+    True
+  metadata
+    {
+     "collapsed": false
+    }
+markdown
     Like everything else, lists are also objects, and they have a type:
 code 37
     type([1, 2, 3])
@@ -576,6 +668,8 @@ code 40
     }
 markdown
     Lists are *mutable* data structures, i.e. their elements can be changed. But more about that later ...
+    
+    For more information about lists, have a look at the [official docs](https://docs.python.org/3/library/stdtypes.html#lists).
 markdown
     ## Tuples
     
@@ -661,6 +755,17 @@ code 47
 markdown
     Note that the parentheses are obligatory in this case.
     
+    Like lists and strings, tuples also support the `in`-operator:
+code 17
+    3 in (1, 2, 3)
+  execute_result
+  - text/plain
+    True
+  metadata
+    {
+     "collapsed": false
+    }
+markdown
     It should come as no surprise that tuples also have a type:
 code 48
     type((1, 2, 3))
@@ -673,6 +778,8 @@ code 48
     }
 markdown
     Note that when used as a function argument, the tuple has to be enclosed in parentheses (otherwise it would be interpreted as a function call with multiple arguments).
+    
+    For more information about tuples, have a look at the [official docs](https://docs.python.org/3/library/stdtypes.html#tuples).
 markdown
     ## Expressions, Statements, Side Effects
     
@@ -738,7 +845,7 @@ code 50
     }
 markdown
     The string `"Hello, world!"` which is printed by the `print()` function, is *not* the *return value* of the function!
-    What we see here is the so-called *standard output* which, in an IPython notebook, is displayed just below the code cell, but above the actual output values (marked by `Out[...]:`).
+    What we see here is the so-called *standard output* which, in a Jupyter/IPython notebook, is displayed just below the code cell, but above the actual output values (marked by `Out[...]:`).
     
     The actual return value is the result of the last expression in the code cell.
     
@@ -929,11 +1036,11 @@ markdown
     However, an *identifier* is always *bound* to an object.
     In other words, an *identifier* is a *reference* to an object.
     Whenever we use an *identifier*, it is as if we were using the actual referenced object instead.
-    This is why the previous statement returned `int`, which isn't the type of the *identifier* but the type of the object it's bound to.
+    This is why the previous statement returned `int`, which isn't the type of the *identifier* but the type of the object it's currently bound to.
     
     The only place where an identifier is *not* treated like the object it's bound to, is on the left side of an *assignment statement*.
     That's also the reason why assignment is not (and cannot be) an *operator* and why it cannot be used as part of an expression.
-markdown
+    
     We learned that a new identifier can be created by just using a name that hasn't been used before in an assignment statement.
     
     But what happens if we assign to a name that has already been used?
@@ -963,7 +1070,7 @@ markdown
     
     It's *not* overwritten, but we cannot access it anymore, because we don't have an identifier that references it.
     Have a look at [Garbage Collection](#Garbage-Collection) below to see what the Python interpreter does with objects which are not bound to any name.
-markdown
+    
     Note that an identifier is only treated specially on the left side of an assignment statement.
     The right side of the assignment statement is just a normal expression which can contain other identifiers (or even the same identifier that is going to be re-bound on the left).
 code 61
@@ -979,7 +1086,7 @@ code 62
      "collapsed": false
     }
 markdown
-    Since assignment is a statement which doesn't return a value, we don't see the value of the new object where `greeting` is bound to.
+    Since assignment is a statement (and statements don't return values), we don't see the value of the new object where `greeting` is bound to.
     Let's have a look:
 code 63
     greeting
@@ -1058,7 +1165,7 @@ code 69
     }
 markdown
     We normally don't care about the actual IDs, if we want to see if two objects are *identical* (which is not the same as *equal*!), we use the `is`-operator.
-markdown
+    
     If you want to bind several names to the same object in one go, you can use a special form of the assignment statement that uses multiple equals signs:
 code 70
     one = two = three = "data"
@@ -1069,7 +1176,7 @@ code 70
 markdown
     Now all of the identifiers `one`, `two` and `three` are bound to the same `str` object.
     You may not need that very often, but it's still good to know.
-markdown
+    
     Let me emphasize again:
     An *identifier* in Python isn't a *box* where we can put values into, it's rather a *label* that we attach to an existing object.
     
@@ -1121,11 +1228,11 @@ markdown
     If the second assignment would overwrite the memory area of the old data, `id()` would return the same value as before.
     But we see that the IDs are different, therefore, `0` and `1` must be different objects.
     
-    I'm sorry that I have to repeat my self so often, but this is really important:
+    I'm sorry that I repeat my self so often, but this is really important:
     Assignment to an existing *identifier* does not modify any object!
     
     We'll see a bit further down how we can actually modify objects.
-markdown
+    
     I try to avoid using the term "variable" for a Python *identifier*, because I think many people will associate this term with a "box", rather than a "label".
     But it's of course not forbidden to call it *variable*, and sometimes it just sounds more natural.
     
@@ -1192,7 +1299,7 @@ markdown
     
     > Note, however, that the thing with the starred identifier is only available in Python 3.
     
-    In this example you can see that a string can also be unpacked, since it is *iterable*.
+    In this example you can see that a string can also be unpacked, since it is *iterable* (yielding single-character strings).
     
     The list of identifiers doesn't have to be a flat list, it can be arbitrarily nested (using parentheses and/or brackets).
     It doesn't even have to be limited to "plain" identifiers, it can also contain any of the things mentioned below (attribute references, subscripts, slices).
@@ -1277,7 +1384,7 @@ code 83
      "collapsed": false
     }
 markdown
-    ... but the `is`-operator tells us that those are just references to a single object:
+    ... but the `is`-operator tells us that those are just two references to the same single object:
 code 84
     mylist[0] is mylist[2]
   execute_result
@@ -1310,7 +1417,7 @@ markdown
 markdown
     ### Slicing
     
-    Slicing is just a special case of numeric *subscription*.
+    Slicing is just a special form of numeric *subscription*.
     Instead of a single number, a range of numbers (a so-called *slice*) is specified.
     
     First, let's re-bind the *identifier* we used before.
@@ -1340,9 +1447,9 @@ markdown
     
     This may take some time to get used to, but in the long run you'll see that this is a much more straightforward choice then including the `stop` value in the slice.
     For more details about this concept, see [Why numbering should start at zero](http://www.cs.utexas.edu/users/EWD/transcriptions/EWD08xx/EWD831.html) from E. W. Dijkstra.
-markdown
+    
     The `start` and `stop` values are optional.
-    If omitted, the slice starts at the beginning of the sequence or reaches until the end, respectively.
+    If omitted, the slice starts at the beginning of the sequence or goes up to the end, respectively.
 code 88
     mylist[:3] = "123"
     mylist
@@ -1648,7 +1755,7 @@ markdown
     The Python interpreter handles all the memory management for us and creates objects for us whenever we ask for them.
     When we assign something, we merely stick a *label* to an already existing object which the Python interpreter has created for us.
     
-    This is very convenient because we don't have to bother with the task of reserving the necessary memory for our data and - more importantly - the freeing of memory which is not needed anymore.
+    This is very convenient because we don't have to bother with the task of reserving the necessary memory for our data and - which is also very important - the freeing of memory which is not needed anymore.
     
     But how does the Python interpreter know which parts of memory are still needed and which parts can be cleared (and re-used for something else)?
     
@@ -1656,13 +1763,17 @@ markdown
     We don't have to care! The Python interpreter just does this automagically! Let's move on to more interesting things!
     
     *The slightly longer answer:*
-    Python interpreters typically have some kind of *garbage collector* which is a part of the Python runtime that regularly checks if all objects occupy memory still have some identifier associated with them.
+    Python interpreters typically have some kind of *garbage collector* which is a part of the Python runtime that regularly checks if all objects which occupy memory still have some identifier bound to them.
     If not, the object is destroyed and its memory is marked for re-use.
     The garbage collector may work significantly differently between different Python interpreters, so you shouldn't count on the details about when and how and if at all garbage collection happens.
     The Python reference implementation (CPython) uses *reference counting* to help the garbage collector.
     Whenever we bind an object to a variable, the object's reference count is incremented.
     If we are re-binding, the reference count of the object the variable was bound to before is decremented.
     On each run of the garbage collector it just looks for objects with a reference count of 0 and destroys all those objects.
+markdown
+    ## Dictionaries
+markdown
+    ## Sets
 markdown
     ## Comments
 markdown
@@ -1680,31 +1791,19 @@ code 113
      "collapsed": false
     }
 markdown
-    ## Boolean Values
-markdown
-    ## More Operators
-    
-    TODO: logic (boolean) operators, in, not in, bit-wise operators
-markdown
     ## `if` Statements
 markdown
     ## Significant Whitespace
 markdown
     ## Loops
 markdown
-    ## Dictionaries
-markdown
-    ## Sets
-markdown
     ## Ranges
-markdown
-    ## None
 markdown
     ## Exceptions
 markdown
-    ## Modules
-markdown
     ## Classes
+markdown
+    ## Modules
 markdown
     ## PEP 8
 markdown

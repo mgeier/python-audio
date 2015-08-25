@@ -1,7 +1,7 @@
 nbformat 4
 nbformat_minor 0
 markdown
-    # A Short Introduction to Python
+    # An Introduction to Python
     
     [back to main page](index.ipynb)
     
@@ -17,18 +17,69 @@ markdown
         python
     
     You have the full power of Python in there, but it is not very convenient.
-    A much better alternative is [IPython](http://ipython.org/), which is described on a [separate page](intro-ipython.ipynb).
+    A much better alternative is [Jupyter](https://jupyter.org/) (formerly known as [IPython](http://ipython.org/)), which is described on a [separate page](intro-ipython.ipynb).
     
-    Actually, this very page you're just reading is a so-called [IPython notebook](http://ipython.org/notebook.html), which means that you can view it either as a [static web page](http://nbviewer.ipython.org/urls/raw.github.com/mgeier/python-audio/master/intro-python.ipynb) or, if you have IPython installed locally, you can also open the [notebook file](http://raw.github.com/mgeier/python-audio/master/intro-python.ipynb) with IPython and run the code in it interactively. You can also change stuff and play around with it.
+    Actually, this very page you're just reading is a so-called [Jupyter notebook](https://jupyter-notebook.readthedocs.org/) (formerly known as [IPython notebook](http://ipython.org/notebook.html)), which means that you can view it either as a [static web page](http://nbviewer.ipython.org/urls/raw.github.com/mgeier/python-audio/master/intro-python.ipynb) or, if you have IPython installed locally, you can also open the [notebook file](http://raw.github.com/mgeier/python-audio/master/intro-python.ipynb) with Jupyter/IPython and run the code in it interactively. You can also change stuff and play around with it.
     To execute a code cell, select it by clicking on it and press Shift+Enter.
     You can step through all the cells by pressing Shift+Enter repeatedly.
+    
+    If you don't want to install Jupyter (yet), you can simply try it out online at https://try.jupyter.org/ (just click on "New" and "Python 3" or open the notebook "Welcome to Python").
 markdown
     ## Python 2 vs. 3
     
-    TODO
+    Bottom line: 
     
-    Bottom line: use Python 3!
-    The appropriate commands may be called `python3` and `ipython3` on your computer.
+    * Always use Python 3!
+    
+      * The appropriate commands may be called `python3` and `ipython3` on your computer.
+    
+    * Ignore old code examples that use `print` without parentheses.
+    
+    If you want to know more, read on.
+    If not, just jump to the next section.
+    
+    In the beginning of the year 2006 (= a long time ago), the formal process to create the new 3.x generation of the Python language was started (see [PEP 3000](https://www.python.org/dev/peps/pep-3000/)).
+    This was before the release of Python 2.5 (which came in September 2006).
+    A new version of a programming language normally isn't a big deal for casual users of the language, but in this case several fundamental changes were made which led to backwards-incompatibility between Python 2.x and Python 3.x.
+    This incompatibility is of course annoying, and to ease the pain the Python developers decided to continue supporting the 2.x series until 2015.
+    This "period of transition" was then extended until 2020.
+    
+    Many new features from the 3.x branch (those which didn't conflict with the incompatible syntax changes) were back-ported to the old 2.x branch.
+    Python 2.7 will be the last major release of the old generation, but there will be minor 2.7.x releases until 2020.
+    
+    | 2006 | 2007 | 2008 | 2009 | 2010 | 2011  | 2012  | 2013  | 2014  | 2015   | ... | 2020  | ...     |
+    |------|------|------|------|------|-------|-------|-------|-------|--------|-----|-------|---------|
+    | 2.5  |      | 2.6  |      | 2.7  | 2.7.2 | 2.7.3 | 2.7.6 | 2.7.9 | 2.7.10 | ... | 2.7.? | the end |
+    | 3.0  |      |      | 3.1  |      | 3.2   | 3.3   |       | 3.4   | 3.5    | ... | 3.?   | 3.?     |
+    
+    If you know Python 2, you should have a look at the [release notes of Python 3.0](https://docs.python.org/3/whatsnew/3.0.html) for an overview of the most important changes.
+    
+    If you are new to Python, you could theoretically ignore all this and just use the newest Python 3.x, but there may be (at least) two problems:
+    
+    * You may want to use libraries which are not yet ported to Python 3
+    
+    * You may find tutorials and other documentation which still uses Python 2
+    
+    The first problem doesn't really happen that much nowadays.
+    Most libraries support Python 3.
+    If you still find one you'll either have to search for an alternative, ask the original authors to port it to Python 3 or just try porting it yourself!
+    
+    The second problem is more likely to happen, because there is a huge amount of documentation available for Python 2.
+    Luckily, there is also a lot of documentation available for Python 3, you just have to find out which is which.
+    The easiest way to find out might be to look for `print` in the first few examples.
+    In Python 2, `print` was a *statement*, which means there was no need for parentheses:
+    
+    ```python
+    print "Hello, world!"
+    ```
+    
+    In Python 3, `print` is a *function* and therefore needs parentheses:
+    
+    ```python
+    print("Hello, world!")
+    ```
+    
+    That's it, now all you have to do is find a tutorial which uses parentheses (hint: just continue reading!).
 markdown
     ## Why "Python"?
     

@@ -95,20 +95,20 @@ markdown
     > To make sure this also works as expected in Python 2, you can convert one operand to `float` before the division or use a special `import` statement:
     >
     > ```python
-    >     1. / fs
+    > 1. / fs
     > ```
     >
     > or
     >
     > ```python
-    >     1 / float(fs)
+    > 1 / float(fs)
     > ```
     >
     > or
     >
     > ```python
-    >     from __future__ import division
-    >     1 / fs
+    > from __future__ import division
+    > 1 / fs
     > ```
     
     Let's check the type of `t`.

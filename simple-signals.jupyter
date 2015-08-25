@@ -1,8 +1,8 @@
 nbformat 4
-nbformat_minor 2
+nbformat_minor 0
 markdown
     # Generating Simple Audio Signals
-markdown
+    
     [back to main page](index.ipynb)
 markdown
     We create a simple sine wave as an introductory example using Python and NumPy.
@@ -94,15 +94,22 @@ markdown
     > Note that in Python 2 and before, the division operator works a little differently then in Python 3. Here we assume we're using the latter, where the division of two `int`s returns a `float` value (and not an `int` with the truncated result!).
     > To make sure this also works as expected in Python 2, you can convert one operand to `float` before the division or use a special `import` statement:
     >
+    > ```python
     >     1. / fs
+    > ```
     >
     > or
     >
+    > ```python
     >     1 / float(fs)
+    > ```
+    >
     > or
     >
+    > ```python
     >     from __future__ import division
     >     1 / fs
+    > ```
     
     Let's check the type of `t`.
 code 7
@@ -159,8 +166,6 @@ code 12
     plt.plot(sig)
     plt.ylim(-1.1, 1.1);
   display_data
-  - text/plain
-    <matplotlib.figure.Figure at 0x7f54268e9630>
   - image/png
     iVBORw0KGgoAAAANSUhEUgAAAYYAAAD7CAYAAABuSzNOAAAABHNCSVQICAgIfAhkiAAAAAlwSFlz
     AAALEgAACxIB0t1+/AAAD1JJREFUeJzt3W2spGV9x/Hvb/fsguADoTaLwuraiC1UU5EEKWI9tmoX
@@ -234,6 +239,8 @@ code 12
     IN2L2rvjHwv8N/CksWVzq99/iSFJasy7K0mStGAMBklSw2CQJDUMBklSw2CQJDUMBklSw2CQJDUM
     BklS4/8B1kmc/2HcHtIAAAAASUVORK5CYII=
     
+  - text/plain
+    <matplotlib.figure.Figure at 0x7f54268e9630>
   metadata
     {
      "collapsed": false
@@ -245,8 +252,6 @@ code 13
     plt.xlabel("time (samples)")
     plt.ylim(-1.1, 1.1);
   display_data
-  - text/plain
-    <matplotlib.figure.Figure at 0x7f542677f438>
   - image/png
     iVBORw0KGgoAAAANSUhEUgAAAYAAAAEKCAYAAAAb7IIBAAAABHNCSVQICAgIfAhkiAAAAAlwSFlz
     AAALEgAACxIB0t1+/AAAIABJREFUeJzt3XmYFOW1+PHvYRGRgIALyqIoKuAKghsojLIvgiiIRuOW
@@ -451,6 +456,8 @@ code 13
     iMpKdP9ciK3uZgJiLQBjjIkpawEYY0xMWQIwxpiYsgRgjDExZQnAGGNiyhKAMcbElCUAY4yJqf8D
     u9n2BJTELzUAAAAASUVORK5CYII=
     
+  - text/plain
+    <matplotlib.figure.Figure at 0x7f542677f438>
   metadata
     {
      "collapsed": false
@@ -463,8 +470,6 @@ code 14
     plt.plot(t[:200] * 1000, sig[:200])
     plt.ylim(-1.1, 1.1);
   display_data
-  - text/plain
-    <matplotlib.figure.Figure at 0x7f5426736518>
   - image/png
     iVBORw0KGgoAAAANSUhEUgAAAXoAAAD7CAYAAABkO19ZAAAABHNCSVQICAgIfAhkiAAAAAlwSFlz
     AAALEgAACxIB0t1+/AAAIABJREFUeJzt3Xl0VtXV+PHvZlRwwiKDgCKCS1BQFGiYw6SAimNfEG2t
@@ -645,6 +650,8 @@ code 14
     xhgTcb5LN8YYYzLMEr0xxkScJXpjjIk4S/TGGBNxluiNMSbiLNEbY0zEWaI3xpiIs0RvjDER9/8B
     QkFMMvhS530AAAAASUVORK5CYII=
     
+  - text/plain
+    <matplotlib.figure.Figure at 0x7f5426736518>
   metadata
     {
      "collapsed": false
@@ -658,8 +665,6 @@ code 15
     plt.xlabel("time (milliseconds)")
     plt.ylim(-1.1, 1.1);
   display_data
-  - text/plain
-    <matplotlib.figure.Figure at 0x7f54266b2be0>
   - image/png
     iVBORw0KGgoAAAANSUhEUgAAAXoAAAEZCAYAAACZwO5kAAAABHNCSVQICAgIfAhkiAAAAAlwSFlz
     AAALEgAACxIB0t1+/AAAIABJREFUeJzt3Xm8VWX1+PHPYlRQFFNAEUVEE1ScgK4yXcABUFHTvhJa
@@ -871,6 +876,8 @@ code 15
     ks5b9M45l3Ce6J1zLuE80TvnXMJ5onfOuYTzRO+ccwnnid455xLu/wPD3HdT8bLhGQAAAABJRU5E
     rkJggg==
     
+  - text/plain
+    <matplotlib.figure.Figure at 0x7f54266b2be0>
   metadata
     {
      "collapsed": false
@@ -922,8 +929,6 @@ code 20
     plt.plot(sig[:200])
     plt.ylim(-1.1, 1.1);
   display_data
-  - text/plain
-    <matplotlib.figure.Figure at 0x7f54266bd898>
   - image/png
     iVBORw0KGgoAAAANSUhEUgAAAYAAAAD7CAYAAABjVUMJAAAABHNCSVQICAgIfAhkiAAAAAlwSFlz
     AAALEgAACxIB0t1+/AAAIABJREFUeJztnXd81VWa/z8nPSGkEEhvQOg1hZCQQEIHRYoFy9jdcWZ1
@@ -1288,6 +1293,8 @@ code 20
     tU1AAoFAIFAJoQAEAoFgmCIUgEAgEAxThAIQCASCYYpQAAKBQDBMEQpAIBAIhilCAQgEAsEwRSgA
     gUAgGKb8fwrmNb8czVV8AAAAAElFTkSuQmCC
     
+  - text/plain
+    <matplotlib.figure.Figure at 0x7f54266bd898>
   metadata
     {
      "collapsed": false
@@ -1313,6 +1320,21 @@ markdown
     </p>
 metadata
     {
-     "orig_nbformat": 3,
-     "orig_nbformat_minor": 0
+     "kernelspec": {
+      "display_name": "Python 3",
+      "language": "python",
+      "name": "python3"
+     },
+     "language_info": {
+      "codemirror_mode": {
+       "name": "ipython",
+       "version": 3
+      },
+      "file_extension": ".py",
+      "mimetype": "text/x-python",
+      "name": "python",
+      "nbconvert_exporter": "python",
+      "pygments_lexer": "ipython3",
+      "version": "3.4.3+"
+     }
     }

@@ -5,7 +5,7 @@ markdown
     
     [back to main page](../index.ipynb)
 markdown
-    ## Links
+    ## External Links
     
     * SuMPF, "Sound using a Monkeyforest-like processing framework"
     
@@ -14,6 +14,46 @@ markdown
       * https://github.com/JonasSC/SuMPF
       
       * inspired by [Monkey Forest](http://www.four-audio.com/en/products/monkey-forest.html)
+markdown
+    ### Non-Python Stuff
+    
+    * WaveCapture/VariSphear by Benny Bernschütz (Matlab/Windows)
+      * http://www.audiogroup.web.fh-koeln.de/varisphear.html
+    
+    * Aliki by Fons Adriaensen
+      * http://kokkinizita.linuxaudio.org/linuxaudio/index.html#aliki
+      * http://kokkinizita.linuxaudio.org/linuxaudio/downloads/index.html
+    
+    * Aurora 4 by Angelo Farina
+      * http://www.aurora-plugins.com/Aurora_XP/index.htm
+      * Papers: http://pcfarina.eng.unipr.it/Public/Papers/list_pub_auro.htm
+    
+    * DRC: Digital Room Correction by Denis Sbragion (Matlab)
+      * http://drc-fir.sourceforge.net/
+    
+    * some experiments in Pure Data
+      * http://puredata.hurleur.com/sujet-4189-swept-sine-deconvolution
+      * http://www.pdpatchrepo.info/hurleur/Swept_sine_inverse.pd
+      
+    * ExpoChirpToolbox:  a Pure Data implementation of ESS impulse response measurement
+      * http://www.katjaas.nl/expochirp/expochirp.html
+      * http://www.uni-weimar.de/medien/wiki/PDCON:Conference/Pure_Data_implementation_of_an_ESS-based_impulse_response_acoustic_measurement_tool
+      * [pdf](https://www.uni-weimar.de/medien/wiki/images/ExpoChirpToolbox-_a_Pd_implementation_of_ESS_impulse_response_measurement.pdf)
+    
+    * Room EQ Wizard
+      * REW is a Java application for measuring room acoustics and analysing room and loudspeaker responses.
+      * http://www.hometheatershack.com/roomeq/
+    
+    * "RealSimple Project":https://ccrma.stanford.edu/realsimple/ (KTH-CCRMA)
+      * https://ccrma.stanford.edu/realsimple/imp_meas/
+      * using Pure Data and Matlab/octave
+      * publications: https://ccrma.stanford.edu/realsimple/publications/
+    
+    * ScanIR
+      * http://marl.smusic.nyu.edu/projects/scanir
+    
+    * Audio Systems Array Processing Toolbox
+      * http://www.engr.uky.edu/~donohue/audio/Arrays/MAToolbox.htm#_Calibration_and_Measurement_Functio
 markdown
     <p xmlns:dct="http://purl.org/dc/terms/">
       <a rel="license"

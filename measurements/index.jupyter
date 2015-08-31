@@ -42,6 +42,8 @@ markdown
     
     * Room EQ Wizard
       * REW is a Java application for measuring room acoustics and analysing room and loudspeaker responses.
+      * closed source
+      * http://www.roomeqwizard.com/
       * http://www.hometheatershack.com/roomeq/
     
     * "RealSimple Project":https://ccrma.stanford.edu/realsimple/ (KTH-CCRMA)

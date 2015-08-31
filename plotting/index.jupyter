@@ -2,17 +2,19 @@ nbformat 4
 nbformat_minor 0
 markdown
     # Plotting
-markdown
+    
     [back to main page](../index.ipynb)
-markdown
+    
     The de-facto standard library for plotting in Python is "matplotlib".
     
     * [Plotting with `matplotlib`](matplotlib.ipynb)
     
     * [Creating Plots for LaTeX Documents](latex.ipynb)
+    
+    * [Waterfall Plots](waterfall.ipynb)
 markdown
     ## External Links
-markdown
+    
     matplotlib: http://matplotlib.org/
     
     seaborn: http://stanford.edu/~mwaskom/software/seaborn/
@@ -22,7 +24,7 @@ markdown
     http://worksofscience.net/matplotlib/gridspec
 markdown
     ### Color Maps
-markdown
+    
     http://earthobservatory.nasa.gov/blogs/elegantfigures/2013/08/05/subtleties-of-color-part-1-of-6/  
     http://earthobservatory.nasa.gov/blogs/elegantfigures/2013/08/06/subtleties-of-color-part-2-of-6/  
     http://earthobservatory.nasa.gov/blogs/elegantfigures/2013/08/12/subtleties-of-color-part-3-of-6/  

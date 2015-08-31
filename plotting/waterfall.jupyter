@@ -1,0 +1,57 @@
+nbformat 4
+nbformat_minor 0
+markdown
+    # Creating Waterfall Plots
+    
+    [back to overview page](index.ipynb)
+    
+    Note: This is *not* about [Waterfall Charts](https://en.wikipedia.org/wiki/Waterfall_chart), which is a completely different thing.
+markdown
+    `PolyCollection` demo: http://matplotlib.org/examples/mplot3d/polys3d_demo.html
+markdown
+    ## External Links
+    
+    * question (and answer) on stackoverflow
+      * http://stackoverflow.com/questions/13240633/matplotlib-plot-pulse-propagation-in-3d
+    
+    * nice b/w example
+      * http://copper.math.buffalo.edu/438/trefethen_spectral/all_py_files/
+        * [p6.py](http://copper.math.buffalo.edu/438/trefethen_spectral/all_py_files/p6.py),
+          [output](http://copper.math.buffalo.edu/438/trefethen_spectral/all_py_files/p6.py.png),
+          [waterfall.py](http://copper.math.buffalo.edu/438/trefethen_spectral/all_py_files/waterfall.py)
+          
+    * an example with crazy colors
+      * http://austringer.net/wp/index.php/2011/05/20/plotting-a-dolphin-biosonar-click-train/
+markdown
+    <p xmlns:dct="http://purl.org/dc/terms/">
+      <a rel="license"
+         href="http://creativecommons.org/publicdomain/zero/1.0/">
+        <img src="http://i.creativecommons.org/p/zero/1.0/88x31.png" style="border-style: none;" alt="CC0" />
+      </a>
+      <br />
+      To the extent possible under law,
+      <span resource="[_:publisher]" rel="dct:publisher">
+        <span property="dct:title">Matthias Geier</span></span>
+      has waived all copyright and related or neighboring rights to
+      this work.
+    </p>
+metadata
+    {
+     "kernelspec": {
+      "display_name": "Python 3",
+      "language": "python",
+      "name": "python3"
+     },
+     "language_info": {
+      "codemirror_mode": {
+       "name": "ipython",
+       "version": 3
+      },
+      "file_extension": ".py",
+      "mimetype": "text/x-python",
+      "name": "python",
+      "nbconvert_exporter": "python",
+      "pygments_lexer": "ipython3",
+      "version": "3.4.3+"
+     }
+    }

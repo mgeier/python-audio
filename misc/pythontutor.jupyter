@@ -49,7 +49,7 @@ markdown
     As explained in the [Python Intro](../intro-python.ipynb), you shouldn't think of variables as *boxes* where you can put stuff of a certain type into.
     You should rather think of them as *labels* which you can stick onto arbitrary objects (regardless of the type of object).
 code 2
-    %%pythontutor 260
+    %%pythontutor 270
     answer = 7 * 6
     answer = "fourty-two"
   display_data
@@ -57,14 +57,14 @@ code 2
     
             <iframe
                 width="100%"
-                height="260"
-                src="http://pythontutor.com/iframe-embed.html#heapPrimitives=true&py=3&code=answer+%3D+7+%2A+6%0Aanswer+%3D+%22fourty-two%22"
+                height="270"
+                src="http://pythontutor.com/iframe-embed.html#code=answer+%3D+7+%2A+6%0Aanswer+%3D+%22fourty-two%22&py=3&heapPrimitives=true"
                 frameborder="0"
                 allowfullscreen
             ></iframe>
             
   - text/plain
-    <IPython.lib.display.IFrame at 0x7ff1802e7d68>
+    <IPython.lib.display.IFrame at 0x7f551c609518>
   metadata
     {
      "collapsed": false
@@ -92,7 +92,7 @@ markdown
 markdown
     ## Multiple References to the Same Object
 code 3
-    %%pythontutor 300
+    %%pythontutor 310
     a = "data"
     b = a
     c = d = e = "more data"
@@ -102,14 +102,14 @@ code 3
     
             <iframe
                 width="100%"
-                height="300"
-                src="http://pythontutor.com/iframe-embed.html#heapPrimitives=true&py=3&code=a+%3D+%22data%22%0Ab+%3D+a%0Ac+%3D+d+%3D+e+%3D+%22more+data%22%0Aa+%3D+e"
+                height="310"
+                src="http://pythontutor.com/iframe-embed.html#code=a+%3D+%22data%22%0Ab+%3D+a%0Ac+%3D+d+%3D+e+%3D+%22more+data%22%0Aa+%3D+e&py=3&heapPrimitives=true"
                 frameborder="0"
                 allowfullscreen
             ></iframe>
             
   - text/plain
-    <IPython.lib.display.IFrame at 0x7ff180308ac8>
+    <IPython.lib.display.IFrame at 0x7f551c633e80>
   metadata
     {
      "collapsed": false
@@ -134,7 +134,7 @@ markdown
 markdown
     ## Small Numbers are Special
 code 4
-    %%pythontutor 340
+    %%pythontutor 350
     a = 7 * 6
     b = 2 + 4 * 10
     c = 42
@@ -146,14 +146,14 @@ code 4
     
             <iframe
                 width="100%"
-                height="340"
-                src="http://pythontutor.com/iframe-embed.html#heapPrimitives=true&py=3&code=a+%3D+7+%2A+6%0Ab+%3D+2+%2B+4+%2A+10%0Ac+%3D+42%0A%0Ax+%3D+100%2A%2A2%0Ay+%3D+5000+%2B+5000"
+                height="350"
+                src="http://pythontutor.com/iframe-embed.html#code=a+%3D+7+%2A+6%0Ab+%3D+2+%2B+4+%2A+10%0Ac+%3D+42%0A%0Ax+%3D+100%2A%2A2%0Ay+%3D+5000+%2B+5000&py=3&heapPrimitives=true"
                 frameborder="0"
                 allowfullscreen
             ></iframe>
             
   - text/plain
-    <IPython.lib.display.IFrame at 0x7ff180308ac8>
+    <IPython.lib.display.IFrame at 0x7f551c633c88>
   metadata
     {
      "collapsed": false,

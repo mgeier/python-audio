@@ -1,10 +1,10 @@
 nbformat 4
-nbformat_minor 2
+nbformat_minor 0
 markdown
     # Testing Python Programs
-markdown
+    
     [back to main page](../index.ipynb)
-markdown
+    
     Due to the dynamic character of the Python language, many potential programming
     errors are only detected at runtime.
     To find some of them at an earlier stage, you should use *unit tests*,
@@ -13,11 +13,11 @@ markdown
     https://wiki.python.org/moin/PythonTestingToolsTaxonomy
 markdown
     ## Built-In Unit Testing
-markdown
+    
     [unittest](https://docs.python.org/3.4/library/unittest.html) (standard library)
 markdown
     ## Testing Frameworks
-markdown
+    
     [nose](https://nose.readthedocs.org/en/latest/)
     
     [py.test](http://pytest.org/latest/)
@@ -25,14 +25,14 @@ markdown
     [tox](http://testrun.org/tox/latest/)
 markdown
     ## Code Coverage
-markdown
+    
     https://pypi.python.org/pypi/coverage
     
     But don't try to blindly increase coverage, read this first:
     [How to Misuse Code Coverage](http://www.exampler.com/testing-com/writings/coverage.pdf)
 markdown
     ## Static Code Analysis
-markdown
+    
     [Syntax Checkers](syntax-checkers.ipynb)
 markdown
     <p xmlns:dct="http://purl.org/dc/terms/">
@@ -49,6 +49,21 @@ markdown
     </p>
 metadata
     {
-     "orig_nbformat": 3,
-     "orig_nbformat_minor": 0
+     "kernelspec": {
+      "display_name": "Python 3",
+      "language": "python",
+      "name": "python3"
+     },
+     "language_info": {
+      "codemirror_mode": {
+       "name": "ipython",
+       "version": 3
+      },
+      "file_extension": ".py",
+      "mimetype": "text/x-python",
+      "name": "python",
+      "nbconvert_exporter": "python",
+      "pygments_lexer": "ipython3",
+      "version": "3.4.3+"
+     }
     }

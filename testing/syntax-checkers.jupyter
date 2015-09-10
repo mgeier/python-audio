@@ -1,14 +1,14 @@
 nbformat 4
-nbformat_minor 2
+nbformat_minor 0
 markdown
     # Syntax Checkers
-markdown
+    
     [back to overview page](index.ipynb)
-markdown
+    
     There are several tools out there, this is just a random selection:
 markdown
     ## pylint
-markdown
+    
     Website: http://www.pylint.org/
     
     Docs: http://docs.pylint.org/
@@ -18,7 +18,7 @@ markdown
     All message codes: http://pylint-messages.wikidot.com/all-codes
     
     Google coding style: http://google-styleguide.googlecode.com/svn/trunk/pyguide.html?showone=Lint#Lint
-markdown
+    
     To show how it works, let's check the file [bad_syntax.py](files/bad_syntax.py):
 code 5
     !pylint --reports=no bad_syntax.py
@@ -36,18 +36,18 @@ code 5
     }
 markdown
     TODO: on Debian, enable Python3 support
-markdown
+    
     If a file named `pylintrc` is available in the current directory, it is used a configuration file.
     To create a default configuration file, use:
     
     ```bash
     pylint --generate-rcfile > pylintrc
     ```
-markdown
+    
     TODO: disabling selected messages
 markdown
     ## pep8
-markdown
+    
     http://pypi.python.org/pypi/pep8
     
     Checks for style conventions specified in [PEP 8](http://www.python.org/dev/peps/pep-0008/).
@@ -104,7 +104,7 @@ markdown
     TODO: disabling selected messages
 markdown
     # Text Editor Support
-markdown
+    
     Many text editors have plugins to automatically do syntax checks in the background.
     
     Here a few links for Vim-users:
@@ -129,6 +129,21 @@ markdown
     </p>
 metadata
     {
-     "orig_nbformat": 3,
-     "orig_nbformat_minor": 0
+     "kernelspec": {
+      "display_name": "Python 3",
+      "language": "python",
+      "name": "python3"
+     },
+     "language_info": {
+      "codemirror_mode": {
+       "name": "ipython",
+       "version": 3
+      },
+      "file_extension": ".py",
+      "mimetype": "text/x-python",
+      "name": "python",
+      "nbconvert_exporter": "python",
+      "pygments_lexer": "ipython3",
+      "version": "3.4.3+"
+     }
     }

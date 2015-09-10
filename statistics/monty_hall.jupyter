@@ -1,7 +1,7 @@
 nbformat 4
 nbformat_minor 0
 markdown
-    The *Monty Hall Problem* is totally unintuitive.
+    The [Monty Hall Problem](https://en.wikipedia.org/wiki/Monty_Hall_problem) is totally unintuitive.
     
     To illustrate the problem, I tried to create a program that just repeats the thing many times, showing that in the end the theoretical solution is indeed also happening "in practice".
     

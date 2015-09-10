@@ -7,6 +7,8 @@ markdown
 markdown
     ## External Links
     
+    `acoustics` module for Python: [Github](https://github.com/python-acoustics/python-acoustics), [docs](http://python-acoustics.github.io/python-acoustics/)
+    
     Waves, Acoustics and Vibration: http://mysite.du.edu/~jcalvert/waves/wavhom.htm
     
     Room modes, FEM simulation: http://blog.kaistale.com/?p=969

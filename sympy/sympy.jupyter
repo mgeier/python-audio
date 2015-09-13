@@ -1,5 +1,5 @@
 nbformat 4
-nbformat_minor 2
+nbformat_minor 0
 markdown
     # Some Random SymPy Stuff
 code 1
@@ -24,9 +24,6 @@ code 2
 code 3
     (pi + x)**2
   execute_result
-  - text/plain
-           2
-    (x + π) 
   - image/png
     iVBORw0KGgoAAAANSUhEUgAAAEgAAAAbBAMAAAAt2dQtAAAAMFBMVEX///8AAAAAAAAAAAAAAAAA
     AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAv3aB7AAAAD3RSTlMAMmYiu80QdonvRN2Z
@@ -41,6 +38,9 @@ code 3
     
   - text/latex
     $$\left(x + \pi\right)^{2}$$
+  - text/plain
+           2
+    (x + π) 
   metadata
     {
      "collapsed": false
@@ -49,9 +49,6 @@ code 4
     eq = ((x + y)**2 * (x + 1))
     eq
   execute_result
-  - text/plain
-                   2
-    (x + 1)⋅(x + y) 
   - image/png
     iVBORw0KGgoAAAANSUhEUgAAAIoAAAAbBAMAAABRkwqxAAAAMFBMVEX///8AAAAAAAAAAAAAAAAA
     AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAv3aB7AAAAD3RSTlMAMmYiu80QdonvRN2Z
@@ -69,6 +66,9 @@ code 4
     
   - text/latex
     $$\left(x + 1\right) \left(x + y\right)^{2}$$
+  - text/plain
+                   2
+    (x + 1)⋅(x + y) 
   metadata
     {
      "collapsed": false
@@ -76,9 +76,6 @@ code 4
 code 5
     expand(eq)
   execute_result
-  - text/plain
-     3      2      2      2            2
-    x  + 2⋅x ⋅y + x  + x⋅y  + 2⋅x⋅y + y 
   - image/png
     iVBORw0KGgoAAAANSUhEUgAAASgAAAAYBAMAAAC7JH0zAAAAMFBMVEX///8AAAAAAAAAAAAAAAAA
     AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAv3aB7AAAAD3RSTlMAEHarIkSJZt3NVLsy
@@ -101,6 +98,9 @@ code 5
     
   - text/latex
     $$x^{3} + 2 x^{2} y + x^{2} + x y^{2} + 2 x y + y^{2}$$
+  - text/plain
+     3      2      2      2            2
+    x  + 2⋅x ⋅y + x  + x⋅y  + 2⋅x⋅y + y 
   metadata
     {
      "collapsed": false
@@ -108,12 +108,6 @@ code 5
 code 6
     diff(cos(x**2)**2 / (1 + x), x)
   execute_result
-  - text/plain
-             ⎛ 2⎞    ⎛ 2⎞      2⎛ 2⎞
-      4⋅x⋅sin⎝x ⎠⋅cos⎝x ⎠   cos ⎝x ⎠
-    - ─────────────────── - ────────
-             x + 1                 2
-                            (x + 1) 
   - image/png
     iVBORw0KGgoAAAANSUhEUgAAASoAAAA4BAMAAAC4fag4AAAAMFBMVEX///8AAAAAAAAAAAAAAAAA
     AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAv3aB7AAAAD3RSTlMAEM3dMpm7du8iZolU
@@ -148,6 +142,12 @@ code 6
     
   - text/latex
     $$- \frac{4 x \cos{\left (x^{2} \right )}}{x + 1} \sin{\left (x^{2} \right )} - \frac{\cos^{2}{\left (x^{2} \right )}}{\left(x + 1\right)^{2}}$$
+  - text/plain
+             ⎛ 2⎞    ⎛ 2⎞      2⎛ 2⎞
+      4⋅x⋅sin⎝x ⎠⋅cos⎝x ⎠   cos ⎝x ⎠
+    - ─────────────────── - ────────
+             x + 1                 2
+                            (x + 1) 
   metadata
     {
      "collapsed": false
@@ -165,8 +165,6 @@ code 7
 code 8
     exp(I * pi)
   execute_result
-  - text/plain
-    -1
   - image/png
     iVBORw0KGgoAAAANSUhEUgAAABgAAAAPBAMAAAAMihLoAAAAJ1BMVEX///8AAAAAAAAAAAAAAAAA
     AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAilU6eAAAADHRSTlMAEM3dMiK7mat272a9noTYAAAACXBI
@@ -175,6 +173,8 @@ code 8
     
   - text/latex
     $$-1$$
+  - text/plain
+    -1
   metadata
     {
      "collapsed": false
@@ -182,8 +182,6 @@ code 8
 code 9
     oo
   execute_result
-  - text/plain
-    ∞
   - image/png
     iVBORw0KGgoAAAANSUhEUgAAABMAAAALBAMAAABv+6sJAAAALVBMVEX///8AAAAAAAAAAAAAAAAA
     AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADAOrOgAAAADnRSTlMAEKvvZom7mXYyzVQiRHuO
@@ -193,6 +191,8 @@ code 9
     
   - text/latex
     $$\infty$$
+  - text/plain
+    ∞
   metadata
     {
      "collapsed": false
@@ -206,8 +206,6 @@ code 10
 code 11
     expand(sin(a + b), trig=True)
   execute_result
-  - text/plain
-    sin(a)⋅cos(b) + sin(b)⋅cos(a)
   - image/png
     iVBORw0KGgoAAAANSUhEUgAAAP8AAAAVBAMAAAB7+SUdAAAAMFBMVEX///8AAAAAAAAAAAAAAAAA
     AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAv3aB7AAAAD3RSTlMAMnZUzRC73UTviSKZ
@@ -234,6 +232,8 @@ code 11
     
   - text/latex
     $$\sin{\left (a \right )} \cos{\left (b \right )} + \sin{\left (b \right )} \cos{\left (a \right )}$$
+  - text/plain
+    sin(a)⋅cos(b) + sin(b)⋅cos(a)
   metadata
     {
      "collapsed": false
@@ -241,8 +241,6 @@ code 11
 code 12
     simplify(sin(x)**2 + cos(x)**2)
   execute_result
-  - text/plain
-    1
   - image/png
     iVBORw0KGgoAAAANSUhEUgAAAAgAAAAPBAMAAAArJJMAAAAAJFBMVEX///8AAAAAAAAAAAAAAAAA
     AAAAAAAAAAAAAAAAAAAAAAAAAADHJj5lAAAAC3RSTlMAzRAiu5mrdu/dZmiL4QAAAAAJcEhZcwAA
@@ -251,6 +249,8 @@ code 12
     
   - text/latex
     $$1$$
+  - text/plain
+    1
   metadata
     {
      "collapsed": false
@@ -258,8 +258,6 @@ code 12
 code 13
     factor(x**3 + 6 * x**2 + 11*x + 6)
   execute_result
-  - text/plain
-    (x + 1)⋅(x + 2)⋅(x + 3)
   - image/png
     iVBORw0KGgoAAAANSUhEUgAAAMEAAAAVBAMAAAANw5eWAAAAMFBMVEX///8AAAAAAAAAAAAAAAAA
     AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAv3aB7AAAAD3RSTlMAMmYiu80QdonvRN2Z
@@ -280,6 +278,8 @@ code 13
     
   - text/latex
     $$\left(x + 1\right) \left(x + 2\right) \left(x + 3\right)$$
+  - text/plain
+    (x + 1)⋅(x + 2)⋅(x + 3)
   metadata
     {
      "collapsed": false
@@ -287,10 +287,6 @@ code 13
 code 14
     simplify(cos(x)/sin(x))
   execute_result
-  - text/plain
-      1   
-    ──────
-    tan(x)
   - image/png
     iVBORw0KGgoAAAANSUhEUgAAAD4AAAAvBAMAAABJZWRJAAAAMFBMVEX///8AAAAAAAAAAAAAAAAA
     AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAv3aB7AAAAD3RSTlMAzRAiu5mrdu/dZkRU
@@ -305,6 +301,10 @@ code 14
     
   - text/latex
     $$\frac{1}{\tan{\left (x \right )}}$$
+  - text/plain
+      1   
+    ──────
+    tan(x)
   metadata
     {
      "collapsed": false
@@ -313,10 +313,6 @@ code 15
     f1 = 1 / ((a + 1) * (a + 2))
     f1
   execute_result
-  - text/plain
-           1       
-    ───────────────
-    (a + 1)⋅(a + 2)
   - image/png
     iVBORw0KGgoAAAANSUhEUgAAAIIAAAAvBAMAAADdrw/+AAAAMFBMVEX///8AAAAAAAAAAAAAAAAA
     AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAv3aB7AAAAD3RSTlMAzRAiu5mrdu/dZjKJ
@@ -334,6 +330,10 @@ code 15
     
   - text/latex
     $$\frac{1}{\left(a + 1\right) \left(a + 2\right)}$$
+  - text/plain
+           1       
+    ───────────────
+    (a + 1)⋅(a + 2)
   metadata
     {
      "collapsed": false
@@ -341,10 +341,6 @@ code 15
 code 16
     apart(f1)
   execute_result
-  - text/plain
-        1       1  
-    - ───── + ─────
-      a + 2   a + 1
   - image/png
     iVBORw0KGgoAAAANSUhEUgAAAI4AAAAsBAMAAABBB53eAAAAMFBMVEX///8AAAAAAAAAAAAAAAAA
     AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAv3aB7AAAAD3RSTlMAEM3dMiK7mat272aJ
@@ -360,6 +356,10 @@ code 16
     
   - text/latex
     $$- \frac{1}{a + 2} + \frac{1}{a + 1}$$
+  - text/plain
+        1       1  
+    - ───── + ─────
+      a + 2   a + 1
   metadata
     {
      "collapsed": false
@@ -369,8 +369,6 @@ code 17
     f = sin(x*y) + cos(y*z)
     f
   execute_result
-  - text/plain
-    sin(x⋅y) + cos(y⋅z)
   - image/png
     iVBORw0KGgoAAAANSUhEUgAAAKAAAAAVBAMAAAAz5vjYAAAAMFBMVEX///8AAAAAAAAAAAAAAAAA
     AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAv3aB7AAAAD3RSTlMAMnZUzRC73UTviSKZ
@@ -391,6 +389,8 @@ code 17
     
   - text/latex
     $$\sin{\left (x y \right )} + \cos{\left (y z \right )}$$
+  - text/plain
+    sin(x⋅y) + cos(y⋅z)
   metadata
     {
      "collapsed": false
@@ -398,12 +398,6 @@ code 17
 code 18
     integrate(f, x)
   execute_result
-  - text/plain
-                 ⎛⎧    0       for y = 0⎞
-                 ⎜⎪                     ⎟
-    x⋅cos(y⋅z) + ⎜⎨-cos(x⋅y)            ⎟
-                 ⎜⎪──────────  otherwise⎟
-                 ⎝⎩    y                ⎠
   - image/png
     iVBORw0KGgoAAAANSUhEUgAAAVAAAAA/BAMAAABEE43RAAAAMFBMVEX///8AAAAAAAAAAAAAAAAA
     AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAv3aB7AAAAD3RSTlMAEHarIkSJZt3NVLsy
@@ -442,6 +436,12 @@ code 18
     
   - text/latex
     $$x \cos{\left (y z \right )} + \begin{cases} 0 & \text{for}\: y = 0 \\- \frac{1}{y} \cos{\left (x y \right )} & \text{otherwise} \end{cases}$$
+  - text/plain
+                 ⎛⎧    0       for y = 0⎞
+                 ⎜⎪                     ⎟
+    x⋅cos(y⋅z) + ⎜⎨-cos(x⋅y)            ⎟
+                 ⎜⎪──────────  otherwise⎟
+                 ⎝⎩    y                ⎠
   metadata
     {
      "collapsed": false
@@ -449,11 +449,6 @@ code 18
 code 19
     integrate(exp(-x**2), x)
   execute_result
-  - text/plain
-      ___       
-    ╲╱ π ⋅erf(x)
-    ────────────
-         2      
   - image/png
     iVBORw0KGgoAAAANSUhEUgAAAFoAAAAtBAMAAADcoWFIAAAAMFBMVEX///8AAAAAAAAAAAAAAAAA
     AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAv3aB7AAAAD3RSTlMAInarRM2ZVBDdiWbv
@@ -472,6 +467,11 @@ code 19
     
   - text/latex
     $$\frac{\sqrt{\pi}}{2} \operatorname{erf}{\left (x \right )}$$
+  - text/plain
+      ___       
+    ╲╱ π ⋅erf(x)
+    ────────────
+         2      
   metadata
     {
      "collapsed": false
@@ -479,9 +479,6 @@ code 19
 code 20
     integrate(exp(-x**2), (x, -oo, oo))
   execute_result
-  - text/plain
-      ___
-    ╲╱ π 
   - image/png
     iVBORw0KGgoAAAANSUhEUgAAAB0AAAAVBAMAAABI7vhRAAAAMFBMVEX///8AAAAAAAAAAAAAAAAA
     AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAv3aB7AAAAD3RSTlMAInarRM2ZVBDdiWbv
@@ -492,6 +489,9 @@ code 20
     
   - text/latex
     $$\sqrt{\pi}$$
+  - text/plain
+      ___
+    ╲╱ π 
   metadata
     {
      "collapsed": false
@@ -499,11 +499,6 @@ code 20
 code 21
     integrate(x + sinh(x), x)
   execute_result
-  - text/plain
-     2          
-    x           
-    ── + cosh(x)
-    2           
   - image/png
     iVBORw0KGgoAAAANSUhEUgAAAHYAAAAvBAMAAADECCMdAAAAMFBMVEX///8AAAAAAAAAAAAAAAAA
     AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAv3aB7AAAAD3RSTlMAEHarIkSJZt3NVLsy
@@ -522,6 +517,11 @@ code 21
     
   - text/latex
     $$\frac{x^{2}}{2} + \cosh{\left (x \right )}$$
+  - text/plain
+     2          
+    x           
+    ── + cosh(x)
+    2           
   metadata
     {
      "collapsed": false
@@ -529,8 +529,6 @@ code 21
 code 22
     diff(_, x)
   execute_result
-  - text/plain
-    x + sinh(x)
   - image/png
     iVBORw0KGgoAAAANSUhEUgAAAGgAAAAVBAMAAABYjraNAAAAMFBMVEX///8AAAAAAAAAAAAAAAAA
     AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAv3aB7AAAAD3RSTlMAEHarIkSJZt3NVLsy
@@ -545,6 +543,8 @@ code 22
     
   - text/latex
     $$x + \sinh{\left (x \right )}$$
+  - text/plain
+    x + sinh(x)
   metadata
     {
      "collapsed": false
@@ -552,8 +552,6 @@ code 22
 code 23
     limit(sin(pi * x) / x, x, 0)
   execute_result
-  - text/plain
-    π
   - image/png
     iVBORw0KGgoAAAANSUhEUgAAAAwAAAAJBAMAAAD0ltBnAAAALVBMVEX///8AAAAAAAAAAAAAAAAA
     AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADAOrOgAAAADnRSTlMAdpmJMlQiZrurEN1E71u8
@@ -562,6 +560,8 @@ code 23
     
   - text/latex
     $$\pi$$
+  - text/plain
+    π
   metadata
     {
      "collapsed": false
@@ -570,10 +570,6 @@ code 24
     e = 1/(x + y)
     e
   execute_result
-  - text/plain
-      1  
-    ─────
-    x + y
   - image/png
     iVBORw0KGgoAAAANSUhEUgAAADEAAAAuBAMAAABzMuxhAAAAMFBMVEX///8AAAAAAAAAAAAAAAAA
     AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAv3aB7AAAAD3RSTlMAzRAiu5mrdu/dZkSJ
@@ -585,6 +581,10 @@ code 24
     
   - text/latex
     $$\frac{1}{x + y}$$
+  - text/plain
+      1  
+    ─────
+    x + y
   metadata
     {
      "collapsed": false
@@ -592,12 +592,6 @@ code 24
 code 25
     e.series(x)
   execute_result
-  - text/plain
-              2    3    4    5        
-    1   x    x    x    x    x     ⎛ 6⎞
-    ─ - ── + ── - ── + ── - ── + O⎝x ⎠
-    y    2    3    4    5    6        
-        y    y    y    y    y         
   - image/png
     iVBORw0KGgoAAAANSUhEUgAAAWIAAAAzBAMAAABf1x+vAAAAMFBMVEX///8AAAAAAAAAAAAAAAAA
     AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAv3aB7AAAAD3RSTlMAzRAiu5mrdu/dZolU
@@ -632,6 +626,12 @@ code 25
     
   - text/latex
     $$\frac{1}{y} - \frac{x}{y^{2}} + \frac{x^{2}}{y^{3}} - \frac{x^{3}}{y^{4}} + \frac{x^{4}}{y^{5}} - \frac{x^{5}}{y^{6}} + \mathcal{O}\left(x^{6}\right)$$
+  - text/plain
+              2    3    4    5        
+    1   x    x    x    x    x     ⎛ 6⎞
+    ─ - ── + ── - ── + ── - ── + O⎝x ⎠
+    y    2    3    4    5    6        
+        y    y    y    y    y         
   metadata
     {
      "collapsed": false
@@ -639,11 +639,6 @@ code 25
 code 26
     series(exp(x), x)
   execute_result
-  - text/plain
-             2    3    4     5        
-            x    x    x     x     ⎛ 6⎞
-    1 + x + ── + ── + ── + ─── + O⎝x ⎠
-            2    6    24   120        
   - image/png
     iVBORw0KGgoAAAANSUhEUgAAAVoAAAAwBAMAAACiZ6/NAAAAMFBMVEX///8AAAAAAAAAAAAAAAAA
     AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAv3aB7AAAAD3RSTlMAzRAiu5mrdu/dZlSJ
@@ -677,6 +672,11 @@ code 26
     
   - text/latex
     $$1 + x + \frac{x^{2}}{2} + \frac{x^{3}}{6} + \frac{x^{4}}{24} + \frac{x^{5}}{120} + \mathcal{O}\left(x^{6}\right)$$
+  - text/plain
+             2    3    4     5        
+            x    x    x     x     ⎛ 6⎞
+    1 + x + ── + ── + ── + ─── + O⎝x ⎠
+            2    6    24   120        
   metadata
     {
      "collapsed": false
@@ -684,9 +684,6 @@ code 26
 code 27
     pi.evalf(100)
   execute_result
-  - text/plain
-    3.1415926535897932384626433832795028841971693993751058209749445923078164062862
-    08998628034825342117068
   - image/png
     iVBORw0KGgoAAAANSUhEUgAABBIAAAAPBAMAAACrcfGjAAAAMFBMVEX///8AAAAAAAAAAAAAAAAA
     AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAv3aB7AAAAD3RSTlMAIom7VJlmdt1E7xDN
@@ -744,6 +741,9 @@ code 27
     
   - text/latex
     $$3.141592653589793238462643383279502884197169399375105820974944592307816406286208998628034825342117068$$
+  - text/plain
+    3.1415926535897932384626433832795028841971693993751058209749445923078164062862
+    08998628034825342117068
   metadata
     {
      "collapsed": false
@@ -751,12 +751,6 @@ code 27
 code 28
     solve(x**4 - x**2 - 1, x)
   execute_result
-  - text/plain
-    ⎡     ___________⎤
-    ⎢    ╱       ___ ⎥
-    ⎢   ╱  1   ╲╱ 5  ⎥
-    ⎢  ╱   ─ + ───── ⎥
-    ⎣╲╱    2     2   ⎦
   - image/png
     iVBORw0KGgoAAAANSUhEUgAAAGIAAAAmBAMAAADNQlNHAAAAMFBMVEX///8AAAAAAAAAAAAAAAAA
     AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAv3aB7AAAAD3RSTlMAEO+Zu3ZEIondVKsy
@@ -775,6 +769,12 @@ code 28
     
   - text/latex
     $$\begin{bmatrix}\sqrt{\frac{1}{2} + \frac{\sqrt{5}}{2}}\end{bmatrix}$$
+  - text/plain
+    ⎡     ___________⎤
+    ⎢    ╱       ___ ⎥
+    ⎢   ╱  1   ╲╱ 5  ⎥
+    ⎢  ╱   ─ + ───── ⎥
+    ⎣╲╱    2     2   ⎦
   metadata
     {
      "collapsed": false
@@ -782,8 +782,6 @@ code 28
 code 29
     solve([x + y - 1, x - y - 1], [x,y])
   execute_result
-  - text/plain
-    {x: 1, y: 0}
   - image/png
     iVBORw0KGgoAAAANSUhEUgAAAH0AAAAaBAMAAABoX070AAAAMFBMVEX///8AAAAAAAAAAAAAAAAA
     AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAv3aB7AAAAD3RSTlMAMolUmc0idhCru+9m
@@ -800,6 +798,8 @@ code 29
     
   - text/latex
     $$\begin{Bmatrix}x : 1, & y : 0\end{Bmatrix}$$
+  - text/plain
+    {x: 1, y: 0}
   metadata
     {
      "collapsed": false
@@ -807,10 +807,6 @@ code 29
 code 30
     solve([x + y - a, x - y - c], [x,y])
   execute_result
-  - text/plain
-    ⎧   a   c     a   c⎫
-    ⎨x: ─ + ─, y: ─ - ─⎬
-    ⎩   2   2     2   2⎭
   - image/png
     iVBORw0KGgoAAAANSUhEUgAAANEAAAAaBAMAAADbO6SrAAAAMFBMVEX///8AAAAAAAAAAAAAAAAA
     AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAv3aB7AAAAD3RSTlMAMolUmc0idhCru+9m
@@ -832,6 +828,10 @@ code 30
     
   - text/latex
     $$\begin{Bmatrix}x : \frac{a}{2} + \frac{c}{2}, & y : \frac{a}{2} - \frac{c}{2}\end{Bmatrix}$$
+  - text/plain
+    ⎧   a   c     a   c⎫
+    ⎨x: ─ + ─, y: ─ - ─⎬
+    ⎩   2   2     2   2⎭
   metadata
     {
      "collapsed": false
@@ -839,8 +839,6 @@ code 30
 code 31
     var('m:q')
   execute_result
-  - text/plain
-    (m, n, o, p, q)
   - image/png
     iVBORw0KGgoAAAANSUhEUgAAALQAAAAaBAMAAADs9WufAAAAMFBMVEX///8AAAAAAAAAAAAAAAAA
     AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAv3aB7AAAAD3RSTlMAMkS7zRCZdiKJ71Rm
@@ -858,6 +856,8 @@ code 31
     
   - text/latex
     $$\begin{pmatrix}m, & n, & o, & p, & q\end{pmatrix}$$
+  - text/plain
+    (m, n, o, p, q)
   metadata
     {
      "collapsed": false
@@ -865,8 +865,6 @@ code 31
 code 32
     var('r:5')
   execute_result
-  - text/plain
-    (r₀, r₁, r₂, r₃, r₄)
   - image/png
     iVBORw0KGgoAAAANSUhEUgAAANUAAAAaBAMAAADS0ATRAAAAMFBMVEX///8AAAAAAAAAAAAAAAAA
     AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAv3aB7AAAAD3RSTlMAMkS7zRCZdiKJ71Rm
@@ -885,6 +883,8 @@ code 32
     
   - text/latex
     $$\begin{pmatrix}r_{0}, & r_{1}, & r_{2}, & r_{3}, & r_{4}\end{pmatrix}$$
+  - text/plain
+    (r₀, r₁, r₂, r₃, r₄)
   metadata
     {
      "collapsed": false
@@ -894,10 +894,6 @@ code 33
     M = Matrix([[1, m], [3, 4]])
     M
   execute_result
-  - text/plain
-    ⎡1  m⎤
-    ⎢    ⎥
-    ⎣3  4⎦
   - image/png
     iVBORw0KGgoAAAANSUhEUgAAAD0AAAAyBAMAAAAdGs4PAAAAMFBMVEX///8AAAAAAAAAAAAAAAAA
     AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAv3aB7AAAAD3RSTlMA74lUMhDNIruZq3bd
@@ -912,6 +908,10 @@ code 33
     
   - text/latex
     $$\left[\begin{matrix}1 & m\\3 & 4\end{matrix}\right]$$
+  - text/plain
+    ⎡1  m⎤
+    ⎢    ⎥
+    ⎣3  4⎦
   metadata
     {
      "collapsed": false
@@ -919,14 +919,6 @@ code 33
 code 34
     M.inv()
   execute_result
-  - text/plain
-    ⎡  3⋅m           -m    ⎤
-    ⎢──────── + 1  ────────⎥
-    ⎢-3⋅m + 4      -3⋅m + 4⎥
-    ⎢                      ⎥
-    ⎢    -3           1    ⎥
-    ⎢  ────────    ────────⎥
-    ⎣  -3⋅m + 4    -3⋅m + 4⎦
   - image/png
     iVBORw0KGgoAAAANSUhEUgAAANEAAAA3BAMAAABgCbJDAAAAMFBMVEX///8AAAAAAAAAAAAAAAAA
     AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAv3aB7AAAAD3RSTlMA74lUMhB2q5lmu80i
@@ -950,6 +942,14 @@ code 34
     
   - text/latex
     $$\left[\begin{matrix}\frac{3 m}{- 3 m + 4} + 1 & - \frac{m}{- 3 m + 4}\\- \frac{3}{- 3 m + 4} & \frac{1}{- 3 m + 4}\end{matrix}\right]$$
+  - text/plain
+    ⎡  3⋅m           -m    ⎤
+    ⎢──────── + 1  ────────⎥
+    ⎢-3⋅m + 4      -3⋅m + 4⎥
+    ⎢                      ⎥
+    ⎢    -3           1    ⎥
+    ⎢  ────────    ────────⎥
+    ⎣  -3⋅m + 4    -3⋅m + 4⎦
   metadata
     {
      "collapsed": false
@@ -960,10 +960,6 @@ code 35
     A = Matrix([[m11, m12],[m21, m22]])
     A
   execute_result
-  - text/plain
-    ⎡m₁₁  m₁₂⎤
-    ⎢        ⎥
-    ⎣m₂₁  m₂₂⎦
   - image/png
     iVBORw0KGgoAAAANSUhEUgAAAGgAAAAyBAMAAABCJ4MDAAAAMFBMVEX///8AAAAAAAAAAAAAAAAA
     AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAv3aB7AAAAD3RSTlMA74lUMhBEqyJ2u93N
@@ -979,6 +975,10 @@ code 35
     
   - text/latex
     $$\left[\begin{matrix}m_{11} & m_{12}\\m_{21} & m_{22}\end{matrix}\right]$$
+  - text/plain
+    ⎡m₁₁  m₁₂⎤
+    ⎢        ⎥
+    ⎣m₂₁  m₂₂⎦
   metadata
     {
      "collapsed": false
@@ -987,10 +987,6 @@ code 36
     b = Matrix([[b1], [b2]])
     b
   execute_result
-  - text/plain
-    ⎡b₁⎤
-    ⎢  ⎥
-    ⎣b₂⎦
   - image/png
     iVBORw0KGgoAAAANSUhEUgAAAB4AAAAyBAMAAAC5cHbcAAAAMFBMVEX///8AAAAAAAAAAAAAAAAA
     AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAv3aB7AAAAD3RSTlMA74lUMhC73c2rRHaZ
@@ -1003,6 +999,10 @@ code 36
     
   - text/latex
     $$\left[\begin{matrix}b_{1}\\b_{2}\end{matrix}\right]$$
+  - text/plain
+    ⎡b₁⎤
+    ⎢  ⎥
+    ⎣b₂⎦
   metadata
     {
      "collapsed": false
@@ -1010,12 +1010,6 @@ code 36
 code 37
     A**2
   execute_result
-  - text/plain
-    ⎡    2                               ⎤
-    ⎢ m₁₁  + m₁₂⋅m₂₁    m₁₁⋅m₁₂ + m₁₂⋅m₂₂⎥
-    ⎢                                    ⎥
-    ⎢                                 2  ⎥
-    ⎣m₁₁⋅m₂₁ + m₂₁⋅m₂₂   m₁₂⋅m₂₁ + m₂₂   ⎦
   - image/png
     iVBORw0KGgoAAAANSUhEUgAAAXIAAAAzBAMAAAB4eZ5HAAAAMFBMVEX///8AAAAAAAAAAAAAAAAA
     AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAv3aB7AAAAD3RSTlMA74lUMhBEqyJ2u93N
@@ -1047,6 +1041,12 @@ code 37
     
   - text/latex
     $$\left[\begin{matrix}m_{11}^{2} + m_{12} m_{21} & m_{11} m_{12} + m_{12} m_{22}\\m_{11} m_{21} + m_{21} m_{22} & m_{12} m_{21} + m_{22}^{2}\end{matrix}\right]$$
+  - text/plain
+    ⎡    2                               ⎤
+    ⎢ m₁₁  + m₁₂⋅m₂₁    m₁₁⋅m₁₂ + m₁₂⋅m₂₂⎥
+    ⎢                                    ⎥
+    ⎢                                 2  ⎥
+    ⎣m₁₁⋅m₂₁ + m₂₁⋅m₂₂   m₁₂⋅m₂₁ + m₂₂   ⎦
   metadata
     {
      "collapsed": false
@@ -1054,10 +1054,6 @@ code 37
 code 38
     A * b
   execute_result
-  - text/plain
-    ⎡b₁⋅m₁₁ + b₂⋅m₁₂⎤
-    ⎢               ⎥
-    ⎣b₁⋅m₂₁ + b₂⋅m₂₂⎦
   - image/png
     iVBORw0KGgoAAAANSUhEUgAAAJEAAAAyBAMAAACufiRQAAAAMFBMVEX///8AAAAAAAAAAAAAAAAA
     AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAv3aB7AAAAD3RSTlMA74lUMhC73c2rRHaZ
@@ -1077,6 +1073,10 @@ code 38
     
   - text/latex
     $$\left[\begin{matrix}b_{1} m_{11} + b_{2} m_{12}\\b_{1} m_{21} + b_{2} m_{22}\end{matrix}\right]$$
+  - text/plain
+    ⎡b₁⋅m₁₁ + b₂⋅m₁₂⎤
+    ⎢               ⎥
+    ⎣b₁⋅m₂₁ + b₂⋅m₂₂⎦
   metadata
     {
      "collapsed": false
@@ -1084,8 +1084,6 @@ code 38
 code 39
     A.det()
   execute_result
-  - text/plain
-    m₁₁⋅m₂₂ - m₁₂⋅m₂₁
   - image/png
     iVBORw0KGgoAAAANSUhEUgAAAKYAAAAMBAMAAAAaIdvMAAAAMFBMVEX///8AAAAAAAAAAAAAAAAA
     AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAv3aB7AAAAD3RSTlMARImrIna7EFTvMt3N
@@ -1101,6 +1099,8 @@ code 39
     
   - text/latex
     $$m_{11} m_{22} - m_{12} m_{21}$$
+  - text/plain
+    m₁₁⋅m₂₂ - m₁₂⋅m₂₁
   metadata
     {
      "collapsed": false
@@ -1108,18 +1108,6 @@ code 39
 code 40
     A.inv()
   execute_result
-  - text/plain
-    ⎡ 1          m₁₂⋅m₂₁                -m₁₂        ⎤
-    ⎢─── + ────────────────────  ───────────────────⎥
-    ⎢m₁₁      2 ⎛      m₁₂⋅m₂₁⎞      ⎛      m₁₂⋅m₂₁⎞⎥
-    ⎢      m₁₁ ⋅⎜m₂₂ - ───────⎟  m₁₁⋅⎜m₂₂ - ───────⎟⎥
-    ⎢           ⎝        m₁₁  ⎠      ⎝        m₁₁  ⎠⎥
-    ⎢                                               ⎥
-    ⎢          -m₂₁                       1         ⎥
-    ⎢   ───────────────────         ─────────────   ⎥
-    ⎢       ⎛      m₁₂⋅m₂₁⎞               m₁₂⋅m₂₁   ⎥
-    ⎢   m₁₁⋅⎜m₂₂ - ───────⎟         m₂₂ - ───────   ⎥
-    ⎣       ⎝        m₁₁  ⎠                 m₁₁     ⎦
   - image/png
     iVBORw0KGgoAAAANSUhEUgAAAa4AAABSCAMAAAA7DMB+AAAAPFBMVEX///8AAAAAAAAAAAAAAAAA
     AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAo1xBWAAAAE3RSTlMA
@@ -1168,6 +1156,18 @@ code 40
     
   - text/latex
     $$\left[\begin{matrix}\frac{1}{m_{11}} + \frac{m_{12} m_{21}}{m_{11}^{2} \left(m_{22} - \frac{m_{12} m_{21}}{m_{11}}\right)} & - \frac{m_{12}}{m_{11} \left(m_{22} - \frac{m_{12} m_{21}}{m_{11}}\right)}\\- \frac{m_{21}}{m_{11} \left(m_{22} - \frac{m_{12} m_{21}}{m_{11}}\right)} & \frac{1}{m_{22} - \frac{m_{12} m_{21}}{m_{11}}}\end{matrix}\right]$$
+  - text/plain
+    ⎡ 1          m₁₂⋅m₂₁                -m₁₂        ⎤
+    ⎢─── + ────────────────────  ───────────────────⎥
+    ⎢m₁₁      2 ⎛      m₁₂⋅m₂₁⎞      ⎛      m₁₂⋅m₂₁⎞⎥
+    ⎢      m₁₁ ⋅⎜m₂₂ - ───────⎟  m₁₁⋅⎜m₂₂ - ───────⎟⎥
+    ⎢           ⎝        m₁₁  ⎠      ⎝        m₁₁  ⎠⎥
+    ⎢                                               ⎥
+    ⎢          -m₂₁                       1         ⎥
+    ⎢   ───────────────────         ─────────────   ⎥
+    ⎢       ⎛      m₁₂⋅m₂₁⎞               m₁₂⋅m₂₁   ⎥
+    ⎢   m₁₁⋅⎜m₂₂ - ───────⎟         m₂₂ - ───────   ⎥
+    ⎣       ⎝        m₁₁  ⎠                 m₁₁     ⎦
   metadata
     {
      "collapsed": false
@@ -1178,14 +1178,6 @@ code 41
     M = Matrix(4, 4, lambda i, j: i * j + 1)
     M
   execute_result
-  - text/plain
-    ⎡1  1  1  1 ⎤
-    ⎢           ⎥
-    ⎢1  2  3  4 ⎥
-    ⎢           ⎥
-    ⎢1  3  5  7 ⎥
-    ⎢           ⎥
-    ⎣1  4  7  10⎦
   - image/png
     iVBORw0KGgoAAAANSUhEUgAAAIIAAABkCAMAAAB9wBhQAAAAP1BMVEX///8AAAAAAAAAAAAAAAAA
     AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADFBd4eAAAAFHRS
@@ -1213,6 +1205,14 @@ code 41
     
   - text/latex
     $$\left[\begin{matrix}1 & 1 & 1 & 1\\1 & 2 & 3 & 4\\1 & 3 & 5 & 7\\1 & 4 & 7 & 10\end{matrix}\right]$$
+  - text/plain
+    ⎡1  1  1  1 ⎤
+    ⎢           ⎥
+    ⎢1  2  3  4 ⎥
+    ⎢           ⎥
+    ⎢1  3  5  7 ⎥
+    ⎢           ⎥
+    ⎣1  4  7  10⎦
   metadata
     {
      "collapsed": false
@@ -1220,10 +1220,6 @@ code 41
 code 42
     M.eigenvals()
   execute_result
-  - text/plain
-    ⎧          ____           ____       ⎫
-    ⎨0: 2, - ╲╱ 61  + 9: 1, ╲╱ 61  + 9: 1⎬
-    ⎩                                    ⎭
   - image/png
     iVBORw0KGgoAAAANSUhEUgAAAUoAAAAaBAMAAAAj/gh1AAAAMFBMVEX///8AAAAAAAAAAAAAAAAA
     AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAv3aB7AAAAD3RSTlMAMolUmc0idhCru+9m
@@ -1246,6 +1242,10 @@ code 42
     
   - text/latex
     $$\begin{Bmatrix}0 : 2, & - \sqrt{61} + 9 : 1, & \sqrt{61} + 9 : 1\end{Bmatrix}$$
+  - text/plain
+    ⎧          ____           ____       ⎫
+    ⎨0: 2, - ╲╱ 61  + 9: 1, ╲╱ 61  + 9: 1⎬
+    ⎩                                    ⎭
   metadata
     {
      "collapsed": false
@@ -1254,14 +1254,6 @@ code 43
     M = Matrix(4, 4, lambda i, j: i * j + 2)
     M
   execute_result
-  - text/plain
-    ⎡2  2  2  2 ⎤
-    ⎢           ⎥
-    ⎢2  3  4  5 ⎥
-    ⎢           ⎥
-    ⎢2  4  6  8 ⎥
-    ⎢           ⎥
-    ⎣2  5  8  11⎦
   - image/png
     iVBORw0KGgoAAAANSUhEUgAAAIIAAABkCAMAAAB9wBhQAAAAP1BMVEX///8AAAAAAAAAAAAAAAAA
     AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADFBd4eAAAAFHRS
@@ -1292,6 +1284,14 @@ code 43
     
   - text/latex
     $$\left[\begin{matrix}2 & 2 & 2 & 2\\2 & 3 & 4 & 5\\2 & 4 & 6 & 8\\2 & 5 & 8 & 11\end{matrix}\right]$$
+  - text/plain
+    ⎡2  2  2  2 ⎤
+    ⎢           ⎥
+    ⎢2  3  4  5 ⎥
+    ⎢           ⎥
+    ⎢2  4  6  8 ⎥
+    ⎢           ⎥
+    ⎣2  5  8  11⎦
   metadata
     {
      "collapsed": false
@@ -1299,8 +1299,6 @@ code 43
 code 44
     M.eigenvals()
   execute_result
-  - text/plain
-    {0: 2, 2: 1, 20: 1}
   - image/png
     iVBORw0KGgoAAAANSUhEUgAAAMUAAAAaBAMAAAD1foU5AAAAMFBMVEX///8AAAAAAAAAAAAAAAAA
     AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAv3aB7AAAAD3RSTlMAMolUmc0idhCru+9m
@@ -1320,6 +1318,8 @@ code 44
     
   - text/latex
     $$\begin{Bmatrix}0 : 2, & 2 : 1, & 20 : 1\end{Bmatrix}$$
+  - text/plain
+    {0: 2, 2: 1, 20: 1}
   metadata
     {
      "collapsed": false
@@ -1328,14 +1328,6 @@ code 45
     M = Matrix(4, 4, lambda i, j: i * j + 3)
     M
   execute_result
-  - text/plain
-    ⎡3  3  3  3 ⎤
-    ⎢           ⎥
-    ⎢3  4  5  6 ⎥
-    ⎢           ⎥
-    ⎢3  5  7  9 ⎥
-    ⎢           ⎥
-    ⎣3  6  9  12⎦
   - image/png
     iVBORw0KGgoAAAANSUhEUgAAAIIAAABkCAMAAAB9wBhQAAAAP1BMVEX///8AAAAAAAAAAAAAAAAA
     AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADFBd4eAAAAFHRS
@@ -1367,6 +1359,14 @@ code 45
     
   - text/latex
     $$\left[\begin{matrix}3 & 3 & 3 & 3\\3 & 4 & 5 & 6\\3 & 5 & 7 & 9\\3 & 6 & 9 & 12\end{matrix}\right]$$
+  - text/plain
+    ⎡3  3  3  3 ⎤
+    ⎢           ⎥
+    ⎢3  4  5  6 ⎥
+    ⎢           ⎥
+    ⎢3  5  7  9 ⎥
+    ⎢           ⎥
+    ⎣3  6  9  12⎦
   metadata
     {
      "collapsed": false
@@ -1374,10 +1374,6 @@ code 45
 code 46
     M.eigenvals()
   execute_result
-  - text/plain
-    ⎧          _____            _____        ⎫
-    ⎨0: 2, - ╲╱ 109  + 13: 1, ╲╱ 109  + 13: 1⎬
-    ⎩                                        ⎭
   - image/png
     iVBORw0KGgoAAAANSUhEUgAAAXQAAAAaBAMAAABVxLr+AAAAMFBMVEX///8AAAAAAAAAAAAAAAAA
     AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAv3aB7AAAAD3RSTlMAMolUmc0idhCru+9m
@@ -1407,6 +1403,10 @@ code 46
     
   - text/latex
     $$\begin{Bmatrix}0 : 2, & - \sqrt{109} + 13 : 1, & \sqrt{109} + 13 : 1\end{Bmatrix}$$
+  - text/plain
+    ⎧          _____            _____        ⎫
+    ⎨0: 2, - ╲╱ 109  + 13: 1, ╲╱ 109  + 13: 1⎬
+    ⎩                                        ⎭
   metadata
     {
      "collapsed": false
@@ -1416,14 +1416,6 @@ code 47
     M = Matrix(4, 4, lambda i, j: i * j + x)
     M
   execute_result
-  - text/plain
-    ⎡x    x      x      x  ⎤
-    ⎢                      ⎥
-    ⎢x  x + 1  x + 2  x + 3⎥
-    ⎢                      ⎥
-    ⎢x  x + 2  x + 4  x + 6⎥
-    ⎢                      ⎥
-    ⎣x  x + 3  x + 6  x + 9⎦
   - image/png
     iVBORw0KGgoAAAANSUhEUgAAAOkAAABkCAMAAABUx+fXAAAAP1BMVEX///8AAAAAAAAAAAAAAAAA
     AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADFBd4eAAAAFHRS
@@ -1462,6 +1454,14 @@ code 47
     
   - text/latex
     $$\left[\begin{matrix}x & x & x & x\\x & x + 1 & x + 2 & x + 3\\x & x + 2 & x + 4 & x + 6\\x & x + 3 & x + 6 & x + 9\end{matrix}\right]$$
+  - text/plain
+    ⎡x    x      x      x  ⎤
+    ⎢                      ⎥
+    ⎢x  x + 1  x + 2  x + 3⎥
+    ⎢                      ⎥
+    ⎢x  x + 2  x + 4  x + 6⎥
+    ⎢                      ⎥
+    ⎣x  x + 3  x + 6  x + 9⎦
   metadata
     {
      "collapsed": false
@@ -1469,10 +1469,6 @@ code 47
 code 48
     M.eigenvals()
   execute_result
-  - text/plain
-    ⎧               _________________                  _________________       ⎫
-    ⎨              ╱    2                             ╱    2                   ⎬
-    ⎩0: 2, 2⋅x - ╲╱  4⋅x  + 8⋅x + 49  + 7: 1, 2⋅x + ╲╱  4⋅x  + 8⋅x + 49  + 7: 1⎭
   - image/png
     iVBORw0KGgoAAAANSUhEUgAAAmsAAAAaBAMAAAAagwaaAAAAMFBMVEX///8AAAAAAAAAAAAAAAAA
     AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAv3aB7AAAAD3RSTlMAMolUmc0idhCru+9m
@@ -1504,6 +1500,10 @@ code 48
     
   - text/latex
     $$\begin{Bmatrix}0 : 2, & 2 x - \sqrt{4 x^{2} + 8 x + 49} + 7 : 1, & 2 x + \sqrt{4 x^{2} + 8 x + 49} + 7 : 1\end{Bmatrix}$$
+  - text/plain
+    ⎧               _________________                  _________________       ⎫
+    ⎨              ╱    2                             ╱    2                   ⎬
+    ⎩0: 2, 2⋅x - ╲╱  4⋅x  + 8⋅x + 49  + 7: 1, 2⋅x + ╲╱  4⋅x  + 8⋅x + 49  + 7: 1⎭
   metadata
     {
      "collapsed": false
@@ -1514,12 +1514,6 @@ code 49
     f = Piecewise((0, x <= -1), (Rational(1, 2), x < 1), (0, True))
     f
   execute_result
-  - text/plain
-    ⎧ 0   for x ≤ -1
-    ⎪               
-    ⎨1/2  for x < 1 
-    ⎪               
-    ⎩ 0   otherwise 
   - image/png
     iVBORw0KGgoAAAANSUhEUgAAAJAAAABYCAMAAAAtI45TAAAAPFBMVEX///8AAAAAAAAAAAAAAAAA
     AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAo1xBWAAAAE3RSTlMA
@@ -1553,6 +1547,12 @@ code 49
     
   - text/latex
     $$\begin{cases} 0 & \text{for}\: x \leq -1 \\\frac{1}{2} & \text{for}\: x < 1 \\0 & \text{otherwise} \end{cases}$$
+  - text/plain
+    ⎧ 0   for x ≤ -1
+    ⎪               
+    ⎨1/2  for x < 1 
+    ⎪               
+    ⎩ 0   otherwise 
   metadata
     {
      "collapsed": false
@@ -1566,8 +1566,6 @@ code 50
 code 51
     integrate(Heaviside(x + 1) / 2 - Heaviside(x - 1) / 2, (x, -10, -5))
   execute_result
-  - text/plain
-    -5/2
   - image/png
     iVBORw0KGgoAAAANSUhEUgAAAB0AAAAqBAMAAAC9wk0pAAAAMFBMVEX///8AAAAAAAAAAAAAAAAA
     AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAv3aB7AAAAD3RSTlMAEM3dMnaZRO+JqyJm
@@ -1579,6 +1577,8 @@ code 51
     
   - text/latex
     $$- \frac{5}{2}$$
+  - text/plain
+    -5/2
   metadata
     {
      "collapsed": false
@@ -1587,12 +1587,6 @@ code 52
     q=Piecewise((0, x < 0), (x, x < 1), (0, True))
     q
   execute_result
-  - text/plain
-    ⎧0  for x < 0
-    ⎪            
-    ⎨x  for x < 1
-    ⎪            
-    ⎩0  otherwise
   - image/png
     iVBORw0KGgoAAAANSUhEUgAAAIUAAABYCAMAAADspMT/AAAAPFBMVEX///8AAAAAAAAAAAAAAAAA
     AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAo1xBWAAAAE3RSTlMA
@@ -1624,6 +1618,12 @@ code 52
     
   - text/latex
     $$\begin{cases} 0 & \text{for}\: x < 0 \\x & \text{for}\: x < 1 \\0 & \text{otherwise} \end{cases}$$
+  - text/plain
+    ⎧0  for x < 0
+    ⎪            
+    ⎨x  for x < 1
+    ⎪            
+    ⎩0  otherwise
   metadata
     {
      "collapsed": false
@@ -1631,8 +1631,6 @@ code 52
 code 53
     q.args
   execute_result
-  - text/plain
-    ((0, x < 0), (x, x < 1), (0, True))
   - image/png
     iVBORw0KGgoAAAANSUhEUgAAAYAAAAAaBAMAAABMY5YdAAAAMFBMVEX///8AAAAAAAAAAAAAAAAA
     AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAv3aB7AAAAD3RSTlMAMkS7zRCZdiKJ71Rm
@@ -1663,6 +1661,8 @@ code 53
     
   - text/latex
     $$\begin{pmatrix}\begin{pmatrix}0, & x < 0\end{pmatrix}, & \begin{pmatrix}x, & x < 1\end{pmatrix}, & \begin{pmatrix}0, & \mathrm{True}\end{pmatrix}\end{pmatrix}$$
+  - text/plain
+    ((0, x < 0), (x, x < 1), (0, True))
   metadata
     {
      "collapsed": false
@@ -1673,10 +1673,6 @@ code 54
     f = Lambda(x, exp(-x**2))
     f
   execute_result
-  - text/plain
-           2
-         -x 
-    x ↦ ℯ   
   - image/png
     iVBORw0KGgoAAAANSUhEUgAAAGIAAAAmBAMAAADNQlNHAAAAMFBMVEX///8AAAAAAAAAAAAAAAAA
     AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAv3aB7AAAAD3RSTlMAEER23c0yIu+Jq5m7
@@ -1695,6 +1691,10 @@ code 54
     
   - text/latex
     $$\Lambda {\left (x, e^{- x^{2}} \right )}$$
+  - text/plain
+           2
+         -x 
+    x ↦ ℯ   
   metadata
     {
      "collapsed": false
@@ -1703,14 +1703,6 @@ code 55
     conv = Integral(f(x-y)*f(y), (y, -oo, oo))
     conv
   execute_result
-  - text/plain
-    ∞                    
-    ⌠                    
-    ⎮     2          2   
-    ⎮   -y   -(x - y)    
-    ⎮  ℯ   ⋅ℯ          dy
-    ⌡                    
-    -∞                   
   - image/png
     iVBORw0KGgoAAAANSUhEUgAAALIAAABGBAMAAACap9NUAAAAMFBMVEX///8AAAAAAAAAAAAAAAAA
     AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAv3aB7AAAAD3RSTlMAEHaZVCKJq0S73TLv
@@ -1735,6 +1727,14 @@ code 55
     
   - text/latex
     $$\int_{-\infty}^{\infty} e^{- y^{2}} e^{- \left(x - y\right)^{2}}\, dy$$
+  - text/plain
+    ∞                    
+    ⌠                    
+    ⎮     2          2   
+    ⎮   -y   -(x - y)    
+    ⎮  ℯ   ⋅ℯ          dy
+    ⌡                    
+    -∞                   
   metadata
     {
      "collapsed": false
@@ -1742,14 +1742,6 @@ code 55
 code 56
     conv.subs({x:0})
   execute_result
-  - text/plain
-    ∞           
-    ⌠           
-    ⎮       2   
-    ⎮   -2⋅y    
-    ⎮  ℯ      dy
-    ⌡           
-    -∞          
   - image/png
     iVBORw0KGgoAAAANSUhEUgAAAG8AAABGBAMAAAAwSNetAAAAMFBMVEX///8AAAAAAAAAAAAAAAAA
     AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAv3aB7AAAAD3RSTlMAEHaZVCKJq0S73TLv
@@ -1770,6 +1762,14 @@ code 56
     
   - text/latex
     $$\int_{-\infty}^{\infty} e^{- 2 y^{2}}\, dy$$
+  - text/plain
+    ∞           
+    ⌠           
+    ⎮       2   
+    ⎮   -2⋅y    
+    ⎮  ℯ      dy
+    ⌡           
+    -∞          
   metadata
     {
      "collapsed": false
@@ -1785,14 +1785,6 @@ code 58
     l = lambdify(x, Integral(f(x), (x, -oo, oo)), "sympy")
     l(x)
   execute_result
-  - text/plain
-    ∞         
-    ⌠         
-    ⎮     2   
-    ⎮   -x    
-    ⎮  ℯ    dx
-    ⌡         
-    -∞        
   - image/png
     iVBORw0KGgoAAAANSUhEUgAAAGcAAABGBAMAAAAjn5dZAAAAMFBMVEX///8AAAAAAAAAAAAAAAAA
     AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAv3aB7AAAAD3RSTlMAEHaZVCKJq0S73TLv
@@ -1812,6 +1804,14 @@ code 58
     
   - text/latex
     $$\int_{-\infty}^{\infty} e^{- x^{2}}\, dx$$
+  - text/plain
+    ∞         
+    ⌠         
+    ⎮     2   
+    ⎮   -x    
+    ⎮  ℯ    dx
+    ⌡         
+    -∞        
   metadata
     {
      "collapsed": false
@@ -1843,8 +1843,6 @@ code 59
     G=(sympify(0.05), -10, 10)
     convolute_onepiece(sympy.abc.x, F, G)
   execute_result
-  - text/plain
-    [(0.025⋅x + 0.275, -11, -9), (0.05, -9, 9), (-0.025⋅x + 0.275, 9, 11)]
   - image/png
     iVBORw0KGgoAAAANSUhEUgAAAt4AAAAaBAMAAAByXEbnAAAAMFBMVEX///8AAAAAAAAAAAAAAAAA
     AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAv3aB7AAAAD3RSTlMAu90iMkTNEJl2ie9U
@@ -1885,6 +1883,8 @@ code 59
     
   - text/latex
     $$\begin{bmatrix}\begin{pmatrix}0.025 x + 0.275, & -11, & -9\end{pmatrix}, & \begin{pmatrix}0.05, & -9, & 9\end{pmatrix}, & \begin{pmatrix}- 0.025 x + 0.275, & 9, & 11\end{pmatrix}\end{bmatrix}$$
+  - text/plain
+    [(0.025⋅x + 0.275, -11, -9), (0.05, -9, 9), (-0.025⋅x + 0.275, 9, 11)]
   metadata
     {
      "collapsed": false
@@ -1908,10 +1908,6 @@ code 61
     eq = Eq(D(F(x, y, z), x) + D(F(x, y, z), y) + D(F(x, y, z), z))
     eq
   execute_result
-  - text/plain
-    ∂                ∂                ∂                 
-    ──(F(x, y, z)) + ──(F(x, y, z)) + ──(F(x, y, z)) = 0
-    ∂x               ∂y               ∂z                
   - image/png
     iVBORw0KGgoAAAANSUhEUgAAAacAAAAwBAMAAABH1ajkAAAAMFBMVEX///8AAAAAAAAAAAAAAAAA
     AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAv3aB7AAAAD3RSTlMAZokiELtEzTLvmd1U
@@ -1949,6 +1945,10 @@ code 61
     
   - text/latex
     $$\frac{\partial}{\partial x} F{\left (x,y,z \right )} + \frac{\partial}{\partial y} F{\left (x,y,z \right )} + \frac{\partial}{\partial z} F{\left (x,y,z \right )} = 0$$
+  - text/plain
+    ∂                ∂                ∂                 
+    ──(F(x, y, z)) + ──(F(x, y, z)) + ──(F(x, y, z)) = 0
+    ∂x               ∂y               ∂z                
   metadata
     {
      "collapsed": false
@@ -1956,12 +1956,6 @@ code 61
 code 62
     pde_separate_mul(eq, F(x, y, z), [Y(y), u(x, z)])
   execute_result
-  - text/plain
-    ⎡d           ∂             ∂          ⎤
-    ⎢──(Y(y))    ──(u(x, z))   ──(u(x, z))⎥
-    ⎢dy          ∂x            ∂z         ⎥
-    ⎢────────, - ─────────── - ───────────⎥
-    ⎣  Y(y)        u(x, z)       u(x, z)  ⎦
   - image/png
     iVBORw0KGgoAAAANSUhEUgAAAR0AAAAnBAMAAADA0oE3AAAAMFBMVEX///8AAAAAAAAAAAAAAAAA
     AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAv3aB7AAAAD3RSTlMAEO+Zu3ZEIt2JZlTN
@@ -1995,6 +1989,12 @@ code 62
     
   - text/latex
     $$\begin{bmatrix}\frac{\frac{d}{d y} Y{\left (y \right )}}{Y{\left (y \right )}}, & - \frac{\frac{\partial}{\partial x} u{\left (x,z \right )}}{u{\left (x,z \right )}} - \frac{\frac{\partial}{\partial z} u{\left (x,z \right )}}{u{\left (x,z \right )}}\end{bmatrix}$$
+  - text/plain
+    ⎡d           ∂             ∂          ⎤
+    ⎢──(Y(y))    ──(u(x, z))   ──(u(x, z))⎥
+    ⎢dy          ∂x            ∂z         ⎥
+    ⎢────────, - ─────────── - ───────────⎥
+    ⎣  Y(y)        u(x, z)       u(x, z)  ⎦
   metadata
     {
      "collapsed": false
@@ -2002,12 +2002,6 @@ code 62
 code 63
     pde_separate_mul(eq, F(x, y, z), [X(x), Y(y), Z(z)])
   execute_result
-  - text/plain
-    ⎡d           d          d       ⎤
-    ⎢──(X(x))    ──(Z(z))   ──(Y(y))⎥
-    ⎢dx          dz         dy      ⎥
-    ⎢────────, - ──────── - ────────⎥
-    ⎣  X(x)        Z(z)       Y(y)  ⎦
   - image/png
     iVBORw0KGgoAAAANSUhEUgAAAQcAAAAnBAMAAADwXpAWAAAAMFBMVEX///8AAAAAAAAAAAAAAAAA
     AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAv3aB7AAAAD3RSTlMAEO+Zu3ZEIt2JZlTN
@@ -2039,6 +2033,12 @@ code 63
     
   - text/latex
     $$\begin{bmatrix}\frac{\frac{d}{d x} X{\left (x \right )}}{X{\left (x \right )}}, & - \frac{\frac{d}{d z} Z{\left (z \right )}}{Z{\left (z \right )}} - \frac{\frac{d}{d y} Y{\left (y \right )}}{Y{\left (y \right )}}\end{bmatrix}$$
+  - text/plain
+    ⎡d           d          d       ⎤
+    ⎢──(X(x))    ──(Z(z))   ──(Y(y))⎥
+    ⎢dx          dz         dy      ⎥
+    ⎢────────, - ──────── - ────────⎥
+    ⎣  X(x)        Z(z)       Y(y)  ⎦
   metadata
     {
      "collapsed": false
@@ -2048,12 +2048,6 @@ code 64
     wave = Eq(D(u(x, t), t, t), c**2*D(u(x, t), x, x))
     wave
   execute_result
-  - text/plain
-      2                 2         
-     ∂              2  ∂          
-    ───(u(x, t)) = C ⋅───(u(x, t))
-      2                 2         
-    ∂t                ∂x          
   - image/png
     iVBORw0KGgoAAAANSUhEUgAAAOoAAAAwBAMAAADtH/s0AAAAMFBMVEX///8AAAAAAAAAAAAAAAAA
     AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAv3aB7AAAAD3RSTlMAZokiELtEzTLvmd1U
@@ -2082,6 +2076,12 @@ code 64
     
   - text/latex
     $$\frac{\partial^{2}}{\partial t^{2}}  u{\left (x,t \right )} = C^{2} \frac{\partial^{2}}{\partial x^{2}}  u{\left (x,t \right )}$$
+  - text/plain
+      2                 2         
+     ∂              2  ∂          
+    ───(u(x, t)) = C ⋅───(u(x, t))
+      2                 2         
+    ∂t                ∂x          
   metadata
     {
      "collapsed": false
@@ -2090,15 +2090,6 @@ code 65
     res = pde_separate_mul(wave, u(x, t), [X(x), T(t)])
     res
   execute_result
-  - text/plain
-    ⎡  2          2      ⎤
-    ⎢ d          d       ⎥
-    ⎢───(X(x))  ───(T(t))⎥
-    ⎢  2          2      ⎥
-    ⎢dx         dt       ⎥
-    ⎢─────────, ─────────⎥
-    ⎢   X(x)      2      ⎥
-    ⎣            C ⋅T(t) ⎦
   - image/png
     iVBORw0KGgoAAAANSUhEUgAAAKwAAAAqBAMAAADc9q0uAAAAMFBMVEX///8AAAAAAAAAAAAAAAAA
     AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAv3aB7AAAAD3RSTlMAEO+Zu3ZEIt2JZlTN
@@ -2126,6 +2117,15 @@ code 65
     
   - text/latex
     $$\begin{bmatrix}\frac{\frac{d^{2}}{d x^{2}}  X{\left (x \right )}}{X{\left (x \right )}}, & \frac{\frac{d^{2}}{d t^{2}}  T{\left (t \right )}}{C^{2} T{\left (t \right )}}\end{bmatrix}$$
+  - text/plain
+    ⎡  2          2      ⎤
+    ⎢ d          d       ⎥
+    ⎢───(X(x))  ───(T(t))⎥
+    ⎢  2          2      ⎥
+    ⎢dx         dt       ⎥
+    ⎢─────────, ─────────⎥
+    ⎢   X(x)      2      ⎥
+    ⎣            C ⋅T(t) ⎦
   metadata
     {
      "collapsed": false
@@ -2136,15 +2136,6 @@ code 66
             1/r**2 * D(Phi(r, theta, z), theta, 2) + D(Phi(r, theta, z), z, 2))
     eq
   execute_result
-  - text/plain
-                                                           2                
-                                                          ∂                 
-                                        ∂                ───(Φ(r, θ, z))    
-      2                 2               ──(Φ(r, θ, z))     2                
-     ∂                 ∂                ∂r               ∂θ                 
-    ───(Φ(r, θ, z)) + ───(Φ(r, θ, z)) + ────────────── + ─────────────── = 0
-      2                 2                     r                  2          
-    ∂r                ∂z                                        r           
   - image/png
     iVBORw0KGgoAAAANSUhEUgAAAl0AAAAwBAMAAADZWdK1AAAAMFBMVEX///8AAAAAAAAAAAAAAAAA
     AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAv3aB7AAAAD3RSTlMAZokiELtEzTLvmd1U
@@ -2193,6 +2184,15 @@ code 66
     
   - text/latex
     $$\frac{\partial^{2}}{\partial r^{2}}  \Phi{\left (r,\theta,z \right )} + \frac{\partial^{2}}{\partial z^{2}}  \Phi{\left (r,\theta,z \right )} + \frac{1}{r} \frac{\partial}{\partial r} \Phi{\left (r,\theta,z \right )} + \frac{1}{r^{2}} \frac{\partial^{2}}{\partial \theta^{2}}  \Phi{\left (r,\theta,z \right )} = 0$$
+  - text/plain
+                                                           2                
+                                                          ∂                 
+                                        ∂                ───(Φ(r, θ, z))    
+      2                 2               ──(Φ(r, θ, z))     2                
+     ∂                 ∂                ∂r               ∂θ                 
+    ───(Φ(r, θ, z)) + ───(Φ(r, θ, z)) + ────────────── + ─────────────── = 0
+      2                 2                     r                  2          
+    ∂r                ∂z                                        r           
   metadata
     {
      "collapsed": false
@@ -2202,15 +2202,6 @@ code 67
     res = pde_separate_mul(eq, Phi(r, theta, z), [Z(z), u(theta, r)])
     res
   execute_result
-  - text/plain
-    ⎡  2            2                            2         ⎤
-    ⎢ d            ∂                            ∂          ⎥
-    ⎢───(Z(z))    ───(u(θ, r))   ∂             ───(u(θ, r))⎥
-    ⎢  2            2            ──(u(θ, r))     2         ⎥
-    ⎢dz           ∂r             ∂r            ∂θ          ⎥
-    ⎢─────────, - ──────────── - ─────────── - ────────────⎥
-    ⎢   Z(z)        u(θ, r)       r⋅u(θ, r)      2         ⎥
-    ⎣                                           r ⋅u(θ, r) ⎦
   - image/png
     iVBORw0KGgoAAAANSUhEUgAAAY4AAAAqBAMAAABW0KEDAAAAMFBMVEX///8AAAAAAAAAAAAAAAAA
     AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAv3aB7AAAAD3RSTlMAEO+Zu3ZEIt2JZlTN
@@ -2252,6 +2243,15 @@ code 67
     
   - text/latex
     $$\begin{bmatrix}\frac{\frac{d^{2}}{d z^{2}}  Z{\left (z \right )}}{Z{\left (z \right )}}, & - \frac{\frac{\partial^{2}}{\partial r^{2}}  u{\left (\theta,r \right )}}{u{\left (\theta,r \right )}} - \frac{\frac{\partial}{\partial r} u{\left (\theta,r \right )}}{r u{\left (\theta,r \right )}} - \frac{\frac{\partial^{2}}{\partial \theta^{2}}  u{\left (\theta,r \right )}}{r^{2} u{\left (\theta,r \right )}}\end{bmatrix}$$
+  - text/plain
+    ⎡  2            2                            2         ⎤
+    ⎢ d            ∂                            ∂          ⎥
+    ⎢───(Z(z))    ───(u(θ, r))   ∂             ───(u(θ, r))⎥
+    ⎢  2            2            ──(u(θ, r))     2         ⎥
+    ⎢dz           ∂r             ∂r            ∂θ          ⎥
+    ⎢─────────, - ──────────── - ─────────── - ────────────⎥
+    ⎢   Z(z)        u(θ, r)       r⋅u(θ, r)      2         ⎥
+    ⎣                                           r ⋅u(θ, r) ⎦
   metadata
     {
      "collapsed": false
@@ -2261,15 +2261,6 @@ code 68
     eq = Eq(res[1], c)
     eq
   execute_result
-  - text/plain
-        2                            2             
-       ∂                            ∂              
-      ───(u(θ, r))   ∂             ───(u(θ, r))    
-        2            ──(u(θ, r))     2             
-      ∂r             ∂r            ∂θ              
-    - ──────────── - ─────────── - ──────────── = C
-        u(θ, r)       r⋅u(θ, r)      2             
-                                    r ⋅u(θ, r)     
   - image/png
     iVBORw0KGgoAAAANSUhEUgAAAX4AAAA4BAMAAAAIgo4KAAAAMFBMVEX///8AAAAAAAAAAAAAAAAA
     AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAv3aB7AAAAD3RSTlMAEM3dMiJURHarZom7
@@ -2312,6 +2303,15 @@ code 68
     
   - text/latex
     $$- \frac{\frac{\partial^{2}}{\partial r^{2}}  u{\left (\theta,r \right )}}{u{\left (\theta,r \right )}} - \frac{\frac{\partial}{\partial r} u{\left (\theta,r \right )}}{r u{\left (\theta,r \right )}} - \frac{\frac{\partial^{2}}{\partial \theta^{2}}  u{\left (\theta,r \right )}}{r^{2} u{\left (\theta,r \right )}} = C$$
+  - text/plain
+        2                            2             
+       ∂                            ∂              
+      ───(u(θ, r))   ∂             ───(u(θ, r))    
+        2            ──(u(θ, r))     2             
+      ∂r             ∂r            ∂θ              
+    - ──────────── - ─────────── - ──────────── = C
+        u(θ, r)       r⋅u(θ, r)      2             
+                                    r ⋅u(θ, r)     
   metadata
     {
      "collapsed": false
@@ -2321,14 +2321,6 @@ code 69
     res = pde_separate_mul(eq, u(theta, r), [T(theta), R(r)])
     res
   execute_result
-  - text/plain
-    ⎡  2                      2                   ⎤
-    ⎢ d                   2  d                    ⎥
-    ⎢───(T(θ))           r ⋅───(R(r))     d       ⎥
-    ⎢  2                      2         r⋅──(R(r))⎥
-    ⎢dθ              2      dr            dr      ⎥
-    ⎢─────────, - C⋅r  - ──────────── - ──────────⎥
-    ⎣   T(θ)                 R(r)          R(r)   ⎦
   - image/png
     iVBORw0KGgoAAAANSUhEUgAAAWUAAAAqBAMAAACZ0leFAAAAMFBMVEX///8AAAAAAAAAAAAAAAAA
     AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAv3aB7AAAAD3RSTlMAEO+Zu3ZEIt2JZlTN
@@ -2363,6 +2355,14 @@ code 69
     
   - text/latex
     $$\begin{bmatrix}\frac{\frac{d^{2}}{d \theta^{2}}  T{\left (\theta \right )}}{T{\left (\theta \right )}}, & - C r^{2} - \frac{r^{2} \frac{d^{2}}{d r^{2}}  R{\left (r \right )}}{R{\left (r \right )}} - \frac{r \frac{d}{d r} R{\left (r \right )}}{R{\left (r \right )}}\end{bmatrix}$$
+  - text/plain
+    ⎡  2                      2                   ⎤
+    ⎢ d                   2  d                    ⎥
+    ⎢───(T(θ))           r ⋅───(R(r))     d       ⎥
+    ⎢  2                      2         r⋅──(R(r))⎥
+    ⎢dθ              2      dr            dr      ⎥
+    ⎢─────────, - C⋅r  - ──────────── - ──────────⎥
+    ⎣   T(θ)                 R(r)          R(r)   ⎦
   metadata
     {
      "collapsed": false
@@ -2372,14 +2372,6 @@ code 70
     res = pde_separate_mul(eq, u(theta, r), [R(r), T(theta)])
     res
   execute_result
-  - text/plain
-    ⎡            2                        2       ⎤
-    ⎢        2  d                        d        ⎥
-    ⎢       r ⋅───(R(r))     d         -───(T(θ)) ⎥
-    ⎢            2         r⋅──(R(r))     2       ⎥
-    ⎢   2      dr            dr         dθ        ⎥
-    ⎢C⋅r  + ──────────── + ──────────, ───────────⎥
-    ⎣           R(r)          R(r)         T(θ)   ⎦
   - image/png
     iVBORw0KGgoAAAANSUhEUgAAAWUAAAAqBAMAAACZ0leFAAAAMFBMVEX///8AAAAAAAAAAAAAAAAA
     AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAv3aB7AAAAD3RSTlMAEO+Zu3ZEIqtmiVTd
@@ -2417,6 +2409,14 @@ code 70
     
   - text/latex
     $$\begin{bmatrix}C r^{2} + \frac{r^{2} \frac{d^{2}}{d r^{2}}  R{\left (r \right )}}{R{\left (r \right )}} + \frac{r \frac{d}{d r} R{\left (r \right )}}{R{\left (r \right )}}, & - \frac{\frac{d^{2}}{d \theta^{2}}  T{\left (\theta \right )}}{T{\left (\theta \right )}}\end{bmatrix}$$
+  - text/plain
+    ⎡            2                        2       ⎤
+    ⎢        2  d                        d        ⎥
+    ⎢       r ⋅───(R(r))     d         -───(T(θ)) ⎥
+    ⎢            2         r⋅──(R(r))     2       ⎥
+    ⎢   2      dr            dr         dθ        ⎥
+    ⎢C⋅r  + ──────────── + ──────────, ───────────⎥
+    ⎣           R(r)          R(r)         T(θ)   ⎦
   metadata
     {
      "collapsed": false
@@ -2442,6 +2442,21 @@ markdown
     </p>
 metadata
     {
-     "orig_nbformat": 3,
-     "orig_nbformat_minor": 0
+     "kernelspec": {
+      "display_name": "Python 3",
+      "language": "python",
+      "name": "python3"
+     },
+     "language_info": {
+      "codemirror_mode": {
+       "name": "ipython",
+       "version": 3
+      },
+      "file_extension": ".py",
+      "mimetype": "text/x-python",
+      "name": "python",
+      "nbconvert_exporter": "python",
+      "pygments_lexer": "ipython3",
+      "version": "3.4.3+"
+     }
     }

@@ -1,5 +1,5 @@
 nbformat 4
-nbformat_minor 2
+nbformat_minor 0
 markdown
     Just some random stuff from the interwebs ...
 code 1
@@ -20,10 +20,10 @@ code 2
     gamma_x, gamma_y, gamma_z = MV.setup('gamma_x gamma_y gamma_z', metric)
     gamma_x ^ gamma_y
   execute_result
-  - text/plain
-    <sympy.galgebra.ga.MV at 0x7f4511d0cbd0>
   - text/latex
     $$\boldsymbol{\gamma_{x}\wedge \gamma_{y}}$$
+  - text/plain
+    <sympy.galgebra.ga.MV at 0x7f4511d0cbd0>
   metadata
     {
      "collapsed": false
@@ -31,10 +31,10 @@ code 2
 code 3
     3 * gamma_x * gamma_y / 2 + (gamma_z ^ gamma_x)
   execute_result
-  - text/plain
-    <sympy.galgebra.ga.MV at 0x7f45296637d0>
   - text/latex
     $$\frac{3}{2}\boldsymbol{\gamma_{x}\wedge \gamma_{y}}-\boldsymbol{\gamma_{x}\wedge \gamma_{z}}$$
+  - text/plain
+    <sympy.galgebra.ga.MV at 0x7f45296637d0>
   metadata
     {
      "collapsed": false
@@ -48,10 +48,10 @@ code 4
 code 5
     e|(a^b)
   execute_result
-  - text/plain
-    <sympy.galgebra.ga.MV at 0x7f44ffba35d0>
   - text/latex
     $$- \left( b\cdot e\right) \boldsymbol{a}+\left( a\cdot e\right) \boldsymbol{b}$$
+  - text/plain
+    <sympy.galgebra.ga.MV at 0x7f44ffba35d0>
   metadata
     {
      "collapsed": false
@@ -59,10 +59,10 @@ code 5
 code 6
     a|b^c
   execute_result
-  - text/plain
-    <sympy.galgebra.ga.MV at 0x7f44ffb96d90>
   - text/latex
     $$- \left( a\cdot c\right) \boldsymbol{b}+\left( a\cdot b\right) \boldsymbol{c}$$
+  - text/plain
+    <sympy.galgebra.ga.MV at 0x7f44ffb96d90>
   metadata
     {
      "collapsed": false
@@ -70,10 +70,10 @@ code 6
 code 7
     a|b^c^d
   execute_result
-  - text/plain
-    <sympy.galgebra.ga.MV at 0x7f44ffb76450>
   - text/latex
     $$\left( a\cdot d\right) \boldsymbol{b\wedge c}- \left( a\cdot c\right) \boldsymbol{b\wedge d}+\left( a\cdot b\right) \boldsymbol{c\wedge d}$$
+  - text/plain
+    <sympy.galgebra.ga.MV at 0x7f44ffb76450>
   metadata
     {
      "collapsed": false
@@ -81,10 +81,10 @@ code 7
 code 8
     a|b^c^d^e
   execute_result
-  - text/plain
-    <sympy.galgebra.ga.MV at 0x7f44ffb3a890>
   - text/latex
     $$- \left( a\cdot e\right) \boldsymbol{b\wedge c\wedge d}+\left( a\cdot d\right) \boldsymbol{b\wedge c\wedge e}- \left( a\cdot c\right) \boldsymbol{b\wedge d\wedge e}+\left( a\cdot b\right) \boldsymbol{c\wedge d\wedge e}$$
+  - text/plain
+    <sympy.galgebra.ga.MV at 0x7f44ffb3a890>
   metadata
     {
      "collapsed": false
@@ -97,6 +97,21 @@ code 8
     }
 metadata
     {
-     "orig_nbformat": 3,
-     "orig_nbformat_minor": 0
+     "kernelspec": {
+      "display_name": "Python 3",
+      "language": "python",
+      "name": "python3"
+     },
+     "language_info": {
+      "codemirror_mode": {
+       "name": "ipython",
+       "version": 3
+      },
+      "file_extension": ".py",
+      "mimetype": "text/x-python",
+      "name": "python",
+      "nbconvert_exporter": "python",
+      "pygments_lexer": "ipython3",
+      "version": "3.4.3+"
+     }
     }

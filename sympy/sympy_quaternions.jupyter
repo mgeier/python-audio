@@ -1,5 +1,5 @@
 nbformat 4
-nbformat_minor 2
+nbformat_minor 0
 code 1
     from sympy import *
     init_printing()
@@ -19,10 +19,6 @@ code 3
     A = Matrix([[a, 0], [0, a]])
     A
   execute_result
-  - text/plain
-    ⎡a  0⎤
-    ⎢    ⎥
-    ⎣0  a⎦
   - image/png
     iVBORw0KGgoAAAANSUhEUgAAADcAAAAyBAMAAAAKOF7GAAAAMFBMVEX///8AAAAAAAAAAAAAAAAA
     AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAv3aB7AAAAD3RSTlMA74lUMhAiq3bdRLtm
@@ -36,6 +32,10 @@ code 3
     
   - text/latex
     $$\left[\begin{matrix}a & 0\\0 & a\end{matrix}\right]$$
+  - text/plain
+    ⎡a  0⎤
+    ⎢    ⎥
+    ⎣0  a⎦
   metadata
     {
      "collapsed": false
@@ -44,10 +44,6 @@ code 4
     B = Matrix([[b, 0], [0, b]])
     B
   execute_result
-  - text/plain
-    ⎡b  0⎤
-    ⎢    ⎥
-    ⎣0  b⎦
   - image/png
     iVBORw0KGgoAAAANSUhEUgAAADUAAAAyBAMAAAAOzY77AAAAMFBMVEX///8AAAAAAAAAAAAAAAAA
     AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAv3aB7AAAAD3RSTlMA74lUMhC73c2rRHaZ
@@ -62,6 +58,10 @@ code 4
     
   - text/latex
     $$\left[\begin{matrix}b & 0\\0 & b\end{matrix}\right]$$
+  - text/plain
+    ⎡b  0⎤
+    ⎢    ⎥
+    ⎣0  b⎦
   metadata
     {
      "collapsed": false
@@ -69,10 +69,6 @@ code 4
 code 5
     A + B
   execute_result
-  - text/plain
-    ⎡a + b    0  ⎤
-    ⎢            ⎥
-    ⎣  0    a + b⎦
   - image/png
     iVBORw0KGgoAAAANSUhEUgAAAHsAAAAyBAMAAACOvrnoAAAAMFBMVEX///8AAAAAAAAAAAAAAAAA
     AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAv3aB7AAAAD3RSTlMA74lUMhAiq3bdRLtm
@@ -89,6 +85,10 @@ code 5
     
   - text/latex
     $$\left[\begin{matrix}a + b & 0\\0 & a + b\end{matrix}\right]$$
+  - text/plain
+    ⎡a + b    0  ⎤
+    ⎢            ⎥
+    ⎣  0    a + b⎦
   metadata
     {
      "collapsed": false
@@ -96,10 +96,6 @@ code 5
 code 6
     A - B
   execute_result
-  - text/plain
-    ⎡a - b    0  ⎤
-    ⎢            ⎥
-    ⎣  0    a - b⎦
   - image/png
     iVBORw0KGgoAAAANSUhEUgAAAHsAAAAyBAMAAACOvrnoAAAAMFBMVEX///8AAAAAAAAAAAAAAAAA
     AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAv3aB7AAAAD3RSTlMA74lUMhAiq3bdRLtm
@@ -116,6 +112,10 @@ code 6
     
   - text/latex
     $$\left[\begin{matrix}a - b & 0\\0 & a - b\end{matrix}\right]$$
+  - text/plain
+    ⎡a - b    0  ⎤
+    ⎢            ⎥
+    ⎣  0    a - b⎦
   metadata
     {
      "collapsed": false
@@ -123,10 +123,6 @@ code 6
 code 7
     A * B
   execute_result
-  - text/plain
-    ⎡a⋅b   0 ⎤
-    ⎢        ⎥
-    ⎣ 0   a⋅b⎦
   - image/png
     iVBORw0KGgoAAAANSUhEUgAAAEkAAAAyBAMAAADiuOvtAAAAMFBMVEX///8AAAAAAAAAAAAAAAAA
     AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAv3aB7AAAAD3RSTlMA74lUMhAiq3bdRLtm
@@ -143,6 +139,10 @@ code 7
     
   - text/latex
     $$\left[\begin{matrix}a b & 0\\0 & a b\end{matrix}\right]$$
+  - text/plain
+    ⎡a⋅b   0 ⎤
+    ⎢        ⎥
+    ⎣ 0   a⋅b⎦
   metadata
     {
      "collapsed": false
@@ -156,12 +156,6 @@ code 8
 code 9
     A**2
   execute_result
-  - text/plain
-    ⎡ 2    ⎤
-    ⎢a   0 ⎥
-    ⎢      ⎥
-    ⎢     2⎥
-    ⎣0   a ⎦
   - image/png
     iVBORw0KGgoAAAANSUhEUgAAAEkAAAAzBAMAAAAp5DhIAAAAMFBMVEX///8AAAAAAAAAAAAAAAAA
     AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAv3aB7AAAAD3RSTlMA74lUMhAiq3bdRLtm
@@ -178,6 +172,12 @@ code 9
     
   - text/latex
     $$\left[\begin{matrix}a^{2} & 0\\0 & a^{2}\end{matrix}\right]$$
+  - text/plain
+    ⎡ 2    ⎤
+    ⎢a   0 ⎥
+    ⎢      ⎥
+    ⎢     2⎥
+    ⎣0   a ⎦
   metadata
     {
      "collapsed": false
@@ -185,14 +185,6 @@ code 9
 code 10
     A.inv()
   execute_result
-  - text/plain
-    ⎡1   ⎤
-    ⎢─  0⎥
-    ⎢a   ⎥
-    ⎢    ⎥
-    ⎢   1⎥
-    ⎢0  ─⎥
-    ⎣   a⎦
   - image/png
     iVBORw0KGgoAAAANSUhEUgAAAD0AAAA0BAMAAADLQy0SAAAAMFBMVEX///8AAAAAAAAAAAAAAAAA
     AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAv3aB7AAAAD3RSTlMA74lUMhC7mavdInZm
@@ -208,6 +200,14 @@ code 10
     
   - text/latex
     $$\left[\begin{matrix}\frac{1}{a} & 0\\0 & \frac{1}{a}\end{matrix}\right]$$
+  - text/plain
+    ⎡1   ⎤
+    ⎢─  0⎥
+    ⎢a   ⎥
+    ⎢    ⎥
+    ⎢   1⎥
+    ⎢0  ─⎥
+    ⎣   a⎦
   metadata
     {
      "collapsed": false
@@ -215,9 +215,6 @@ code 10
 code 11
     A.det()
   execute_result
-  - text/plain
-     2
-    a 
   - image/png
     iVBORw0KGgoAAAANSUhEUgAAABMAAAAUBAMAAACdextHAAAAMFBMVEX///8AAAAAAAAAAAAAAAAA
     AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAv3aB7AAAAD3RSTlMAIquJdjLdEETvu2aZ
@@ -228,6 +225,9 @@ code 11
     
   - text/latex
     $$a^{2}$$
+  - text/plain
+     2
+    a 
   metadata
     {
      "collapsed": false
@@ -242,10 +242,6 @@ code 12
 code 13
     im**2
   execute_result
-  - text/plain
-    ⎡-1  0 ⎤
-    ⎢      ⎥
-    ⎣0   -1⎦
   - image/png
     iVBORw0KGgoAAAANSUhEUgAAAFYAAAAyBAMAAAA0HTGIAAAAMFBMVEX///8AAAAAAAAAAAAAAAAA
     AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAv3aB7AAAAD3RSTlMA74lUMhDN3SK7mat2
@@ -259,6 +255,10 @@ code 13
     
   - text/latex
     $$\left[\begin{matrix}-1 & 0\\0 & -1\end{matrix}\right]$$
+  - text/plain
+    ⎡-1  0 ⎤
+    ⎢      ⎥
+    ⎣0   -1⎦
   metadata
     {
      "collapsed": false
@@ -272,10 +272,6 @@ code 13
 code 14
     a * re + b * im
   execute_result
-  - text/plain
-    ⎡a  -b⎤
-    ⎢     ⎥
-    ⎣b  a ⎦
   - image/png
     iVBORw0KGgoAAAANSUhEUgAAAEUAAAAyBAMAAAD4hAtjAAAAMFBMVEX///8AAAAAAAAAAAAAAAAA
     AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAv3aB7AAAAD3RSTlMA74lUMhAiq3bdRLtm
@@ -290,6 +286,10 @@ code 14
     
   - text/latex
     $$\left[\begin{matrix}a & - b\\b & a\end{matrix}\right]$$
+  - text/plain
+    ⎡a  -b⎤
+    ⎢     ⎥
+    ⎣b  a ⎦
   metadata
     {
      "collapsed": false
@@ -298,8 +298,6 @@ code 15
     theta = symbols("theta")
     theta
   execute_result
-  - text/plain
-    θ
   - image/png
     iVBORw0KGgoAAAANSUhEUgAAAAoAAAAPBAMAAAAv0UM9AAAAMFBMVEX///8AAAAAAAAAAAAAAAAA
     AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAv3aB7AAAAD3RSTlMAEGZEu1SZMu/ddqvN
@@ -309,6 +307,8 @@ code 15
     
   - text/latex
     $$\theta$$
+  - text/plain
+    θ
   metadata
     {
      "collapsed": false
@@ -317,10 +317,6 @@ code 16
     n = cos(theta) * re + sin(theta) * im
     n
   execute_result
-  - text/plain
-    ⎡cos(θ)  -sin(θ)⎤
-    ⎢               ⎥
-    ⎣sin(θ)  cos(θ) ⎦
   - image/png
     iVBORw0KGgoAAAANSUhEUgAAAKUAAAAyBAMAAADPZgYSAAAAMFBMVEX///8AAAAAAAAAAAAAAAAA
     AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAv3aB7AAAAD3RSTlMA74lUMhCZIs1Edmar
@@ -349,6 +345,10 @@ code 16
     
   - text/latex
     $$\left[\begin{matrix}\cos{\left (\theta \right )} & - \sin{\left (\theta \right )}\\\sin{\left (\theta \right )} & \cos{\left (\theta \right )}\end{matrix}\right]$$
+  - text/plain
+    ⎡cos(θ)  -sin(θ)⎤
+    ⎢               ⎥
+    ⎣sin(θ)  cos(θ) ⎦
   metadata
     {
      "collapsed": false
@@ -356,10 +356,6 @@ code 16
 code 17
     n * Matrix([x, y])
   execute_result
-  - text/plain
-    ⎡x⋅cos(θ) - y⋅sin(θ)⎤
-    ⎢                   ⎥
-    ⎣x⋅sin(θ) + y⋅cos(θ)⎦
   - image/png
     iVBORw0KGgoAAAANSUhEUgAAALQAAAAyBAMAAAAHCuzEAAAAMFBMVEX///8AAAAAAAAAAAAAAAAA
     AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAv3aB7AAAAD3RSTlMA74lUMhB2qyJEZt3N
@@ -391,6 +387,10 @@ code 17
     
   - text/latex
     $$\left[\begin{matrix}x \cos{\left (\theta \right )} - y \sin{\left (\theta \right )}\\x \sin{\left (\theta \right )} + y \cos{\left (\theta \right )}\end{matrix}\right]$$
+  - text/plain
+    ⎡x⋅cos(θ) - y⋅sin(θ)⎤
+    ⎢                   ⎥
+    ⎣x⋅sin(θ) + y⋅cos(θ)⎦
   metadata
     {
      "collapsed": false
@@ -398,10 +398,6 @@ code 17
 code 18
     n * (x * re + y * im)
   execute_result
-  - text/plain
-    ⎡x⋅cos(θ) - y⋅sin(θ)  -x⋅sin(θ) - y⋅cos(θ)⎤
-    ⎢                                         ⎥
-    ⎣x⋅sin(θ) + y⋅cos(θ)  x⋅cos(θ) - y⋅sin(θ) ⎦
   - image/png
     iVBORw0KGgoAAAANSUhEUgAAAYEAAAAyBAMAAABIXnp4AAAAMFBMVEX///8AAAAAAAAAAAAAAAAA
     AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAv3aB7AAAAD3RSTlMA74lUMhB2qyJEZt3N
@@ -445,6 +441,10 @@ code 18
     
   - text/latex
     $$\left[\begin{matrix}x \cos{\left (\theta \right )} - y \sin{\left (\theta \right )} & - x \sin{\left (\theta \right )} - y \cos{\left (\theta \right )}\\x \sin{\left (\theta \right )} + y \cos{\left (\theta \right )} & x \cos{\left (\theta \right )} - y \sin{\left (\theta \right )}\end{matrix}\right]$$
+  - text/plain
+    ⎡x⋅cos(θ) - y⋅sin(θ)  -x⋅sin(θ) - y⋅cos(θ)⎤
+    ⎢                                         ⎥
+    ⎣x⋅sin(θ) + y⋅cos(θ)  x⋅cos(θ) - y⋅sin(θ) ⎦
   metadata
     {
      "collapsed": false
@@ -455,14 +455,6 @@ code 19
     qw = eye(4)
     qw
   execute_result
-  - text/plain
-    ⎡1  0  0  0⎤
-    ⎢          ⎥
-    ⎢0  1  0  0⎥
-    ⎢          ⎥
-    ⎢0  0  1  0⎥
-    ⎢          ⎥
-    ⎣0  0  0  1⎦
   - image/png
     iVBORw0KGgoAAAANSUhEUgAAAHgAAABkCAMAAAB6rgQAAAAAP1BMVEX///8AAAAAAAAAAAAAAAAA
     AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADFBd4eAAAAFHRS
@@ -484,6 +476,14 @@ code 19
     
   - text/latex
     $$\left[\begin{matrix}1 & 0 & 0 & 0\\0 & 1 & 0 & 0\\0 & 0 & 1 & 0\\0 & 0 & 0 & 1\end{matrix}\right]$$
+  - text/plain
+    ⎡1  0  0  0⎤
+    ⎢          ⎥
+    ⎢0  1  0  0⎥
+    ⎢          ⎥
+    ⎢0  0  1  0⎥
+    ⎢          ⎥
+    ⎣0  0  0  1⎦
   metadata
     {
      "collapsed": false
@@ -494,14 +494,6 @@ code 20
     qi[1, 2] = qi[3, 0] = -1
     qi
   execute_result
-  - text/plain
-    ⎡0   0  0   1⎤
-    ⎢            ⎥
-    ⎢0   0  -1  0⎥
-    ⎢            ⎥
-    ⎢0   1  0   0⎥
-    ⎢            ⎥
-    ⎣-1  0  0   0⎦
   - image/png
     iVBORw0KGgoAAAANSUhEUgAAAJgAAABkCAMAAABNTAlxAAAAP1BMVEX///8AAAAAAAAAAAAAAAAA
     AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADFBd4eAAAAFHRS
@@ -525,6 +517,14 @@ code 20
     
   - text/latex
     $$\left[\begin{matrix}0 & 0 & 0 & 1\\0 & 0 & -1 & 0\\0 & 1 & 0 & 0\\-1 & 0 & 0 & 0\end{matrix}\right]$$
+  - text/plain
+    ⎡0   0  0   1⎤
+    ⎢            ⎥
+    ⎢0   0  -1  0⎥
+    ⎢            ⎥
+    ⎢0   1  0   0⎥
+    ⎢            ⎥
+    ⎣-1  0  0   0⎦
   metadata
     {
      "collapsed": false
@@ -535,14 +535,6 @@ code 21
     qj[2, 0] = qj[3, 1] = -1
     qj
   execute_result
-  - text/plain
-    ⎡0   0   1  0⎤
-    ⎢            ⎥
-    ⎢0   0   0  1⎥
-    ⎢            ⎥
-    ⎢-1  0   0  0⎥
-    ⎢            ⎥
-    ⎣0   -1  0  0⎦
   - image/png
     iVBORw0KGgoAAAANSUhEUgAAAJgAAABkCAMAAABNTAlxAAAAP1BMVEX///8AAAAAAAAAAAAAAAAA
     AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADFBd4eAAAAFHRS
@@ -566,6 +558,14 @@ code 21
     
   - text/latex
     $$\left[\begin{matrix}0 & 0 & 1 & 0\\0 & 0 & 0 & 1\\-1 & 0 & 0 & 0\\0 & -1 & 0 & 0\end{matrix}\right]$$
+  - text/plain
+    ⎡0   0   1  0⎤
+    ⎢            ⎥
+    ⎢0   0   0  1⎥
+    ⎢            ⎥
+    ⎢-1  0   0  0⎥
+    ⎢            ⎥
+    ⎣0   -1  0  0⎦
   metadata
     {
      "collapsed": false
@@ -576,14 +576,6 @@ code 22
     qk[0, 1] = qk[3, 2] = -1
     qk
   execute_result
-  - text/plain
-    ⎡0  -1  0   0⎤
-    ⎢            ⎥
-    ⎢1  0   0   0⎥
-    ⎢            ⎥
-    ⎢0  0   0   1⎥
-    ⎢            ⎥
-    ⎣0  0   -1  0⎦
   - image/png
     iVBORw0KGgoAAAANSUhEUgAAAJgAAABkCAMAAABNTAlxAAAAP1BMVEX///8AAAAAAAAAAAAAAAAA
     AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADFBd4eAAAAFHRS
@@ -608,6 +600,14 @@ code 22
     
   - text/latex
     $$\left[\begin{matrix}0 & -1 & 0 & 0\\1 & 0 & 0 & 0\\0 & 0 & 0 & 1\\0 & 0 & -1 & 0\end{matrix}\right]$$
+  - text/plain
+    ⎡0  -1  0   0⎤
+    ⎢            ⎥
+    ⎢1  0   0   0⎥
+    ⎢            ⎥
+    ⎢0  0   0   1⎥
+    ⎢            ⎥
+    ⎣0  0   -1  0⎦
   metadata
     {
      "collapsed": false
@@ -615,14 +615,6 @@ code 22
 code 23
     qi**2
   execute_result
-  - text/plain
-    ⎡-1  0   0   0 ⎤
-    ⎢              ⎥
-    ⎢0   -1  0   0 ⎥
-    ⎢              ⎥
-    ⎢0   0   -1  0 ⎥
-    ⎢              ⎥
-    ⎣0   0   0   -1⎦
   - image/png
     iVBORw0KGgoAAAANSUhEUgAAALgAAABkCAMAAAACEQqhAAAAP1BMVEX///8AAAAAAAAAAAAAAAAA
     AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADFBd4eAAAAFHRS
@@ -647,6 +639,14 @@ code 23
     
   - text/latex
     $$\left[\begin{matrix}-1 & 0 & 0 & 0\\0 & -1 & 0 & 0\\0 & 0 & -1 & 0\\0 & 0 & 0 & -1\end{matrix}\right]$$
+  - text/plain
+    ⎡-1  0   0   0 ⎤
+    ⎢              ⎥
+    ⎢0   -1  0   0 ⎥
+    ⎢              ⎥
+    ⎢0   0   -1  0 ⎥
+    ⎢              ⎥
+    ⎣0   0   0   -1⎦
   metadata
     {
      "collapsed": false
@@ -654,14 +654,6 @@ code 23
 code 24
     qj**2
   execute_result
-  - text/plain
-    ⎡-1  0   0   0 ⎤
-    ⎢              ⎥
-    ⎢0   -1  0   0 ⎥
-    ⎢              ⎥
-    ⎢0   0   -1  0 ⎥
-    ⎢              ⎥
-    ⎣0   0   0   -1⎦
   - image/png
     iVBORw0KGgoAAAANSUhEUgAAALgAAABkCAMAAAACEQqhAAAAP1BMVEX///8AAAAAAAAAAAAAAAAA
     AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADFBd4eAAAAFHRS
@@ -686,6 +678,14 @@ code 24
     
   - text/latex
     $$\left[\begin{matrix}-1 & 0 & 0 & 0\\0 & -1 & 0 & 0\\0 & 0 & -1 & 0\\0 & 0 & 0 & -1\end{matrix}\right]$$
+  - text/plain
+    ⎡-1  0   0   0 ⎤
+    ⎢              ⎥
+    ⎢0   -1  0   0 ⎥
+    ⎢              ⎥
+    ⎢0   0   -1  0 ⎥
+    ⎢              ⎥
+    ⎣0   0   0   -1⎦
   metadata
     {
      "collapsed": false
@@ -693,14 +693,6 @@ code 24
 code 25
     qk**2
   execute_result
-  - text/plain
-    ⎡-1  0   0   0 ⎤
-    ⎢              ⎥
-    ⎢0   -1  0   0 ⎥
-    ⎢              ⎥
-    ⎢0   0   -1  0 ⎥
-    ⎢              ⎥
-    ⎣0   0   0   -1⎦
   - image/png
     iVBORw0KGgoAAAANSUhEUgAAALgAAABkCAMAAAACEQqhAAAAP1BMVEX///8AAAAAAAAAAAAAAAAA
     AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADFBd4eAAAAFHRS
@@ -725,6 +717,14 @@ code 25
     
   - text/latex
     $$\left[\begin{matrix}-1 & 0 & 0 & 0\\0 & -1 & 0 & 0\\0 & 0 & -1 & 0\\0 & 0 & 0 & -1\end{matrix}\right]$$
+  - text/plain
+    ⎡-1  0   0   0 ⎤
+    ⎢              ⎥
+    ⎢0   -1  0   0 ⎥
+    ⎢              ⎥
+    ⎢0   0   -1  0 ⎥
+    ⎢              ⎥
+    ⎣0   0   0   -1⎦
   metadata
     {
      "collapsed": false
@@ -769,14 +769,6 @@ code 30
     q = w * qw + x * qi + y * qj + z * qk
     q
   execute_result
-  - text/plain
-    ⎡w   -z  y   x⎤
-    ⎢             ⎥
-    ⎢z   w   -x  y⎥
-    ⎢             ⎥
-    ⎢-y  x   w   z⎥
-    ⎢             ⎥
-    ⎣-x  -y  -z  w⎦
   - image/png
     iVBORw0KGgoAAAANSUhEUgAAALEAAABkCAMAAAD+BCFrAAAAP1BMVEX///8AAAAAAAAAAAAAAAAA
     AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADFBd4eAAAAFHRS
@@ -806,6 +798,14 @@ code 30
     
   - text/latex
     $$\left[\begin{matrix}w & - z & y & x\\z & w & - x & y\\- y & x & w & z\\- x & - y & - z & w\end{matrix}\right]$$
+  - text/plain
+    ⎡w   -z  y   x⎤
+    ⎢             ⎥
+    ⎢z   w   -x  y⎥
+    ⎢             ⎥
+    ⎢-y  x   w   z⎥
+    ⎢             ⎥
+    ⎣-x  -y  -z  w⎦
   metadata
     {
      "collapsed": false
@@ -814,14 +814,6 @@ code 31
     q_conj = w * qw - x * qi - y * qj - z * qk
     q_conj
   execute_result
-  - text/plain
-    ⎡w   z   -y  -x⎤
-    ⎢              ⎥
-    ⎢-z  w   x   -y⎥
-    ⎢              ⎥
-    ⎢y   -x  w   -z⎥
-    ⎢              ⎥
-    ⎣x   y   z   w ⎦
   - image/png
     iVBORw0KGgoAAAANSUhEUgAAALwAAABkCAMAAAAL+qrbAAAAP1BMVEX///8AAAAAAAAAAAAAAAAA
     AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADFBd4eAAAAFHRS
@@ -851,6 +843,14 @@ code 31
     
   - text/latex
     $$\left[\begin{matrix}w & z & - y & - x\\- z & w & x & - y\\y & - x & w & - z\\x & y & z & w\end{matrix}\right]$$
+  - text/plain
+    ⎡w   z   -y  -x⎤
+    ⎢              ⎥
+    ⎢-z  w   x   -y⎥
+    ⎢              ⎥
+    ⎢y   -x  w   -z⎥
+    ⎢              ⎥
+    ⎣x   y   z   w ⎦
   metadata
     {
      "collapsed": false
@@ -885,6 +885,21 @@ markdown
     </p>
 metadata
     {
-     "orig_nbformat": 3,
-     "orig_nbformat_minor": 0
+     "kernelspec": {
+      "display_name": "Python 3",
+      "language": "python",
+      "name": "python3"
+     },
+     "language_info": {
+      "codemirror_mode": {
+       "name": "ipython",
+       "version": 3
+      },
+      "file_extension": ".py",
+      "mimetype": "text/x-python",
+      "name": "python",
+      "nbconvert_exporter": "python",
+      "pygments_lexer": "ipython3",
+      "version": "3.4.3+"
+     }
     }

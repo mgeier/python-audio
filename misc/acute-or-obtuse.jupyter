@@ -1,0 +1,52 @@
+nbformat 4
+nbformat_minor 0
+markdown
+    # Is a Random Triangle Acute or Obtuse?
+markdown
+    ## External Links
+    
+    
+    http://teachingcalculus.com/2013/01/18/most-triangles-are-obtuse/
+    
+    http://www.cut-the-knot.org/Probability/ObtuseTriangle.shtml
+    
+    http://www.math.northwestern.edu/~diana/math/acute.pdf
+    
+    http://math.bd.psu.edu/faculty/jprevite/trianglesrn.pdf
+    
+    http://blossoms.mit.edu/videos/lessons/are_random_triangles_acute_or_obtuse
+    
+    http://www-math.mit.edu/~gs/videos/index.html
+markdown
+    <p xmlns:dct="http://purl.org/dc/terms/">
+      <a rel="license"
+         href="http://creativecommons.org/publicdomain/zero/1.0/">
+        <img src="http://i.creativecommons.org/p/zero/1.0/88x31.png" style="border-style: none;" alt="CC0" />
+      </a>
+      <br />
+      To the extent possible under law,
+      <span resource="[_:publisher]" rel="dct:publisher">
+        <span property="dct:title">Matthias Geier</span></span>
+      has waived all copyright and related or neighboring rights to
+      this work.
+    </p>
+metadata
+    {
+     "kernelspec": {
+      "display_name": "Python 3",
+      "language": "python",
+      "name": "python3"
+     },
+     "language_info": {
+      "codemirror_mode": {
+       "name": "ipython",
+       "version": 3
+      },
+      "file_extension": ".py",
+      "mimetype": "text/x-python",
+      "name": "python",
+      "nbconvert_exporter": "python",
+      "pygments_lexer": "ipython3",
+      "version": "3.4.3+"
+     }
+    }

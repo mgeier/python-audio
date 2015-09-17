@@ -134,6 +134,10 @@ markdown
     
     openal.loaders (PyAL):  
     http://pythonhosted.org/PyAL/loaders.html
+    
+    Pydub:  
+    http://pydub.com/  
+    https://github.com/jiaaro/pydub
 markdown
     ## Example Files (for Testing)
     

@@ -12,36 +12,43 @@ def pcm2float(sig, dtype='float64'):
     Parameters
     ----------
     sig : array_like
-        Input array, must have (signed) integral type.
+        Input array, must have integral type.
     dtype : data type, optional
         Desired (floating point) data type.
 
     Returns
     -------
-    ndarray
-        normalized floating point data.
+    numpy.ndarray
+        Normalized floating point data.
 
     See Also
     --------
     float2pcm, dtype
 
     """
-    # TODO: allow unsigned (e.g. 8-bit) data
-
     sig = np.asarray(sig)
-    if sig.dtype.kind != 'i':
-        raise TypeError("'sig' must be an array of signed integers")
+    if sig.dtype.kind not in 'iu':
+        raise TypeError("'sig' must be an array of integers")
     dtype = np.dtype(dtype)
     if dtype.kind != 'f':
-        raise TypeError("'dtype' must be floating point type")
+        raise TypeError("'dtype' must be a floating point type")
 
-    # Note that 'min' has a greater (by 1) absolute value than 'max'!
-    # Therefore, we use '-min' here to avoid clipping.
-    return sig.astype(dtype) / dtype.type(-np.iinfo(sig.dtype).min)
+    i = np.iinfo(sig.dtype)
+    abs_max = 2 ** (i.bits - 1)
+    offset = i.min + abs_max
+    return (sig.astype(dtype) - offset) / abs_max
 
 
 def float2pcm(sig, dtype='int16'):
     """Convert floating point signal with a range from -1 to 1 to PCM.
+
+    Any signal values outside the interval [-1.0, 1.0) are clipped.
+    No dithering is used.
+
+    Note that there are different possibilities for scaling floating
+    point numbers to PCM numbers, this function implements just one of
+    them.  For an overview of alternatives see
+    http://blog.bjornroche.com/2009/12/int-float-int-its-jungle-out-there.html
 
     Parameters
     ----------
@@ -52,24 +59,26 @@ def float2pcm(sig, dtype='int16'):
 
     Returns
     -------
-    ndarray
-        integer data.
+    numpy.ndarray
+        Integer data, scaled and clipped to the range of the given
+        `dtype`.
 
     See Also
     --------
     pcm2float, dtype
 
     """
-    # TODO: allow unsigned (e.g. 8-bit) data
-
     sig = np.asarray(sig)
     if sig.dtype.kind != 'f':
         raise TypeError("'sig' must be a float array")
     dtype = np.dtype(dtype)
-    if dtype.kind != 'i':
-        raise TypeError("'dtype' must be signed integer type")
+    if dtype.kind not in 'iu':
+        raise TypeError("'dtype' must be an integer type")
 
-    return (sig * np.iinfo(dtype).max).astype(dtype)
+    i = np.iinfo(dtype)
+    abs_max = 2 ** (i.bits - 1)
+    offset = i.min + abs_max
+    return (sig * abs_max + offset).clip(i.min, i.max).astype(dtype)
 
 
 def pcm24to32(data, channels=1, normalize=True):

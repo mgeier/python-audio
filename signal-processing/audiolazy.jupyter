@@ -19,7 +19,7 @@ code 2
     a
   execute_result
   - text/plain
-    <audiolazy.lazy_stream.Stream at 0x7f07d8ba7080>
+    <audiolazy.lazy_stream.Stream at 0x7f5db56f37f0>
   metadata
     {
      "collapsed": false
@@ -35,7 +35,7 @@ code 4
     c
   execute_result
   - text/plain
-    <audiolazy.lazy_stream.Stream at 0x7f07d8ba70b8>
+    <audiolazy.lazy_stream.Stream at 0x7f5db56ec2b0>
   metadata
     {
      "collapsed": false
@@ -109,7 +109,7 @@ code 13
     data
   execute_result
   - text/plain
-    <audiolazy.lazy_stream.Stream at 0x7f07d8bbb4e0>
+    <audiolazy.lazy_stream.Stream at 0x7f5db56eca58>
   metadata
     {
      "collapsed": false
@@ -390,7 +390,7 @@ code 16
     YII=
     
   - text/plain
-    <matplotlib.figure.Figure at 0x7f07d8bbb2e8>
+    <matplotlib.figure.Figure at 0x7f5db56ecef0>
   display_data
   - image/png
     iVBORw0KGgoAAAANSUhEUgAAAYgAAAEcCAYAAADdtCNzAAAABHNCSVQICAgIfAhkiAAAAAlwSFlz
@@ -643,7 +643,7 @@ code 16
     YII=
     
   - text/plain
-    <matplotlib.figure.Figure at 0x7f07d8bbb2e8>
+    <matplotlib.figure.Figure at 0x7f5db56ecef0>
   metadata
     {
      "collapsed": false
@@ -899,7 +899,7 @@ code 17
     JAiCIGibMCJBEARB24QRCYIgCNomjEgQBEHQNmFEgiAIgrb5/7Y/PjsJ4AvOAAAAAElFTkSuQmCC
     
   - text/plain
-    <matplotlib.figure.Figure at 0x7f07d684bc50>
+    <matplotlib.figure.Figure at 0x7f5db3323a90>
   display_data
   - image/png
     iVBORw0KGgoAAAANSUhEUgAAAZEAAAEcCAYAAAAGD4lRAAAABHNCSVQICAgIfAhkiAAAAAlwSFlz
@@ -1149,7 +1149,7 @@ code 17
     JAiCIGibMCJBEARB24QRCYIgCNomjEgQBEHQNmFEgiAIgrb5/7Y/PjsJ4AvOAAAAAElFTkSuQmCC
     
   - text/plain
-    <matplotlib.figure.Figure at 0x7f07d684bc50>
+    <matplotlib.figure.Figure at 0x7f5db3323a90>
   metadata
     {
      "collapsed": false
@@ -1338,7 +1338,7 @@ code 18
     Ty7OuUJ4cnHOFcKTi3OuEP8PDCz9xYnyKhUAAAAASUVORK5CYII=
     
   - text/plain
-    <matplotlib.figure.Figure at 0x7f0808063ac8>
+    <matplotlib.figure.Figure at 0x7f5db2fd4940>
   display_data
   - image/png
     iVBORw0KGgoAAAANSUhEUgAAARcAAAEZCAYAAAC92WGkAAAABHNCSVQICAgIfAhkiAAAAAlwSFlz
@@ -1521,7 +1521,7 @@ code 18
     Ty7OuUJ4cnHOFcKTi3OuEP8PDCz9xYnyKhUAAAAASUVORK5CYII=
     
   - text/plain
-    <matplotlib.figure.Figure at 0x7f0808063ac8>
+    <matplotlib.figure.Figure at 0x7f5db2fd4940>
   metadata
     {
      "collapsed": false
@@ -1790,7 +1790,7 @@ code 22
     5MnBOZfJk4NzLpMnB+dcJk8OzrlMnhycc5n+P+5jLmRWxN/DAAAAAElFTkSuQmCC
     
   - text/plain
-    <matplotlib.figure.Figure at 0x7f07d67b7fd0>
+    <matplotlib.figure.Figure at 0x7f5db3439978>
   display_data
   - image/png
     iVBORw0KGgoAAAANSUhEUgAAAQcAAAEZCAYAAACad+BMAAAABHNCSVQICAgIfAhkiAAAAAlwSFlz
@@ -2000,7 +2000,7 @@ code 22
     5MnBOZfJk4NzLpMnB+dcJk8OzrlMnhycc5n+P+5jLmRWxN/DAAAAAElFTkSuQmCC
     
   - text/plain
-    <matplotlib.figure.Figure at 0x7f07d67b7fd0>
+    <matplotlib.figure.Figure at 0x7f5db3439978>
   metadata
     {
      "collapsed": false
@@ -2305,7 +2305,7 @@ code 23
     QgEAVEFCAQBUQUIBAFRBQgEAVEFCAQBUQUIBAFTxDSZ0w8IjZiBWAAAAAElFTkSuQmCC
     
   - text/plain
-    <matplotlib.figure.Figure at 0x7f07d6713e48>
+    <matplotlib.figure.Figure at 0x7f5db324dda0>
   display_data
   - image/png
     iVBORw0KGgoAAAANSUhEUgAAAZQAAAEcCAYAAADgJkIVAAAABHNCSVQICAgIfAhkiAAAAAlwSFlz
@@ -2604,7 +2604,7 @@ code 23
     QgEAVEFCAQBUQUIBAFRBQgEAVEFCAQBUQUIBAFTxDSZ0w8IjZiBWAAAAAElFTkSuQmCC
     
   - text/plain
-    <matplotlib.figure.Figure at 0x7f07d6713e48>
+    <matplotlib.figure.Figure at 0x7f5db324dda0>
   metadata
     {
      "collapsed": false
@@ -2631,7 +2631,7 @@ code 26
     residual
   execute_result
   - text/plain
-    <audiolazy.lazy_stream.Stream at 0x7f07d64ce198>
+    <audiolazy.lazy_stream.Stream at 0x7f5db3005630>
   metadata
     {
      "collapsed": false
@@ -3319,7 +3319,7 @@ code 30
     MWLEqBNixREjRowYMeqEWHHEiBEjRow64f8D7Z5dCQdsml8AAAAASUVORK5CYII=
     
   - text/plain
-    <matplotlib.figure.Figure at 0x7f07d64ce978>
+    <matplotlib.figure.Figure at 0x7f5db30050b8>
   display_data
   - image/png
     iVBORw0KGgoAAAANSUhEUgAAAY4AAAEcCAYAAADQqlM0AAAABHNCSVQICAgIfAhkiAAAAAlwSFlz
@@ -3958,7 +3958,7 @@ code 30
     MWLEqBNixREjRowYMeqEWHHEiBEjRow64f8D7Z5dCQdsml8AAAAASUVORK5CYII=
     
   - text/plain
-    <matplotlib.figure.Figure at 0x7f07d64ce978>
+    <matplotlib.figure.Figure at 0x7f5db30050b8>
   metadata
     {
      "collapsed": false
@@ -3985,7 +3985,7 @@ code 33
     note1
   execute_result
   - text/plain
-    <audiolazy.lazy_stream.Stream at 0x7f07d642ecc0>
+    <audiolazy.lazy_stream.Stream at 0x7f5db2c16a58>
   metadata
     {
      "collapsed": false
@@ -3995,7 +3995,7 @@ code 34
     note2
   execute_result
   - text/plain
-    <audiolazy.lazy_stream.Stream at 0x7f07d642ee10>
+    <audiolazy.lazy_stream.Stream at 0x7f5db2c16ba8>
   metadata
     {
      "collapsed": false
@@ -4030,6 +4030,52 @@ code 39
   metadata
     {
      "collapsed": true
+    }
+markdown
+    http://pythonhosted.org/audiolazy/audiolazy.html
+code 40
+    delay_a4 = lz.freq_to_lag(440 * Hz)
+    delay_a4
+  execute_result
+  - text/plain
+    100.22727272727272
+  metadata
+    {
+     "collapsed": false
+    }
+code 41
+    filt = lz.ParallelFilter(lz.comb.tau(delay_a4, 20 * s), lz.resonator(440 * Hz, bandwidth=100 * Hz))
+    filt
+  execute_result
+  - text/plain
+    [                 1
+     ------------------------------------
+     1 - 0.999886 * z^-100.22727272727272,             0.000891948
+     ------------------------------------
+     1 - 1.98185 * z^-1 + 0.985853 * z^-2]
+  metadata
+    {
+     "collapsed": false
+    }
+code 42
+    len(filt)
+  execute_result
+  - text/plain
+    2
+  metadata
+    {
+     "collapsed": false
+    }
+code 43
+    lz.comb.tau(3)
+  execute_result
+  - text/plain
+       1
+    --------
+    1 - z^-3
+  metadata
+    {
+     "collapsed": false
     }
 markdown
     <p xmlns:dct="http://purl.org/dc/terms/">

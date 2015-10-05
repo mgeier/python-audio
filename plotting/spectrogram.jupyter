@@ -1,0 +1,53 @@
+nbformat 4
+nbformat_minor 0
+markdown
+    # Plotting a Spectrogram
+    
+    [back to main page](index.ipynb)
+    
+    TODO
+markdown
+    ## Why not use SoX?
+    
+    [SoX](http://sox.sourceforge.net/) is "the Swiss Army knife of sound processing programs".
+    It's great for converting between different audio file formats and it can also do some basic (and some not so basic) audio processing.
+    And behold, it can also create spectrograms, it's quite simple:
+    
+        sox myfile.wav -n spectrogram
+markdown
+    ## External Links
+    
+    TTS (Text-To-Spectrogram): https://github.com/kylophone/ascii-audio
+markdown
+    <p xmlns:dct="http://purl.org/dc/terms/">
+      <a rel="license"
+         href="http://creativecommons.org/publicdomain/zero/1.0/">
+        <img src="http://i.creativecommons.org/p/zero/1.0/88x31.png" style="border-style: none;" alt="CC0" />
+      </a>
+      <br />
+      To the extent possible under law,
+      <span resource="[_:publisher]" rel="dct:publisher">
+        <span property="dct:title">Matthias Geier</span></span>
+      has waived all copyright and related or neighboring rights to
+      this work.
+    </p>
+metadata
+    {
+     "kernelspec": {
+      "display_name": "Python 3",
+      "language": "python",
+      "name": "python3"
+     },
+     "language_info": {
+      "codemirror_mode": {
+       "name": "ipython",
+       "version": 3
+      },
+      "file_extension": ".py",
+      "mimetype": "text/x-python",
+      "name": "python",
+      "nbconvert_exporter": "python",
+      "pygments_lexer": "ipython3",
+      "version": "3.4.3+"
+     }
+    }

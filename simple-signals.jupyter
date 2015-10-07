@@ -4,10 +4,10 @@ markdown
     # Generating Simple Audio Signals
     
     [back to main page](index.ipynb)
-markdown
-    We create a simple sine wave as an introductory example using Python and NumPy.
     
-    Let's start with some basic Python. We create three numbers and give each of them a name.
+    We create a simple sine wave as an introductory example using Python and NumPy, using a Jupyter/IPython notebook.
+    
+    Let's start very simple. We create ~~three~~ four numbers and give each of them a name.
     
     > Sometimes these are called *variables*, but that is actually misleading.
     > Think about objects and names. An object is created (in our case a number) and we specify a name by which we want to access this object.
@@ -22,6 +22,7 @@ code 1
     }
 markdown
     Everything following a `#` sign is a comment.
+    You don't have to comment everything, but sometimes it helps other people (and future you) to understand what you did in your code.
     
     There is no output. If you want to see which object a certain name refers to, just type the name:
 code 2
@@ -47,7 +48,8 @@ code 3
 markdown
     Note that we didn't specify any types explicitly, we just got Python's default types. Numbers with a comma are by default of type `float`, numbers without comma are of type `int`.
     
-    There are many more types in Python (strings, tuples, lists, dictionaries, ...), but let's ignore them for now.
+    There are many more built-in types in Python (strings, tuples, lists, dictionaries, ...), but let's ignore them for now.
+    If you *really* want to know more, you can have a look at my [Introduction to Python](intro-python.ipynb).
     
     If you want an overview about all the objects you have defined up to now, use `%who` or its more verbose cousin `%whos`.
 code 4
@@ -61,11 +63,12 @@ code 4
     fs         int      44100
   metadata
     {
-     "collapsed": false
+     "collapsed": false,
+     "scrolled": true
     }
 markdown
     Now, let's bring NumPy into the game. The canonical way to do that is
-code 5
+code 12
     import numpy as np
   metadata
     {
@@ -79,7 +82,7 @@ markdown
     In order to create a sine tone, we need first a series of time instances to represent our sampling times. The distance between those instances is the *sampling interval* $\tau = \frac{1}{f_s}$, where $f_s$ is the *sampling frequency*.
     
     To create a series of regularly ascending (or descending) values, NumPy provides the function `arange()`. Let's use that.
-code 6
+code 13
     t = np.arange(0, np.ceil(dur * fs)) / fs
     t
   execute_result
@@ -252,7 +255,7 @@ code 12
     DAZJUsNgkCQ1DAZJUuP/ANj5+d2GfVndAAAAAElFTkSuQmCC
     
   - text/plain
-    <matplotlib.figure.Figure at 0x7f5ae3488a90>
+    <matplotlib.figure.Figure at 0x7f2f80cd9e48>
   metadata
     {
      "collapsed": false
@@ -398,7 +401,7 @@ code 13
     AABJRU5ErkJggg==
     
   - text/plain
-    <matplotlib.figure.Figure at 0x7f5ae11c4dd8>
+    <matplotlib.figure.Figure at 0x7f2f7eb565f8>
   metadata
     {
      "collapsed": false
@@ -556,7 +559,7 @@ code 14
     5Rz0ZmaVc9CbmVXOQW9mVjkHvZlZ5Rz0ZmaVc9CbmVXu/wNyVm8H5IMPpgAAAABJRU5ErkJggg==
     
   - text/plain
-    <matplotlib.figure.Figure at 0x7f5ae1024748>
+    <matplotlib.figure.Figure at 0x7f2f7e9e45c0>
   metadata
     {
      "collapsed": false
@@ -564,7 +567,7 @@ code 14
 markdown
     Now that we can *see* our signal, wouldn't it also be nice to hear it?
     
-    There are several 3rd-party libraries for Python that allow audio playback, let's try one of them: [python-sounddevice](http://python-sounddevice.rtfd.org/).
+    There are several 3rd-party libraries for Python that allow audio playback, let's try one of them: the [sounddevice](http://python-sounddevice.rtfd.org/) module.
     
     Follow the [installation instructions](http://python-sounddevice.rtfd.org/#Installation), then re-evaluate this notebook (with the menu command "Cell" $\to$ "Run All Above") and continue here:
 code 15
@@ -579,13 +582,12 @@ code 16
     {
      "collapsed": true
     }
-code 17
-    # TODO: save WAV file, link to sudio-file-notebook?
-  metadata
-    {
-     "collapsed": false
-    }
 markdown
+    Did it work? No?
+    
+    Don't despair, if you can't play the signal directly, you can save it to a sound file and play that in an external sound file player.
+    I've written a separate [description how to read and write audio files in Python](audio-files/index.ipynb), have a look there.
+    
     OK, now we know how to create a *mono* signal, but what about *stereo*?
     
     For now, we were using one-dimensional arrays, but for stereo signals we need two-dimensional arrays.
@@ -596,11 +598,11 @@ markdown
     
     There are several possibilities:
     
-    1. Create two separate mono signals like above, and combine them with numpy.column_stack()
+    1. Create two separate mono signals like above, and combine them with [numpy.column_stack()](http://docs.scipy.org/doc/numpy/reference/generated/numpy.column_stack.html)
     
-    1. Duplicate the time array `t` and the array with the two frequencies with numpy.tile() and use those larger two-dimensional arrays in the calculations (this is not recommended)
+    1. Duplicate the time array `t` and the array with the two frequencies with [numpy.tile()](http://docs.scipy.org/doc/numpy/reference/generated/numpy.tile.html) and use those larger two-dimensional arrays in the calculations (this is not recommended)
     
-    1. Use *broadcasting* and do everything at once
+    1. Use [broadcasting](http://docs.scipy.org/doc/numpy/user/basics.broadcasting.html) and do everything at once
     
     1. For sure, there are more ways to do this ...
     
@@ -610,7 +612,7 @@ markdown
     This sounds complicated, let's just see it in an example.
     
     Remember our time array `t`?
-code 18
+code 17
     t
   execute_result
   - text/plain
@@ -625,7 +627,7 @@ markdown
     
     But we can re-shape it into a two-dimensional array with one column.
     We can specify the concrete shape, or we can set one component to `-1`, which means this dimension is determined automatically, based on the given data.
-code 19
+code 18
     t.reshape(-1, 1)
   execute_result
   - text/plain
@@ -644,7 +646,7 @@ markdown
     The result is two-dimensional (note the two levels of brackets!).
     
     Let's now create an array for our two frequencies.
-code 20
+code 19
     freq = np.array([500, 600])
     freq
   execute_result
@@ -658,7 +660,7 @@ markdown
     As you can see, this two-element array is one-dimensional.
     
     The interesting part comes when we multiply those two arrays:
-code 21
+code 20
     freq * t.reshape(-1, 1)
   execute_result
   - text/plain
@@ -679,7 +681,7 @@ markdown
     
     Isn't this great?
     Now we can use this for creating our *stereo* sine signal:
-code 22
+code 21
     sig = amp * np.sin(2 * np.pi * freq * t.reshape(-1, 1))
     sig
   execute_result
@@ -699,7 +701,7 @@ markdown
     Again, we have an array with two columns, one for each channel.
     
     The plt.plot() function can handle two-dimensional arrays and just plots each column with a new color.
-code 23
+code 22
     plt.plot(sig[:200])
     plt.ylim(-1.1, 1.1);
   display_data
@@ -890,7 +892,7 @@ code 23
     EZGKUgAQEakoBQARkYpSABARqSgFABGRivr/LxLqlJ9GldcAAAAASUVORK5CYII=
     
   - text/plain
-    <matplotlib.figure.Figure at 0x7f5ae0af3240>
+    <matplotlib.figure.Figure at 0x7f2f7e59a550>
   metadata
     {
      "collapsed": false
@@ -898,7 +900,7 @@ code 23
 markdown
     Of course we can again plot the time in milliseconds.
     And let's add a legend in order to distinguish the two signals!
-code 24
+code 23
     plt.plot(t[:200] * 1000, sig[:200])
     plt.title("stereo sine")
     plt.xlabel("time / milliseconds")
@@ -1130,29 +1132,25 @@ code 24
     YII=
     
   - text/plain
-    <matplotlib.figure.Figure at 0x7f5ae0aa7668>
+    <matplotlib.figure.Figure at 0x7f2f7e5c57b8>
   metadata
     {
      "collapsed": false
     }
-code 25
-    # TODO: link to plotting intro
-  metadata
-    {
-     "collapsed": true
-    }
-code 26
+markdown
+    If you want to know more about plotting, have a look at my [pages about plotting](plotting/index.ipynb), especially the [matplotlib intro](plotting/matplotlib.ipynb).
+    
+    Like before, you can play back the signal, but this time in stereo, hooray!
+code 24
     sd.play(sig, fs)
   metadata
     {
      "collapsed": true
     }
-code
+markdown
+    That's it for this little example, if you want to know more, go back to the [main page](index.ipynb) and dive in!
     
-  metadata
-    {
-     "collapsed": true
-    }
+    Have fun!
 markdown
     <p xmlns:dct="http://purl.org/dc/terms/">
       <a rel="license"

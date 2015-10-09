@@ -1,13 +1,15 @@
 nbformat 4
 nbformat_minor 0
 markdown
-    # Plotting
+    # Plotting with Python
     
     [back to main page](../index.ipynb)
     
     The de-facto standard library for plotting in Python is "matplotlib".
     
-    * [Getting Started With `matplotlib`](matplotlib.ipynb)
+    * [Getting Started with `matplotlib`](matplotlib.ipynb)
+    
+    The following topics are work in progress:
     
     * [Creating Plots for LaTeX Documents](latex.ipynb)
     

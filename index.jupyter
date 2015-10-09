@@ -3,19 +3,25 @@ nbformat_minor 0
 markdown
     # Audio Signal Processing in Python
     
-    *Warning*: this is work in progress!
+    As a quick (and hopefully painless) introduction to the whole topic, have a look at:
+    
+    * [Generating Simple Audio Signals](simple-signals.ipynb)
+    
+    If you want to know about the basics of Python and nothing else (no numeric Python, no plotting, no signal processing, just the very basics), that's for you:
     
     * [Introduction to Python](intro-python.ipynb)
+    
+    More topics:
+    
+    * [Plotting with Python](plotting/index.ipynb)
+    
+    * [Reading and Writing Audio Files](audio-files/index.ipynb)
+    
+    *Warning*: The following topics are very much work in progress!
     
     * [Introduction to IPython](intro-ipython.ipynb)
     
     * [Introduction to NumPy](intro-numpy.ipynb)
-    
-    * [Generating Simple Audio Signals](simple-signals.ipynb)
-    
-    * [Reading and Writing Audio Files](audio-files/index.ipynb)
-    
-    * [Plotting](plotting/index.ipynb)
     
     * [Testing Python Code](testing/index.ipynb)
     

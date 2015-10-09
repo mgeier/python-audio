@@ -68,7 +68,7 @@ code 4
     }
 markdown
     Now, let's bring NumPy into the game. The canonical way to do that is
-code 12
+code 5
     import numpy as np
   metadata
     {
@@ -81,9 +81,9 @@ markdown
     
     In order to create a sine tone, we need first a series of time instances to represent our sampling times. The distance between those instances is the *sampling interval* $\tau = \frac{1}{f_s}$, where $f_s$ is the *sampling frequency*.
     
-    To create a series of regularly ascending (or descending) values, NumPy provides the function `arange()`. Let's use that.
-code 13
-    t = np.arange(0, np.ceil(dur * fs)) / fs
+    To create a series of regularly ascending (or descending) values, NumPy provides the function [numpy.arange()](http://docs.scipy.org/doc/numpy/reference/generated/numpy.arange.html). Let's use that.
+code 6
+    t = np.arange(np.ceil(dur * fs)) / fs
     t
   execute_result
   - text/plain
@@ -116,7 +116,7 @@ markdown
     > 1 / fs
     > ```
     
-    If you want to get help about `np.arange()` (or any other function/object), just write its name followed (or preceded) by a question mark:
+    If you want to get help about `np.arange()` (or any other function/object), just write its name (without the parentheses) followed (or preceded) by a question mark:
 code 7
     np.arange?
   metadata
@@ -255,7 +255,7 @@ code 12
     DAZJUsNgkCQ1DAZJUuP/ANj5+d2GfVndAAAAAElFTkSuQmCC
     
   - text/plain
-    <matplotlib.figure.Figure at 0x7f2f80cd9e48>
+    <matplotlib.figure.Figure at 0x7ff22089aa20>
   metadata
     {
      "collapsed": false
@@ -401,7 +401,7 @@ code 13
     AABJRU5ErkJggg==
     
   - text/plain
-    <matplotlib.figure.Figure at 0x7f2f7eb565f8>
+    <matplotlib.figure.Figure at 0x7ff21e5d51d0>
   metadata
     {
      "collapsed": false
@@ -559,7 +559,7 @@ code 14
     5Rz0ZmaVc9CbmVXOQW9mVjkHvZlZ5Rz0ZmaVc9CbmVXu/wNyVm8H5IMPpgAAAABJRU5ErkJggg==
     
   - text/plain
-    <matplotlib.figure.Figure at 0x7f2f7e9e45c0>
+    <matplotlib.figure.Figure at 0x7ff21e438208>
   metadata
     {
      "collapsed": false
@@ -625,9 +625,20 @@ code 17
 markdown
     This array is one-dimensional (note that there is only one pair of brackets).
     
-    But we can re-shape it into a two-dimensional array with one column.
-    We can specify the concrete shape, or we can set one component to `-1`, which means this dimension is determined automatically, based on the given data.
+    To be completely obvious, we could also check the number of dimensions explicitly:
 code 18
+    t.ndim
+  execute_result
+  - text/plain
+    1
+  metadata
+    {
+     "collapsed": false
+    }
+markdown
+    But we can re-shape it, for example into a two-dimensional array with one column.
+    We can specify the concrete shape, or we can set one component to `-1`, which means this dimension is determined automatically, based on the given data.
+code 19
     t.reshape(-1, 1)
   execute_result
   - text/plain
@@ -646,7 +657,7 @@ markdown
     The result is two-dimensional (note the two levels of brackets!).
     
     Let's now create an array for our two frequencies.
-code 19
+code 20
     freq = np.array([500, 600])
     freq
   execute_result
@@ -660,7 +671,7 @@ markdown
     As you can see, this two-element array is one-dimensional.
     
     The interesting part comes when we multiply those two arrays:
-code 20
+code 21
     freq * t.reshape(-1, 1)
   execute_result
   - text/plain
@@ -681,7 +692,7 @@ markdown
     
     Isn't this great?
     Now we can use this for creating our *stereo* sine signal:
-code 21
+code 22
     sig = amp * np.sin(2 * np.pi * freq * t.reshape(-1, 1))
     sig
   execute_result
@@ -700,8 +711,8 @@ code 21
 markdown
     Again, we have an array with two columns, one for each channel.
     
-    The plt.plot() function can handle two-dimensional arrays and just plots each column with a new color.
-code 22
+    The plt.plot() function can handle two-dimensional arrays and just plots each column with a new color. How convenient!
+code 23
     plt.plot(sig[:200])
     plt.ylim(-1.1, 1.1);
   display_data
@@ -892,7 +903,7 @@ code 22
     EZGKUgAQEakoBQARkYpSABARqSgFABGRivr/LxLqlJ9GldcAAAAASUVORK5CYII=
     
   - text/plain
-    <matplotlib.figure.Figure at 0x7f2f7e59a550>
+    <matplotlib.figure.Figure at 0x7ff21e16a5f8>
   metadata
     {
      "collapsed": false
@@ -900,7 +911,7 @@ code 22
 markdown
     Of course we can again plot the time in milliseconds.
     And let's add a legend in order to distinguish the two signals!
-code 23
+code 24
     plt.plot(t[:200] * 1000, sig[:200])
     plt.title("stereo sine")
     plt.xlabel("time / milliseconds")
@@ -1132,7 +1143,7 @@ code 23
     YII=
     
   - text/plain
-    <matplotlib.figure.Figure at 0x7f2f7e5c57b8>
+    <matplotlib.figure.Figure at 0x7ff21e0f3f98>
   metadata
     {
      "collapsed": false
@@ -1141,7 +1152,7 @@ markdown
     If you want to know more about plotting, have a look at my [pages about plotting](plotting/index.ipynb), especially the [matplotlib intro](plotting/matplotlib.ipynb).
     
     Like before, you can play back the signal, but this time in stereo, hooray!
-code 24
+code 25
     sd.play(sig, fs)
   metadata
     {

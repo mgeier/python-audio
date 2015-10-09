@@ -19,7 +19,7 @@ markdown
     
     *Warning*: The following topics are very much work in progress!
     
-    * [Introduction to IPython](intro-ipython.ipynb)
+    * [Introduction to Jupyter/IPython notebooks](intro-jupyter.ipynb)
     
     * [Introduction to NumPy](intro-numpy.ipynb)
     

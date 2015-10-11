@@ -1,50 +1,80 @@
 nbformat 4
 nbformat_minor 0
 markdown
-    # A Short Introduction to Jupyter/IPython
+    # A Short Introduction to Jupyter notebooks (using an IPython kernel)
     
     [back to main page](index.ipynb)
     
-    interactive ...
+    This very page is a Jupyter notebook, so if you are reading this on a static web page, you should download the notebook file (which has the file extension `.ipynb`) and open it with Jupyter/IPython (see below for how that's done).
+markdown
+    ## IPython console, Qt console, Jupyter notebook
     
-      - classic console
-      - qtconsole
-      - notebook
+    The IPython (I guess that's short for *interactive* Python) kernel can be used in 3 quite different ways:
     
-    Start like this:
+    * The **classic IPython console** runs in a terminal window (or on a real terminal, if those still exist) and is somewhat similar to the native interactive Python interpreter.
+      However, it has many significant improvements like tab-completion, color output, "magic" functions, the ability to run shell commands, ...  
+      It can be started with
+      
+          ipython3
+          
+      Just give it a try!
+      
+      If you are really into text-mode applications, you might also want to check out
+      [bpython](http://bpython-interpreter.org/) and [ptpython](https://github.com/jonathanslenders/ptpython).
     
-        ipython3
+    ---
     
-    or
+    * The **Qt console** uses the Qt GUI library but still keeps a terminal-like appearance.
+      The main difference to the classic console is the support for inline graphics/plots and multi-line editing.  
+      It can be started with
     
-        ipython3 qtconsole
+          ipython3 qtconsole
+          
+      What are you waiting for? Go ahead and start it!
     
-    or
+    ---
     
-        ipython3 notebook
+    * The **Jupyter notebook** (formerly known as *IPython notebook*) brings your interactive Python session into the browser and opens up a cornucopia of multi-medial greatness (to say the least).  
+      Depending on your installation, the command for opening a notebook (like, for example, this very page) might be one of those:
     
-    http://ipython.org/notebook.html
+          ipython3 notebook
+          jupyter3
+          jupyter3 notebook
+          jupyter3-notebook
     
-    http://nbviewer.ipython.org/
+    The commands on your system may have the digit `3` in it (to distinguish between Python 3.x and 2.x) or not (if you have only Python 3 installed, anyway).
     
-    http://nbdiff.org/
+    If you don't know what's the deal with Python 2 vs. 3, just use Python 3!
+    
+    The rest of this page describes the Jupyter notebook, but some of the commands are also available for the two console applications.
+markdown
+    ## Markdown cells, Code cells
+    
+    Text can be written in [Markdown](http://daringfireball.net/projects/markdown/).
+    
+    Support for $\LaTeX$ equations: $a^2+b^2=c^2$ (using [MathJax](http://www.mathjax.org/)).
+code
+    
+  metadata
+    {
+     "collapsed": true
+    }
+markdown
+    ## Getting Help
 code 1
     ?
   metadata
     {
      "collapsed": false
     }
+markdown
+    ## "Magic" Functions
 code 1
-    # magic functions
     %quickref
   metadata
     {
      "collapsed": false
     }
-markdown
-    Text can be written in [Markdown](http://daringfireball.net/projects/markdown/).
-    
-    Support for $\LaTeX$ equations: $a^2+b^2=c^2$ (using [MathJax](http://www.mathjax.org/)).
 markdown
     `qtconsole` can also be started from a running notebook session:
 code 2
@@ -53,14 +83,20 @@ code 2
     {
      "collapsed": false
     }
-code 3
-    help?
+code 5
+    range?
   metadata
     {
      "collapsed": false
     }
-code 4
-    help??
+code 11
+    %whos?
+  metadata
+    {
+     "collapsed": true
+    }
+code 9
+    %whos??
   metadata
     {
      "collapsed": false
@@ -73,8 +109,8 @@ code 5
     {
      "collapsed": false
     }
-code 6
-    # TODO: TikZ backend?
+code 12
+    # TODO: TikZ extension?
   metadata
     {
      "collapsed": false
@@ -297,6 +333,12 @@ code 13
     }
 markdown
     IPython can display [all kinds of media](http://nbviewer.ipython.org/github/ipython/ipython/blob/master/examples/notebooks/Part%205%20-%20Rich%20Display%20System.ipynb) and it can even handle the [HTML5 `<audio>` tag](http://nbviewer.ipython.org/github/Carreau/posts/blob/master/07-the-sound-of-hydrogen.ipynb).
+markdown
+    http://nbviewer.ipython.org/
+    
+    http://nbdiff.org/
+    
+    TODO: binder
 markdown
     ## Links
     

@@ -1,0 +1,877 @@
+nbformat 4
+nbformat_minor 0
+markdown
+    # Symbolic Statistics with SymPy
+    
+    [back to overview page](index.ipynb)
+    
+    This notebook just lists the (sometimes slightly modified) examples from the paper [Symbolic Statistics with SymPy](http://scitation.aip.org/content/aip/journal/cise/14/3/10.1109/MCSE.2012.56) ([doi:10.1109/MCSE.2012.56]( http://dx.doi.org/10.1109/MCSE.2012.56)) by  Matthew Rocklin and Andy R. Terrel, published in Computing in Science & Engineering, Volume 14, Issue 3 (2012).
+code 1
+    from sympy import stats
+    import sympy
+    sympy.init_printing()
+  metadata
+    {
+     "collapsed": true
+    }
+code 2
+    sympy.__version__
+  execute_result
+  - text/plain
+    '0.7.7.dev'
+  metadata
+    {
+     "collapsed": false
+    }
+markdown
+    ## Example 1: Dice
+    
+    [sympy.stats.Die](http://docs.sympy.org/dev/modules/stats.html#sympy.stats.Die), by default 6-sided.
+code 3
+    X = stats.Die('X')
+    Y = stats.Die('Y')
+  metadata
+    {
+     "collapsed": false
+    }
+code 4
+    X
+  execute_result
+  - image/png
+    iVBORw0KGgoAAAANSUhEUgAAABIAAAAOBAMAAADQ9FGEAAAAMFBMVEX///8AAAAAAAAAAAAAAAAA
+    AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAv3aB7AAAAD3RSTlMAZrvddhDNVKsyIu+J
+    mUR+edwkAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAAZElEQVQIHWNgYBD6b8IQ9l+dAQj6BRgYW0EM
+    hvkJDDPADAa2n1wNEBb7jxUQBgPDflUY67wDjNW/AcriXfEdyrrJ+QnC4nnAYL8AzPRjYJC/AGJx
+    AEn+r0DGtP87GfjyPzcwAAAachiCQIFnfQAAAABJRU5ErkJggg==
+    
+  - text/latex
+    $$X$$
+  - text/plain
+    X
+  metadata
+    {
+     "collapsed": false
+    }
+code 5
+    type(X)
+  execute_result
+  - text/plain
+    sympy.stats.rv.RandomSymbol
+  metadata
+    {
+     "collapsed": false
+    }
+code 6
+    stats.density(X)
+  execute_result
+  - image/png
+    iVBORw0KGgoAAAANSUhEUgAAAK8AAAAUBAMAAAAJsXDwAAAAMFBMVEX///8AAAAAAAAAAAAAAAAA
+    AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAv3aB7AAAAD3RSTlMAdqu7Is1mVDKZ70SJ
+    EN2OLFFaAAAACXBIWXMAAA7EAAAOxAGVKw4bAAADE0lEQVQ4Ea2VP2gTcRTHv0kuTZO7S1KHSkBo
+    arA4CMZYCp16UmnBoQ3F/yLeIKVLMWO3ZuskRqXgH5C46GCVoE4dmkvBQeiQKg6NYDIILh3SNral
+    f6jf3+9y12LX/ODee7/P+72Xd+/eXYBWLsW0s92X6sRBKpEyAG/SpnAAEk3gqgS+f3A3wnBjbDpI
+    tXQqC69BA/gLtG3xkCl3hwA9TfDLaBoEY00T0H8fjZH4KvCjEExDT4tt+xrFC+mwxTEwfcTJCpor
+    UHcsR7flgH74eOclgTzbFEVTmPY6BmYdD6DuuzYr+2+FDagNySpC+sQvj1rCtNcxsOp4AK3m2mHL
+    NZvGCJPlpe0vUEVYOorx5cdsWylmuECPRZmoY0JNbHSriz+XogL4u2MZoa+UPw6koiIGpVhBXbzc
+    0Q3EGHuz9JJMy1E8Yjy6LGseWDAUywWamgfusGlspua74c8LUL2rN4KBPLoAdl7EjBRIfBdQNdAH
+    VK8jlOEwpEXOLMX5z5lZKG+xwo0NCsNsolLHQ1DPhONqVoDpMvaGqC8CPM8YzAGrM+E0RrP4w8T7
+    CL4HAjUAA7ywo2MN3jcdky5AORKFvsMbYzPL1QIkmIW+Vw5F8ZrpIGKCfJrrwv0AeMdW1NC2y0mr
+    M88Gr7ZNBPYRidN0gagOnw6SEEnlxBHcgrqFYrl9GzrjGRNKQlkT7jMyMUtnLplYTm0lCX+8HLFE
+    XgdgTMcwlhsosjQ5cQSbosRX8NSh1lFmTNWC1hDuTV20wpuXFas1e4z1a+xOxgoxcVTOtQD6lobb
+    QB1fMCU6KcEuKiZSfAkmtXQgy5iICYbNsXhNPLx29jhvPzw/27GQ48AppieNFQMOUOtD6IUniid6
+    VOF9s8YhvuX9wFPM56xgfFnEBOMkdGvpCXzloXOoZICgBe+99dOJZyTecQ5ip3kI0GPiUudJYHAc
+    ao0nBFiJmcC30lR3VunjWcYsxQrCrfRksMAz2vOzlP4sRetW2HBy8R1s5RIfIXvJj5CzaYHubeaw
+    P5stSOikEB96sXyGVK0TR/6a/gH1R/Knd73L0QAAAABJRU5ErkJggg==
+    
+  - text/latex
+    $$DieDistribution(6)$$
+  - text/plain
+    DieDistribution(6)
+  metadata
+    {
+     "collapsed": false
+    }
+code 7
+    stats.density(X).dict
+  execute_result
+  - image/png
+    iVBORw0KGgoAAAANSUhEUgAAAbMAAAAyBAMAAAAkWCh9AAAAMFBMVEX///8AAAAAAAAAAAAAAAAA
+    AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAv3aB7AAAAD3RSTlMAEImZRO/dIma7q80y
+    dlRAyO8oAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAEvUlEQVRoBe1az4sURxR+PTO788PdmUEwhxWZ
+    YSUeQsSR1csqZCB/gCuoAYVoPHjQQwaFhZzsi3gIwRX14EU3CQaRyA7iIQSDQwJecnBJyHkXgngR
+    dFWSuItO6md3VferqlYWah22Dt2vvvfq6/d1V1W/nl0A0ja26HFw2ldtqaVwqCPNwTiXXtWFkAvN
+    wVAUq5j+gtvFVzEWW4+k8BhKWdX9KSgN+CAqLvM8KkvpfILv59zSxiaRkQkuT0Sf9FgetW4iHdZd
+    cEuDUbc0AC9E+0ImojHLTomDl4wSOejdt8nobIuNHURpQtO6NH12sN7aXWvrTw15XAJaf2rmeyM9
+    q36P1iekvLXp86rf7PQlFORt3mu2pzZ59OdQoUXN/I2Vm6hDBf0Q2aSp2UV2ceJqL+qYjNPj10wu
+    BR/h5YKCpMxf6r8tpsAkkNv+cRKifV1ahgp9DHIvMSIVK7bgaagCuD08g+MKerT/XOnhZnAX9mAe
+    VVqmCv1bgIMYkYqNvoHaMRXA7b/c0u7c7uBjFbTcgqtKNzKFtIdNhmRYpYcA5nrRcNwoHIBGF3cp
+    aPFrt7RZJd5k7jOor3H6C202MIO0+3W3NMKVYULmNqyOtCsGzRummOMEdwtpJw3BAv6yTozhWVtQ
+    cJx5rUTnuTQr0c1v9jqJVn79s02DkkTV/yia+5ce5SdjcIT3DMcCW9mbugY3hYvbdtKTlSiY59Ks
+    RBfhbNtBFKyE8Dm9WoporkPQD9vUJ6Vx23hM3h00UDKiTgbmIMOEBCgfM1MwT9Cvw246j1KtcgBg
+    M9n2WNPWWp+2Z6kBMKFANRakANIc2i8tAJzoiSbNSJQXE4rS4UT/AIitgsaoRI/m4QM2fQiuSaOB
+    SBttIaAOFTtQfqNDqV7Q1KSl/AyodDO8RU8RaSE6/sE8wO4ed2WR9jeQzO2ttuSWVr11a+4wubS1
+    DXUhv2SNIM4b2lNTovNkQkL+M45kkEaqo1GXtKEZGFbmkXI1zSRhjpYn+17XEQMPyVpDY3b0KEwe
+    Km1cmr6xJV6+0+Nbf6Ch2n4UrFAoaqUQntIHYiUiy4JJsxGRiu1cx0VUaQboDll4zRJaaNOTrNC1
+    19Gw+IGZxQHc7/fJuk2+RU7UhZufPp24zAwbEeSuL4ckSt9wE0RnPuLbgJVo62SPXk0nInvrM4qC
+    KLSYHR/G/+iRzuMYQCxedlfpvTU3D0RkUnRZQo0Wktfmdp56m4grgkTZnYsAzPBBlPyo0fO6BOUZ
+    smDmdVTvibJ7i44mej6IrNIKfJMrJfLUu6LsDnVU73khskorT+kZoj1T2a0GeyJSP0XVdIhdu7d9
+    VwJKd2XZnfbEiCcii7TGTzC0GCeIWlHZjXoF6InIJm0J8kqRiyZvLruV8IYfIos08vNG6aWSIWrq
+    ZTcaQn8n8UFkkUaqtxL7UMUT5qi57I5HeSKySKtMZbjZxrI7VgaeiCzSRsgSce7/xrJbkeaJyCIN
+    voNNi0qGqCnLbtQpQT9EongUCmUu/Jyb+FEHsJ4ouzFXhPkhEn+mJ5+zA9fE10zZ+Zn+/innH9kw
+    8uL9S92RcSD/N2vB+uniYFmT7mlZSZWW62sywXdOqnokEjQ2+84sa3Lg7yFN63+8Qac9n6mO7AAA
+    AABJRU5ErkJggg==
+    
+  - text/latex
+    $$\left \{ 1 : \frac{1}{6}, \quad 2 : \frac{1}{6}, \quad 3 : \frac{1}{6}, \quad 4 : \frac{1}{6}, \quad 5 : \frac{1}{6}, \quad 6 : \frac{1}{6}\right \}$$
+  - text/plain
+    {1: 1/6, 2: 1/6, 3: 1/6, 4: 1/6, 5: 1/6, 6: 1/6}
+  metadata
+    {
+     "collapsed": false
+    }
+code 8
+    stats.P(X > 3)  # probability
+  execute_result
+  - image/png
+    iVBORw0KGgoAAAANSUhEUgAAAAsAAAAqBAMAAACXcryGAAAAMFBMVEX///8AAAAAAAAAAAAAAAAA
+    AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAv3aB7AAAAD3RSTlMAVO8Qq5l2zWYiuzKJ
+    RN0MreaOAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAAcElEQVQYGWNggAEhAyCL2dUfRDEw5FODCtEv
+    aQCbRhbxHwQ+EKV1atRqoDpmB4bzFxgYWAwYmBQYGJgeMLD8ZmBg/wymgNJ8n8Fm3T8App6ASdYA
+    MJUKJhkDGGYCGVsZGDIZGDjfnAl5ANQOdMMDBgC/syNtm3aMLwAAAABJRU5ErkJggg==
+    
+  - text/latex
+    $$\frac{1}{2}$$
+  - text/plain
+    1/2
+  metadata
+    {
+     "collapsed": false
+    }
+code 9
+    stats.E(X + Y)  # expectation
+  execute_result
+  - image/png
+    iVBORw0KGgoAAAANSUhEUgAAAAoAAAAOBAMAAADkjZCYAAAAMFBMVEX///8AAAAAAAAAAAAAAAAA
+    AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAv3aB7AAAAD3RSTlMAMt2rmYlmIkR2uxDN
+    VO+L8+I6AAAACXBIWXMAAA7EAAAOxAGVKw4bAAAARUlEQVQIHWMQMgkNDWDI////vwGDOwMDMwND
+    AANDIAMQcEwAkVwggiEMRHB/AJGcB0Ak0wIQud8ARMo7gMj7YLLuAgMDAF3QDOH/JTWUAAAAAElF
+    TkSuQmCC
+    
+  - text/latex
+    $$7$$
+  - text/plain
+    7
+  metadata
+    {
+     "collapsed": false
+    }
+code 10
+    mod_X = X + 3
+    mod_X
+  execute_result
+  - image/png
+    iVBORw0KGgoAAAANSUhEUgAAADcAAAAQBAMAAABAXPr7AAAAMFBMVEX///8AAAAAAAAAAAAAAAAA
+    AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAv3aB7AAAAD3RSTlMAZrvddhDNVKsyIu+J
+    mUR+edwkAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAA1UlEQVQYGWNgYBD6b8IQ9l+dAQVwnTlUABbo
+    F2BgbEWRYmBYy8D+ESw0P4FhBkyO3QHC8i9g+Axmsf3kaoAIMTDAJF8/YP0GFmP/sQImB5cEKoMY
+    y7BfFYtk8AGI4HkHTMk1tgEQwf4NmJIMPPvAgrwrvkMkedLSkrelpTVAeLvBWm9yfoJwgSTMtasY
+    GPRBocDzgMF+AUwWJvk/ACLpx8AgfwFdchMDWAcHUIL/K7qkIAP7FwaGaf93MvDlf26AysKM5bt7
+    6QFMA5yGScIFkBmsC5B4AC/tNWdDf701AAAAAElFTkSuQmCC
+    
+  - text/latex
+    $$X + 3$$
+  - text/plain
+    X + 3
+  metadata
+    {
+     "collapsed": false
+    }
+code 11
+    stats.E(2*X + 4)
+  execute_result
+  - image/png
+    iVBORw0KGgoAAAANSUhEUgAAABIAAAAPBAMAAAAbqIIhAAAAHlBMVEX///8AAAAAAAAAAAAAAAAA
+    AAAAAAAAAAAAAAAAAACGjDitAAAACXRSTlMAVO8Qq5l2zWYZcMvdAAAACXBIWXMAAA7EAAAOxAGV
+    Kw4bAAAAJElEQVQIHWNgQABGZSAbRJiETIYSDGxAFo0JVqfpHgxgAu4UAJvvEL+2zxBOAAAAAElF
+    TkSuQmCC
+    
+  - text/latex
+    $$11$$
+  - text/plain
+    11
+  metadata
+    {
+     "collapsed": false
+    }
+markdown
+    $P(X>3 \mid X+Y\ge 8)$
+code 12
+    stats.P(X > 3, X + Y >= 8)
+  execute_result
+  - image/png
+    iVBORw0KGgoAAAANSUhEUgAAAAsAAAAqBAMAAACXcryGAAAAMFBMVEX///8AAAAAAAAAAAAAAAAA
+    AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAv3aB7AAAAD3RSTlMAMpndu3bvImbNiRBU
+    q0Qb3U6NAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAAkklEQVQYGWNgYGAQAmIgMAGTrClgqmIKmFoA
+    pjgKwNRWBjC1AEzxCICpXQxg6uzdu9+ugnVAtDN8AXOW/L8Bpski/oPAB6K0Tt0gdACoMP//L5Dy
+    WVcLQNQFEAGnbrQqgnjeDPUPQDQDiwGYYvrOwMA7gYHrHwMD2wQGpt8MDEwMDMwTGBjYFRjaQMYU
+    rdVmYAAALnIpDsFeUO4AAAAASUVORK5CYII=
+    
+  - text/latex
+    $$\frac{4}{5}$$
+  - text/plain
+    4/5
+  metadata
+    {
+     "collapsed": false
+    }
+code 13
+    A = X > 3
+    B = X + Y >= 10
+  metadata
+    {
+     "collapsed": false
+    }
+markdown
+    Note: this is not a proof for the general case:
+code 14
+    stats.P(B, A) == stats.P(A, B) * stats.P(B) / stats.P(A)
+  execute_result
+  - text/plain
+    True
+  metadata
+    {
+     "collapsed": false
+    }
+code 15
+    density = dict(heads=0.5, tails=0.5)
+    density
+  execute_result
+  - text/plain
+    {'heads': 0.5, 'tails': 0.5}
+  metadata
+    {
+     "collapsed": false
+    }
+code 16
+    coin = stats.FiniteRV('coin', density)
+    coin
+  execute_result
+  - image/png
+    iVBORw0KGgoAAAANSUhEUgAAACYAAAAOBAMAAACx7HPGAAAAMFBMVEX///8AAAAAAAAAAAAAAAAA
+    AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAv3aB7AAAAD3RSTlMAiXYyIt1Uze+rmRC7
+    ZkTTotXTAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAAvklEQVQYGaWOsQqCYBSFP8E0TdSkpanwCZya
+    HWq2J4j/DfIV2huipSGCaImWksYWpScImqXGtqg1iv4G8QG6w7kf514OB8oxspILMk4F/bU9P0Dx
+    t+xX2M2uP5VhPaHH6oA0dG+Y1lECjDBE1aXSEGs6lZgowHzJ312CM+dJkl65QDWT3hiitiavQ5hB
+    6kLtAa1QnySs4V3DkeXF+xebCleq9lIwJxyCDdaSu3pSPyjxGep5G8XbgpFj91EX4guP5y5gxgo0
+    vwAAAABJRU5ErkJggg==
+    
+  - text/latex
+    $$coin$$
+  - text/plain
+    coin
+  metadata
+    {
+     "collapsed": false
+    }
+code 17
+    type(coin)
+  execute_result
+  - text/plain
+    sympy.stats.rv.RandomSymbol
+  metadata
+    {
+     "collapsed": false
+    }
+code 18
+    stats.density(coin)
+  execute_result
+  - image/png
+    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
+    
+  - text/latex
+    $$FiniteDistributionHandmade({heads: 0.5, tails: 0.5})$$
+  - text/plain
+    FiniteDistributionHandmade({heads: 0.5, tails: 0.5})
+  metadata
+    {
+     "collapsed": false
+    }
+code 19
+    stats.density(coin).dict
+  execute_result
+  - image/png
+    iVBORw0KGgoAAAANSUhEUgAAAOcAAAAVBAMAAABPgOQBAAAAMFBMVEX///8AAAAAAAAAAAAAAAAA
+    AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAv3aB7AAAAD3RSTlMAZpkQ3Ynvq81UMrtE
+    diLw+n06AAAACXBIWXMAAA7EAAAOxAGVKw4bAAADB0lEQVRIDb1WTUhUURT+nrenPufNOEW0CKSJ
+    EMLSHv3YahgXhbTIpugHXNlCiH5HiIhCGASLIMk2LXPIZVBaoK3KlS1aNAZJf8JLqHARMyGWDpad
+    c9/Me/cN8pBZeBb3nnvu+c733vl5MwC07Vg/qWu2mEwcXj9KYjLPM52WJ+KxNlZVqRuLqUdg7/FO
+    aRiwHg36b9TTTYSPZVQD6X7kTr7Vu2ipjdHil/qy0Hew32aPKysLfkc6iY6SqQfYVtJLux95ks2S
+    tJyB7G9l8ktAaF3Q03zq77V584lB2XJFvop7olT6kaf5SpKWMbBdPhErjoRSMOZZTRUN6laVVk6X
+    FJ3VMqRHWsbAvn28eFKfgrnEx9VINyQ9x0jB06VWhvRI++5/toEDMy3A7IlpC5HGT8Sgz2xlWDsv
+    iRjMv6z0NDTxpsrrV+NZiRPvsrIxg5CStCZNjbBo19CbdOAbzMu4B0zaIcrlXTyj2OIcE+SSqJMd
+    9By5CTaoMkSjwDjd7ELNCN0EIGWfPcgARgGhEXwfFE1ojWIXxFlQmSJ5DLuhc7EiKRWpzbUWFeod
+    iZsjVHUWgUgelMc8rI7vtYYpC3ssHEXVPKhM4vduL7qbXvL+55kdjb4vEmfVZ/E0Q8kJQl6lp5ok
+    J2LIZfCHI1yAKKB6BIkJ4M0Kp8oRageDG4mqoS+XjMVdkEHiMGRhmo0ByNoU3XNNiYHqyyUTCzDy
+    SCRBZZpD3HsnSr/GI1Od5jz4xcxjn8ThtsC4CEbKmupt8iPSrVndQFgsIZR+mBjEC8O+BeTd6DTi
+    VATKLeWFd1X0tDEscWJJxy8dCEK6I3MdWNbxAaIFA9icStZmtXYdLxGm9Be7F0fQmhGLiMSwxaZd
+    lapU3MGZ+a9YjiMACU6p80UaBU5lEW7eCBx8/6R3QvR2/viCn1MfZWg5pzTEN+TIzp7ZARyyVNLI
+    aNTBoSeKTUkEIT1SNcKadMNek9tqTu6brnYZaKO6VSqSVPOaZe1xqG6VivMj1F8BPFoBxoGYF+Vu
+    rOt/pEZqwf93svCCR5mcJAAAAABJRU5ErkJggg==
+    
+  - text/latex
+    $$\left \{ heads : 0.5, \quad tails : 0.5\right \}$$
+  - text/plain
+    {heads: 0.5, tails: 0.5}
+  metadata
+    {
+     "collapsed": false
+    }
+markdown
+    ## Table 1
+code 20
+    stats.P(X > 3)
+  execute_result
+  - image/png
+    iVBORw0KGgoAAAANSUhEUgAAAAsAAAAqBAMAAACXcryGAAAAMFBMVEX///8AAAAAAAAAAAAAAAAA
+    AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAv3aB7AAAAD3RSTlMAVO8Qq5l2zWYiuzKJ
+    RN0MreaOAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAAcElEQVQYGWNggAEhAyCL2dUfRDEw5FODCtEv
+    aQCbRhbxHwQ+EKV1atRqoDpmB4bzFxgYWAwYmBQYGJgeMLD8ZmBg/wymgNJ8n8Fm3T8App6ASdYA
+    MJUKJhkDGGYCGVsZGDIZGDjfnAl5ANQOdMMDBgC/syNtm3aMLwAAAABJRU5ErkJggg==
+    
+  - text/latex
+    $$\frac{1}{2}$$
+  - text/plain
+    1/2
+  metadata
+    {
+     "collapsed": false
+    }
+code 21
+    stats.E(2 * X)
+  execute_result
+  - image/png
+    iVBORw0KGgoAAAANSUhEUgAAAAoAAAAOBAMAAADkjZCYAAAAMFBMVEX///8AAAAAAAAAAAAAAAAA
+    AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAv3aB7AAAAD3RSTlMAMt2rmYlmIkR2uxDN
+    VO+L8+I6AAAACXBIWXMAAA7EAAAOxAGVKw4bAAAARUlEQVQIHWMQMgkNDWDI////vwGDOwMDMwND
+    AANDIAMQcEwAkVwggiEMRHB/AJGcB0Ak0wIQud8ARMo7gMj7YLLuAgMDAF3QDOH/JTWUAAAAAElF
+    TkSuQmCC
+    
+  - text/latex
+    $$7$$
+  - text/plain
+    7
+  metadata
+    {
+     "collapsed": false
+    }
+code 22
+    stats.variance(X + 3)
+  execute_result
+  - image/png
+    iVBORw0KGgoAAAANSUhEUgAAABUAAAArBAMAAABlSd54AAAAMFBMVEX///8AAAAAAAAAAAAAAAAA
+    AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAv3aB7AAAAD3RSTlMAIom7VJlmdt1E7xDN
+    MqsI8sYEAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAA/0lEQVQoFWNgEFIyYWA4vuGqAwMDYwCDfwLD
+    +v+fGBgY2L8w8DcwHHouAGRzrmTYf4DhAZAFBkA1D6BM7iYGhmfpsSAeo0Y0A4M1g/wEsJQWiGJu
+    ALO5VgMp1o9AJQIMzF/4DjAw/WRg4P8NZHMdYGD9zcDAZcDA8ZGVgYHjAAMDWwKDfwHQIVkgi6eG
+    WjIwiOoBDaY5+A8HH6hgl2iwLdgUrw0M3A8Y9IGBwf30/QYGvg0MXAtAEvVARgMD318om+c3gg0U
+    4gCGCVgNkJyvgGD3gZggvcDgDECwS8FMsDhLAIMgiAdSc5WBoRDKZmxSimsAsuPWn0vgAXoUxEYA
+    AMCPTwEjD/ueAAAAAElFTkSuQmCC
+    
+  - text/latex
+    $$\frac{35}{12}$$
+  - text/plain
+    35
+    ──
+    12
+  metadata
+    {
+     "collapsed": false
+    }
+code 23
+    stats.density(2 * X)
+  execute_result
+  - image/png
+    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
+    e+SXPl///+6xzqUkTPf+AAAAAElFTkSuQmCC
+    
+  - text/latex
+    $$\left \{ 2 : \frac{1}{6}, \quad 4 : \frac{1}{6}, \quad 6 : \frac{1}{6}, \quad 8 : \frac{1}{6}, \quad 10 : \frac{1}{6}, \quad 12 : \frac{1}{6}\right \}$$
+  - text/plain
+    {2: 1/6, 4: 1/6, 6: 1/6, 8: 1/6, 10: 1/6, 12: 1/6}
+  metadata
+    {
+     "collapsed": false
+    }
+markdown
+    ## Table 2
+code 24
+    X2 = stats.given(X, X < 3)
+    X2
+  execute_result
+  - image/png
+    iVBORw0KGgoAAAANSUhEUgAAABIAAAAOBAMAAADQ9FGEAAAAMFBMVEX///8AAAAAAAAAAAAAAAAA
+    AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAv3aB7AAAAD3RSTlMAZrvddhDNVKsyIu+J
+    mUR+edwkAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAAZElEQVQIHWNgYBD6b8IQ9l+dAQj6BRgYW0EM
+    hvkJDDPADAa2n1wNEBb7jxUQBgPDflUY67wDjNW/AcriXfEdyrrJ+QnC4nnAYL8AzPRjYJC/AGJx
+    AEn+r0DGtP87GfjyPzcwAAAachiCQIFnfQAAAABJRU5ErkJggg==
+    
+  - text/latex
+    $$X$$
+  - text/plain
+    X
+  metadata
+    {
+     "collapsed": false
+    }
+code 25
+    stats.density(X, X > 3)
+  execute_result
+  - image/png
+    iVBORw0KGgoAAAANSUhEUgAAANcAAAAyBAMAAAA92lO3AAAAMFBMVEX///8AAAAAAAAAAAAAAAAA
+    AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAv3aB7AAAAD3RSTlMAEImZRO/dIma7q80y
+    dlRAyO8oAAAACXBIWXMAAA7EAAAOxAGVKw4bAAADlElEQVRYCe1XTWgTQRR+u0nz1zYJgj1UpKGi
+    oChGSg9WwQXxXAtV0YKtCh70YGih4ql7EQWRVtCDFxuRQilIg3gShKDgxUMD4jm5FC9CWxVrG2yd
+    v2z27c7ORJr21HeYnfe9b75vd3ZmJwEgsSdL2+2Me1ZNPXwxV+tu1zW2lhbSk5nt8qjrjl/j/eha
+    HXN6yQGnG9xZrN1uMAWEUHSdcxIrfm5nnwT00IxX83ozR+hMkQ1PFTwqNG3XmwGU9WaOUL/NXLry
+    7IKbpptNZHfQTDzSzjzZrhleOq7sf1bj7jS6Jg53mzSNoZnqLBaWZH3D72wJjCBHCL+zNr7FEdWT
+    vE9/rHggf2oeO+oHAbBZZErGQdjw5g+UyxLjLZyS4djsq97szeucTAdh8Sw8R4BIhNlChubRR3qz
+    PCVqoj/gflJcftKi483W5pg9C7iZ1vOscJO1D7hZJB9ApvDs49OsekvBqX74YtGyVyj5h6LmKm2N
+    EjfbW6BZQDyBCYuUjKGAOq1VbbhKyz6h+RxBD1q0ZkID0wgQH6FkRRibaehNywiJQYB9L1nlOzJL
+    bdKQDAmxaeAFxln2kn4D8EXACm6hxRJ0nKCokUFmFPJHogDmLz+MkdvEzMaQyD6VAHqLJEnOzc1f
+    IYkyWgoQ0v4OmkFP5tILkWmE0CWOtEy5KtJuiKyxgrTiAhfIO3Ol9e7xIu2TB6fBdx1aREaVl0Qb
+    zcL9HOnj1diF/RMZQ7oaw3+ZStmiF3N63SYXvD1upmnJibEj7AUD2mcR8cO6xjrQV6RdLETW8TIj
+    8M8V6zpNtPtwhSRJ+iCBMdr9gta+BRJIQQiRieMT0JX1s8eA7XjTX6kjZFaXbJJm6pC/J4S8Rwwi
+    litANgzsR6Anad+A1Ah5gyUPjlIhpDQ7Z7HFYaOBniQ8CHRxxDwwToWQ0oy8LvbhxCN9GZtGH4oB
+    IYQPT0yBjowHkKTGdQnohYSQymz0Rto7ypdHD/Gd4Cu4gZqQygxM+nXRBT8x1CwhpDSDC/pHg5YB
+    tRGrciGF2V2A6YpGKJqD+IaGA46QwowcgVqz1EoDZo6QwuwywJ2c5q7JMRFZ1XDAEVKYPYQk/0or
+    xGI2LJUUdVZyhMRHUXiiYeGekxYCZMnZnqcyGGGOkPgDTw7gHQhxtsS1R30z7oUf1ND2sxliGg1j
+    TRDK2tesUWqgPF7b/rH1dAP0LVGSQ45FZ35LSg0M/mxT0j+VFvtzhzbQQAAAAABJRU5ErkJggg==
+    
+  - text/latex
+    $$\left \{ 4 : \frac{1}{3}, \quad 5 : \frac{1}{3}, \quad 6 : \frac{1}{3}\right \}$$
+  - text/plain
+    {4: 1/3, 5: 1/3, 6: 1/3}
+  metadata
+    {
+     "collapsed": false
+    }
+code 26
+    stats.E(X, X > 3)
+  execute_result
+  - image/png
+    iVBORw0KGgoAAAANSUhEUgAAAAkAAAAOBAMAAAAPuiubAAAAMFBMVEX///8AAAAAAAAAAAAAAAAA
+    AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAv3aB7AAAAD3RSTlMAzXYQMplU74mrIma7
+    RN0SDTw+AAAACXBIWXMAAA7EAAAOxAGVKw4bAAAATklEQVQIHWNgVGYJY2Bg//+/gYGBsVOLgYGB
+    E4jh5G5VBwYGHgOuv2DBc2AyfgHDRAaG/gsMhQwM8QYMAQwMDxkYljJwVzEwcEVMNWAAADWrDnXF
+    0pOGAAAAAElFTkSuQmCC
+    
+  - text/latex
+    $$5$$
+  - text/plain
+    5
+  metadata
+    {
+     "collapsed": false
+    }
+markdown
+    ## Example 2: Data Assimilation
+code 27
+    T = stats.Normal('T', 30, 3)
+    T
+  execute_result
+  - image/png
+    iVBORw0KGgoAAAANSUhEUgAAAA8AAAAOBAMAAAACpFvcAAAAMFBMVEX///8AAAAAAAAAAAAAAAAA
+    AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAv3aB7AAAAD3RSTlMAIu+7q82J3ZlmRDJU
+    dhDTAJzgAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAAXUlEQVQIHWNg/GTi/9klPoGBLYGBqYCBYwID
+    CwODfAMD5wKGnQwM8w8w8D5g2MDA4P+AgYsBBNTBJAMD4w8og/MPlMHyD8oAGgMBQGMgAGgMBNg/
+    ANNspv9DLgBZAKXbFCsUEcYJAAAAAElFTkSuQmCC
+    
+  - text/latex
+    $$T$$
+  - text/plain
+    T
+  metadata
+    {
+     "collapsed": false
+    }
+code 28
+    type(T)
+  execute_result
+  - text/plain
+    sympy.stats.rv.RandomSymbol
+  metadata
+    {
+     "collapsed": false
+    }
+code 29
+    stats.density(T)
+  execute_result
+  - image/png
+    iVBORw0KGgoAAAANSUhEUgAAAPYAAAAUBAMAAABMsN1yAAAAMFBMVEX///8AAAAAAAAAAAAAAAAA
+    AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAv3aB7AAAAD3RSTlMAdrtEVN3vEM0iiZlm
+    qzLvZ7CWAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAEUElEQVRIDbVWXYgbVRT+kkkymcnPJEV9UOuG
+    VaRFZfNQV1jRDIKKCCaiQm2VjVuwaAXvKq2LIokoPgjVUXyxu5JZoW5tpaat4NJaHKGC0MVN+1Ir
+    rubVB2maXdl21V2/O5OZREgfc+Dee/7mO+eee+5NgIHTTN8ISUuqN23kERmfEH1dpPL6dSD0e3tp
+    +CKFVE6qeiiVU28v9cjA+f9JWg7a4c9M4I0vj3YMBw7fBkgwYCQHxK8dGskWnYwqsGgytkOBpD7t
+    rVIRb3R4YK8F/BpIkolbmEbkH+Ad10iNVkfRwZQ0Kg9cBXTJXYMSVRouZYBEuesRkQl1yDB9DsWA
+    85mzwJCJv5AsQ6+6ytAKjBJ0AkJ/9W9gm+/aZ41Jr6Ems2T2PrkJdYSC8LWYDzifYX1G8+oVhBuI
+    rLpKZRcqVahlCgmMA3O+a5+11qRyhENb61qjdpc/2GV3dFmP00pyZc2NBpQV38qa420KCSw6qJPR
+    sycwdmFsFmMXP9ycGduUB6aP3CCwKL9ocyj/YvIY19mbm/eN3JVxfaVif/ZradB2K+fb59SbMh0o
+    iYKQRMZeG5U6lMuSJ6kyxSMc22T1be7qCVQse4v5LuzhjHo5HylDeQEfeH2blp+F1mCPsnvyYXYL
+    4PmOQr0iKlb9IYRaYBfoStmDqhPlKsIOPzywU6BmI92pm3bwGyp/5JhDYlnhHmM2okfNZ3F/2twu
+    y8v23ufgOPAcnUK8Z0gtayYPtIa04MGmpa9U8BiNL5x5hHNIVPExhwdFlHVETX4IfRdq9SA28Dnj
+    PUh9HVpbF8B3AsYFdZkV4UQ83mSqHkdahg23OBllFdx/ZQ+/3OG6QSoYrDLHDNmTURvCyARQTD9G
+    X9LzorfmiO3mzaHaZiNNc53gjjLu1eGUKEmoCajrCJVpNHKc2BeyVZWRNmSOnu8q4nUUTGUVl5qo
+    MFJRBFAploCaTxjBZK9FvF7TLITJMbZiAoWT3C0P4yuLe2D3VRG1UbBeW5P44YbwrrfK7OINoZnq
+    kKW0IFxfKgyHG2WyQwRiIfarAZThCFnzDcHYPJGkd8eMVTf23TwKIke5C/DyvihPyj15bmBee3gF
+    4eojhkOdvN5TVdbbtONlGHwmIk3Xlwojr74kr+9wUhzCY+qKHkAVhS17jTmPW8my3JOkWA5RPmfs
+    tSgl99U8DbZvjSWS0yLwno638EPDNu7JQLa7spOmguaELWSRaEx6vlSkHH6YyCl7dJxWM0prBj7U
+    oWRTrwMLiLBNnsS+Jt8YRnNQJORJvPLyMxQbHPrsCYCFcKfNwKM/4c0b/ziXT/JAft5YWrqjSVNq
+    AVr2exPanY7nS4V67Fse2S/X/XkLPlrgc+4EUJ+egVJi1qeO54HXs78BTwmC3HvqVs7vcwyY+Kb2
+    UMTyBe/B86XBrPwt6aHub5b7W9JjGQTL9uihyYCfCrjBMVquF9sJhK0BN0Bmpi82/zP9BxPeSsOr
+    3o3EAAAAAElFTkSuQmCC
+    
+  - text/latex
+    $$NormalDistribution(30, 3)$$
+  - text/plain
+    NormalDistribution(30, 3)
+  metadata
+    {
+     "collapsed": false
+    }
+code 30
+    stats.P(T > 33)
+  execute_result
+  - image/png
+    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
+    AAAAAElFTkSuQmCC
+    
+  - text/latex
+    $$\frac{\sqrt{2}}{4 \sqrt{\pi}} \left(- \sqrt{2} \sqrt{\pi} \operatorname{erf}{\left (\frac{\sqrt{2}}{2} \right )} + \sqrt{2} \sqrt{\pi}\right)$$
+  - text/plain
+       ⎛           ⎛√2⎞        ⎞
+    √2⋅⎜- √2⋅√π⋅erf⎜──⎟ + √2⋅√π⎟
+       ⎝           ⎝2 ⎠        ⎠
+    ────────────────────────────
+                4⋅√π            
+  metadata
+    {
+     "collapsed": false
+    }
+code 31
+    _.n()
+  execute_result
+  - image/png
+    iVBORw0KGgoAAAANSUhEUgAAAKsAAAAPBAMAAABpSyLSAAAAMFBMVEX///8AAAAAAAAAAAAAAAAA
+    AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAv3aB7AAAAD3RSTlMAEJmJZjLNVN0i77ur
+    RHZ72Yd1AAAACXBIWXMAAA7EAAAOxAGVKw4bAAADB0lEQVQ4EbWTzYtTZxTGf/cjydx8XhREREzM
+    IC6c4mAUiorNQgRdSNCt0AxV3IiGFjdSmKGCXVTwoht1MxkQ29qK0Y2KiFGnoiKd4EpcyKgg6MJp
+    7Og4re31nPeNg/4BvuTenOc85zw5Oee8MG/1GubO3nBbgyVPvxBH5WkNA5OPE8sJyldqWHyschHm
+    Ve5AUFnX+JCaKFk6cbi/UhHnbhZGhjsQwrn4byiRbbCg49YtTMfxIIvx/rN0UGK46pziZMRRUtOQ
+    GtP0vpal/TiO34HfxKuL27kxIbLf/BmRqhLUuUCmZSDJ9c/hOpyxdH6Gwki2SbbEVIO3LB7oSjov
+    RFaz3QjakGmTMn6mRFYceC2ckdysWAaSVesXmKgZnDtLsV6o4/3Fw47zBvKaHmwS2bYYnnxqUGiT
+    mxHInGzu39CrZprqauvLyO4LP8iKZ7habJF/LZY2wch6yZ6sOB/JUyyR+1++rez41mVS1vRqCrs2
+    yNwMzG58Ij8PR0KLcQ6Slmql1ywc7MluVlkTDmIxOkhCxiRHm3Ce0Q5ePERxJ+mGhZkwUIWcRBk6
+    +HKpdiAphR77QXK0WmdSZQ2NV5Xo0dLHstLrEb5/8E+n2MXVCQuUc0mevrZaBq/tsJfvtHXeWSvr
+    obKWLqrxaRPAnfXbTI0VRvC1RteMbmUEZY22OD2G/3K79pYzoal2f09Ww5+pX0aWmhtZVluWjkjM
+    9NXxpw3kFnzVIV+S4SkdRGQ0IdvlBFxrqKwzqLI2nJ9UVrbTn1swmYTb1T8xnm1KtQZyGlaGfEsQ
+    GVzoWtlkmzjsyabu3Zv4fdKGO3IZzHVw62royFxpYV2q5XJCets0kBIcQu5mPrJ0i75Z/1e+jvhN
+    1iOyC0a6ZbNJvDJqP7KoplutsnIxt0S5IfxJbrKoYaBcURE5Xll129J+leHJ/JCzEzaSkt00e0uh
+    ZWlSVnb+yz/gMAyc21Pl6PqlsKNfVtYri9vAoP9GyL44ftvD98tXYVW5IztXXtHBvftmXMKvvetl
+    Bz+baj/L6z3SfhE4GqCaGQAAAABJRU5ErkJggg==
+    
+  - text/latex
+    $$0.158655253931457$$
+  - text/plain
+    0.158655253931457
+  metadata
+    {
+     "collapsed": false
+    }
+code 32
+    noise = stats.Normal('noise', 0, 1.5)
+    noise
+  execute_result
+  - image/png
+    iVBORw0KGgoAAAANSUhEUgAAADAAAAAOBAMAAACbXIJpAAAAMFBMVEX///8AAAAAAAAAAAAAAAAA
+    AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAv3aB7AAAAD3RSTlMARImrInaZuxAyVN3N
+    Zu80gH0WAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAA5klEQVQYGa2OsWrCYBSFv/zE9MeCZusqLe4u
+    0sWIlHZR2mZJBtFB0KHQwUGdQ6FzHIuTb6BIHyDiXlwcHKTFJ0hrBBFaTZzyAD3T+TiHcy/EdR2H
+    uDfi8H9eubq18uFc1talbYKwlvBiNdHOurglKroMhPIFU3oo79wwOPd47LOGSVnzUH3eeBjKJxxX
+    5xNtBxsnbSL/GlBc1B0YQYFUG3XLKMSLQ5sNkZ7hV7oZRMBMUuY14OcUrEnuRHpOKiP3gg/wo4MJ
+    1G+Et9Ry0TP+PR0SJjVkE2WMagy5tHUw5tzVq2G9teIIjho5bSpsSIwAAAAASUVORK5CYII=
+    
+  - text/latex
+    $$noise$$
+  - text/plain
+    noise
+  metadata
+    {
+     "collapsed": false
+    }
+code 33
+    type(noise)
+  execute_result
+  - text/plain
+    sympy.stats.rv.RandomSymbol
+  metadata
+    {
+     "collapsed": false
+    }
+code 34
+    observation = T + noise
+    observation
+  execute_result
+  - image/png
+    iVBORw0KGgoAAAANSUhEUgAAAFgAAAAQBAMAAABgsKUGAAAAMFBMVEX///8AAAAAAAAAAAAAAAAA
+    AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAv3aB7AAAAD3RSTlMAIu+7q82J3ZlmRDJU
+    dhDTAJzgAAAACXBIWXMAAA7EAAAOxAGVKw4bAAABZklEQVQoFY2RvUtCURjGf9fkdLvo6WMoAsOW
+    bDUoaImij8EhkkiClhyiLbClOYeWInCNiC70D7QGEf4HugQKCXdqCz+KqDDt2PWIiVHvcHjf5/x4
+    eM9zMCrTa8/L23F+q6W2CxHHk8BMtUk/20jb6IXgIX32t+TLtt10aW/gMo3f+Rd8DWsOlmvzl7Oi
+    Jl1SnU3Y2hksrKpxL2fLnNpMFM7hsZBUkvHWCZs9cxQHGLFlWVjjsMUs1j7DiuurdsK3vVGC14Tg
+    IGBGMUrcMZSWJ4rz1lxYxGKbE7HYAjhFm0tMpb84/Vlk5RgWL/KO4lTMuvQDM7CCJ4zxSUYhV/Uw
+    Ly6jYtal4SN4l8U4osyGJMBTmVeXUTHr0nAIX030p/DEZVWwDqXGA/wKm3c0q6MzPhDRc3OhEUJp
+    lCn8We6RScRMfaP1yU1nK4ERSbObsyGSYiz/oGxPz1qebqPX6JC7j3Kgu95UvwDMMV9QoWN7DQAA
+    AABJRU5ErkJggg==
+    
+  - text/latex
+    $$T + noise$$
+  - text/plain
+    T + noise
+  metadata
+    {
+     "collapsed": false
+    }
+code 35
+    T_posterior = stats.given(T, sympy.Eq(observation, 26))
+    T_posterior
+  execute_result
+  - image/png
+    iVBORw0KGgoAAAANSUhEUgAAAA8AAAAOBAMAAAACpFvcAAAAMFBMVEX///8AAAAAAAAAAAAAAAAA
+    AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAv3aB7AAAAD3RSTlMAIu+7q82J3ZlmRDJU
+    dhDTAJzgAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAAXUlEQVQIHWNg/GTi/9klPoGBLYGBqYCBYwID
+    CwODfAMD5wKGnQwM8w8w8D5g2MDA4P+AgYsBBNTBJAMD4w8og/MPlMHyD8oAGgMBQGMgAGgMBNg/
+    ANNspv9DLgBZAKXbFCsUEcYJAAAAAElFTkSuQmCC
+    
+  - text/latex
+    $$T$$
+  - text/plain
+    T
+  metadata
+    {
+     "collapsed": false
+    }
+code 36
+    stats.density(T_posterior)
+  execute_result
+  - image/png
+    iVBORw0KGgoAAAANSUhEUgAAAqIAAAA0CAMAAABmf6q2AAAANlBMVEX///8AAAAAAAAAAAAAAAAA
+    AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABHL6OuAAAAEXRSTlMAiUSZq1Tv
+    ELvdZiIyds3z5+leTtAAAAAJcEhZcwAADsQAAA7EAZUrDhsAAAtqSURBVHgB7R2JsqQgTrwvetf/
+    /9lNAiEBsdW2a3bmPaiaR5QcECOEEHuq6ltlbddlnoGbNdZ8i2nhUzTwPQ3U27a1wG4G++wQKKVo
+    4LsaMPUzfnW3DshhQj4bgc8YFupfrIEhM8mZ5qFCamfiw7YCo757yK2Q/3IN1K9UASZjtSnO++u6
+    sbYZqnVbAG9Cp7SUooHPNTAnNtr1j1fmBWbReQQTRU6T/bxvhbJoADUwRpvuoX/oiHqlwhTqZtG+
+    mGixs4caGCJvcXzqiEJvWpg9h612vuj2HZN/OMhC/k9roOul+903NuA9+KALMCo7elFsgR5pYJKl
+    fnoyiQ4GtklgngZmUQwLWPhX4qKPHk0hdhroaOuN8BygD3RTTzh7orkb05DVQwU7+1J+kAZWY0YM
+    1JwVdPYelURQmDun8XO2C/q0Q4Ox0FJ+rAbAQOrpdHS1QWfvUUkEzd4DXZ/sbdp+tnZ++vI8GlYh
+    PtXAx5bjpx4IUQ5X9iu4oqoSX6mGPZgXNGwuMtSojdOe9uQOHcuf4PyoZtOM5MZwfTy4KJ2G0e/W
+    4N7H8tLrcwRwwdJOzn3bjFvbtFt6xMLswW2z0NaFyEx3PotCODwyShD7RpBtyC3wWjoQ9HLx+/7J
+    wdK2G36qjp91beAhtKA3ro9HF6XTMPrdOsg5IjxHgP5GhoM9RuOYNwDmYIJuICymetXVglMXboSx
+    DK8dE9cQ/Y1MFMUeCmrA/htY1oOW8oIsbZPW3ZsUST256J2J/ppIPT4EPJ3g+lg9UfCN0e/WQc4R
+    4TlCte5mkQEfFxpI1XnD41mKxVi4QVg+nWO4thFCci4odi+IW3FnjS9J0FJe0ELG6QyVSe/WFmfi
+    gV+Bu9T/Hj6qdAHnnevDEcTpNIx+tw5yjgjPEap2t5ellDQKOvIkiuaKhcXIwQ7NnvCAh52hO4ro
+    rzZRFLsXpNHhJVFayguiJX584opiGNRSIrOW/cNhPungOjvcfToNo9+tqzOCE4S8EwkHgarfbKJ4
+    C8VtHeUEwRV6pNUEucB5NkjAZbVbIxlujB8LYlyoh37VSUd5QSOy6XX3FIcCHmmAc2S4zuLt02kY
+    /W4dcnKOCN8jLGwrcTfraIeubQDELBucv7gw06enMEFsLEg6YV/gbigt5QUZcAYG7I0vy9aPbbtt
+    8Of1pX3Q0jTjqFaaoTGz8dewaSQQ7hnn0gsEpwEQLqZ3Ulio5sFa09A8IBA4HMyIR4Q1i8my1Igx
+    DMxCT6MWzqzlOmoMF7t0Gka/W9ORHbI9IjxscAS1Nr/QvcpElqtwkGrYUPM0zx6QC6MDKNDFgjQ2
+    LPRKS4FAo4C/WgOSbHUM+Rs9dR63XM8LOcFGrSkvjPSTyzLAprFqMOLWg6gFo74CVQu+OB06y8JC
+    NVf0XrWoSIF0e8XphUFMlmVmhEwYetqNXCj8O5NAcPZ9rVhozDSdhtHv1kHOEeEZQu22Qrpv2OWR
+    d0jtC0qPf8gQnBh6YrRVWV3YR43SgTE/cAR0ARQvVgmKKQBl2TqlpbwgNM+OXhgnlnpNk/w+HOEw
+    7v51G8E+uLszQQaHTdlVI7y+Ld1r4YkLVFn3HsPbIixUc0cv0AJ8BFLkA4b83HlCEJNlmY5HCFVP
+    I6QaXuMalgGuo0Z9gTsP+UCG0e/WQc4R4SnCqmZI1b84jhNwvJgX6tfNomzKijYL0nNa7GzdGhnE
+    xoI8KfqhYKIz7c+cloJNR9xxkZ/pQw66vdJzn53N2uyJkVVRhYjVwYWbkdsgw7276JDXITFgo/cU
+    nQ6BqhozWAe8ISxUsyGdDmDBAmlycPOdiYqYLMtMtz2h9DTCWV9d143wcYGvo8bogtNpFsAO6Ex2
+    tT4lPEdAJe3LGh4JtbGJcr9w1e3ouWDg8kLxh5+4sjibZrGJIGaFC6mFPHrWkouQcquq4WxIxZyc
+    +fvph/w8herAbr+67XD0jRcZipioO4yq4S0IgYRhI/3YbRXIs6CFPrDQzfWGD97AOyWQbg8mGsRk
+    WequMuxNVHrKDVT3tJ7Bi+PrqDG+8Ok0K7owjH63PiU8R6im/WRTt9PWattjE+X+gffgc4Gcwx+P
+    LHtF3ts4LhyGJbE7QUy6wj6E9h8h6ehAEFiHCbOZp3azFrOCBVlAgLKvZISRuZj8ost7sxocjO0F
+    vaRu9X4WrSuBiMmg8wWBhW6GTd2MFgovbYB0O8+iIibLkm7Gf5yJ+l0k9vS8cD7iOeb/A8PSpvO9
+    5Pgha1x6OOrG4VjdBmNySx0QXBGr+FapIN8GD7Vh8/G3vCsqxLFRdseDEZIEqkN0YHHQuhlYw9HA
+    MESMS3xVvcAxEQhuLGaSnD5iETWbbXu56SFAUTtbWhCTZYmSk+IIpadJc+ZS8hEzjX/BrQuP7BDF
+    ufoyiOOxkonOxrhFESgOeQo3BaWCuAlmzJYMhG/gqVTy0sUmWllcYe+VKXjc3v7JROnVaPCzPtxK
+    dgblCkQSTPikyrFQzV1bTxs1CxSRs4mKmCxLNxI9JDZRcmmgp6dj/evzEY+evhrZ0RZjSBy7N2Ml
+    E4UnvRAAvC+IlR6kgkLL1O9MlHfCAec//52isqkQkg407GHPopFhquXTnVZg2AteC2tXQ/67QETc
+    +w9TmUVontHq7QbNAkWMwkJPb5gTk2WJN2lbRq3wh22ben1lof/78xH5JJ6HeL1ON81vxkqWiTNn
+    eNx3xKaCQhfBRNOFPnVFU2+7pmBK4HAO4J4tFLcJwUDX5PaLISQhrwZBC73Xo5vSIxbU7HJnV2gW
+    yAvxjJylaTHHLCuZ59lEK+lp6PwB4DAPGn/Y7cOx+sPPGg5P8hvtTxUxTel2aeeKJhuk1TuAlyVS
+    DMBZB9BgHBSdicEHMWV6ewVvgKCNFmhnojELbB68d9LOAnGPPCNvoi6WSmKOWTIp1Z5Qehq1Zi4u
+    +AIZqn/z1p8fK2yXINijtbVzRRMTvZQ2qBiuNIeGcKoLiOOZkjudxXTqGSdCOgkTyGcOTBhuCCx0
+    s3Oe4IMaN4tW+GmNag+ToYjJslQ9ZdCbqPSUG47q35SP+OfHCikkMo/RIxhp9tJPgyI7fKPWqzbf
+    lHqJHFK4v0xw1N604BB6f2+CTREdLVQYl6Ov+S1MzANtvAWqKHuqw5CPsFDNNU3mMzQLVKn2YKIi
+    JstSuh4gb6KV9DQ05YHflI/458cKp0ud2v2Y8QWhnPZNKPDkO7o29UOAHxbcszh/D8NqPoHRNI2D
+    APBxW4GqGm6OyE6xUM1rC7FlkiYQ5FMwo6btYSD0dsFNLzDHMrU6IVQ9TZGS69+Uj/inxzqAa6HT
+    SBLV377EM/NSiga+qAEyT5WM95S1Smh9yqrQFw2gBijLyUV/vqEQzhz4Bq/Co2gANUDn801yvPS5
+    asok+rnuCmVeA3T4yb/4kEe5cbdMojeUVVCvaYA+W8Ijmq8Ul3hk3R5++6KL+5XeFSb/ogYWl2n2
+    6KceZNxuEjVm7ewy23CeJAgFKhq4qwGfzfwlZ5Q+Ml1hRoZftPAfB9ztUMEvGog1QN8oY956GnCP
+    0d5f+f8oRCU7wzH8td+ueM+4tBYN8M+OVeFXHD/QiXWp7nDgyGdSK6R5JDmmH/AtJEUDcopNiUcf
+    KmQZrJ+Dg1Xi1827g/4P2Rey360B2Sb175ND3qrJf9QWPhSk36F85Dq8FVcaf5EG5IfE4ZRJfxlx
+    UwcNfZ8XPjO0OJ36nK2bnAp60UCkgZeaOjUcIV24oCToMIlWI6YXRR/AXuBRUIoG9hrg34WhliXO
+    a95jv7uDX2KESfQdYmkrGrihgeT/q7v0M9EH7OErybu/AHHAqdwuGhANpP9fXRM+HRKcqxD8aNUD
+    X/aqlIL3uzQA/59sUt7l2ieo6WVXzuNTlZTrpxrY/2ff8Pnz52dMd7+5e9r9Qv/jNaB+XP9/onJx
+    9ZQI7YMAAAAASUVORK5CYII=
+    
+  - text/latex
+    $$\left( T \mapsto \frac{e^{50}}{\sqrt{\pi}} 2.06993298891632 \cdot 10^{-22} e^{- 0.222222222222222 \left(- T + 26\right)^{2}} e^{- \frac{1}{18} \left(T - 30\right)^{2}} \right)$$
+  - text/plain
+                                                                          2 
+                                                                 -(T - 30)  
+                                                              2  ───────────
+                              50  -0.222222222222222⋅(-T + 26)        18    
+        2.06993298891632e-22⋅ℯ  ⋅ℯ                             ⋅ℯ           
+    T ↦ ────────────────────────────────────────────────────────────────────
+                                         √π                                 
+  metadata
+    {
+     "collapsed": false
+    }
+markdown
+    ## Example 3: Kinematics
+code 37
+    # TODO
+  metadata
+    {
+     "collapsed": true
+    }
+markdown
+    <p xmlns:dct="http://purl.org/dc/terms/">
+      <a rel="license"
+         href="http://creativecommons.org/publicdomain/zero/1.0/">
+        <img src="http://i.creativecommons.org/p/zero/1.0/88x31.png" style="border-style: none;" alt="CC0" />
+      </a>
+      <br />
+      To the extent possible under law,
+      <span resource="[_:publisher]" rel="dct:publisher">
+        <span property="dct:title">Matthias Geier</span></span>
+      has waived all copyright and related or neighboring rights to
+      this work.
+    </p>
+metadata
+    {
+     "kernelspec": {
+      "display_name": "Python 3",
+      "language": "python",
+      "name": "python3"
+     },
+     "language_info": {
+      "codemirror_mode": {
+       "name": "ipython",
+       "version": 3
+      },
+      "file_extension": ".py",
+      "mimetype": "text/x-python",
+      "name": "python",
+      "nbconvert_exporter": "python",
+      "pygments_lexer": "ipython3",
+      "version": "3.4.3+"
+     }
+    }

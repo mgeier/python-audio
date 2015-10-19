@@ -17,6 +17,8 @@ markdown
     
     * [Reading and Writing Audio Files](audio-files/index.ipynb)
     
+    * [List Comprehensions, Generators, Generator Expressions](misc/comprehensions-and-generators.ipynb)
+    
     *Warning*: The following topics are very much work in progress!
     
     * [Introduction to Jupyter/IPython notebooks](intro-jupyter.ipynb)

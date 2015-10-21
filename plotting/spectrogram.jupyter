@@ -18,6 +18,12 @@ markdown
     ## External Links
     
     TTS (Text-To-Spectrogram): https://github.com/kylophone/ascii-audio
+    
+    Live text-mode spectrogram: https://github.com/spatialaudio/python-sounddevice/blob/master/examples/spectrogram.py
+    
+    https://gist.github.com/ganwell/3772157
+    
+    http://www.swharden.com/blog/2013-05-09-realtime-fft-audio-visualization-with-python/
 markdown
     <p xmlns:dct="http://purl.org/dc/terms/">
       <a rel="license"

@@ -28,6 +28,8 @@ markdown
     
     Speech Signal Processing:  
     https://github.com/idiap/ssp
+    
+    http://siggigue.github.io/pyfilterbank/, https://github.com/SiggiGue/pyfilterbank
 markdown
     ### Filter Design
     

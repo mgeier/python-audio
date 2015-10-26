@@ -39,7 +39,7 @@ markdown
     numbers. Very popular are 16-bit fixed point (PCM) values, as this is the format
     of Audio CDs.
     Some professional recordings use 24-bit PCM data. 32-bit PCM data is also
-    possible, but this practically never used.
+    possible, but this is practically never used.
     
     32-bit floating-point data, however, are widely used by digital audio
     workstations (DAWs), so you may encounter those.
@@ -142,8 +142,8 @@ markdown
     ## Example Files (for Testing)
     
     Example WAV files with different encodings are available in the directory
-    [`data/`](data/). These files were generated with the script
-    [`generate_example_wav_files.py`](data/generate_example_wav_files.py).
+    [data/](data/). These files were generated with the script
+    [generate_example_wav_files.py](data/generate_example_wav_files.py).
     
     More examples can be downloaded from:
     

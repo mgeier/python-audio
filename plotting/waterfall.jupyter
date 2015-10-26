@@ -22,6 +22,9 @@ markdown
           
     * an example with crazy colors
       * http://austringer.net/wp/index.php/2011/05/20/plotting-a-dolphin-biosonar-click-train/
+      
+    * waterfall plot with Gnuplot
+      * http://www.gnuplotting.org/waterfall-plots-with-changing-color/
 markdown
     <p xmlns:dct="http://purl.org/dc/terms/">
       <a rel="license"

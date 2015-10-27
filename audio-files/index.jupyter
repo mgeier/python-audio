@@ -48,7 +48,7 @@ markdown
 markdown
     TODO: `WAV_PCM` vs. `WAVEX`
 markdown
-    TODO: range of values, e.g. 16-bit: -32768 to 32767
+    TODO: range of values, e.g. 16-bit: -32768 to 32767, http://blog.bjornroche.com/2009/12/int-float-int-its-jungle-out-there.html
 markdown
     ## Conversion to Other Formats
     

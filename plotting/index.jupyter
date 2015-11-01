@@ -17,7 +17,9 @@ markdown
 markdown
     ## External Links
     
-    matplotlib: http://matplotlib.org/
+    ### matplotlib
+    
+    http://matplotlib.org/
     
     http://matplotlib.org/gallery.html
     
@@ -31,13 +33,15 @@ markdown
     
     http://nbviewer.ipython.org/github/jrjohansson/scientific-python-lectures/blob/master/Lecture-4-Matplotlib.ipynb
     
-    seaborn: http://stanford.edu/~mwaskom/software/seaborn/
-    
     http://worksofscience.net/matplotlib/fig
     
     http://worksofscience.net/matplotlib/gridspec
     
     http://nbviewer.ipython.org/github/rasbt/matplotlib-gallery/blob/master/ipynb/publication.ipynb
+markdown
+    ### seaborn
+    
+    http://stanford.edu/~mwaskom/software/seaborn/
 markdown
     ### Animations
     

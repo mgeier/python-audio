@@ -6,7 +6,9 @@ This repository holds a few [Jupyter](http://jupyter.org/) (formally known as
 
 You may consume them in different ways:
 
-* Clone this Git repository and open the notebooks locally with Jupyter/IPython
+* Clone this Git repository (or download the
+  [zip file](https://codeload.github.com/mgeier/python-audio/zip/master))
+  and open the notebooks locally with Jupyter/IPython
 
 * View a [static online version of the notebooks](http://nbviewer.ipython.org/urls/raw.github.com/mgeier/python-audio/master/index.ipynb)
 

@@ -22,6 +22,10 @@ markdown
       
     http://nbviewer.ipython.org/github/LCAV/SignalsOfTheDay/blob/master/Room_Acoustics/Room%20Impulse%20Response.ipynb
 markdown
+    ### Sweep Signals
+    
+    http://scipy-cookbook.readthedocs.org/items/FrequencySweptDemo.html
+markdown
     ### Non-Python Stuff
     
     * WaveCapture/VariSphear by Benny Bernschütz (Matlab/Windows)

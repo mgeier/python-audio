@@ -14,3 +14,6 @@ You may consume them in different ways:
 
 * [![Binder](http://mybinder.org/badge.svg)](http://mybinder.org/repo/mgeier/python-audio)
   for the ultimate interactive online experience
+
+The authors waive copyright and related rights in the work through the
+[CC0 1.0 Universal public domain dedication](http://creativecommons.org/publicdomain/zero/1.0/).

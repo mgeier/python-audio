@@ -1,7 +1,7 @@
 Audio Signal Processing in Python
 =================================
 
-This repository holds a few [Jupyter](http://jupyter.org/) (formally known as
+This repository holds a few [Jupyter](http://jupyter.org/) (formerly known as
 [IPython](http://ipython.org/notebook.html)) notebooks.
 
 You may consume them in different ways:

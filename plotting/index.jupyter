@@ -13,6 +13,8 @@ markdown
     
     * [Properly Sized Color Bars in `matplotlib`](matplotlib-colorbar.ipynb)
     
+    * [Creating Animations with `matplotlib`](matplotlib-animation.ipynb)
+    
     * [Using the "notebook" backend](matplotlib-notebook-backend.ipynb)
     
     * [Zoomable Plots on Static HTML Notebooks](mpld3.ipynb)
@@ -92,6 +94,6 @@ metadata
       "name": "python",
       "nbconvert_exporter": "python",
       "pygments_lexer": "ipython3",
-      "version": "3.4.3+"
+      "version": "3.5.1+"
      }
     }

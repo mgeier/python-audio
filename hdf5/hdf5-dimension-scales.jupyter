@@ -1,0 +1,509 @@
+nbformat 4
+nbformat_minor 0
+markdown
+    quick start: http://docs.h5py.org/en/latest/quick.html
+    
+    Dimension Scales: http://docs.h5py.org/en/latest/high/dims.html
+code 1
+    import h5py
+  metadata
+    {
+     "collapsed": true
+    }
+code 2
+    f = h5py.File('test.hdf5', mode='w')  # can also be used as context manager
+  metadata
+    {
+     "collapsed": false
+    }
+code 3
+    f.name
+  execute_result
+  - text/plain
+    '/'
+  metadata
+    {
+     "collapsed": false
+    }
+code 4
+    f['a'] = 12
+  metadata
+    {
+     "collapsed": false
+    }
+code 5
+    list(f.keys())
+  execute_result
+  - text/plain
+    ['a']
+  metadata
+    {
+     "collapsed": false
+    }
+code 6
+    data = f['a']
+    data
+  execute_result
+  - text/plain
+    <HDF5 dataset "a": shape (), type "<i8">
+  metadata
+    {
+     "collapsed": false
+    }
+code 7
+    data[...]
+  execute_result
+  - text/plain
+    array(12)
+  metadata
+    {
+     "collapsed": false
+    }
+code 8
+    data.shape
+  execute_result
+  - text/plain
+    ()
+  metadata
+    {
+     "collapsed": false
+    }
+code 9
+    list(data.dims)
+  execute_result
+  - text/plain
+    []
+  metadata
+    {
+     "collapsed": false
+    }
+code 10
+    data.dtype
+  execute_result
+  - text/plain
+    dtype('int64')
+  metadata
+    {
+     "collapsed": false
+    }
+code 11
+    data.maxshape
+  execute_result
+  - text/plain
+    ()
+  metadata
+    {
+     "collapsed": false
+    }
+code 12
+    data.name
+  execute_result
+  - text/plain
+    '/a'
+  metadata
+    {
+     "collapsed": false
+    }
+code 13
+    data.attrs['extra info'] = 'super data'
+  metadata
+    {
+     "collapsed": true
+    }
+code 14
+    dict(data.attrs.items())
+  execute_result
+  - text/plain
+    {'extra info': 'super data'}
+  metadata
+    {
+     "collapsed": false
+    }
+code 15
+    dict(f.items())
+  execute_result
+  - text/plain
+    {'a': <HDF5 dataset "a": shape (), type "<i8">}
+  metadata
+    {
+     "collapsed": false
+    }
+markdown
+    Dimension Scales
+    
+    http://docs.h5py.org/en/latest/high/dims.html
+code 16
+    import numpy as np
+  metadata
+    {
+     "collapsed": true
+    }
+code 17
+    numpy_array = np.array([[1., 2, 3], [4, 5, 6]])
+  metadata
+    {
+     "collapsed": true
+    }
+code 18
+    f['b'] = numpy_array
+    f['b']
+  execute_result
+  - text/plain
+    <HDF5 dataset "b": shape (2, 3), type "<f8">
+  metadata
+    {
+     "collapsed": false
+    }
+code 19
+    f.create_dataset('c', dtype='float32', data=numpy_array)
+  execute_result
+  - text/plain
+    <HDF5 dataset "c": shape (2, 3), type "<f4">
+  metadata
+    {
+     "collapsed": false
+    }
+code 20
+    dict(f.items())
+  execute_result
+  - text/plain
+    {'a': <HDF5 dataset "a": shape (), type "<i8">,
+     'b': <HDF5 dataset "b": shape (2, 3), type "<f8">,
+     'c': <HDF5 dataset "c": shape (2, 3), type "<f4">}
+  metadata
+    {
+     "collapsed": false
+    }
+code 21
+    f['b'].dims[1].label = 'nice second dimension!'
+  metadata
+    {
+     "collapsed": true
+    }
+code 22
+    f['myscale'] = [1, 2, 3, 4]
+  metadata
+    {
+     "collapsed": true
+    }
+code 23
+    # this seems to be only necessary for setting a label:
+    f['c'].dims.create_scale(f['myscale'], 'my scale label')
+    #h5py.h5ds.set_scale(f['myscale'].id, b'my scale label')
+  metadata
+    {
+     "collapsed": false
+    }
+code 24
+    f['c'].dims[0].attach_scale(f['myscale'])
+  metadata
+    {
+     "collapsed": false
+    }
+code 25
+    [dim.label for dim in f['b'].dims]
+  execute_result
+  - text/plain
+    ['', 'nice second dimension!']
+  metadata
+    {
+     "collapsed": false
+    }
+code 26
+    list(f['c'].dims.keys())
+  execute_result
+  - text/plain
+    [<"" dimension 0 of HDF5 dataset at 140217931046272>,
+     <"" dimension 1 of HDF5 dataset at 140217931046272>]
+  metadata
+    {
+     "collapsed": false
+    }
+code 27
+    list(f['c'].dims[0].keys())
+  execute_result
+  - text/plain
+    ['my scale label']
+  metadata
+    {
+     "collapsed": false
+    }
+code 28
+    f['c'].dims[0][0]
+  execute_result
+  - text/plain
+    <HDF5 dataset "myscale": shape (4,), type "<i8">
+  metadata
+    {
+     "collapsed": false
+    }
+code 29
+    f['c'].dims[0]['my scale label']
+  execute_result
+  - text/plain
+    <HDF5 dataset "myscale": shape (4,), type "<i8">
+  metadata
+    {
+     "collapsed": false
+    }
+code 30
+    f.close()
+  metadata
+    {
+     "collapsed": true
+    }
+code 31
+    !h5dump test.hdf5
+  stream stdout
+    HDF5 "test.hdf5" {
+    GROUP "/" {
+       DATASET "a" {
+          DATATYPE  H5T_STD_I64LE
+          DATASPACE  SCALAR
+          DATA {
+          (0): 12
+          }
+          ATTRIBUTE "extra info" {
+             DATATYPE  H5T_STRING {
+                STRSIZE H5T_VARIABLE;
+                STRPAD H5T_STR_NULLTERM;
+                CSET H5T_CSET_UTF8;
+                CTYPE H5T_C_S1;
+             }
+             DATASPACE  SCALAR
+             DATA {
+             (0): "super data"
+             }
+          }
+       }
+       DATASET "b" {
+          DATATYPE  H5T_IEEE_F64LE
+          DATASPACE  SIMPLE { ( 2, 3 ) / ( 2, 3 ) }
+          DATA {
+          (0,0): 1, 2, 3,
+          (1,0): 4, 5, 6
+          }
+          ATTRIBUTE "DIMENSION_LABELS" {
+             DATATYPE  H5T_STRING {
+                STRSIZE H5T_VARIABLE;
+                STRPAD H5T_STR_NULLTERM;
+                CSET H5T_CSET_ASCII;
+                CTYPE H5T_C_S1;
+             }
+             DATASPACE  SIMPLE { ( 2 ) / ( 2 ) }
+             DATA {
+             (0): NULL, "nice second dimension!"
+             }
+          }
+       }
+       DATASET "c" {
+          DATATYPE  H5T_IEEE_F32LE
+          DATASPACE  SIMPLE { ( 2, 3 ) / ( 2, 3 ) }
+          DATA {
+          (0,0): 1, 2, 3,
+          (1,0): 4, 5, 6
+          }
+          ATTRIBUTE "DIMENSION_LIST" {
+             DATATYPE  H5T_VLEN { H5T_REFERENCE { H5T_STD_REF_OBJECT }}
+             DATASPACE  SIMPLE { ( 2 ) / ( 2 ) }
+             DATA {
+             (0): (DATASET 6320 /myscale ), ()
+             }
+          }
+       }
+       DATASET "myscale" {
+          DATATYPE  H5T_STD_I64LE
+          DATASPACE  SIMPLE { ( 4 ) / ( 4 ) }
+          DATA {
+          (0): 1, 2, 3, 4
+          }
+          ATTRIBUTE "CLASS" {
+             DATATYPE  H5T_STRING {
+                STRSIZE 16;
+                STRPAD H5T_STR_NULLTERM;
+                CSET H5T_CSET_ASCII;
+                CTYPE H5T_C_S1;
+             }
+             DATASPACE  SCALAR
+             DATA {
+             (0): "DIMENSION_SCALE"
+             }
+          }
+          ATTRIBUTE "NAME" {
+             DATATYPE  H5T_STRING {
+                STRSIZE 15;
+                STRPAD H5T_STR_NULLTERM;
+                CSET H5T_CSET_ASCII;
+                CTYPE H5T_C_S1;
+             }
+             DATASPACE  SCALAR
+             DATA {
+             (0): "my scale label"
+             }
+          }
+          ATTRIBUTE "REFERENCE_LIST" {
+             DATATYPE  H5T_COMPOUND {
+                H5T_REFERENCE { H5T_STD_REF_OBJECT } "dataset";
+                H5T_STD_I32LE "dimension";
+             }
+             DATASPACE  SIMPLE { ( 1 ) / ( 1 ) }
+             DATA {
+             (0): {
+                   DATASET 1672 /c ,
+                   0
+                }
+             }
+          }
+       }
+    }
+    }
+  metadata
+    {
+     "collapsed": false
+    }
+code 32
+    with h5py.File('two_scales.hdf5', mode='w') as f:
+        f['a'] = [1, 2, 3]
+        f['scale1'] = 1
+        f['scale2'] = 2
+        f['a'].dims.create_scale(f['scale1'], 'scale one')
+        h5py.h5ds.set_scale(f['scale2'].id, b'scale two')
+        f['a'].dims[0].attach_scale(f['scale1'])
+        f['a'].dims[0].attach_scale(f['scale2'])
+  metadata
+    {
+     "collapsed": false
+    }
+code 33
+    !h5dump two_scales.hdf5
+  stream stdout
+    HDF5 "two_scales.hdf5" {
+    GROUP "/" {
+       DATASET "a" {
+          DATATYPE  H5T_STD_I64LE
+          DATASPACE  SIMPLE { ( 3 ) / ( 3 ) }
+          DATA {
+          (0): 1, 2, 3
+          }
+          ATTRIBUTE "DIMENSION_LIST" {
+             DATATYPE  H5T_VLEN { H5T_REFERENCE { H5T_STD_REF_OBJECT }}
+             DATASPACE  SIMPLE { ( 1 ) / ( 1 ) }
+             DATA {
+             (0): (DATASET 1400 /scale1 , DATASET 1672 /scale2 )
+             }
+          }
+       }
+       DATASET "scale1" {
+          DATATYPE  H5T_STD_I64LE
+          DATASPACE  SCALAR
+          DATA {
+          (0): 1
+          }
+          ATTRIBUTE "CLASS" {
+             DATATYPE  H5T_STRING {
+                STRSIZE 16;
+                STRPAD H5T_STR_NULLTERM;
+                CSET H5T_CSET_ASCII;
+                CTYPE H5T_C_S1;
+             }
+             DATASPACE  SCALAR
+             DATA {
+             (0): "DIMENSION_SCALE"
+             }
+          }
+          ATTRIBUTE "NAME" {
+             DATATYPE  H5T_STRING {
+                STRSIZE 10;
+                STRPAD H5T_STR_NULLTERM;
+                CSET H5T_CSET_ASCII;
+                CTYPE H5T_C_S1;
+             }
+             DATASPACE  SCALAR
+             DATA {
+             (0): "scale one"
+             }
+          }
+          ATTRIBUTE "REFERENCE_LIST" {
+             DATATYPE  H5T_COMPOUND {
+                H5T_REFERENCE { H5T_STD_REF_OBJECT } "dataset";
+                H5T_STD_I32LE "dimension";
+             }
+             DATASPACE  SIMPLE { ( 1 ) / ( 1 ) }
+             DATA {
+             (0): {
+                   DATASET 800 /a ,
+                   0
+                }
+             }
+          }
+       }
+       DATASET "scale2" {
+          DATATYPE  H5T_STD_I64LE
+          DATASPACE  SCALAR
+          DATA {
+          (0): 2
+          }
+          ATTRIBUTE "CLASS" {
+             DATATYPE  H5T_STRING {
+                STRSIZE 16;
+                STRPAD H5T_STR_NULLTERM;
+                CSET H5T_CSET_ASCII;
+                CTYPE H5T_C_S1;
+             }
+             DATASPACE  SCALAR
+             DATA {
+             (0): "DIMENSION_SCALE"
+             }
+          }
+          ATTRIBUTE "NAME" {
+             DATATYPE  H5T_STRING {
+                STRSIZE 10;
+                STRPAD H5T_STR_NULLTERM;
+                CSET H5T_CSET_ASCII;
+                CTYPE H5T_C_S1;
+             }
+             DATASPACE  SCALAR
+             DATA {
+             (0): "scale two"
+             }
+          }
+          ATTRIBUTE "REFERENCE_LIST" {
+             DATATYPE  H5T_COMPOUND {
+                H5T_REFERENCE { H5T_STD_REF_OBJECT } "dataset";
+                H5T_STD_I32LE "dimension";
+             }
+             DATASPACE  SIMPLE { ( 1 ) / ( 1 ) }
+             DATA {
+             (0): {
+                   DATASET 800 /a ,
+                   0
+                }
+             }
+          }
+       }
+    }
+    }
+  metadata
+    {
+     "collapsed": false
+    }
+metadata
+    {
+     "kernelspec": {
+      "display_name": "Python 3",
+      "language": "python",
+      "name": "python3"
+     },
+     "language_info": {
+      "codemirror_mode": {
+       "name": "ipython",
+       "version": 3
+      },
+      "file_extension": ".py",
+      "mimetype": "text/x-python",
+      "name": "python",
+      "nbconvert_exporter": "python",
+      "pygments_lexer": "ipython3",
+      "version": "3.4.3+"
+     }
+    }

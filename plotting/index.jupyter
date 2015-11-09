@@ -9,6 +9,8 @@ markdown
     
     * [Getting Started with `matplotlib`](matplotlib.ipynb)
     
+    * [Using the "notebook" backend](matplotlib-notebook-backend.ipynb)
+    
     * [Zoomable Plots on Static HTML Notebooks](mpld3.ipynb)
     
     The following topics are work in progress:

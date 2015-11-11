@@ -9,6 +9,8 @@ markdown
     
     * [Getting Started with `matplotlib`](matplotlib.ipynb)
     
+    * [Properly Sized Color Bars in `matplotlib`](matplotlib-colorbar.ipynb)
+    
     * [Using the "notebook" backend](matplotlib-notebook-backend.ipynb)
     
     * [Zoomable Plots on Static HTML Notebooks](mpld3.ipynb)

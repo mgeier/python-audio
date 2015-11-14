@@ -15,7 +15,7 @@ markdown
     You can also have a look at [my stackoverflow answer on the topic](http://stackoverflow.com/a/33505522/500098).
     
     As always, the information on this page might be outdated:
-code 32
+code 1
     !date -I
   stream stdout
     2015-11-14
@@ -25,7 +25,7 @@ code 32
     }
 markdown
     This is the date of the last change to this page. If it's older then half a year or a year, it is very likely to be outdated, so don't read it!
-code 1
+code 2
     %matplotlib inline
     import matplotlib.pyplot as plt
     import numpy as np
@@ -38,7 +38,7 @@ code 1
     }
 markdown
     Some [dummy data](http://matplotlib.org/examples/pylab_examples/pcolor_demo.html):
-code 2
+code 3
     def dummy_data(xmin, xmax):
         ymin, ymax = -2, 2
         x, y = np.meshgrid(np.arange(xmin, xmax, 0.1), np.arange(ymin, ymax, 0.1))
@@ -49,7 +49,7 @@ code 2
     {
      "collapsed": false
     }
-code 3
+code 4
     z, extent = dummy_data(-3, 3)
     zmax = np.max(np.abs(z))
   metadata
@@ -58,7 +58,7 @@ code 3
     }
 markdown
     ## The Problem
-code 4
+code 5
     plt.imshow(z, extent=extent, vmin=-zmax, vmax=zmax)
     plt.colorbar();
   display_data
@@ -721,7 +721,7 @@ code 4
     FSsuEVZSX7FixYpLhJXUV6xYseIS4f8DZYD1dvX0k6MAAAAASUVORK5CYII=
     
   - text/plain
-    <matplotlib.figure.Figure at 0x7fca445c2f28>
+    <matplotlib.figure.Figure at 0x7f8c6175afd0>
   metadata
     {
      "collapsed": false
@@ -734,7 +734,7 @@ markdown
     ## "Solution" 1: Fiddling with the Figure Size
     
     Since the figure seems to be too high for its width, let's just make it a little lower:
-code 5
+code 6
     plt.figure(figsize=(6, 3))
     plt.imshow(z, extent=extent, vmin=-zmax, vmax=zmax)
     plt.colorbar();
@@ -1331,7 +1331,7 @@ code 5
     B4CVjFesWLHiALCS8YoVK1YcAFYyXrFixYoDwP8DAmblygbTNW8AAAAASUVORK5CYII=
     
   - text/plain
-    <matplotlib.figure.Figure at 0x7fca445c2b70>
+    <matplotlib.figure.Figure at 0x7f8c6175af60>
   metadata
     {
      "collapsed": false
@@ -1346,7 +1346,7 @@ markdown
     
     If you want it wider or narrower, you have to choose a lower or higher value, respectively.
     To get twice the width as before, let's use an aspect ratio of 10.
-code 6
+code 7
     plt.figure(figsize=(6, 3))
     plt.imshow(z, extent=extent, vmin=-zmax, vmax=zmax)
     plt.colorbar(aspect=10);
@@ -1945,7 +1945,7 @@ code 6
     u6Ojo+NI0Am7o6Oj40jQCbujo6PjSPD/Sxiw3Q5kpTYAAAAASUVORK5CYII=
     
   - text/plain
-    <matplotlib.figure.Figure at 0x7fca44524748>
+    <matplotlib.figure.Figure at 0x7f8c6168ccc0>
   metadata
     {
      "collapsed": false
@@ -1954,7 +1954,7 @@ markdown
     ## Aside: Distance between Plot and Color Bar
     
     If you don't like the amount of space between the color bar and the actual plot (the default hardly ever looks nice), you can use the `pad` parameter:
-code 7
+code 8
     plt.figure(figsize=(6, 3))
     plt.imshow(z, extent=extent, vmin=-zmax, vmax=zmax)
     plt.colorbar(pad=0.02);
@@ -2551,7 +2551,7 @@ code 7
     RU5ErkJggg==
     
   - text/plain
-    <matplotlib.figure.Figure at 0x7fca444d7550>
+    <matplotlib.figure.Figure at 0x7f8c616ee080>
   metadata
     {
      "collapsed": false
@@ -2561,7 +2561,7 @@ markdown
     See below for how to use a more meaningful quantity.
 markdown
     ## "Solution" 2: Fiddling with `shrink`
-code 8
+code 9
     plt.imshow(z, extent=extent, vmin=-zmax, vmax=zmax)
     plt.colorbar(shrink=0.79);
   display_data
@@ -3208,7 +3208,7 @@ code 8
     XFYgX2WVVVa55PL/OBIOlXN2Z1UAAAAASUVORK5CYII=
     
   - text/plain
-    <matplotlib.figure.Figure at 0x7fca646f46d8>
+    <matplotlib.figure.Figure at 0x7f8c5f57f828>
   metadata
     {
      "collapsed": false
@@ -3221,7 +3221,7 @@ markdown
     * using GridSpec: http://worksofscience.net/matplotlib/colorbar
     
     * using ImageGrid: http://matplotlib.org/mpl_toolkits/axes_grid/users/overview.html#imagegrid
-code 9
+code 10
     # TODO
   metadata
     {
@@ -3236,13 +3236,13 @@ markdown
     
     Sadly, this is quite complicated.
     And, as we'll see, it only avoids a part of the fiddling ...
-code 10
+code 11
     from mpl_toolkits import axes_grid1
   metadata
     {
      "collapsed": true
     }
-code 11
+code 12
     fig, ax = plt.subplots()
     im = ax.imshow(z, extent=extent, vmin=-zmax, vmax=zmax)
     divider = axes_grid1.make_axes_locatable(ax)
@@ -4063,7 +4063,7 @@ code 11
     LoWOgHOkIx3pSEe6FDoCzpGOdKQjHelS6P8DzOZrIZ7DMcgAAAAASUVORK5CYII=
     
   - text/plain
-    <matplotlib.figure.Figure at 0x7fca443046d8>
+    <matplotlib.figure.Figure at 0x7f8c5f63d518>
   metadata
     {
      "collapsed": false
@@ -4073,13 +4073,13 @@ markdown
     
     However, although the height is correct, the width is given relative to the width of the image plot.
     This means that if we change the width of our plot, the width of the color bar will change, too.
-code 12
+code 13
     narrow_z, narrow_extent = dummy_data(-2, 0)
   metadata
     {
      "collapsed": false
     }
-code 13
+code 14
     fig, ax = plt.subplots()
     im = ax.imshow(narrow_z, extent=narrow_extent, vmin=-zmax, vmax=zmax)
     divider = axes_grid1.make_axes_locatable(ax)
@@ -4459,7 +4459,7 @@ code 13
     HcFwpCNVOoLhSEeqdATDkY5U6QiGIx2p0v8P6k8nL/PnOXYAAAAASUVORK5CYII=
     
   - text/plain
-    <matplotlib.figure.Figure at 0x7fca4456e320>
+    <matplotlib.figure.Figure at 0x7f8c616def98>
   metadata
     {
      "collapsed": false
@@ -4472,7 +4472,7 @@ markdown
     The mysterious `axes_grid1` module looked promising, but we'll have to try a little harder.
     
     This stuff is getting more and more complicated, so I'm putting it into a little helper function:
-code 14
+code 15
     from mpl_toolkits import axes_grid1
     
     def add_colorbar(im, aspect=20, pad_fraction=0.5, **kwargs):
@@ -4496,7 +4496,7 @@ markdown
     Therefore, the function restores the current axes object from before the call to `append_axes()`.
     
     OK, let's see how this works on the narrow plot from above:
-code 15
+code 16
     im = plt.imshow(narrow_z, extent=narrow_extent, vmin=-zmax, vmax=zmax)
     add_colorbar(im);
   display_data
@@ -4874,14 +4874,14 @@ code 15
     BMtRjjIoR7Ac5SiDcgTLUY4yKEewHOUog/L/A8Jcspy70Hf/AAAAAElFTkSuQmCC
     
   - text/plain
-    <matplotlib.figure.Figure at 0x7fca4450a898>
+    <matplotlib.figure.Figure at 0x7f8c5f1094e0>
   metadata
     {
      "collapsed": false
     }
 markdown
     Good. Now the wide plot:
-code 16
+code 17
     im = plt.imshow(z, extent=extent, vmin=-zmax, vmax=zmax)
     add_colorbar(im);
   display_data
@@ -5704,7 +5704,7 @@ code 16
     QmCC
     
   - text/plain
-    <matplotlib.figure.Figure at 0x7fca4439f240>
+    <matplotlib.figure.Figure at 0x7f8c5f109748>
   metadata
     {
      "collapsed": false
@@ -5715,7 +5715,7 @@ markdown
     And there was no fiddling involved at all (but I admit that the code looks a bit frightening).
     
     The aspect ratio and the space between color bar and plot can still be tweaked, if desired:
-code 17
+code 18
     im = plt.imshow(z, extent=extent, vmin=-zmax, vmax=zmax)
     add_colorbar(im, aspect=16/9, pad_fraction=1);
   display_data
@@ -6144,7 +6144,7 @@ code 17
     HxUQNJz+jqmFAAAAAElFTkSuQmCC
     
   - text/plain
-    <matplotlib.figure.Figure at 0x7fca3df1b0f0>
+    <matplotlib.figure.Figure at 0x7f8c5f063080>
   metadata
     {
      "collapsed": false
@@ -6159,7 +6159,7 @@ markdown
     ## Does This Work with Subplots?
     
     I guess ... let's try, shall we?
-code 31
+code 19
     fig, (ax1, ax2) = plt.subplots(nrows=2)
     im = ax1.imshow(z, extent=extent, vmin=-zmax, vmax=zmax)
     add_colorbar(im)
@@ -6574,7 +6574,7 @@ code 31
     osNSxCMiOixFPCKiw1LEIyI6LEU8IqLDUsQjIjosRTwiosP+AXT5eGWKRcDAAAAAAElFTkSuQmCC
     
   - text/plain
-    <matplotlib.figure.Figure at 0x7fca3da194a8>
+    <matplotlib.figure.Figure at 0x7f8c5ef77eb8>
   metadata
     {
      "collapsed": false

@@ -6594,6 +6594,14 @@ markdown
      "collapsed": true
     }
 markdown
+    ## Does This Work with 3D Plots?
+    
+    I don't know, I didn't try.
+  metadata
+    {
+     "collapsed": true
+    }
+markdown
     ## More Stuff
     
     text labels inside the colorbar: http://stackoverflow.com/questions/15908371/matplotlib-colorbars-and-its-text-labels

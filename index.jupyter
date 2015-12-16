@@ -52,9 +52,11 @@ markdown
     
     http://python-for-signal-processing.blogspot.de/
 markdown
-    ### Other Scientific Topics
+    ### Other Scientific Topics and Scientific Python in General
     
     http://scipy-lectures.github.io/
+    
+    https://github.com/jrjohansson/scientific-python-lectures
     
     http://pig-in-the-python.blogspot.de/
     
@@ -63,6 +65,8 @@ markdown
     Computational Methods for Psychology and Neuroscience: http://memory.osu.edu/classes/python/index.html
     
     https://github.com/IanHawke/maths-with-python
+    
+    http://www.southampton.ac.uk/~fangohr/training/python/index.html
 markdown
     ### Python in General
     
@@ -87,6 +91,8 @@ markdown
     https://github.com/rasbt/python_reference
     
     http://www.greenteapress.com/thinkpython/
+    
+    Programming with Python (MATH20622): http://www.maths.manchester.ac.uk/~vsego/teaching.php
 markdown
     ### Python Trivia
     

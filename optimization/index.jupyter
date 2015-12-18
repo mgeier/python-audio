@@ -33,6 +33,12 @@ code 2
      "collapsed": false
     }
 markdown
+    https://pythonhosted.org/pythran/
+    
+        %load_ext pythranmagic
+        
+        %%pythran
+markdown
     ## Parallel Processing
     
     [DistNumPy](https://code.google.com/p/distnumpy/)

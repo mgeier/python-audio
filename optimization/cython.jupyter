@@ -1,11 +1,13 @@
 nbformat 4
 nbformat_minor 0
 markdown
+    # Cython
+    
     http://nbviewer.ipython.org/github/ipython/ipython/blob/master/examples/notebooks/Cython%20Magics.ipynb
     
     http://nbviewer.ipython.org/github/rasbt/python_reference/blob/master/tutorials/running_cython.ipynb
 code 1
-    %load_ext cythonmagic
+    %load_ext cython
   metadata
     {
      "collapsed": false
@@ -54,13 +56,13 @@ code 6
     {
      "collapsed": false
     }
-code 1
+code 7
     # TODO: something useful!
   metadata
     {
      "collapsed": false
     }
-code 1
+code
     
   metadata
     {
@@ -96,6 +98,6 @@ metadata
       "name": "python",
       "nbconvert_exporter": "python",
       "pygments_lexer": "ipython3",
-      "version": "3.4.3+"
+      "version": "3.4.4rc1"
      }
     }

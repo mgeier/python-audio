@@ -24,6 +24,10 @@ markdown
     A New Shade of Pink:  
     http://stenzel.waldorfmusic.de/post/pink/  
     https://github.com/Stenzel/newshadeofpink
+    
+    http://home.earthlink.net/~ltrammell/tech/pinkalg.htm
+    
+    http://www.dsprelated.com/showarticle/908.php, [Jupyter notebook](http://nbviewer.jupyter.org/github/AllenDowney/ThinkDSP/blob/master/code/voss.ipynb)
 markdown
     ### Perlin/Simplex Noise
     
@@ -62,6 +66,6 @@ metadata
       "name": "python",
       "nbconvert_exporter": "python",
       "pygments_lexer": "ipython3",
-      "version": "3.4.3+"
+      "version": "3.4.4"
      }
     }

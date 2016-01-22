@@ -47,6 +47,8 @@ markdown
     http://samcarcagno.altervista.org/blog/basic-sound-processing-python/
     
     http://blog.chrisarndt.de/article/499 (de)
+    
+    Think DSP: Digital Signal Processing in Python: http://greenteapress.com/thinkdsp/
 markdown
     ### Signal Processing in General
     
@@ -141,6 +143,6 @@ metadata
       "name": "python",
       "nbconvert_exporter": "python",
       "pygments_lexer": "ipython3",
-      "version": "3.4.3+"
+      "version": "3.4.4"
      }
     }

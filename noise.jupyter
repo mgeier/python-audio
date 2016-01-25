@@ -28,6 +28,9 @@ markdown
     http://home.earthlink.net/~ltrammell/tech/pinkalg.htm
     
     http://www.dsprelated.com/showarticle/908.php, [Jupyter notebook](http://nbviewer.jupyter.org/github/AllenDowney/ThinkDSP/blob/master/code/voss.ipynb)
+    
+    https://github.com/PaulStoffregen/Audio/blob/master/synth_pinknoise.h  
+    https://github.com/PaulStoffregen/Audio/blob/master/synth_pinknoise.cpp
 markdown
     ### Perlin/Simplex Noise
     

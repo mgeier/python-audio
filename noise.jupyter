@@ -31,6 +31,10 @@ markdown
     
     https://github.com/PaulStoffregen/Audio/blob/master/synth_pinknoise.h  
     https://github.com/PaulStoffregen/Audio/blob/master/synth_pinknoise.cpp
+    
+    http://music.columbia.edu/pipermail/music-dsp/2002-May/049056.html
+    
+    https://github.com/supercollider/supercollider/commit/7bc21edf596b2b3c8324880fbbbacdb342b85272
 markdown
     ### Perlin/Simplex Noise
     
@@ -69,6 +73,6 @@ metadata
       "name": "python",
       "nbconvert_exporter": "python",
       "pygments_lexer": "ipython3",
-      "version": "3.4.4"
+      "version": "3.5.1+"
      }
     }

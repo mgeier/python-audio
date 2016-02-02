@@ -5,6 +5,14 @@ markdown
     
     [back to main page](../index.ipynb)
 markdown
+    ## Ideas
+markdown
+    ### Shepard Tones
+    
+    http://tinyurl.com/shepard-risset/
+    
+    http://vihart.com/shepard-tones/
+markdown
     ## External Links
     
     Matlab Auditory Demonstrations (MAD):  
@@ -42,6 +50,6 @@ metadata
       "name": "python",
       "nbconvert_exporter": "python",
       "pygments_lexer": "ipython3",
-      "version": "3.4.3+"
+      "version": "3.5.1+"
      }
     }

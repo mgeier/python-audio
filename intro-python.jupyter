@@ -17,13 +17,14 @@ markdown
         python
     
     You have the full power of Python in there, but it is not very convenient.
-    A much better alternative is [Jupyter](https://jupyter.org/) (formerly known as [IPython](http://ipython.org/)), which is described on a [separate page](intro-ipython.ipynb).
+    A much better alternative is [Jupyter](https://jupyter.org/) (formerly known as [IPython](http://ipython.org/)), which is described on a [separate page](intro-jupyter.ipynb).
     
     Actually, this very page you're just reading is a so-called [Jupyter notebook](https://jupyter-notebook.readthedocs.org/) (formerly known as [IPython notebook](http://ipython.org/notebook.html)), which means that you can view it either as a [static web page](http://nbviewer.ipython.org/urls/raw.github.com/mgeier/python-audio/master/intro-python.ipynb) or, if you have IPython installed locally, you can also open the [notebook file](http://raw.github.com/mgeier/python-audio/master/intro-python.ipynb) with Jupyter/IPython and run the code in it interactively. You can also change stuff and play around with it.
-    To execute a code cell, select it by clicking on it and press Shift+Enter.
+    To execute a code cell, select it by clicking on it and press Shift+Enter (or click the <button class='fa fa-step-forward fa-play icon-play btn btn-xs btn-default'></button> button in the toolbar).
     You can step through all the cells by pressing Shift+Enter repeatedly.
     
     If you don't want to install Jupyter (yet), you can simply try it out online at https://try.jupyter.org/ (just click on "New" and "Python 3" or open the notebook "Welcome to Python").
+    You can even launch an interactive online version of this very notebook by clicking on [![Binder](http://mybinder.org/badge.svg)](http://mybinder.org/repo/mgeier/python-audio/intro-python.ipynb)
 markdown
     ## Python 2 vs. 3
     
@@ -31,7 +32,7 @@ markdown
     
     * Always use Python 3!
     
-      * The appropriate commands may be called `python3` and `ipython3` on your computer.
+      * The appropriate commands may be called `python3`, `ipython3`, `jupyter3`, `pip3` etc. on your computer.
     
     * Ignore old code examples that use `print` without parentheses.
     
@@ -198,7 +199,7 @@ code 8
      "collapsed": false
     }
 markdown
-    TODO: infinite precision `int` (or `long`?), double precision `float`
+    TODO: infinite precision `int`, double precision `float`
 markdown
     TODO: more numeric types in external libraries, e.g. NumPy
 markdown
@@ -466,7 +467,7 @@ code 30
      "collapsed": false
     }
 markdown
-    You can use [`str()`](http://docs.python.org/3/library/stdtypes.html#str) to convert any object to a string:
+    You can use [str()](http://docs.python.org/3/library/stdtypes.html#str) to convert any object to a string:
 code 31
     str(42)
   execute_result
@@ -538,8 +539,8 @@ code 36
 markdown
     Unlike in many other programming languages, there is no separate type for single characters in Python. Single characters are simply written as strings which happen to contain only one character.
     
-    Each character has a numeric equivalent which can be shown by the [`ord()`](http://docs.python.org/3/library/functions.html#ord) function.
-    The function [`chr()`](http://docs.python.org/3/library/functions.html#chr) can be used to convert in the other direction.
+    Each character has a numeric equivalent which can be shown by the [ord()](http://docs.python.org/3/library/functions.html#ord) function.
+    The function [chr()](http://docs.python.org/3/library/functions.html#chr) can be used to convert in the other direction.
 code 37
     ord(" ")
   execute_result
@@ -669,7 +670,7 @@ code 47
      "collapsed": false
     }
 markdown
-    We can use [`list()`](http://docs.python.org/3/library/stdtypes.html#list) to create a list from some other object (which must be *iterable*):
+    We can use [list()](http://docs.python.org/3/library/stdtypes.html#list) to create a list from some other object (which must be *iterable*):
 code 48
     list("Hello, world!")
   execute_result
@@ -722,7 +723,7 @@ code 51
     }
 markdown
     Just like lists, tuples can also hold arbitrary objects (and they contain references, not the actual objects).
-markdown
+    
     Tuples are often enclosed in parentheses, but those are only really required if otherwise the code would be ambiguous, e.g. when creating a tuple of tuples:
 code 52
     1, (2, 3), 4
@@ -820,7 +821,7 @@ markdown
 markdown
     ## Sets
     
-    Sets are very similar to lists, except that their elements are not ordered and unique.
+    Sets are very similar to lists, except that their elements are not ordered and they are unique.
     A `set` can be created by putting objects, separated by commas, between a pair of braces.
 code 60
     {42, 3.1415, "Ni!", 42}
@@ -966,11 +967,11 @@ markdown
 markdown
     ## Expressions, Statements, Side Effects
     
-    When you write Python code, you write a sequence of *statements*.
+    When you write Python code, you write a sequence of [statements](https://en.wikipedia.org/wiki/Statement_%28computer_science%29).
     There are several different kinds of statements, some of which will be explained in this notebook.
     
     What we were seeing up to now were *expression statements*.
-    Each of the code cells above holds an *expression*.
+    Each of the code cells above holds an [expression](https://en.wikipedia.org/wiki/Expression_%28computer_science%29).
     Simply put, an *expression* is a piece of code that can be evaluated which results in some *value*, or more generally speaking, some *object*.
     
     An *expression* may contain arbitrarily many other *expressions*, but no *statements*.
@@ -984,7 +985,7 @@ markdown
     There is this strange thing called *expression statement*, which turns an *expression* into a *statement* by ignoring its return value.
     But when used in an interactive Python session, this behaves differently!
     When evaluating a *statement* which happens to be an *expression*, on an interactive Python prompt, the result will actually be shown to you.
-    In an IPython notebook, a *code cell* may contain multiple *statements*, and if the *last* one happens to be an *expression statement*, its *value* is returned:
+    In a Jupyter/IPython notebook, a *code cell* may contain multiple *statements*, and if the *last* one happens to be an *expression statement*, its *value* is returned:
 code 73
     [2 + 2, 4 + 4, 6 + 6]
     10 * 9 + 9
@@ -1050,7 +1051,7 @@ markdown
     
     No, I didn't lie to you!
     
-    By convention, when a Python expression doesn't have anything meaningful to return (like the `print()` function), it returns a special Python object called `None`.
+    By convention, when a Python expression doesn't have anything meaningful to evaluate to (like the `print()` function), it returns a special Python object called `None`.
     This is Python's way of saying "nothing".
     You see, even "nothing" is an object in Python!
     
@@ -1111,7 +1112,7 @@ markdown
     
     You will need this very rarely, don't make it a habit to end your lines with semicolons!
     
-    Until now, we talked about *expression statements*. There are several other kinds of statements which can be used to control program flow, define functions and classes, raise exceptions etc.
+    Until now, we've talked about *expression statements*. There are several other kinds of statements which can be used to control program flow, define functions and classes, raise exceptions etc.
     
     Let's continue with a very important statement: the *assignment statement*.
 markdown
@@ -1199,7 +1200,7 @@ markdown
     In our example, we stick it to an object that has the type `int` and the value `42`.
     This object was created by the Python interpreter during evaluation of the *expression* `7 * 6`.
     The object itself doesn't have a name (it just has a memory address), but we can *bind* a name to it, in our example the name `answer`.
-markdown
+    
     Now what happens in the following statement?
 code 82
     type(answer)
@@ -1225,7 +1226,6 @@ markdown
     That's also the reason why assignment is not (and cannot be) an *operator* and why it cannot be used as part of an expression.
     
     We learned that a new identifier can be created by just using a name that hasn't been used before in an assignment statement.
-    
     But what happens if we assign to a name that has already been used?
 code 83
     answer = "Sir Lancelot of Camelot"
@@ -1540,7 +1540,7 @@ code 105
      "collapsed": false
     }
 markdown
-    Note that when assinging to a list element, as always, the value is not copied, but merely a reference inside of the list is bound to the object on the right of the equals sign.
+    Note that when assigning to a list element, as always, the value is not copied, but merely a reference inside of the list is bound to the object on the right of the equals sign.
     
     To show this, we can assign a single object to multiple list elements:
 code 106
@@ -1732,7 +1732,7 @@ code 123
     }
 markdown
     Note that the colon-operator is only allowed within the brackets of a *subscript*.
-    If you want to create a slice object at a different place, you have to use [`slice()`](http://docs.python.org/3/library/functions.html#slice).
+    If you want to create a slice object at a different place, you have to use [slice()](http://docs.python.org/3/library/functions.html#slice).
 code 124
     slice(4)
   execute_result
@@ -2328,6 +2328,6 @@ metadata
       "name": "python",
       "nbconvert_exporter": "python",
       "pygments_lexer": "ipython3",
-      "version": "3.4.3+"
+      "version": "3.5.1+"
      }
     }

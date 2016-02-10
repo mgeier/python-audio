@@ -14,8 +14,8 @@ USER main
 
 # install Python libraries
 RUN pip install soundfile
-RUN /home/main/anaconda/envs/python3/bin/pip install soundfile
+RUN $HOME/anaconda2/envs/python3/bin/pip install soundfile
 RUN pip install audioread
-RUN /home/main/anaconda/envs/python3/bin/pip install audioread
+RUN $HOME/anaconda2/envs/python3/bin/pip install audioread
 RUN pip install mpld3
-RUN /home/main/anaconda/envs/python3/bin/pip install mpld3
+RUN $HOME/anaconda2/envs/python3/bin/pip install mpld3

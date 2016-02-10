@@ -670,7 +670,7 @@ code 47
 markdown
     ... and we can do this arbitrarily often, until we get bored.
     
-    > Side note: Since Python can handle arbitrarily large integers, we can *really* do this arbitrarily often and we will each time get an even larger number, the numbers will never overflow (unless ther is a bug in the Python interpreter).
+    > Side note: Since Python can handle arbitrarily large integers, we can *really* do this arbitrarily often and we will each time get an even larger number, the numbers will never overflow (unless there is a bug in the Python interpreter).
     
     This time we cannot create a `list` of the remaining items, because this list would grow infinitely large!
     

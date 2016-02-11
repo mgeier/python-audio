@@ -9,6 +9,8 @@ markdown
     
     `acoustics` module for Python: [Github](https://github.com/python-acoustics/python-acoustics), [docs](http://python-acoustics.github.io/python-acoustics/)
     
+    `pyroomacoustics` module for Python: [Github](https://github.com/LCAV/pyroomacoustics), [docs](http://pyroomacoustics.readthedocs.org/)
+    
     Waves, Acoustics and Vibration: http://mysite.du.edu/~jcalvert/waves/wavhom.htm
     
     Room modes, FEM simulation: http://blog.kaistale.com/?p=969
@@ -48,6 +50,6 @@ metadata
       "name": "python",
       "nbconvert_exporter": "python",
       "pygments_lexer": "ipython3",
-      "version": "3.4.3+"
+      "version": "3.5.1+"
      }
     }

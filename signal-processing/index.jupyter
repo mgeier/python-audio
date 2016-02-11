@@ -30,6 +30,10 @@ markdown
     https://github.com/idiap/ssp
     
     http://siggigue.github.io/pyfilterbank/, https://github.com/SiggiGue/pyfilterbank
+    
+    https://github.com/fakufaku/AudioTools
+    
+    Signal Processing for Communications [Jupyter notebooks with examples](https://github.com/LCAV/DSPNumex), [free PDF book](http://www.sp4comm.org/download.html)
 markdown
     ### Filter Design
     
@@ -84,6 +88,6 @@ metadata
       "name": "python",
       "nbconvert_exporter": "python",
       "pygments_lexer": "ipython3",
-      "version": "3.4.4"
+      "version": "3.5.1+"
      }
     }

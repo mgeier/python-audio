@@ -53,6 +53,8 @@ markdown
     ### Signal Processing in General
     
     http://python-for-signal-processing.blogspot.de/
+    
+    https://sites.google.com/site/sigsys15/
 markdown
     ### Other Scientific Topics and Scientific Python in General
     
@@ -69,6 +71,8 @@ markdown
     https://github.com/IanHawke/maths-with-python
     
     http://www.southampton.ac.uk/~fangohr/training/python/index.html
+    
+    PHY 546: Python for Scientific Computing: http://bender.astro.sunysb.edu/classes/python-science/
 markdown
     ### Python in General
     
@@ -143,6 +147,6 @@ metadata
       "name": "python",
       "nbconvert_exporter": "python",
       "pygments_lexer": "ipython3",
-      "version": "3.4.4"
+      "version": "3.5.1+"
      }
     }

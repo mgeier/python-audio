@@ -5,15 +5,21 @@ markdown
     
     [back to main page](../index.ipynb)
     
+    Standards: https://github.com/spatialaudio/standards/wiki/Audiometry
+    
     https://github.com/franzpl/audiometer
     
     https://en.wikipedia.org/wiki/Audiometer
     
     https://en.wikipedia.org/wiki/Audiometry
     
+    https://en.wikipedia.org/wiki/Audiogram
+    
     https://de.wikipedia.org/wiki/Audiometer (de)
     
     https://de.wikipedia.org/wiki/Audiometrie (de)
+    
+    https://de.wikipedia.org/wiki/Tonaudiogramm (de)
     
     https://de.wikipedia.org/wiki/Békésy-Audiometrie (de)
 markdown
@@ -26,6 +32,10 @@ markdown
     http://spandh.dcs.shef.ac.uk/ed_arena/mad/mad/audiometer/audiometer.htm (Matlab)
     
     https://hoerlabor.wordpress.com/software/ (de) (Matlab compiled to .exe)
+    
+    https://www.mimi.io/hearing-test/ (commercial iOS app, announced Android app)
+    
+    absolute threshold data: http://amtoolbox.sourceforge.net/doc/humandata/absolutethreshold.php
 markdown
     <p xmlns:dct="http://purl.org/dc/terms/">
       <a rel="license"
@@ -56,6 +66,6 @@ metadata
       "name": "python",
       "nbconvert_exporter": "python",
       "pygments_lexer": "ipython3",
-      "version": "3.4.3+"
+      "version": "3.5.1+"
      }
     }

@@ -6,6 +6,10 @@ markdown
     [back to overview page](index.ipynb)
     
     Note: This is *not* about [Waterfall Charts](https://en.wikipedia.org/wiki/Waterfall_chart), which is a completely different thing.
+    
+    A good search term might be "cumulative spectral decay" ...
+    
+    http://www.diyaudio.com/forums/multi-way/143821-css-lar1-ribbon-audax-pr170n0-usher-15hm-5.html
 markdown
     `PolyCollection` demo: http://matplotlib.org/examples/mplot3d/polys3d_demo.html
 markdown
@@ -55,6 +59,6 @@ metadata
       "name": "python",
       "nbconvert_exporter": "python",
       "pygments_lexer": "ipython3",
-      "version": "3.4.3+"
+      "version": "3.5.1+"
      }
     }

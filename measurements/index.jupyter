@@ -43,7 +43,7 @@ markdown
       * http://drc-fir.sourceforge.net/
     
     * some experiments in Pure Data
-      * http://puredata.hurleur.com/sujet-4189-swept-sine-deconvolution
+      * http://forum.pdpatchrepo.info/topic/3830/swept-sine-deconvolution
       * http://www.pdpatchrepo.info/hurleur/Swept_sine_inverse.pd
       
     * ExpoChirpToolbox:  a Pure Data implementation of ESS impulse response measurement
@@ -103,6 +103,6 @@ metadata
       "name": "python",
       "nbconvert_exporter": "python",
       "pygments_lexer": "ipython3",
-      "version": "3.4.3+"
+      "version": "3.5.1+"
      }
     }

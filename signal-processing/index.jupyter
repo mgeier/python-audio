@@ -35,7 +35,9 @@ markdown
     
     Signal Processing for Communications [Jupyter notebooks with examples](https://github.com/LCAV/DSPNumex), [free PDF book](http://www.sp4comm.org/download.html), [MOOC](https://www.coursera.org/course/dsp)
     
-    MIT opencourseware video lectures: [Digital Signal Processing (Alan V. Oppenheim)](http://ocw.mit.edu/resources/res-6-008-digital-signal-processing-spring-2011/)
+    MIT opencourseware video lectures:
+    [Signals and Systems (Alan V. Oppenheim)](http://ocw.mit.edu/resources/res-6-007-signals-and-systems-spring-2011/),
+    [Digital Signal Processing (Alan V. Oppenheim)](http://ocw.mit.edu/resources/res-6-008-digital-signal-processing-spring-2011/)
 markdown
     ### Filter Design
     

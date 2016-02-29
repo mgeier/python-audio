@@ -1,0 +1,616 @@
+nbformat 4
+nbformat_minor 0
+markdown
+    https://github.com/fpinscala/fpinscala/wiki/A-brief-introduction-to-Haskell,-and-why-it-matters
+code 1
+    5
+  display_data
+  - text/plain
+    5
+  metadata
+    {
+     "collapsed": false
+    }
+code 2
+    6 * 7
+  display_data
+  - text/plain
+    42
+  metadata
+    {
+     "collapsed": false
+    }
+code 3
+    a = 8
+  metadata
+    {
+     "collapsed": true
+    }
+code 4
+    a
+  display_data
+  - text/plain
+    8
+  metadata
+    {
+     "collapsed": false
+    }
+code 5
+    :type a
+  display_data
+  - text/html
+    <style>/*
+    Custom IHaskell CSS.
+    */
+    
+    /* Styles used for the Hoogle display in the pager */
+    .hoogle-doc {
+        display: block;
+        padding-bottom: 1.3em;
+        padding-left: 0.4em;
+    }
+    .hoogle-code {
+        display: block;
+        font-family: monospace;
+        white-space: pre;
+    }
+    .hoogle-text {
+        display: block;
+    }
+    .hoogle-name {
+        color: green;
+        font-weight: bold;
+    }
+    .hoogle-head {
+        font-weight: bold;
+    }
+    .hoogle-sub {
+        display: block;
+        margin-left: 0.4em;
+    }
+    .hoogle-package {
+        font-weight: bold;
+        font-style: italic;
+    }
+    .hoogle-module {
+        font-weight: bold;
+    }
+    .hoogle-class {
+        font-weight: bold;
+    }
+    
+    /* Styles used for basic displays */
+    .get-type {
+        color: green;
+        font-weight: bold;
+        font-family: monospace;
+        display: block;
+        white-space: pre-wrap;
+    }
+    
+    .show-type {
+        color: green;
+        font-weight: bold;
+        font-family: monospace;
+        margin-left: 1em;
+    }
+    
+    .mono {
+        font-family: monospace;
+        display: block;
+    }
+    
+    .err-msg {
+        color: red;
+        font-style: italic;
+        font-family: monospace;
+        white-space: pre;
+        display: block;
+    }
+    
+    #unshowable {
+        color: red;
+        font-weight: bold;
+    }
+    
+    .err-msg.in.collapse {
+      padding-top: 0.7em;
+    }
+    
+    /* Code that will get highlighted before it is highlighted */
+    .highlight-code {
+        white-space: pre;
+        font-family: monospace;
+    }
+    
+    /* Hlint styles */
+    .suggestion-warning { 
+        font-weight: bold;
+        color: rgb(200, 130, 0);
+    }
+    .suggestion-error { 
+        font-weight: bold;
+        color: red;
+    }
+    .suggestion-name {
+        font-weight: bold;
+    }
+    </style><span class='get-type'>a :: forall a. Num a => a</span>
+  - text/plain
+    a :: forall a. Num a => a
+  metadata
+    {
+     "collapsed": false
+    }
+code 6
+    "super!"
+  display_data
+  - text/plain
+    "super!"
+  metadata
+    {
+     "collapsed": false
+    }
+code 7
+    [1, 2, 3]
+  display_data
+  - text/plain
+    [1,2,3]
+  metadata
+    {
+     "collapsed": false
+    }
+code 8
+    ()
+  display_data
+  - text/plain
+    ()
+  metadata
+    {
+     "collapsed": false
+    }
+code 9
+    pi
+  display_data
+  - text/plain
+    3.141592653589793
+  metadata
+    {
+     "collapsed": false
+    }
+code 10
+    double x = x + x
+  metadata
+    {
+     "collapsed": false
+    }
+code 11
+    :type double
+  display_data
+  - text/html
+    <style>/*
+    Custom IHaskell CSS.
+    */
+    
+    /* Styles used for the Hoogle display in the pager */
+    .hoogle-doc {
+        display: block;
+        padding-bottom: 1.3em;
+        padding-left: 0.4em;
+    }
+    .hoogle-code {
+        display: block;
+        font-family: monospace;
+        white-space: pre;
+    }
+    .hoogle-text {
+        display: block;
+    }
+    .hoogle-name {
+        color: green;
+        font-weight: bold;
+    }
+    .hoogle-head {
+        font-weight: bold;
+    }
+    .hoogle-sub {
+        display: block;
+        margin-left: 0.4em;
+    }
+    .hoogle-package {
+        font-weight: bold;
+        font-style: italic;
+    }
+    .hoogle-module {
+        font-weight: bold;
+    }
+    .hoogle-class {
+        font-weight: bold;
+    }
+    
+    /* Styles used for basic displays */
+    .get-type {
+        color: green;
+        font-weight: bold;
+        font-family: monospace;
+        display: block;
+        white-space: pre-wrap;
+    }
+    
+    .show-type {
+        color: green;
+        font-weight: bold;
+        font-family: monospace;
+        margin-left: 1em;
+    }
+    
+    .mono {
+        font-family: monospace;
+        display: block;
+    }
+    
+    .err-msg {
+        color: red;
+        font-style: italic;
+        font-family: monospace;
+        white-space: pre;
+        display: block;
+    }
+    
+    #unshowable {
+        color: red;
+        font-weight: bold;
+    }
+    
+    .err-msg.in.collapse {
+      padding-top: 0.7em;
+    }
+    
+    /* Code that will get highlighted before it is highlighted */
+    .highlight-code {
+        white-space: pre;
+        font-family: monospace;
+    }
+    
+    /* Hlint styles */
+    .suggestion-warning { 
+        font-weight: bold;
+        color: rgb(200, 130, 0);
+    }
+    .suggestion-error { 
+        font-weight: bold;
+        color: red;
+    }
+    .suggestion-name {
+        font-weight: bold;
+    }
+    </style><span class='get-type'>double :: forall a. Num a => a -> a</span>
+  - text/plain
+    double :: forall a. Num a => a -> a
+  metadata
+    {
+     "collapsed": false
+    }
+code 12
+    double 5
+  display_data
+  - text/plain
+    10
+  metadata
+    {
+     "collapsed": false
+    }
+code 13
+    factorial 0 = 1
+    factorial n = n * factorial (n - 1)
+  metadata
+    {
+     "collapsed": true
+    }
+markdown
+    Note: both lines above must be in the same cell!
+code 14
+    factorial 0
+  display_data
+  - text/plain
+    1
+  metadata
+    {
+     "collapsed": false
+    }
+code 15
+    factorial 5
+  display_data
+  - text/plain
+    120
+  metadata
+    {
+     "collapsed": false
+    }
+code 16
+    :type factorial
+  display_data
+  - text/html
+    <style>/*
+    Custom IHaskell CSS.
+    */
+    
+    /* Styles used for the Hoogle display in the pager */
+    .hoogle-doc {
+        display: block;
+        padding-bottom: 1.3em;
+        padding-left: 0.4em;
+    }
+    .hoogle-code {
+        display: block;
+        font-family: monospace;
+        white-space: pre;
+    }
+    .hoogle-text {
+        display: block;
+    }
+    .hoogle-name {
+        color: green;
+        font-weight: bold;
+    }
+    .hoogle-head {
+        font-weight: bold;
+    }
+    .hoogle-sub {
+        display: block;
+        margin-left: 0.4em;
+    }
+    .hoogle-package {
+        font-weight: bold;
+        font-style: italic;
+    }
+    .hoogle-module {
+        font-weight: bold;
+    }
+    .hoogle-class {
+        font-weight: bold;
+    }
+    
+    /* Styles used for basic displays */
+    .get-type {
+        color: green;
+        font-weight: bold;
+        font-family: monospace;
+        display: block;
+        white-space: pre-wrap;
+    }
+    
+    .show-type {
+        color: green;
+        font-weight: bold;
+        font-family: monospace;
+        margin-left: 1em;
+    }
+    
+    .mono {
+        font-family: monospace;
+        display: block;
+    }
+    
+    .err-msg {
+        color: red;
+        font-style: italic;
+        font-family: monospace;
+        white-space: pre;
+        display: block;
+    }
+    
+    #unshowable {
+        color: red;
+        font-weight: bold;
+    }
+    
+    .err-msg.in.collapse {
+      padding-top: 0.7em;
+    }
+    
+    /* Code that will get highlighted before it is highlighted */
+    .highlight-code {
+        white-space: pre;
+        font-family: monospace;
+    }
+    
+    /* Hlint styles */
+    .suggestion-warning { 
+        font-weight: bold;
+        color: rgb(200, 130, 0);
+    }
+    .suggestion-error { 
+        font-weight: bold;
+        color: red;
+    }
+    .suggestion-name {
+        font-weight: bold;
+    }
+    </style><span class='get-type'>factorial :: forall a. (Num a, Eq a) => a -> a</span>
+  - text/plain
+    factorial :: forall a. (Num a, Eq a) => a -> a
+  metadata
+    {
+     "collapsed": false
+    }
+markdown
+    dangerous: using float, 0 is never reached
+code 17
+    --factorial :: Int -> Int  -- fixed precision
+    factorial :: Integer -> Integer
+    factorial 0 = 1
+    factorial n = n * factorial (n - 1)
+  metadata
+    {
+     "collapsed": false
+    }
+code 18
+    :type factorial
+  display_data
+  - text/html
+    <style>/*
+    Custom IHaskell CSS.
+    */
+    
+    /* Styles used for the Hoogle display in the pager */
+    .hoogle-doc {
+        display: block;
+        padding-bottom: 1.3em;
+        padding-left: 0.4em;
+    }
+    .hoogle-code {
+        display: block;
+        font-family: monospace;
+        white-space: pre;
+    }
+    .hoogle-text {
+        display: block;
+    }
+    .hoogle-name {
+        color: green;
+        font-weight: bold;
+    }
+    .hoogle-head {
+        font-weight: bold;
+    }
+    .hoogle-sub {
+        display: block;
+        margin-left: 0.4em;
+    }
+    .hoogle-package {
+        font-weight: bold;
+        font-style: italic;
+    }
+    .hoogle-module {
+        font-weight: bold;
+    }
+    .hoogle-class {
+        font-weight: bold;
+    }
+    
+    /* Styles used for basic displays */
+    .get-type {
+        color: green;
+        font-weight: bold;
+        font-family: monospace;
+        display: block;
+        white-space: pre-wrap;
+    }
+    
+    .show-type {
+        color: green;
+        font-weight: bold;
+        font-family: monospace;
+        margin-left: 1em;
+    }
+    
+    .mono {
+        font-family: monospace;
+        display: block;
+    }
+    
+    .err-msg {
+        color: red;
+        font-style: italic;
+        font-family: monospace;
+        white-space: pre;
+        display: block;
+    }
+    
+    #unshowable {
+        color: red;
+        font-weight: bold;
+    }
+    
+    .err-msg.in.collapse {
+      padding-top: 0.7em;
+    }
+    
+    /* Code that will get highlighted before it is highlighted */
+    .highlight-code {
+        white-space: pre;
+        font-family: monospace;
+    }
+    
+    /* Hlint styles */
+    .suggestion-warning { 
+        font-weight: bold;
+        color: rgb(200, 130, 0);
+    }
+    .suggestion-error { 
+        font-weight: bold;
+        color: red;
+    }
+    .suggestion-name {
+        font-weight: bold;
+    }
+    </style><span class='get-type'>factorial :: Integer -> Integer</span>
+  - text/plain
+    factorial :: Integer -> Integer
+  metadata
+    {
+     "collapsed": false
+    }
+code 19
+    factorial 50
+  display_data
+  - text/plain
+    30414093201713378043612608166064768844377641568960512000000000000
+  metadata
+    {
+     "collapsed": false
+    }
+markdown
+    still dangerous: negative inputs cause infinite recursion!?!
+code 20
+    factorial' :: Int -> Int
+    factorial' n = go n 1
+      where go 0 acc = acc
+            go n acc = go (n-1) (n * acc)
+  metadata
+    {
+     "collapsed": false
+    }
+code 21
+    factorial' 10
+  display_data
+  - text/plain
+    3628800
+  metadata
+    {
+     "collapsed": false
+    }
+code 22
+    factorial'' :: Int -> Int
+    factorial'' n = 
+      let go 0 acc = acc
+          go n acc = go (n-1) (n * acc)
+      in go n 1
+  metadata
+    {
+     "collapsed": true
+    }
+code 23
+    factorial'' 10
+  display_data
+  - text/plain
+    3628800
+  metadata
+    {
+     "collapsed": false
+    }
+code
+    
+  metadata
+    {
+     "collapsed": true
+    }
+metadata
+    {
+     "kernelspec": {
+      "display_name": "Haskell",
+      "language": "haskell",
+      "name": "haskell"
+     }
+    }

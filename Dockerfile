@@ -2,20 +2,26 @@ FROM andrewosh/binder-base
 
 MAINTAINER Matthias Geier <Matthias.Geier@gmail.com>
 
+# install OS packages
 USER root
 
-# install OS packages
+# deb-multimedia is needed for ffmpeg
+RUN echo deb http://www.deb-multimedia.org jessie main non-free > /etc/apt/sources.list.d/deb-multimedia.list
+
+RUN apt-get update
+# trust deb-multimedia:
+RUN apt-get install deb-multimedia-keyring
+# refresh again:
 RUN apt-get update
 RUN apt-get install -y libsndfile1 sndfile-programs sox libsox-fmt-all
 RUN apt-get install -y vorbis-tools
 RUN apt-get install -y fonts-humor-sans
-# ffmpeg:
-RUN apt-get install -y libav-tools
+RUN apt-get install -y ffmpeg
 RUN apt-get install -y pypy
 
+# install Python libraries
 USER main
 
-# install Python libraries
 RUN pip install soundfile
 RUN $HOME/anaconda2/envs/python3/bin/pip install soundfile
 RUN pip install audioread

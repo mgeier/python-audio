@@ -10,7 +10,7 @@ RUN echo deb http://www.deb-multimedia.org jessie main non-free > /etc/apt/sourc
 
 RUN apt-get update
 # trust deb-multimedia:
-RUN apt-get install -y deb-multimedia-keyring
+RUN apt-get install --force-yes deb-multimedia-keyring
 # refresh again:
 RUN apt-get update
 RUN apt-get install -y libsndfile1 sndfile-programs sox libsox-fmt-all

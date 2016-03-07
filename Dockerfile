@@ -9,7 +9,8 @@ RUN apt-get update
 RUN apt-get install -y libsndfile1 sndfile-programs sox libsox-fmt-all
 RUN apt-get install -y vorbis-tools
 RUN apt-get install -y fonts-humor-sans
-RUN apt-get install -y ffmpeg
+# ffmpeg:
+RUN apt-get install -y libav-tools
 RUN apt-get install -y pypy
 
 USER main

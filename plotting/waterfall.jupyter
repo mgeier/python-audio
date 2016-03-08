@@ -13,6 +13,14 @@ markdown
 markdown
     `PolyCollection` demo: http://matplotlib.org/examples/mplot3d/polys3d_demo.html
 markdown
+    ## Literature
+    
+    Bunton, John D., and Richard H. Small. "Cumulative Spectra, Tone Bursts, and Apodization." Journal of the Audio Engineering Society vol. 30, no. 6 (1982): 386-395.
+    http://www.aes.org/e-lib/browse.cfm?elib=3838
+    
+    Berman, J. Michael, and Laurie R. Fincham. "The Application of Digital Techniques to the Measurement of Loudspeakers." Journal of the Audio Engineering Society vol. 25, no. 6 (1977): 370-384.
+    http://www.aes.org/e-lib/browse.cfm?elib=3366
+markdown
     ## External Links
     
     * question (and answer) on stackoverflow

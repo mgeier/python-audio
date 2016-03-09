@@ -22,6 +22,8 @@ markdown
     -1 dBTP
     
     Python library: http://mikrolax.github.io/loudnessPlotter/
+    
+    C++ library with Python bindings: https://github.com/deeuu/loudness
 markdown
     <p xmlns:dct="http://purl.org/dc/terms/">
       <a rel="license"

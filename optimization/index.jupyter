@@ -1,5 +1,5 @@
 nbformat 4
-nbformat_minor 0
+nbformat_minor 1
 markdown
     # Optimizing Python Code
     
@@ -20,6 +20,8 @@ markdown
     https://shedskin.github.io/
     
     https://github.com/rkern/line_profiler
+    
+    http://vmprof.readthedocs.org/
 code 1
     %load_ext line_profiler
   metadata
@@ -98,6 +100,6 @@ metadata
       "name": "python",
       "nbconvert_exporter": "python",
       "pygments_lexer": "ipython3",
-      "version": "3.4.4rc1"
+      "version": "3.5.1+"
      }
     }

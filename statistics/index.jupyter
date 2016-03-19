@@ -1,5 +1,5 @@
 nbformat 4
-nbformat_minor 0
+nbformat_minor 1
 markdown
     # Statistics in Python
     
@@ -61,6 +61,12 @@ markdown
     
     Probabilistic Programming & Bayesian Methods for Hackers:  
     http://camdavidsonpilon.github.io/Probabilistic-Programming-and-Bayesian-Methods-for-Hackers/
+    
+    A Concrete Introduction to Probability (using Python):  
+    http://nbviewer.jupyter.org/url/norvig.com/ipython/Probability.ipynb
+    
+    Probability, Paradox, and the Reasonable Person Principle:  
+    http://nbviewer.jupyter.org/url/norvig.com/ipython/ProbabilityParadox.ipynb
 markdown
     ## Case Studies
     
@@ -110,6 +116,6 @@ metadata
       "name": "python",
       "nbconvert_exporter": "python",
       "pygments_lexer": "ipython3",
-      "version": "3.4.3+"
+      "version": "3.5.1+"
      }
     }

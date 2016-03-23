@@ -84,7 +84,7 @@ markdown
 markdown
     ## Why "Python"?
     
-    The programming language *Python* is named after the famous British comedy group *Monty Python*. If that doesn't ring a bell, you should search the interwebs and watch some videos of them, they are hilarious! In Python example code, you will often find references to their sketches, e.g. a list may contain `["eggs", "bacon", "spam"]` which would be a reference to [Monty Python's Spam Sketch](http://www.youtube.com/watch?v=anwy2MPT5RE).
+    The programming language *Python* is named after the famous British comedy group *Monty Python*. If that doesn't ring a bell, you should search the interwebs and watch some videos of them, they are hilarious! In Python example code, you will often find references to their sketches, e.g. a list may contain `['eggs', 'bacon', 'spam']` which would be a reference to [Monty Python's Spam Sketch](http://www.youtube.com/watch?v=anwy2MPT5RE).
 markdown
     ## Hello, world!
     
@@ -496,7 +496,7 @@ markdown
     
     Strings can be concatenated with the `+` operator:
 code 33
-    "Hello" + "," + " " + "world" + "!"
+    'Hello' + ',' + ' ' + 'world' + '!'
   execute_result
   - text/plain
     'Hello, world!'
@@ -507,7 +507,7 @@ code 33
 markdown
     The `*` operator (in combination with an `int`) has a special meaning for a `str`:
 code 34
-    "#" * 79
+    '#' * 79
   execute_result
   - text/plain
     '###############################################################################'
@@ -518,7 +518,7 @@ code 34
 markdown
     Strings also have an `in`-operator, which makes it very simple to check if a string contains a given substring:
 code 35
-    "world" in "Hello, world!"
+    'world' in 'Hello, world!'
   execute_result
   - text/plain
     True
@@ -529,7 +529,7 @@ code 35
 markdown
     If you are pessimistic, you can also try `not in`:
 code 36
-    "happy" not in "Hello, world!"
+    'happy' not in 'Hello, world!'
   execute_result
   - text/plain
     True
@@ -543,7 +543,7 @@ markdown
     Each character has a numeric equivalent which can be shown by the [ord()](http://docs.python.org/3/library/functions.html#ord) function.
     The function [chr()](http://docs.python.org/3/library/functions.html#chr) can be used to convert in the other direction.
 code 37
-    ord(" ")
+    ord(' ')
   execute_result
   - text/plain
     32
@@ -563,7 +563,7 @@ code 38
 markdown
     If you want to create a string that contains formatted numeric values, it's best to use the [`format()` method](https://docs.python.org/3/library/string.html#formatstrings):
 code 39
-    "The value of {} is about {:.3}".format("𝜋", 3.1415)
+    'The value of {} is about {:.3}'.format('𝜋', 3.1415)
   execute_result
   - text/plain
     'The value of 𝜋 is about 3.14'
@@ -576,7 +576,7 @@ markdown
     
     In older Python code you might find a different way of string formatting:
 code 40
-    "The value of %s is about %.2f" % ("𝜋", 3.1415)
+    'The value of %s is about %.2f' % ('𝜋', 3.1415)
   execute_result
   - text/plain
     'The value of 𝜋 is about 3.14'
@@ -594,7 +594,7 @@ markdown
     
     A `list` is a container that can hold arbitrary objects. A `list` can be created by putting objects, separated by commas, between a pair of brackets.
 code 41
-    [42, 3.1415, "Ni!"]
+    [42, 3.1415, 'Ni!']
   execute_result
   - text/plain
     [42, 3.1415, 'Ni!']
@@ -673,7 +673,7 @@ code 47
 markdown
     We can use [list()](http://docs.python.org/3/library/stdtypes.html#list) to create a list from some other object (which must be *iterable*):
 code 48
-    list("Hello, world!")
+    list('Hello, world!')
   execute_result
   - text/plain
     ['H', 'e', 'l', 'l', 'o', ',', ' ', 'w', 'o', 'r', 'l', 'd', '!']
@@ -684,7 +684,7 @@ code 48
 markdown
     It's very easy to create a list of strings from a single space-separated string:
 code 49
-    "eggs bacon spam".split()
+    'eggs bacon spam'.split()
   execute_result
   - text/plain
     ['eggs', 'bacon', 'spam']
@@ -697,7 +697,7 @@ markdown
     
     To combine a sequence of strings into a single string, use the [`join()` method](http://docs.python.org/3/library/stdtypes.html#str.join) (applied to the "glue" string):
 code 50
-    " + ".join(["eggs", "bacon", "spam"])
+    ' + '.join(['eggs', 'bacon', 'spam'])
   execute_result
   - text/plain
     'eggs + bacon + spam'
@@ -714,7 +714,7 @@ markdown
     
     Tuples are quite similar to `list`s, with the main difference that they are *immutable* data structures, i.e. their content cannot be changed. Some objects, separated by commas, create a tuple:
 code 51
-    42, 3.1415, "Ni!"
+    42, 3.1415, 'Ni!'
   execute_result
   - text/plain
     (42, 3.1415, 'Ni!')
@@ -825,10 +825,10 @@ markdown
     Sets are very similar to lists, except that their elements are not ordered and they are unique.
     A `set` can be created by putting objects, separated by commas, between a pair of braces.
 code 60
-    {42, 3.1415, "Ni!", 42}
+    {42, 3.1415, 'Ni!', 42}
   execute_result
   - text/plain
-    {42, 'Ni!', 3.1415}
+    {'Ni!', 42, 3.1415}
   metadata
     {
      "collapsed": false
@@ -944,7 +944,7 @@ code 70
 markdown
     Any *iterable* can be turned into a `set` ...
 code 71
-    set("Hello, world!")
+    set('Hello, world!')
   execute_result
   - text/plain
     {' ', '!', ',', 'H', 'd', 'e', 'l', 'o', 'r', 'w'}
@@ -955,10 +955,10 @@ code 71
 markdown
     ... and a `set` is itself iterable and can be turned into, e.g. a `list`:
 code 72
-    list({42, 3.1415, "Ni!"})
+    list({42, 3.1415, 'Ni!'})
   execute_result
   - text/plain
-    ['Ni!', 3.1415, 42]
+    ['Ni!', 42, 3.1415]
   metadata
     {
      "collapsed": false
@@ -990,7 +990,7 @@ markdown
 code 73
     [2 + 2, 4 + 4, 6 + 6]
     10 * 9 + 9
-    "Hello, World!"
+    'Hello, World!'
     4 < 3
     7 * 6
   execute_result
@@ -1017,7 +1017,7 @@ markdown
     
     For, example, the `print()` function which we saw at the very top of this page, prints the given arguments to the *standard output*.
 code 74
-    print("Hello, world!")
+    print('Hello, world!')
     7 * 6
   stream stdout
     Hello, world!
@@ -1029,7 +1029,7 @@ code 74
      "collapsed": false
     }
 markdown
-    The string `"Hello, world!"` which is printed by the `print()` function, is *not* the *return value* of the function!
+    The string `'Hello, world!'` which is printed by the `print()` function, is *not* the *return value* of the function!
     What we see here is the so-called *standard output* which, in a Jupyter/IPython notebook, is displayed just below the code cell, but above the actual output values (marked by `Out[...]:`).
     
     The actual return value is the result of the last expression in the code cell.
@@ -1038,7 +1038,7 @@ markdown
     A function call is just an *expression*, so it should have a return value, right?
     Let's check:
 code 75
-    print("Hello, world!")
+    print('Hello, world!')
   stream stdout
     Hello, world!
   metadata
@@ -1069,7 +1069,7 @@ markdown
     
     We can use the `is`-operator to check if some object is `None` (see below for an explanation of the `is`-operator).
 code 77
-    print("Hello, world!") is None
+    print('Hello, world!') is None
   stream stdout
     Hello, world!
   execute_result
@@ -1085,7 +1085,7 @@ markdown
     Very often, one line of code is one statement, but sometimes statements can also span several lines.
     And we can fit multiple statements into one line by separating them with semicolons:
 code 78
-    print("semicolons are rare in Python code"); 2 + 2
+    print('semicolons are rare in Python code'); 2 + 2
   stream stdout
     semicolons are rare in Python code
   execute_result
@@ -1229,7 +1229,7 @@ markdown
     We learned that a new identifier can be created by just using a name that hasn't been used before in an assignment statement.
     But what happens if we assign to a name that has already been used?
 code 83
-    answer = "Sir Lancelot of Camelot"
+    answer = 'Sir Lancelot of Camelot'
   metadata
     {
      "collapsed": false
@@ -1258,13 +1258,13 @@ markdown
     Note that an identifier is only treated specially on the left side of an assignment statement.
     The right side of the assignment statement is just a normal expression which can contain other identifiers (or even the same identifier that is going to be re-bound on the left).
 code 85
-    greeting = answer + ", nice to meet you!"
+    greeting = answer + ', nice to meet you!'
   metadata
     {
      "collapsed": false
     }
 code 86
-    greeting = "My name is " + greeting
+    greeting = 'My name is ' + greeting
   metadata
     {
      "collapsed": false
@@ -1320,7 +1320,7 @@ code 91
     id(greeting)
   execute_result
   - text/plain
-    140419932878824
+    140643233641016
   metadata
     {
      "collapsed": false
@@ -1329,7 +1329,7 @@ code 92
     id(the_same_greeting)
   execute_result
   - text/plain
-    140419932878824
+    140643233641016
   metadata
     {
      "collapsed": false
@@ -1352,7 +1352,7 @@ markdown
     
     If you want to bind several names to the same object in one go, you can use a special form of the assignment statement that uses multiple equals signs:
 code 94
-    one = two = three = "data"
+    one = two = three = 'data'
   metadata
     {
      "collapsed": false
@@ -1393,7 +1393,7 @@ code 96
     id(number)
   execute_result
   - text/plain
-    10383456
+    10686080
   metadata
     {
      "collapsed": false
@@ -1403,7 +1403,7 @@ code 97
     id(number)
   execute_result
   - text/plain
-    10383488
+    10686112
   metadata
     {
      "collapsed": false
@@ -1430,7 +1430,7 @@ markdown
     But Python has a very nice additional feature that not many other languages have, that allows to bind *multiple* identifiers to a sequence of objects in a single statement.
     Some people also call this *tuple unpacking* or *sequence unpacking*.
 code 98
-    a, b, c = 42, 3.1415, "Ni!"
+    a, b, c = 42, 3.1415, 'Ni!'
   metadata
     {
      "collapsed": false
@@ -1464,7 +1464,7 @@ markdown
     But there is an exception: one of the identifiers may be prefixed with an asterisk, which means that the identifier receives a list of the remaining values, regardless how many they are (the list can also be empty).
     Maybe this is best shown in an example:
 code 101
-    first, *middle, last = "hello"
+    first, *middle, last = 'hello'
   metadata
     {
      "collapsed": false
@@ -1513,7 +1513,7 @@ markdown
     
     This is normally available for some kind of collection, like for example a `list`.
 code 103
-    mylist = ["one", "two", "five"]
+    mylist = ['one', 'two', 'five']
   metadata
     {
      "collapsed": false
@@ -1524,7 +1524,7 @@ markdown
     Note that Python, like many other programming languages, starts indexing at `0` (which is [the only reasonable choice for a programming language](http://www.cs.utexas.edu/users/EWD/transcriptions/EWD08xx/EWD831.html)).
     So if we want to address the third element of a list, we have to use the subscript `2`:
 code 104
-    mylist[2] = "three"
+    mylist[2] = 'three'
   metadata
     {
      "collapsed": false
@@ -1553,7 +1553,7 @@ code 106
 markdown
     The *thing* on the left of the equals sign is again treated specially (because the specified list element is bound to another object).
     The *thing* on the right side of the equals sign is just a normal expression, consisting of an *identifier* with the *subscript operator*.
-    This expression get's evaluated which results in the object which is stored as the third element of the list `mylist` (the string `"three"`).
+    This expression get's evaluated which results in the object which is stored as the third element of the list `mylist` (the string `'three'`).
     Strictly speaking, the object is not stored *inside of* the list, the list holds just a reference to this object.
     
     This assignment statement binds the reference at the first list element to the very same object.
@@ -1611,7 +1611,7 @@ markdown
     
     First, let's re-bind the *identifier* we used before.
 code 111
-    mylist = ["one", "two", "three", "four", "five"]
+    mylist = ['one', 'two', 'three', 'four', 'five']
   metadata
     {
      "collapsed": false
@@ -1645,7 +1645,7 @@ markdown
     The `start` and `stop` values are optional.
     If omitted, the slice starts at the beginning of the sequence or goes up to the end, respectively.
 code 114
-    mylist[:3] = "123"
+    mylist[:3] = '123'
   metadata
     {
      "collapsed": true
@@ -1660,7 +1660,7 @@ code 115
      "collapsed": false
     }
 code 116
-    mylist[3:] = "IV", "V", "VI"
+    mylist[3:] = 'IV', 'V', 'VI'
   metadata
     {
      "collapsed": true
@@ -1698,10 +1698,10 @@ markdown
     
     In addition to `start` and `stop`, a slice object can also have a `step` size (specified after a second colon).
 code 120
-    mylist[3::2] = "357"
+    mylist[3::2] = '357'
   metadata
     {
-     "collapsed": true
+     "collapsed": false
     }
 code 121
     mylist
@@ -1717,10 +1717,10 @@ markdown
     
     Like `start` and `stop`, the `step` size can also be negative, meaning a reversed order from the end to the beginning:
 code 122
-    mylist[::-2] = "seven", "five", "three", "one"
+    mylist[::-2] = 'seven', 'five', 'three', 'one'
   metadata
     {
-     "collapsed": true
+     "collapsed": false
     }
 code 123
     mylist
@@ -2087,7 +2087,7 @@ code 151
     knight.keys()
   execute_result
   - text/plain
-    dict_keys(['favorite color', 'quest', 'name'])
+    dict_keys(['name', 'favorite color', 'quest'])
   metadata
     {
      "collapsed": false
@@ -2098,7 +2098,7 @@ code 152
     knight.values()
   execute_result
   - text/plain
-    dict_values(['Yellow', 'To seek the Grail', 'Sir Galahad'])
+    dict_values(['Sir Galahad', 'Yellow', 'To seek the Grail'])
   metadata
     {
      "collapsed": false
@@ -2109,7 +2109,7 @@ code 153
     knight.items()
   execute_result
   - text/plain
-    dict_items([('favorite color', 'Yellow'), ('quest', 'To seek the Grail'), ('name', 'Sir Galahad')])
+    dict_items([('name', 'Sir Galahad'), ('favorite color', 'Yellow'), ('quest', 'To seek the Grail')])
   metadata
     {
      "collapsed": false
@@ -2131,7 +2131,7 @@ code 155
     list(knight)
   execute_result
   - text/plain
-    ['favorite color', 'quest', 'name']
+    ['name', 'favorite color', 'quest']
   metadata
     {
      "collapsed": false

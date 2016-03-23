@@ -2186,7 +2186,7 @@ code 160
      "collapsed": false
     }
 code 161
-    stuff[(9, 8, 7)]
+    stuff[9, 8, 7]
   execute_result
   - text/plain
     'tuple'

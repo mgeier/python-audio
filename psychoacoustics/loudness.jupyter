@@ -1,5 +1,5 @@
 nbformat 4
-nbformat_minor 0
+nbformat_minor 1
 markdown
     # Loudness
     
@@ -24,6 +24,9 @@ markdown
     Python library: http://mikrolax.github.io/loudnessPlotter/
     
     C++ library with Python bindings: https://github.com/deeuu/loudness
+    
+    C++/JACK Ebumeter: [doc](http://kokkinizita.linuxaudio.org/linuxaudio/ebumeter-doc/quickguide.html),
+    [download](http://kokkinizita.linuxaudio.org/linuxaudio/downloads/index.html)
 markdown
     <p xmlns:dct="http://purl.org/dc/terms/">
       <a rel="license"

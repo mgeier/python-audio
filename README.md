@@ -10,7 +10,7 @@ You may consume them in different ways:
   [zip file](https://codeload.github.com/mgeier/python-audio/zip/master))
   and open the notebooks locally with Jupyter/IPython
 
-* View a [static online version of the notebooks](http://nbviewer.ipython.org/urls/raw.github.com/mgeier/python-audio/master/index.ipynb)
+* View a [static online version of the notebooks](http://nbviewer.jupyter.org/github/mgeier/python-audio/blob/master/index.ipynb)
 
 * [![Binder](http://mybinder.org/badge.svg)](http://mybinder.org/repo/mgeier/python-audio)
   for the ultimate interactive online experience

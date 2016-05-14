@@ -67,6 +67,27 @@ markdown
     
     Probability, Paradox, and the Reasonable Person Principle:  
     http://nbviewer.jupyter.org/url/norvig.com/ipython/ProbabilityParadox.ipynb
+    
+    Modern Pandas Series: 
+    [Modern Pandas](http://tomaugspurger.github.io/modern-1.html),
+    [Method Chaining](http://tomaugspurger.github.io/method-chaining.html),
+    [Indexes](http://tomaugspurger.github.io/modern-3-indexes.html),
+    [Performance](http://tomaugspurger.github.io/modern-4-performance.html),
+    [Tidy Data](http://tomaugspurger.github.io/modern-5-tidy.html),
+    [Visualization](http://tomaugspurger.github.io/modern-6-visualization.html),
+    Larger Data (forthcoming)
+    
+    [Distance Metrics for Fun and Profit](http://www.benfrederickson.com/distance-metrics/),
+    [Finding Similar Music using Matrix Factorization](http://www.benfrederickson.com/matrix-factorization/)
+    
+    [Frequentism and Bayesianism: A Practical Introduction](http://jakevdp.github.io/blog/2014/03/11/frequentism-and-bayesianism-a-practical-intro/),
+    [When Results Differ](http://jakevdp.github.io/blog/2014/06/06/frequentism-and-bayesianism-2-when-results-differ/),
+    [Confidence, Credibility, and why Frequentism and Science do not Mix](http://jakevdp.github.io/blog/2014/06/12/frequentism-and-bayesianism-3-confidence-credibility/),
+    [How to be a Bayesian in Python](http://jakevdp.github.io/blog/2014/06/14/frequentism-and-bayesianism-4-bayesian-in-python/),
+    [Model Selection](http://jakevdp.github.io/blog/2015/08/07/frequentism-and-bayesianism-5-model-selection/)
+    
+    Easier data analysis in Python with pandas (video series):  
+    http://www.dataschool.io/easier-data-analysis-with-pandas/)
 markdown
     ## Case Studies
     

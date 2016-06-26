@@ -1,5 +1,5 @@
 nbformat 4
-nbformat_minor 0
+nbformat_minor 1
 markdown
     # Demonstrations
     
@@ -16,6 +16,12 @@ markdown
     https://en.wikipedia.org/wiki/Shepard_tone
     
     https://en.wikipedia.org/wiki/Tritone_paradox
+    
+    ### Huggins Pitch
+    
+    http://www.srmathias.com/huggins-pitch/
+    
+    http://traktoria.org/files/sonar/binaural-listening/implementation_of_Huggins_binaural_pitch.pdf
     
     ### Others
     
@@ -67,6 +73,6 @@ metadata
       "name": "python",
       "nbconvert_exporter": "python",
       "pygments_lexer": "ipython3",
-      "version": "3.5.1+"
+      "version": "3.5.2rc1"
      }
     }

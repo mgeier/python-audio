@@ -91,6 +91,9 @@ markdown
     
     Think Stats, Think Bayes (free PDF books):
     http://greenteapress.com/thinkstats2/index.html, http://greenteapress.com/wp/think-bayes/
+    
+    Computational and Inferential Thinking: The Foundations of Data Science  
+    http://www.inferentialthinking.com/
 markdown
     ## Case Studies
     
@@ -140,6 +143,6 @@ metadata
       "name": "python",
       "nbconvert_exporter": "python",
       "pygments_lexer": "ipython3",
-      "version": "3.5.1+"
+      "version": "3.5.2"
      }
     }

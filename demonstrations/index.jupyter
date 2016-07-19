@@ -23,6 +23,8 @@ markdown
     
     http://traktoria.org/files/sonar/binaural-listening/implementation_of_Huggins_binaural_pitch.pdf
     
+    https://lists.columbia.edu/pipermail/music-dsp/2016-June/000862.html
+    
     ### Others
     
     [Illusions: What you see is what you hear](http://www.nature.com/nature/journal/v408/n6814/full/408788a0.html)
@@ -73,6 +75,6 @@ metadata
       "name": "python",
       "nbconvert_exporter": "python",
       "pygments_lexer": "ipython3",
-      "version": "3.5.2rc1"
+      "version": "3.5.2"
      }
     }

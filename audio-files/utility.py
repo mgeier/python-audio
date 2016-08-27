@@ -61,7 +61,7 @@ def float2pcm(sig, dtype='int16'):
     -------
     numpy.ndarray
         Integer data, scaled and clipped to the range of the given
-        `dtype`.
+        *dtype*.
 
     See Also
     --------
@@ -101,14 +101,14 @@ def pcm24to32(data, channels=1, normalize=True):
     Returns
     -------
     numpy.ndarray
-        The content of `data` converted to an `int32` array, where each
+        The content of *data* converted to an *int32* array, where each
         value was padded with zero-bits in the least significant byte
-        (`normalize=True`) or in the most significant byte
-        (`normalize=False`).
+        (``normalize=True``) or in the most significant byte
+        (``normalize=False``).
 
     """
     if len(data) % 3 != 0:
-        raise ValueError("Size of data must be a multiple of 3 bytes")
+        raise ValueError('Size of data must be a multiple of 3 bytes')
 
     out = np.zeros(len(data) // 3, dtype='<i4')
     out.shape = -1, channels

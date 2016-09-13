@@ -204,6 +204,12 @@ markdown
     
     https://github.com/TaylorSMarks/playsound
 markdown
+    ### RtAudio
+    
+    https://www.music.mcgill.ca/~gary/rtaudio/
+    
+    (outdated?) Python bindings: https://github.com/thestk/rtaudio/tree/master/contrib/python/pyrtaudio
+markdown
     <p xmlns:dct="http://purl.org/dc/terms/">
       <a rel="license"
          href="http://creativecommons.org/publicdomain/zero/1.0/">

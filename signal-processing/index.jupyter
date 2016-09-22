@@ -6,6 +6,11 @@ markdown
     [back to main page](../index.ipynb)
     
     [audiolazy](audiolazy.ipynb)
+  metadata
+    {
+     "deletable": true,
+     "editable": true
+    }
 markdown
     ## Links
     
@@ -40,6 +45,16 @@ markdown
     [Digital Signal Processing (Alan V. Oppenheim)](http://ocw.mit.edu/resources/res-6-008-digital-signal-processing-spring-2011/)
     
     Soundpipe (C library): http://paulbatchelor.github.io/proj/soundpipe.html, https://github.com/PaulBatchelor/Soundpipe
+    
+    libaudioverse, A (C++) library for 3D and environmental audio:  
+    http://camlorn.github.io/libaudioverse/docs/branches/master/libaudioverse_manual.html  
+    https://github.com/camlorn/libaudioverse  
+    Python bindings: http://camlorn.github.io/libaudioverse/docs/branches/master/python/
+  metadata
+    {
+     "deletable": true,
+     "editable": true
+    }
 markdown
     ### Filter Design
     
@@ -52,22 +67,47 @@ markdown
     http://scipy-cookbook.readthedocs.org/items/FIRFilter.html
     
     http://scipy-cookbook.readthedocs.org/items/FiltFilt.html
+  metadata
+    {
+     "deletable": true,
+     "editable": true
+    }
 markdown
     ### Fixed Point
     
     http://www.dsprelated.com/showarticle/580.php
+  metadata
+    {
+     "deletable": true,
+     "editable": true
+    }
 markdown
     ### MP3 Encoder
     
     http://nbviewer.ipython.org/github/LCAV/MP3Lab/blob/master/mp3python.ipynb
+  metadata
+    {
+     "deletable": true,
+     "editable": true
+    }
 markdown
     ### Digital Media
     
     http://xiph.org/video/
+  metadata
+    {
+     "deletable": true,
+     "editable": true
+    }
 markdown
     ### Time-Frequency Transforms
     
     https://en.wikipedia.org/wiki/Constant_Q_transform
+  metadata
+    {
+     "deletable": true,
+     "editable": true
+    }
 markdown
     <p xmlns:dct="http://purl.org/dc/terms/">
       <a rel="license"
@@ -81,6 +121,11 @@ markdown
       has waived all copyright and related or neighboring rights to
       this work.
     </p>
+  metadata
+    {
+     "deletable": true,
+     "editable": true
+    }
 metadata
     {
      "kernelspec": {

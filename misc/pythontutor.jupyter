@@ -15,28 +15,28 @@ code 1
     def pythontutor(line, cell):
         """Display cell content as iframe from pythontutor.com.
         
-        You have to pass the height (in pixels) in the first line, .e.g::
+        You have to pass the height (in pixels) in the first line, e.g.::
         
             %%pythontutor 400
-            x = "Hello, world!"
+            x = 'Hello, world!'
             print(x)
         
         """
-        url = "https://pythontutor.com/iframe-embed.html#"
+        url = 'https://pythontutor.com/iframe-embed.html#'
         url += urllib.parse.urlencode({
-            "py": "3",
-            "heapPrimitives": "true",
-            "code": cell,
-            #"origin": "opt-frontend.js",
-            #"cumulative": "false",
-            #"textReferences": "false",
-            #"rawInputLstJSON": [],
-            #"curInstr": "0",
-            #"codeDivWidth": "50%",
-            #"codeDivHeight": "100%",
-            #"resizeContainer": "true",
+            'py': '3',
+            'heapPrimitives': 'true',
+            'code': cell,
+            #'origin': 'opt-frontend.js',
+            #'cumulative': 'false',
+            #'textReferences': 'false',
+            #'rawInputLstJSON': [],
+            #'curInstr': '0',
+            #'codeDivWidth': '50%',
+            #'codeDivHeight': '100%',
+            #'resizeContainer': 'true',
         })
-        IPython.display.display(IPython.display.IFrame(url, width="100%", height=line))
+        IPython.display.display(IPython.display.IFrame(url, width='100%', height=line))
   metadata
     {
      "collapsed": false
@@ -51,14 +51,14 @@ markdown
 code 2
     %%pythontutor 270
     answer = 7 * 6
-    answer = "fourty-two"
+    answer = 'fourty-two'
   display_data
   - text/html
     
             <iframe
                 width="100%"
                 height="270"
-                src="https://pythontutor.com/iframe-embed.html#heapPrimitives=true&code=answer+%3D+7+%2A+6%0Aanswer+%3D+%22fourty-two%22&py=3"
+                src="https://pythontutor.com/iframe-embed.html#code=answer+%3D+7+%2A+6%0Aanswer+%3D+%27fourty-two%27&heapPrimitives=true&py=3"
                 frameborder="0"
                 allowfullscreen
             ></iframe>
@@ -82,7 +82,7 @@ markdown
     The visualization shows nicely that the variable `answer` isn't a "box" that "contains" the value 42, it's rather a "label" (or "reference") that points to an object somewhere in memory.
     
     1. The second line contains another assignment.
-    Again, first the right hand side is evaluated, which results in a string object with the value `"fourty-two"`.
+    Again, first the right hand side is evaluated, which results in a string object with the value `'fourty-two'`.
     Again, the memory where this string is stored is managed by the interpreter automatically.
     Since this time the identifier named `answer` already exists, it is *re-bound* to the newly created string object.
     To find out what happens to the object with the value 42, have a look at [garbage collection](../intro-python.ipynb#Garbage-Collection).
@@ -93,9 +93,9 @@ markdown
     ## Multiple References to the Same Object
 code 3
     %%pythontutor 310
-    a = "data"
+    a = 'text'
     b = a
-    c = d = e = "more data"
+    c = d = e = 'more text'
     a = e
   display_data
   - text/html
@@ -103,7 +103,7 @@ code 3
             <iframe
                 width="100%"
                 height="310"
-                src="https://pythontutor.com/iframe-embed.html#heapPrimitives=true&code=a+%3D+%22data%22%0Ab+%3D+a%0Ac+%3D+d+%3D+e+%3D+%22more+data%22%0Aa+%3D+e&py=3"
+                src="https://pythontutor.com/iframe-embed.html#code=a+%3D+%27text%27%0Ab+%3D+a%0Ac+%3D+d+%3D+e+%3D+%27more+text%27%0Aa+%3D+e&heapPrimitives=true&py=3"
                 frameborder="0"
                 allowfullscreen
             ></iframe>
@@ -115,7 +115,7 @@ code 3
      "collapsed": false
     }
 markdown
-    1. A string object is created and assigned to `a`, i.e. `a` is now a *reference* to the string `"data"`.
+    1. A string object is created and assigned to `a`, i.e. `a` is now a *reference* to the string `'text'`.
     
     1. The right hand side is evaluated, resulting in the string object referenced by `a`.
     This string object is assigned to the new identifier `b`.
@@ -147,7 +147,7 @@ code 4
             <iframe
                 width="100%"
                 height="350"
-                src="https://pythontutor.com/iframe-embed.html#heapPrimitives=true&code=a+%3D+7+%2A+6%0Ab+%3D+2+%2B+4+%2A+10%0Ac+%3D+42%0A%0Ax+%3D+100%2A%2A2%0Ay+%3D+5000+%2B+5000&py=3"
+                src="https://pythontutor.com/iframe-embed.html#code=a+%3D+7+%2A+6%0Ab+%3D+2+%2B+4+%2A+10%0Ac+%3D+42%0A%0Ax+%3D+100%2A%2A2%0Ay+%3D+5000+%2B+5000&heapPrimitives=true&py=3"
                 frameborder="0"
                 allowfullscreen
             ></iframe>

@@ -1,5 +1,5 @@
 nbformat 4
-nbformat_minor 0
+nbformat_minor 1
 markdown
     # Microphone Arrays
     
@@ -11,6 +11,16 @@ markdown
     
     https://qulab.github.io/sound_field_analysis-py/, Sound Field Analysis toolbox  
     https://github.com/QULab/sound_field_analysis-py
+  metadata
+    {
+     "deletable": true,
+     "editable": true
+    }
+markdown
+    ## Stuff for Matlab
+    
+    http://research.spa.aalto.fi/projects/spharrayproc-lib/spharrayproc.html  
+    https://github.com/polarch/Spherical-Array-Processing
 markdown
     <p xmlns:dct="http://purl.org/dc/terms/">
       <a rel="license"
@@ -24,6 +34,11 @@ markdown
       has waived all copyright and related or neighboring rights to
       this work.
     </p>
+  metadata
+    {
+     "deletable": true,
+     "editable": true
+    }
 metadata
     {
      "kernelspec": {

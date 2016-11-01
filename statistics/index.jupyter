@@ -8,6 +8,8 @@ markdown
     pandas: http://pandas.pydata.org/
     
     http://statpages.org/
+    
+    TODO: explain "power" and "effect"
 markdown
     ## Freely Available Raw Data
     
@@ -94,6 +96,11 @@ markdown
     
     Computational and Inferential Thinking: The Foundations of Data Science  
     http://www.inferentialthinking.com/
+    
+    Points of Significance  
+    http://www.nature.com/collections/qghhqm/pointsofsignificance
+    
+    https://github.com/KIPAC/StatisticalMethods
 markdown
     ## Case Studies
     
@@ -143,6 +150,6 @@ metadata
       "name": "python",
       "nbconvert_exporter": "python",
       "pygments_lexer": "ipython3",
-      "version": "3.5.2"
+      "version": "3.5.2+"
      }
     }

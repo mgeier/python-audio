@@ -7,7 +7,7 @@ markdown
     
     Note: This is *not* about [Waterfall Charts](https://en.wikipedia.org/wiki/Waterfall_chart), which is a completely different thing.
     
-    A good search term might be "cumulative spectral decay" ...
+    A good search term might be "cumulative spectral decay" ... or "energy decay relief" ...?
     
     http://www.diyaudio.com/forums/multi-way/143821-css-lar1-ribbon-audax-pr170n0-usher-15hm-5.html
 markdown
@@ -15,11 +15,21 @@ markdown
 markdown
     ## Literature
     
+    ### Cumulative Spectral Decay
+    
     Bunton, John D., and Richard H. Small. "Cumulative Spectra, Tone Bursts, and Apodization." Journal of the Audio Engineering Society vol. 30, no. 6 (1982): 386-395.
     http://www.aes.org/e-lib/browse.cfm?elib=3838
     
     Berman, J. Michael, and Laurie R. Fincham. "The Application of Digital Techniques to the Measurement of Loudspeakers." Journal of the Audio Engineering Society vol. 25, no. 6 (1977): 370-384.
     http://www.aes.org/e-lib/browse.cfm?elib=3366
+    
+    ### Energy Decay Relief
+    
+    Jot, Jean-Marc. "An Analysis/Synthesis Approach to Real-Time Artificial Reverberation." In Acoustics, Speech, and Signal Processing (ICASSP), 1992.
+    http://ieeexplore.ieee.org/document/226080/
+    
+    Jot, Jean-Marc, L. Cerveau, and Olivier Warusfel. "Analysis and Synthesis of Room Reverberation Based on a Statistical Time-Frequency Model." 103rd AES Convention, 1997.
+    http://www.aes.org/e-lib/browse.cfm?elib=7150
 markdown
     ## External Links
     
@@ -67,6 +77,6 @@ metadata
       "name": "python",
       "nbconvert_exporter": "python",
       "pygments_lexer": "ipython3",
-      "version": "3.5.1+"
+      "version": "3.5.2+"
      }
     }

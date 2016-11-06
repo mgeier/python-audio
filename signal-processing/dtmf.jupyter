@@ -17,13 +17,22 @@ markdown
     
     http://www.dialabc.com/sound/generate/
     
-    https://en.wikipedia.org/wiki/Goertzel_algorithm
+    https://en.wikipedia.org/wiki/Goertzel_algorithm  
+    https://en.wikipedia.org/wiki/Non-uniform_discrete_Fourier_transform
     
     https://github.com/hfeeki/dtmf
     
     https://github.com/mpenkov/dtmf-cpp/tree/master/scripts
     
     http://aluigi.altervista.org/mytoolz.htm (search for "DTMF")
+    
+    https://gist.github.com/soravux/1ce124315bc6d1f3d430
+    
+    http://www.mstarlabs.com/dsp/goertzel/goertzel.html
+    
+    http://www.noah.org/wiki/tones
+    
+    https://github.com/EliasOenal/multimon-ng
 markdown
     <p xmlns:dct="http://purl.org/dc/terms/">
       <a rel="license"

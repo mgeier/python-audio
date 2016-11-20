@@ -67,6 +67,9 @@ markdown
     
     * Audio Systems Array Processing Toolbox
       * http://www.engr.uky.edu/~donohue/audio/Arrays/MAToolbox.htm#_Calibration_and_Measurement_Functio
+    
+    * Swept-Sine Analysis (Mathworks File Exchange)
+      * http://mathworks.com/matlabcentral/fileexchange/29187-swept-sine-analysis
 markdown
     ## Commercial Products
     
@@ -103,6 +106,6 @@ metadata
       "name": "python",
       "nbconvert_exporter": "python",
       "pygments_lexer": "ipython3",
-      "version": "3.5.1+"
+      "version": "3.5.2+"
      }
     }

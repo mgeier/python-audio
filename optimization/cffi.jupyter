@@ -1,6 +1,8 @@
 nbformat 4
 nbformat_minor 0
 markdown
+    there is an IPython magic for CFFI: https://github.com/Carreau/cffi_magic
+markdown
     these are just some random experiments ...
 code 1
     from cffi import FFI

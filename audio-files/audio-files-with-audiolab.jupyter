@@ -2480,10 +2480,9 @@ markdown
       </a>
       <br />
       To the extent possible under law,
-      <span resource="[_:publisher]" rel="dct:publisher">
-        <span property="dct:title">Matthias Geier</span></span>
-      has waived all copyright and related or neighboring rights to
-      this work.
+      <span rel="dct:publisher" resource="[_:publisher]">the person who associated CC0</span>
+      with this work has waived all copyright and related or neighboring
+      rights to this work.
     </p>
 metadata
     {

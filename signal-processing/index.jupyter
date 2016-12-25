@@ -50,6 +50,8 @@ markdown
     http://camlorn.github.io/libaudioverse/docs/branches/master/libaudioverse_manual.html  
     https://github.com/camlorn/libaudioverse  
     Python bindings: http://camlorn.github.io/libaudioverse/docs/branches/master/python/
+    
+    https://github.com/ronnyandersson/zignal
   metadata
     {
      "deletable": true,

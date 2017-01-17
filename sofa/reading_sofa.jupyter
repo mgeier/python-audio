@@ -1,5 +1,5 @@
 nbformat 4
-nbformat_minor 0
+nbformat_minor 1
 markdown
     # Reading SOFA Files With Python
     
@@ -11,13 +11,34 @@ markdown
 markdown
     ## scipy.io.netcdf
     
-    scipy.io.netcdf (v0.16) doesn't support NetCDF4.
+    scipy.io.netcdf (v0.18) doesn't support NetCDF4.
     
     http://docs.scipy.org/doc/scipy/reference/generated/scipy.io.netcdf.netcdf_file.html
+code 1
+    from scipy.io import netcdf_file
+  metadata
+    {
+     "collapsed": true
+    }
+code 2
+    try:
+        netcdf_file('RIR_AllAbsorbers_ArrayCentre_Emitters1to64.sofa')
+    except Exception as e:
+        print(e)
+  stream stdout
+    Error: RIR_AllAbsorbers_ArrayCentre_Emitters1to64.sofa is not a valid NetCDF 3 file
+code 3
+    import scipy
+    scipy.__version__
+  execute_result
+  - text/plain
+    '0.18.1'
 markdown
     ## netcdf4-python
     
     based on Scientific.IO.NetCDF API
+    
+    Debian package `python3-netcdf4`
     
     http://unidata.github.io/netcdf4-python/
     
@@ -26,21 +47,19 @@ markdown
     http://nbviewer.ipython.org/github/Unidata/netcdf4-python/blob/master/examples/reading_netCDF.ipynb
     
     http://nbviewer.ipython.org/github/Unidata/netcdf4-python/blob/master/examples/writing_netCDF.ipynb
-    
-    For the installation on Debian, I had to define a few environment variables, see https://github.com/Unidata/netcdf4-python/issues/341#issuecomment-82465295
-code 1
-    from netCDF4 import Dataset
+code 4
+    import netCDF4
   metadata
     {
-     "collapsed": false
+     "collapsed": true
     }
-code 17
-    f = Dataset('RIR_AllAbsorbers_ArrayCentre_Emitters1to64.sofa')
+code 5
+    f = netCDF4.Dataset('RIR_AllAbsorbers_ArrayCentre_Emitters1to64.sofa')
     f
   execute_result
   - text/plain
     <class 'netCDF4._netCDF4.Dataset'>
-    root group (NETCDF4 data model, file format UNDEFINED):
+    root group (NETCDF4 data model, file format HDF5):
         Conventions: SOFA
         Version: 0.6
         SOFAConventions: GeneralFIRE
@@ -70,102 +89,93 @@ code 17
         dimensions(sizes): I(1), C(3), R(1), E(64), N(44100), M(1), S(0)
         variables(dimensions): float64 [4mListenerPosition[0m(I,C), float64 [4mReceiverPosition[0m(R,C,I), float64 [4mSourcePosition[0m(I,C), float64 [4mEmitterPosition[0m(E,C,I), float64 [4mSourceUp[0m(I,C), float64 [4mSourceView[0m(I,C), float64 [4mEmitterUp[0m(E,C,I), float64 [4mEmitterView[0m(E,C,I), float64 [4mRoomCornerA[0m(I,C), float64 [4mRoomCornerB[0m(I,C), float64 [4mData.IR[0m(M,R,E,N), float64 [4mData.SamplingRate[0m(I), float64 [4mData.Delay[0m(I,R,E)
         groups: 
-  metadata
-    {
-     "collapsed": false
-    }
 code 6
     f.variables
   execute_result
   - text/plain
     OrderedDict([('ListenerPosition', <class 'netCDF4._netCDF4.Variable'>
-    float64 ListenerPosition(I, C)
-        Type: cartesian
-        Units: meter
-    unlimited dimensions: 
-    current shape = (1, 3)
-    filling on, default _FillValue of 9.969209968386869e+36 used
-    ), ('ReceiverPosition', <class 'netCDF4._netCDF4.Variable'>
-    float64 ReceiverPosition(R, C, I)
-        Type: cartesian
-        Units: meter
-    unlimited dimensions: 
-    current shape = (1, 3, 1)
-    filling on, default _FillValue of 9.969209968386869e+36 used
-    ), ('SourcePosition', <class 'netCDF4._netCDF4.Variable'>
-    float64 SourcePosition(I, C)
-        Type: cartesian
-        Units: meter
-    unlimited dimensions: 
-    current shape = (1, 3)
-    filling on, default _FillValue of 9.969209968386869e+36 used
-    ), ('EmitterPosition', <class 'netCDF4._netCDF4.Variable'>
-    float64 EmitterPosition(E, C, I)
-        Type: cartesian
-        Units: meter
-    unlimited dimensions: 
-    current shape = (64, 3, 1)
-    filling on, default _FillValue of 9.969209968386869e+36 used
-    ), ('SourceUp', <class 'netCDF4._netCDF4.Variable'>
-    float64 SourceUp(I, C)
-    unlimited dimensions: 
-    current shape = (1, 3)
-    filling on, default _FillValue of 9.969209968386869e+36 used
-    ), ('SourceView', <class 'netCDF4._netCDF4.Variable'>
-    float64 SourceView(I, C)
-        Type: cartesian
-        Units: meter
-    unlimited dimensions: 
-    current shape = (1, 3)
-    filling on, default _FillValue of 9.969209968386869e+36 used
-    ), ('EmitterUp', <class 'netCDF4._netCDF4.Variable'>
-    float64 EmitterUp(E, C, I)
-    unlimited dimensions: 
-    current shape = (64, 3, 1)
-    filling on, default _FillValue of 9.969209968386869e+36 used
-    ), ('EmitterView', <class 'netCDF4._netCDF4.Variable'>
-    float64 EmitterView(E, C, I)
-        Type: cartesian
-        Units: meter
-    unlimited dimensions: 
-    current shape = (64, 3, 1)
-    filling on, default _FillValue of 9.969209968386869e+36 used
-    ), ('RoomCornerA', <class 'netCDF4._netCDF4.Variable'>
-    float64 RoomCornerA(I, C)
-        Type: cartesian
-        Units: meter
-    unlimited dimensions: 
-    current shape = (1, 3)
-    filling on, default _FillValue of 9.969209968386869e+36 used
-    ), ('RoomCornerB', <class 'netCDF4._netCDF4.Variable'>
-    float64 RoomCornerB(I, C)
-        Type: cartesian
-        Units: meter
-    unlimited dimensions: 
-    current shape = (1, 3)
-    filling on, default _FillValue of 9.969209968386869e+36 used
-    ), ('Data.IR', <class 'netCDF4._netCDF4.Variable'>
-    float64 Data.IR(M, R, E, N)
-    unlimited dimensions: 
-    current shape = (1, 1, 64, 44100)
-    filling on, default _FillValue of 9.969209968386869e+36 used
-    ), ('Data.SamplingRate', <class 'netCDF4._netCDF4.Variable'>
-    float64 Data.SamplingRate(I)
-        Units: hertz
-    unlimited dimensions: 
-    current shape = (1,)
-    filling on, default _FillValue of 9.969209968386869e+36 used
-    ), ('Data.Delay', <class 'netCDF4._netCDF4.Variable'>
-    float64 Data.Delay(I, R, E)
-    unlimited dimensions: 
-    current shape = (1, 1, 64)
-    filling on, default _FillValue of 9.969209968386869e+36 used
-    )])
-  metadata
-    {
-     "collapsed": false
-    }
-code 9
+                  float64 ListenerPosition(I, C)
+                      Type: cartesian
+                      Units: meter
+                  unlimited dimensions: 
+                  current shape = (1, 3)
+                  filling on, default _FillValue of 9.969209968386869e+36 used),
+                 ('ReceiverPosition', <class 'netCDF4._netCDF4.Variable'>
+                  float64 ReceiverPosition(R, C, I)
+                      Type: cartesian
+                      Units: meter
+                  unlimited dimensions: 
+                  current shape = (1, 3, 1)
+                  filling on, default _FillValue of 9.969209968386869e+36 used),
+                 ('SourcePosition', <class 'netCDF4._netCDF4.Variable'>
+                  float64 SourcePosition(I, C)
+                      Type: cartesian
+                      Units: meter
+                  unlimited dimensions: 
+                  current shape = (1, 3)
+                  filling on, default _FillValue of 9.969209968386869e+36 used),
+                 ('EmitterPosition', <class 'netCDF4._netCDF4.Variable'>
+                  float64 EmitterPosition(E, C, I)
+                      Type: cartesian
+                      Units: meter
+                  unlimited dimensions: 
+                  current shape = (64, 3, 1)
+                  filling on, default _FillValue of 9.969209968386869e+36 used),
+                 ('SourceUp', <class 'netCDF4._netCDF4.Variable'>
+                  float64 SourceUp(I, C)
+                  unlimited dimensions: 
+                  current shape = (1, 3)
+                  filling on, default _FillValue of 9.969209968386869e+36 used),
+                 ('SourceView', <class 'netCDF4._netCDF4.Variable'>
+                  float64 SourceView(I, C)
+                      Type: cartesian
+                      Units: meter
+                  unlimited dimensions: 
+                  current shape = (1, 3)
+                  filling on, default _FillValue of 9.969209968386869e+36 used),
+                 ('EmitterUp', <class 'netCDF4._netCDF4.Variable'>
+                  float64 EmitterUp(E, C, I)
+                  unlimited dimensions: 
+                  current shape = (64, 3, 1)
+                  filling on, default _FillValue of 9.969209968386869e+36 used),
+                 ('EmitterView', <class 'netCDF4._netCDF4.Variable'>
+                  float64 EmitterView(E, C, I)
+                      Type: cartesian
+                      Units: meter
+                  unlimited dimensions: 
+                  current shape = (64, 3, 1)
+                  filling on, default _FillValue of 9.969209968386869e+36 used),
+                 ('RoomCornerA', <class 'netCDF4._netCDF4.Variable'>
+                  float64 RoomCornerA(I, C)
+                      Type: cartesian
+                      Units: meter
+                  unlimited dimensions: 
+                  current shape = (1, 3)
+                  filling on, default _FillValue of 9.969209968386869e+36 used),
+                 ('RoomCornerB', <class 'netCDF4._netCDF4.Variable'>
+                  float64 RoomCornerB(I, C)
+                      Type: cartesian
+                      Units: meter
+                  unlimited dimensions: 
+                  current shape = (1, 3)
+                  filling on, default _FillValue of 9.969209968386869e+36 used),
+                 ('Data.IR', <class 'netCDF4._netCDF4.Variable'>
+                  float64 Data.IR(M, R, E, N)
+                  unlimited dimensions: 
+                  current shape = (1, 1, 64, 44100)
+                  filling on, default _FillValue of 9.969209968386869e+36 used),
+                 ('Data.SamplingRate', <class 'netCDF4._netCDF4.Variable'>
+                  float64 Data.SamplingRate(I)
+                      Units: hertz
+                  unlimited dimensions: 
+                  current shape = (1,)
+                  filling on, default _FillValue of 9.969209968386869e+36 used),
+                 ('Data.Delay', <class 'netCDF4._netCDF4.Variable'>
+                  float64 Data.Delay(I, R, E)
+                  unlimited dimensions: 
+                  current shape = (1, 1, 64)
+                  filling on, default _FillValue of 9.969209968386869e+36 used)])
+code 7
     var = f.variables['Data.IR']
     var
   execute_result
@@ -175,20 +185,33 @@ code 9
     unlimited dimensions: 
     current shape = (1, 1, 64, 44100)
     filling on, default _FillValue of 9.969209968386869e+36 used
-  metadata
-    {
-     "collapsed": false
-    }
-code 16
+code 8
     data = var[0, 0]
     data.shape
   execute_result
   - text/plain
     (64, 44100)
+code 9
+    f.close()
   metadata
     {
-     "collapsed": false
+     "collapsed": true
     }
+code 10
+    netCDF4.__version__
+  execute_result
+  - text/plain
+    '1.2.7'
+code 11
+    netCDF4.__netcdf4libversion__
+  execute_result
+  - text/plain
+    '4.4.1.1'
+code 12
+    netCDF4.__hdf5libversion__
+  execute_result
+  - text/plain
+    '1.10.0-patch1'
 markdown
     ## Scientific.IO.NetCDF
     
@@ -223,197 +246,22 @@ markdown
     Open SOFA file as HDF5 (there are a lot of warnings but it seems to work)
     
     http://www.pytables.org/
-code 1
+code 13
     import tables
-  metadata
-    {
-     "collapsed": false
-    }
-code 4
+code 14
     f = tables.open_file('RIR_AllAbsorbers_ArrayCentre_Emitters1to64.sofa')
-    f
-  stream stderr
-    /usr/lib/python3/dist-packages/tables/attributeset.py:295: DataTypeWarning: Unsupported type for attribute 'REFERENCE_LIST' in node 'C'. Offending HDF5 class: 6
-      value = self._g_getattr(self._v_node, name)
-    /usr/lib/python3/dist-packages/tables/attributeset.py:295: DataTypeWarning: Unsupported type for attribute 'DIMENSION_LIST' in node 'Data.Delay'. Offending HDF5 class: 9
-      value = self._g_getattr(self._v_node, name)
-    /usr/lib/python3/dist-packages/tables/attributeset.py:295: DataTypeWarning: Unsupported type for attribute 'DIMENSION_LIST' in node 'Data.IR'. Offending HDF5 class: 9
-      value = self._g_getattr(self._v_node, name)
-    /usr/lib/python3/dist-packages/tables/attributeset.py:295: DataTypeWarning: Unsupported type for attribute 'DIMENSION_LIST' in node 'Data.SamplingRate'. Offending HDF5 class: 9
-      value = self._g_getattr(self._v_node, name)
-    /usr/lib/python3/dist-packages/tables/attributeset.py:295: DataTypeWarning: Unsupported type for attribute 'REFERENCE_LIST' in node 'E'. Offending HDF5 class: 6
-      value = self._g_getattr(self._v_node, name)
-    /usr/lib/python3/dist-packages/tables/attributeset.py:295: DataTypeWarning: Unsupported type for attribute 'DIMENSION_LIST' in node 'EmitterPosition'. Offending HDF5 class: 9
-      value = self._g_getattr(self._v_node, name)
-    /usr/lib/python3/dist-packages/tables/attributeset.py:295: DataTypeWarning: Unsupported type for attribute 'DIMENSION_LIST' in node 'EmitterUp'. Offending HDF5 class: 9
-      value = self._g_getattr(self._v_node, name)
-    /usr/lib/python3/dist-packages/tables/attributeset.py:295: DataTypeWarning: Unsupported type for attribute 'DIMENSION_LIST' in node 'EmitterView'. Offending HDF5 class: 9
-      value = self._g_getattr(self._v_node, name)
-    /usr/lib/python3/dist-packages/tables/attributeset.py:295: DataTypeWarning: Unsupported type for attribute 'REFERENCE_LIST' in node 'I'. Offending HDF5 class: 6
-      value = self._g_getattr(self._v_node, name)
-    /usr/lib/python3/dist-packages/tables/attributeset.py:295: DataTypeWarning: Unsupported type for attribute 'DIMENSION_LIST' in node 'ListenerPosition'. Offending HDF5 class: 9
-      value = self._g_getattr(self._v_node, name)
-    /usr/lib/python3/dist-packages/tables/attributeset.py:295: DataTypeWarning: Unsupported type for attribute 'REFERENCE_LIST' in node 'M'. Offending HDF5 class: 6
-      value = self._g_getattr(self._v_node, name)
-    /usr/lib/python3/dist-packages/tables/attributeset.py:295: DataTypeWarning: Unsupported type for attribute 'REFERENCE_LIST' in node 'N'. Offending HDF5 class: 6
-      value = self._g_getattr(self._v_node, name)
-    /usr/lib/python3/dist-packages/tables/attributeset.py:295: DataTypeWarning: Unsupported type for attribute 'REFERENCE_LIST' in node 'R'. Offending HDF5 class: 6
-      value = self._g_getattr(self._v_node, name)
-    /usr/lib/python3/dist-packages/tables/attributeset.py:295: DataTypeWarning: Unsupported type for attribute 'DIMENSION_LIST' in node 'ReceiverPosition'. Offending HDF5 class: 9
-      value = self._g_getattr(self._v_node, name)
-    /usr/lib/python3/dist-packages/tables/attributeset.py:295: DataTypeWarning: Unsupported type for attribute 'DIMENSION_LIST' in node 'RoomCornerA'. Offending HDF5 class: 9
-      value = self._g_getattr(self._v_node, name)
-    /usr/lib/python3/dist-packages/tables/attributeset.py:295: DataTypeWarning: Unsupported type for attribute 'DIMENSION_LIST' in node 'RoomCornerB'. Offending HDF5 class: 9
-      value = self._g_getattr(self._v_node, name)
-    /usr/lib/python3/dist-packages/tables/attributeset.py:295: DataTypeWarning: Unsupported type for attribute 'DIMENSION_LIST' in node 'SourcePosition'. Offending HDF5 class: 9
-      value = self._g_getattr(self._v_node, name)
-    /usr/lib/python3/dist-packages/tables/attributeset.py:295: DataTypeWarning: Unsupported type for attribute 'DIMENSION_LIST' in node 'SourceUp'. Offending HDF5 class: 9
-      value = self._g_getattr(self._v_node, name)
-    /usr/lib/python3/dist-packages/tables/attributeset.py:295: DataTypeWarning: Unsupported type for attribute 'DIMENSION_LIST' in node 'SourceView'. Offending HDF5 class: 9
-      value = self._g_getattr(self._v_node, name)
-  execute_result
-  - text/plain
-    File(filename=RIR_AllAbsorbers_ArrayCentre_Emitters1to64.sofa, title='', mode='r', root_uep='/', filters=Filters(complevel=0, shuffle=False, fletcher32=False, least_significant_digit=None))
-    / (RootGroup) ''
-    /C (Array(3,)) ''
-      atom := Float32Atom(shape=(), dflt=0.0)
-      maindim := 0
-      flavor := 'numpy'
-      byteorder := 'big'
-      chunkshape := None
-    /Data.Delay (CArray(1, 1, 64), shuffle, zlib(1)) ''
-      atom := Float64Atom(shape=(), dflt=9.969209968386869e+36)
-      maindim := 0
-      flavor := 'numpy'
-      byteorder := 'little'
-      chunkshape := (1, 1, 64)
-    /Data.IR (CArray(1, 1, 64, 44100), shuffle, zlib(1)) ''
-      atom := Float64Atom(shape=(), dflt=9.969209968386869e+36)
-      maindim := 0
-      flavor := 'numpy'
-      byteorder := 'little'
-      chunkshape := (1, 1, 20, 14596)
-    /Data.SamplingRate (CArray(1,), shuffle, zlib(1)) ''
-      atom := Float64Atom(shape=(), dflt=9.969209968386869e+36)
-      maindim := 0
-      flavor := 'numpy'
-      byteorder := 'little'
-      chunkshape := (1,)
-    /E (Array(64,)) ''
-      atom := Float32Atom(shape=(), dflt=0.0)
-      maindim := 0
-      flavor := 'numpy'
-      byteorder := 'big'
-      chunkshape := None
-    /EmitterPosition (CArray(64, 3, 1), shuffle, zlib(1)) ''
-      atom := Float64Atom(shape=(), dflt=9.969209968386869e+36)
-      maindim := 0
-      flavor := 'numpy'
-      byteorder := 'little'
-      chunkshape := (64, 3, 1)
-    /EmitterUp (CArray(64, 3, 1), shuffle, zlib(1)) ''
-      atom := Float64Atom(shape=(), dflt=9.969209968386869e+36)
-      maindim := 0
-      flavor := 'numpy'
-      byteorder := 'little'
-      chunkshape := (64, 3, 1)
-    /EmitterView (CArray(64, 3, 1), shuffle, zlib(1)) ''
-      atom := Float64Atom(shape=(), dflt=9.969209968386869e+36)
-      maindim := 0
-      flavor := 'numpy'
-      byteorder := 'little'
-      chunkshape := (64, 3, 1)
-    /I (Array(1,)) ''
-      atom := Float32Atom(shape=(), dflt=0.0)
-      maindim := 0
-      flavor := 'numpy'
-      byteorder := 'big'
-      chunkshape := None
-    /ListenerPosition (CArray(1, 3), shuffle, zlib(1)) ''
-      atom := Float64Atom(shape=(), dflt=9.969209968386869e+36)
-      maindim := 0
-      flavor := 'numpy'
-      byteorder := 'little'
-      chunkshape := (1, 3)
-    /M (Array(1,)) ''
-      atom := Float32Atom(shape=(), dflt=0.0)
-      maindim := 0
-      flavor := 'numpy'
-      byteorder := 'big'
-      chunkshape := None
-    /N (Array(44100,)) ''
-      atom := Float32Atom(shape=(), dflt=0.0)
-      maindim := 0
-      flavor := 'numpy'
-      byteorder := 'big'
-      chunkshape := None
-    /R (Array(1,)) ''
-      atom := Float32Atom(shape=(), dflt=0.0)
-      maindim := 0
-      flavor := 'numpy'
-      byteorder := 'big'
-      chunkshape := None
-    /ReceiverPosition (CArray(1, 3, 1), shuffle, zlib(1)) ''
-      atom := Float64Atom(shape=(), dflt=9.969209968386869e+36)
-      maindim := 0
-      flavor := 'numpy'
-      byteorder := 'little'
-      chunkshape := (1, 3, 1)
-    /RoomCornerA (CArray(1, 3), shuffle, zlib(1)) ''
-      atom := Float64Atom(shape=(), dflt=9.969209968386869e+36)
-      maindim := 0
-      flavor := 'numpy'
-      byteorder := 'little'
-      chunkshape := (1, 3)
-    /RoomCornerB (CArray(1, 3), shuffle, zlib(1)) ''
-      atom := Float64Atom(shape=(), dflt=9.969209968386869e+36)
-      maindim := 0
-      flavor := 'numpy'
-      byteorder := 'little'
-      chunkshape := (1, 3)
-    /S (EArray(0,)) ''
-      atom := Float32Atom(shape=(), dflt=0.0)
-      maindim := 0
-      flavor := 'numpy'
-      byteorder := 'big'
-      chunkshape := (1,)
-    /SourcePosition (CArray(1, 3), shuffle, zlib(1)) ''
-      atom := Float64Atom(shape=(), dflt=9.969209968386869e+36)
-      maindim := 0
-      flavor := 'numpy'
-      byteorder := 'little'
-      chunkshape := (1, 3)
-    /SourceUp (CArray(1, 3), shuffle, zlib(1)) ''
-      atom := Float64Atom(shape=(), dflt=9.969209968386869e+36)
-      maindim := 0
-      flavor := 'numpy'
-      byteorder := 'little'
-      chunkshape := (1, 3)
-    /SourceView (CArray(1, 3), shuffle, zlib(1)) ''
-      atom := Float64Atom(shape=(), dflt=9.969209968386869e+36)
-      maindim := 0
-      flavor := 'numpy'
-      byteorder := 'little'
-      chunkshape := (1, 3)
-  metadata
-    {
-     "collapsed": false
-    }
-code 6
-    f.root
-  execute_result
-  - text/plain
-    / (RootGroup) ''
-      children := ['S' (EArray), 'SourcePosition' (CArray), 'SourceView' (CArray), 'Data.IR' (CArray), 'N' (Array), 'EmitterUp' (CArray), 'R' (Array), 'EmitterView' (CArray), 'EmitterPosition' (CArray), 'Data.Delay' (CArray), 'E' (Array), 'C' (Array), 'RoomCornerA' (CArray), 'ListenerPosition' (CArray), 'M' (Array), 'Data.SamplingRate' (CArray), 'RoomCornerB' (CArray), 'SourceUp' (CArray), 'I' (Array), 'ReceiverPosition' (CArray)]
-  metadata
-    {
-     "collapsed": false
-    }
+code 15
+    #f
+code 16
+    #f.root
 markdown
     It's impossible to get `Data.IR` by attribute access because sadly it contains a period.
-code 18
+code 17
     var = f.get_node('/Data.IR')
     var
+  stream stderr
+    /usr/lib/python3/dist-packages/tables/attributeset.py:298: DataTypeWarning: Unsupported type for attribute 'DIMENSION_LIST' in node 'Data.IR'. Offending HDF5 class: 9
+      value = self._g_getattr(self._v_node, name)
   execute_result
   - text/plain
     /Data.IR (CArray(1, 1, 64, 44100), shuffle, zlib(1)) ''
@@ -422,81 +270,168 @@ code 18
       flavor := 'numpy'
       byteorder := 'little'
       chunkshape := (1, 1, 20, 14596)
-  metadata
-    {
-     "collapsed": false
-    }
 markdown
     `CArray` $\to$ chunked array
-code 22
+code 18
     var.dtype
   execute_result
   - text/plain
     dtype('float64')
-  metadata
-    {
-     "collapsed": false
-    }
-code 23
+code 19
     var.shape
   execute_result
   - text/plain
     (1, 1, 64, 44100)
-  metadata
-    {
-     "collapsed": false
-    }
-code 28
+code 20
     data = var[0, 0]
     type(data)
   execute_result
   - text/plain
     numpy.ndarray
+code 21
+    f.close()
   metadata
     {
-     "collapsed": false
+     "collapsed": true
     }
+code 22
+    tables.__version__
+  execute_result
+  - text/plain
+    '3.3.0'
 markdown
     ## h5py
     
     http://www.h5py.org/
     
     http://docs.h5py.org/
-code 1
+code 23
     import h5py
-  metadata
-    {
-     "collapsed": false
-    }
-code 4
+code 24
     f = h5py.File('RIR_AllAbsorbers_ArrayCentre_Emitters1to64.sofa')
     f
   execute_result
   - text/plain
     <HDF5 file "RIR_AllAbsorbers_ArrayCentre_Emitters1to64.sofa" (mode r+)>
-  metadata
-    {
-     "collapsed": false
-    }
-code 6
+code 25
     var = f['Data.IR']
     var
   execute_result
   - text/plain
     <HDF5 dataset "Data.IR": shape (1, 1, 64, 44100), type "<f8">
-  metadata
-    {
-     "collapsed": false
-    }
-code 10
+code 26
     data = var[0, 0]
     type(data)
   execute_result
   - text/plain
     numpy.ndarray
+code 27
+    f.close()
   metadata
     {
-     "collapsed": false
+     "collapsed": true
+    }
+code 28
+    h5py.__version__
+  execute_result
+  - text/plain
+    '2.6.0'
+markdown
+    ## h5netcdf
+    
+    Uses the `h5py` module (see above). The NetCDF4 C library is *not* needed.
+    
+    https://pypi.python.org/pypi/h5netcdf/
+    
+    https://github.com/shoyer/h5netcdf
+code 29
+    import h5netcdf
+  metadata
+    {
+     "collapsed": true
+    }
+code 30
+    f = h5netcdf.File('RIR_AllAbsorbers_ArrayCentre_Emitters1to64.sofa', 'r')
+code 31
+    f
+  execute_result
+  - text/plain
+    <h5netcdf.File 'RIR_AllAbsorbers_ArrayCentre_Emitters1to64.sofa' (mode r)>
+    Dimensions:
+        E: 64
+        N: 44100
+        I: 1
+        R: 1
+        M: 1
+        S: 0
+        C: 3
+    Groups:
+    Variables:
+        ListenerPosition: ('I', 'C') float64
+        SourceUp: ('I', 'C') float64
+        EmitterView: ('E', 'C', 'I') float64
+        RoomCornerA: ('I', 'C') float64
+        SourceView: ('I', 'C') float64
+        EmitterUp: ('E', 'C', 'I') float64
+        EmitterPosition: ('E', 'C', 'I') float64
+        Data.Delay: ('I', 'R', 'E') float64
+        Data.IR: ('M', 'R', 'E', 'N') float64
+        RoomCornerB: ('I', 'C') float64
+        ReceiverPosition: ('R', 'C', 'I') float64
+        SourcePosition: ('I', 'C') float64
+        Data.SamplingRate: ('I',) float64
+    Attributes:
+        RoomDescription: b'University of Rostock, INT Audio Lab, Room 8202, broadband absorbers on walls and ceiling, mid-frequency reverberation time = 0.32 s'
+        ApplicationVersion: b'R2013a'
+        DatabaseName: b'Multichannel RIRs University of Rostock'
+        SourceDescription: b'64-channel loudspeaker array'
+        History: b'Converted from the TU Berlin/University of Rostock format'
+        Comment: b'RIR measurements of 64-channel loudspeaker array at University of Rostock.'
+        DateCreated: b'2014-12-01 13:50:46'
+        Organization: b'University of Rostock, Institute of Communications Engineering'
+        DateModified: b'2015-03-05 13:33:34'
+        AuthorContact: b'vera.erbes@uni-rostock.de'
+        Title: b'Rostock RIR audio lab, broadband absorbers on walls and ceiling, listener in centre of array'
+        ApplicationName: b'Matlab'
+        RoomType: b'shoebox'
+        ListenerShortName: b'OmniMic'
+        APIVersion: b'0.4.4'
+        Origin: b'Acoustically measured with omnidirectional microphone'
+        Conventions: b'SOFA'
+        EmitterDescription: b'Neumann KH 120 A'
+        DataType: b'FIRE'
+        References: b'V. Erbes, M. Geier, S. Weinzierl and S. Spors (2015): Database of single-channel and binaural room impulse responses of a 64-channel loudspeaker array. Proc. of the 138th AES Conv., Warsaw, Poland'
+        Version: b'0.6'
+        SOFAConventionsVersion: b'0.1'
+        SOFAConventions: b'GeneralFIRE'
+        License: b'Creative Commons Attribution-NonCommercial-ShareAlike 4.0'
+        ListenerDescription: b'iSEMcon EMX-7150'
+        APIName: b'ARI SOFA API for Matlab/Octave'
+code 32
+    var = f['Data.IR']
+    var
+  execute_result
+  - text/plain
+    <h5netcdf.Variable '/Data.IR': dimensions ('M', 'R', 'E', 'N'), shape (1, 1, 64, 44100), dtype float64>
+    Attributes:
+code 33
+    data = var[0, 0]
+    type(data)
+  execute_result
+  - text/plain
+    numpy.ndarray
+code 34
+    f.close()
+code 35
+    h5netcdf.__version__
+  execute_result
+  - text/plain
+    '0.3.1'
+code
+    
+  metadata
+    {
+     "collapsed": true
     }
 metadata
     {
@@ -515,6 +450,10 @@ metadata
       "name": "python",
       "nbconvert_exporter": "python",
       "pygments_lexer": "ipython3",
-      "version": "3.4.3+"
+      "version": "3.5.3rc1"
+     },
+     "widgets": {
+      "state": {},
+      "version": "2.0.10"
      }
     }

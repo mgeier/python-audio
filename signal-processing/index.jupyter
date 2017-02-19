@@ -6,11 +6,6 @@ markdown
     [back to main page](../index.ipynb)
     
     [audiolazy](audiolazy.ipynb)
-  metadata
-    {
-     "deletable": true,
-     "editable": true
-    }
 markdown
     ## Links
     
@@ -52,11 +47,8 @@ markdown
     Python bindings: http://camlorn.github.io/libaudioverse/docs/branches/master/python/
     
     https://github.com/ronnyandersson/zignal
-  metadata
-    {
-     "deletable": true,
-     "editable": true
-    }
+    
+    https://github.com/crabl/HeadSpace
 markdown
     ### Filter Design
     
@@ -69,47 +61,22 @@ markdown
     http://scipy-cookbook.readthedocs.org/items/FIRFilter.html
     
     http://scipy-cookbook.readthedocs.org/items/FiltFilt.html
-  metadata
-    {
-     "deletable": true,
-     "editable": true
-    }
 markdown
     ### Fixed Point
     
     http://www.dsprelated.com/showarticle/580.php
-  metadata
-    {
-     "deletable": true,
-     "editable": true
-    }
 markdown
     ### MP3 Encoder
     
     http://nbviewer.ipython.org/github/LCAV/MP3Lab/blob/master/mp3python.ipynb
-  metadata
-    {
-     "deletable": true,
-     "editable": true
-    }
 markdown
     ### Digital Media
     
     http://xiph.org/video/
-  metadata
-    {
-     "deletable": true,
-     "editable": true
-    }
 markdown
     ### Time-Frequency Transforms
     
     https://en.wikipedia.org/wiki/Constant_Q_transform
-  metadata
-    {
-     "deletable": true,
-     "editable": true
-    }
 markdown
     ### Voice Activity Detection (VAD)
     
@@ -126,11 +93,6 @@ markdown
       with this work has waived all copyright and related or neighboring
       rights to this work.
     </p>
-  metadata
-    {
-     "deletable": true,
-     "editable": true
-    }
 metadata
     {
      "kernelspec": {

@@ -1,5 +1,5 @@
 nbformat 4
-nbformat_minor 0
+nbformat_minor 1
 markdown
     # Using Ti*k*Z inside IPython
     
@@ -10,16 +10,8 @@ code 1
   stream stdout
     Installed tikzmagic.py. To use it, type:
       %load_ext tikzmagic
-  metadata
-    {
-     "collapsed": false
-    }
 code 2
     %load_ext tikzmagic
-  metadata
-    {
-     "collapsed": false
-    }
 code 3
     %tikz \draw (0,0) rectangle (1,1);
   display_data
@@ -81,10 +73,6 @@ code 3
     KzAxOjAwEv2McAAAACV0RVh0ZGF0ZTptb2RpZnkAMjAxNS0xMC0yNlQxNjoxMToxMSswMTowMGOg
     NMwAAAAUdEVYdHBkZjpWZXJzaW9uAFBERi0xLjUgBVwLOQAAAABJRU5ErkJggg==
     
-  metadata
-    {
-     "collapsed": false
-    }
 code 4
     %%tikz --scale 2 --size 300,300 -f jpg
     \draw (0,0) rectangle (1,1);
@@ -220,10 +208,6 @@ code 4
     tvSJnxjqHvjeu5Wo27de3xvDUszWFzrlr8xU1aVPOOQ4c0tLUzDgwY07GchOuw3X34cCE7scdY6x
     jjNjGH//2Q==
     
-  metadata
-    {
-     "collapsed": false
-    }
 code 5
     %%tikz --scale 2 --size 300,300 -f svg --save dotted_rect.svg
     \draw (0,0) rectangle (1,1);
@@ -246,10 +230,6 @@ code 5
   - metadata
     {
      "isolated": "true"
-    }
-  metadata
-    {
-     "collapsed": false
     }
 markdown
     The previous cell created a SVG file, which we can use in a markdown cell:
@@ -609,10 +589,6 @@ code 6
     NlQxNjoxMToxMiswMTowMCMVlu0AAAAldEVYdGRhdGU6bW9kaWZ5ADIwMTUtMTAtMjZUMTY6MTE6
     MTIrMDE6MDBSSC5RAAAAFHRFWHRwZGY6VmVyc2lvbgBQREYtMS41IAVcCzkAAAAASUVORK5CYII=
     
-  metadata
-    {
-     "collapsed": false
-    }
 code 7
     %%tikz -l arrows,matrix -f svg
     \matrix (m) [matrix of math nodes, row sep=3em, column sep=4em] {
@@ -701,10 +677,6 @@ code 7
     {
      "isolated": "true"
     }
-  metadata
-    {
-     "collapsed": false
-    }
 markdown
     ## Links
     
@@ -718,6 +690,8 @@ markdown
     
     possible alternative: asymtote  
     https://github.com/jrjohansson/ipython-asymptote
+    
+    https://github.com/xiaohanyu/awesome-tikz
 markdown
     <p xmlns:dct="http://purl.org/dc/terms/">
       <a rel="license"

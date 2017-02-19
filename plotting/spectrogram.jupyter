@@ -26,6 +26,8 @@ markdown
     http://www.swharden.com/blog/2013-05-09-realtime-fft-audio-visualization-with-python/
     
     http://stft.readthedocs.org/, https://github.com/audiolabs/stft
+    
+    http://www.frank-zalkow.de/en/code-snippets/create-audio-spectrograms-with-python.html?i=1
 markdown
     <p xmlns:dct="http://purl.org/dc/terms/">
       <a rel="license"

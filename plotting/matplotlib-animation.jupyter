@@ -1,5 +1,5 @@
 nbformat 4
-nbformat_minor 0
+nbformat_minor 1
 markdown
     # Creating Animations with `matplotlib`
     
@@ -17,10 +17,6 @@ code 1
     %matplotlib inline
     import matplotlib.pyplot as plt
     import numpy as np
-  metadata
-    {
-     "collapsed": false
-    }
 markdown
     ... and a special class for our animation:
 code 2
@@ -56,10 +52,6 @@ markdown
     By default, the data structure obtained from a `.mat` file is quite clunky, the options `struct_as_record=False` and `squeeze_me=True` make it somewhat easier to handle.
 code 5
     irs = loadmat(file, struct_as_record=False, squeeze_me=True)['irs']
-  metadata
-    {
-     "collapsed": false
-    }
 code 6
     irs._fieldnames
   execute_result
@@ -83,10 +75,6 @@ code 6
      'apparent_elevation',
      'left',
      'right']
-  metadata
-    {
-     "collapsed": false
-    }
 markdown
     There are several fields in the data structure `irs`, we'll be using these:
     
@@ -103,10 +91,6 @@ code 7
   execute_result
   - text/plain
     ((2048, 360), (2048, 360))
-  metadata
-    {
-     "collapsed": false
-    }
 markdown
     To get an idea how the data looks like, let's plot all the columns in `irs.left`:
 code 8
@@ -274,10 +258,6 @@ code 8
     
   - text/plain
     <matplotlib.figure.Figure at 0x7fe008d16278>
-  metadata
-    {
-     "collapsed": false
-    }
 markdown
     It looks like the most interesting part is in the beginning ...
 code 9
@@ -812,10 +792,6 @@ code 9
     
   - text/plain
     <matplotlib.figure.Figure at 0x7fe004ae82b0>
-  metadata
-    {
-     "collapsed": false
-    }
 markdown
     We can still get a little closer ... let's cut out the interesting piece of the impulse responses:
 code 10
@@ -2773,10 +2749,6 @@ code 10
     
   - text/plain
     <matplotlib.figure.Figure at 0x7fdfffd51780>
-  metadata
-    {
-     "collapsed": false
-    }
 markdown
     Now let's look at a single impulse reponse:
 code 11
@@ -2954,10 +2926,6 @@ code 11
     
   - text/plain
     <matplotlib.figure.Figure at 0x7fe004b1feb8>
-  metadata
-    {
-     "collapsed": false
-    }
 markdown
     This looks a bit jagged, probably we can make it a bit smoother by oversampling?
 code 12
@@ -3165,20 +3133,12 @@ code 13
     
   - text/plain
     <matplotlib.figure.Figure at 0x7fdfffeaada0>
-  metadata
-    {
-     "collapsed": false
-    }
 markdown
     OK, that looks much smoother.
     
     The x-axis shows the time in samples, to get the time in milliseconds, we have to specify an array of time instants:
 code 14
     t = np.arange(len(left)) * 1000 / fs  # time in milliseconds
-  metadata
-    {
-     "collapsed": false
-    }
 markdown
     The left impulse response shall appear above the right one, so we shift the left one a bit towards the top and the right one towards the bottom:
 code 15
@@ -3476,10 +3436,6 @@ code 16
     
   - text/plain
     <matplotlib.figure.Figure at 0x7fdfffeba940>
-  metadata
-    {
-     "collapsed": false
-    }
 markdown
     OK. Now that we have one frame of our animation, we just need a function that is called for each frame to make any changes that are necessary for the current frame.
 code 17
@@ -3488,17 +3444,9 @@ code 17
         line2.set_ydata(right[:, idx])
         text.set_text('{:g}°'.format(np.rad2deg(irs.apparent_azimuth[idx])))
         return line1, line2, text  # only necessary for blit=True
-  metadata
-    {
-     "collapsed": false
-    }
 code 18
     ani = FuncAnimation(fig, animation_func, frames=left.shape[1],
                         blit=True, interval=60)
-  metadata
-    {
-     "collapsed": false
-    }
 markdown
     Note that the option `blit=True` can be used to make the display in a plot window more efficient.
     For that to work, the animation function has to return all plot objects that it manipulates.
@@ -3509,12 +3457,8 @@ markdown
     However, within a Jupyter notebook this doesn't really work well, so it might be better to save the animation to a video file:
 code 19
     ani.save('hrir.mp4', codec='h264')
-  metadata
-    {
-     "collapsed": false
-    }
 markdown
-    The generated video can be shown within the notebook using the HTML5 `<video>` tag like this:
+    The [generated video](hrir.mp4) can be shown within the notebook using the HTML5 `<video>` tag like this:
     
     ```html
     <video src=hrir.mp4 controls loop>video tag not supported</video>
@@ -3556,6 +3500,6 @@ metadata
       "name": "python",
       "nbconvert_exporter": "python",
       "pygments_lexer": "ipython3",
-      "version": "3.5.1+"
+      "version": "3.6.0"
      }
     }

@@ -1,5 +1,5 @@
 nbformat 4
-nbformat_minor 0
+nbformat_minor 1
 markdown
     # Reading and Writing Audio Files in Python
     
@@ -115,7 +115,8 @@ markdown
     https://github.com/bioidiap/xbob.sox
     
     pysndfile:  
-    http://pythonhosted.org/pysndfile/
+    http://pythonhosted.org/pysndfile/  
+    https://forge.ircam.fr/p/pysndfile/
     
     essentia.standard.AudioLoader:  
     http://essentia.upf.edu/documentation/reference/std_AudioLoader.html
@@ -184,6 +185,6 @@ metadata
       "name": "python",
       "nbconvert_exporter": "python",
       "pygments_lexer": "ipython3",
-      "version": "3.5.1+"
+      "version": "3.5.4"
      }
     }

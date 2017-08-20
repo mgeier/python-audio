@@ -1,5 +1,5 @@
 nbformat 4
-nbformat_minor 0
+nbformat_minor 1
 markdown
     # Plotting a Spectrogram
     
@@ -28,6 +28,8 @@ markdown
     http://stft.readthedocs.org/, https://github.com/audiolabs/stft
     
     http://www.frank-zalkow.de/en/code-snippets/create-audio-spectrograms-with-python.html?i=1
+    
+    http://mcld.co.uk/blog/2017/on-the-validity-of-looking-at-spectrograms.html
 markdown
     <p xmlns:dct="http://purl.org/dc/terms/">
       <a rel="license"
@@ -57,6 +59,6 @@ metadata
       "name": "python",
       "nbconvert_exporter": "python",
       "pygments_lexer": "ipython3",
-      "version": "3.5.1+"
+      "version": "3.5.4"
      }
     }

@@ -93,10 +93,6 @@ code 1
     print("Hello, world!")
   stream stdout
     Hello, world!
-  metadata
-    {
-     "collapsed": false
-    }
 markdown
     Here you can see how a function is called (more precisely, a [built-in function named `print`](http://docs.python.org/3/library/functions.html#print)) with one argument. Furthermore, you see how string literals are created.
     It's pretty simple.
@@ -119,10 +115,6 @@ code 2
         end:   string appended after the last value, default a newline.
         flush: whether to forcibly flush the stream.
     
-  metadata
-    {
-     "collapsed": false
-    }
 markdown
     In Jupyter/IPython, there is even a simpler way: just append (or prepend) a question mark:
 code 3
@@ -148,10 +140,6 @@ code 4
   execute_result
   - text/plain
     42
-  metadata
-    {
-     "collapsed": false
-    }
 markdown
     ... and on the other hand, there are *floating point* numbers like
 code 5
@@ -159,10 +147,6 @@ code 5
   execute_result
   - text/plain
     3.1415
-  metadata
-    {
-     "collapsed": false
-    }
 markdown
     You probably know that "everything in Python is an object", which is also true for numbers. Numbers are objects. And every object has a type, so let's check that:
 code 6
@@ -170,10 +154,6 @@ code 6
   execute_result
   - text/plain
     int
-  metadata
-    {
-     "collapsed": false
-    }
 markdown
     Looks close enough to "integer", doesn't it?
 code 7
@@ -181,10 +161,6 @@ code 7
   execute_result
   - text/plain
     float
-  metadata
-    {
-     "collapsed": false
-    }
 markdown
     ... and this is supposed to mean "floating point number".
 markdown
@@ -194,10 +170,6 @@ code 8
   execute_result
   - text/plain
     42.0
-  metadata
-    {
-     "collapsed": false
-    }
 markdown
     TODO: infinite precision `int`, double precision `float`
 markdown
@@ -209,10 +181,6 @@ code 9
   execute_result
   - text/plain
     (2.4+3.1j)
-  metadata
-    {
-     "collapsed": false
-    }
 markdown
     Appending a lower-case `j` to a number (without a space in-between), makes it an *imaginary* number.
     Let's look at the type of the whole thing:
@@ -221,10 +189,6 @@ code 10
   execute_result
   - text/plain
     complex
-  metadata
-    {
-     "collapsed": false
-    }
 markdown
     A `complex` is basically a pair of `float`s, one for the *real part* and one for the *imaginary part*. Complex numbers can come in very handy when doing scientific computations.
     
@@ -239,55 +203,31 @@ code 11
   execute_result
   - text/plain
     5
-  metadata
-    {
-     "collapsed": false
-    }
 code 12
     2.0 + 3.0
   execute_result
   - text/plain
     5.0
-  metadata
-    {
-     "collapsed": false
-    }
 code 13
     5 + 2.5
   execute_result
   - text/plain
     7.5
-  metadata
-    {
-     "collapsed": false
-    }
 code 14
     2 * 3
   execute_result
   - text/plain
     6
-  metadata
-    {
-     "collapsed": false
-    }
 code 15
     -4 * (3 + 1) - 0.5
   execute_result
   - text/plain
     -16.5
-  metadata
-    {
-     "collapsed": false
-    }
 code 16
     5 / 2
   execute_result
   - text/plain
     2.5
-  metadata
-    {
-     "collapsed": false
-    }
 markdown
     So far, not really surprising results. You can mix `int`s and `float`s. As soon as a `float` is involved, the result is also a `float`.
 markdown
@@ -301,10 +241,6 @@ code 17
   execute_result
   - text/plain
     2
-  metadata
-    {
-     "collapsed": false
-    }
 markdown
     On the other hand, if you want the new behaviour in Python 2, just write this line before your calculations (in the beginning of your script):
         
@@ -323,10 +259,6 @@ code 18
   execute_result
   - text/plain
     9
-  metadata
-    {
-     "collapsed": false
-    }
 markdown
     Of course, there is also a *modulo* operator:
 code 19
@@ -334,10 +266,6 @@ code 19
   execute_result
   - text/plain
     1
-  metadata
-    {
-     "collapsed": false
-    }
 markdown
     Besides the these [arithmetic operators](https://docs.python.org/3/library/stdtypes.html#numeric-types-int-float-complex), there are also [comparison operators](https://docs.python.org/3/library/stdtypes.html#comparisons) which return *boolean* values.
 code 20
@@ -345,28 +273,16 @@ code 20
   execute_result
   - text/plain
     False
-  metadata
-    {
-     "collapsed": false
-    }
 code 21
     3 <= 4
   execute_result
   - text/plain
     True
-  metadata
-    {
-     "collapsed": false
-    }
 code 22
     3 + 1 == 4
   execute_result
   - text/plain
     True
-  metadata
-    {
-     "collapsed": false
-    }
 markdown
     Expressions yielding boolean values can be combined with [logical operators](https://docs.python.org/3/library/stdtypes.html#boolean-operations-and-or-not):
 code 23
@@ -374,28 +290,16 @@ code 23
   execute_result
   - text/plain
     False
-  metadata
-    {
-     "collapsed": false
-    }
 code 24
     False or True
   execute_result
   - text/plain
     True
-  metadata
-    {
-     "collapsed": false
-    }
 code 25
     not True
   execute_result
   - text/plain
     False
-  metadata
-    {
-     "collapsed": false
-    }
 markdown
     Python also provides the [bit-wise operators](https://docs.python.org/3/library/stdtypes.html#bitwise-operations-on-integer-types)
     `|`,
@@ -413,10 +317,6 @@ code 26
   execute_result
   - text/plain
     42
-  metadata
-    {
-     "collapsed": false
-    }
 markdown
     For the full list of operators and their precedence, have a look at the [official docs](https://docs.python.org/3/reference/expressions.html#operator-precedence).
     
@@ -426,10 +326,6 @@ code 27
   execute_result
   - text/plain
     60
-  metadata
-    {
-     "collapsed": false
-    }
 markdown
     ## Strings
     
@@ -439,10 +335,6 @@ code 28
   execute_result
   - text/plain
     'Hello, world!'
-  metadata
-    {
-     "collapsed": false
-    }
 markdown
     However, it's also possible to write them with single quotes:
 code 29
@@ -450,10 +342,6 @@ code 29
   execute_result
   - text/plain
     'Hello, world!'
-  metadata
-    {
-     "collapsed": false
-    }
 markdown
     To the Python interpreter, this doesn't make a difference. It is, however, common to use double quotes for strings containing natural language and anything that is at some point presented to the user. Single quotes are normally used for short strings which only appear inside a program.
     In case of doubt, use single quotes (since that's what the Python interpreter defaults to).
@@ -464,19 +352,11 @@ code 30
   execute_result
   - text/plain
     "What's up?"
-  metadata
-    {
-     "collapsed": false
-    }
 code 31
     'Please print "Hello, world!" to the screen.'
   execute_result
   - text/plain
     'Please print "Hello, world!" to the screen.'
-  metadata
-    {
-     "collapsed": false
-    }
 markdown
     If you want to use both types of quotes, just choose one of them for delimiting your string.
     You'll have to escape those quotes within the string by prepending a backslash (`\"` or `\'`).
@@ -487,10 +367,6 @@ code 32
   execute_result
   - text/plain
     'Let\'s print "Hello, world!" to the screen!'
-  metadata
-    {
-     "collapsed": false
-    }
 markdown
     Both variants have the type `str` (since they are really the same thing):
 code 33
@@ -498,10 +374,6 @@ code 33
   execute_result
   - text/plain
     str
-  metadata
-    {
-     "collapsed": false
-    }
 markdown
     You can use [str()](http://docs.python.org/3/library/stdtypes.html#str) to convert any object to a string:
 code 34
@@ -509,10 +381,6 @@ code 34
   execute_result
   - text/plain
     '42'
-  metadata
-    {
-     "collapsed": false
-    }
 markdown
     There is a special notation for writing multi-line string literals using triple double quotes:
 code 35
@@ -522,10 +390,6 @@ code 35
   execute_result
   - text/plain
     'One,\ntwo,\nthree lines'
-  metadata
-    {
-     "collapsed": false
-    }
 markdown
     The same can also be written with triple single quotes, but this is much less common.
     
@@ -535,10 +399,6 @@ code 36
   execute_result
   - text/plain
     'Hello, world!'
-  metadata
-    {
-     "collapsed": false
-    }
 markdown
     The `*` operator (in combination with an `int`) has a special meaning for a `str`:
 code 37
@@ -546,10 +406,6 @@ code 37
   execute_result
   - text/plain
     '###############################################################################'
-  metadata
-    {
-     "collapsed": false
-    }
 markdown
     Strings also have an `in`-operator, which makes it very simple to check if a string contains a given substring:
 code 38
@@ -557,10 +413,6 @@ code 38
   execute_result
   - text/plain
     True
-  metadata
-    {
-     "collapsed": false
-    }
 markdown
     If you are pessimistic, you can also try `not in`:
 code 39
@@ -568,10 +420,6 @@ code 39
   execute_result
   - text/plain
     True
-  metadata
-    {
-     "collapsed": false
-    }
 markdown
     Unlike in many other programming languages, there is no separate type for single characters in Python. Single characters are simply written as strings which happen to contain only one character.
     
@@ -582,19 +430,11 @@ code 40
   execute_result
   - text/plain
     32
-  metadata
-    {
-     "collapsed": false
-    }
 code 41
     chr(65)
   execute_result
   - text/plain
     'A'
-  metadata
-    {
-     "collapsed": false
-    }
 markdown
     If you want to create a string that contains formatted numeric values, it's best to use the [`format()` method](https://docs.python.org/3/library/string.html#formatstrings):
 code 42
@@ -602,10 +442,6 @@ code 42
   execute_result
   - text/plain
     'The value of 𝜋 is about 3.14'
-  metadata
-    {
-     "collapsed": false
-    }
 markdown
     Here you can also see that Python supports [Unicode characters](https://docs.python.org/3/howto/unicode.html) by default.
     
@@ -615,10 +451,6 @@ code 43
   execute_result
   - text/plain
     'The value of 𝜋 is about 3.14'
-  metadata
-    {
-     "collapsed": false
-    }
 markdown
     This [old-style string formatting](https://docs.python.org/3/library/stdtypes.html#old-string-formatting) is quite similar to the above, but sometimes less flexible and more error-prone.
     In case of doubt, you should use the more modern `format()` method.
@@ -633,10 +465,6 @@ code 44
   execute_result
   - text/plain
     [42, 3.1415, 'Ni!']
-  metadata
-    {
-     "collapsed": false
-    }
 markdown
     Note that a `list` doesn't contain the actual objects, it just contains *references* to the objects.
     
@@ -646,10 +474,6 @@ code 45
   execute_result
   - text/plain
     []
-  metadata
-    {
-     "collapsed": false
-    }
 markdown
     Of course, a list can also have just a single element:
 code 46
@@ -657,10 +481,6 @@ code 46
   execute_result
   - text/plain
     [7]
-  metadata
-    {
-     "collapsed": false
-    }
 markdown
     To concatenate multiple lists, the `+` operator can be used:
 code 47
@@ -668,10 +488,6 @@ code 47
   execute_result
   - text/plain
     [1, 2, 3, 4, 5, 6]
-  metadata
-    {
-     "collapsed": false
-    }
 markdown
     Similar to strings, you can also use the `*` operator (in combination with an `int`) to repeat lists:
 code 48
@@ -679,10 +495,6 @@ code 48
   execute_result
   - text/plain
     [1, 2, 3, 1, 2, 3, 1, 2, 3, 1, 2, 3, 1, 2, 3]
-  metadata
-    {
-     "collapsed": false
-    }
 markdown
     Lists also have an `in`-operator (like strings and other sequence types):
 code 49
@@ -690,10 +502,6 @@ code 49
   execute_result
   - text/plain
     True
-  metadata
-    {
-     "collapsed": false
-    }
 markdown
     Like everything else, lists are also objects, and they have a type:
 code 50
@@ -701,10 +509,6 @@ code 50
   execute_result
   - text/plain
     list
-  metadata
-    {
-     "collapsed": false
-    }
 markdown
     We can use [list()](http://docs.python.org/3/library/stdtypes.html#list) to create a list from some other object (which must be *iterable*):
 code 51
@@ -712,10 +516,6 @@ code 51
   execute_result
   - text/plain
     ['H', 'e', 'l', 'l', 'o', ',', ' ', 'w', 'o', 'r', 'l', 'd', '!']
-  metadata
-    {
-     "collapsed": false
-    }
 markdown
     It's very easy to create a list of strings from a single space-separated string:
 code 52
@@ -723,10 +523,6 @@ code 52
   execute_result
   - text/plain
     ['eggs', 'bacon', 'spam']
-  metadata
-    {
-     "collapsed": false
-    }
 markdown
     Of course, there are [options available to change the separator](http://docs.python.org/3/library/stdtypes.html#str.split).
     
@@ -736,10 +532,6 @@ code 53
   execute_result
   - text/plain
     'eggs + bacon + spam'
-  metadata
-    {
-     "collapsed": false
-    }
 markdown
     Lists are *mutable* data structures, i.e. their elements can be changed. But more about that later ...
     
@@ -753,10 +545,6 @@ code 54
   execute_result
   - text/plain
     (42, 3.1415, 'Ni!')
-  metadata
-    {
-     "collapsed": false
-    }
 markdown
     Just like lists, tuples can also hold arbitrary objects (and they contain references, not the actual objects).
     
@@ -766,10 +554,6 @@ code 55
   execute_result
   - text/plain
     (1, (2, 3), 4)
-  metadata
-    {
-     "collapsed": false
-    }
 markdown
     Another situation where parentheses are obligatory, are empty tuples:
 code 56
@@ -777,10 +561,6 @@ code 56
   execute_result
   - text/plain
     ()
-  metadata
-    {
-     "collapsed": false
-    }
 markdown
     **Attention**: Putting a single item between parentheses does not create a tuple!
 code 57
@@ -788,10 +568,6 @@ code 57
   execute_result
   - text/plain
     7
-  metadata
-    {
-     "collapsed": false
-    }
 markdown
     This is because parentheses can be used around arbitrary expressions to force [operator precedence](https://docs.python.org/3/reference/expressions.html#operator-precedence).
     This has nothing to do with `tuple`s:
@@ -800,10 +576,6 @@ code 58
   execute_result
   - text/plain
     42
-  metadata
-    {
-     "collapsed": false
-    }
 markdown
     A non-empty tuple is created with an obligatory comma, the parentheses are optional:
 code 59
@@ -811,10 +583,6 @@ code 59
   execute_result
   - text/plain
     (7,)
-  metadata
-    {
-     "collapsed": false
-    }
 markdown
     Like `str` and `list`, `tuple`s can be concatenated with the `+` operator and repeated with `*`:
 code 60
@@ -822,10 +590,6 @@ code 60
   execute_result
   - text/plain
     (1, 2, 3, 3, 3, 3, 3)
-  metadata
-    {
-     "collapsed": false
-    }
 markdown
     Note that the parentheses are obligatory in this case.
     
@@ -835,10 +599,6 @@ code 61
   execute_result
   - text/plain
     True
-  metadata
-    {
-     "collapsed": false
-    }
 markdown
     It should come as no surprise that tuples also have a type:
 code 62
@@ -846,10 +606,6 @@ code 62
   execute_result
   - text/plain
     tuple
-  metadata
-    {
-     "collapsed": false
-    }
 markdown
     Note that when used as a function argument, the tuple has to be enclosed in parentheses (otherwise it would be interpreted as a function call with multiple arguments).
     
@@ -864,10 +620,6 @@ code 63
   execute_result
   - text/plain
     {42, 3.1415, 'Ni!'}
-  metadata
-    {
-     "collapsed": false
-    }
 markdown
     An empty set cannot be created with an empty pair of braces, because this would create an empty dictionary (see [below](#Dictionaries)):
 code 64
@@ -875,10 +627,6 @@ code 64
   execute_result
   - text/plain
     dict
-  metadata
-    {
-     "collapsed": false
-    }
 markdown
     To create an empty set, you'll have to use the `set()` constructor:
 code 65
@@ -886,10 +634,6 @@ code 65
   execute_result
   - text/plain
     set()
-  metadata
-    {
-     "collapsed": false
-    }
 markdown
     For a set with a single element, this isn't a problem, though:
 code 66
@@ -897,19 +641,11 @@ code 66
   execute_result
   - text/plain
     {42}
-  metadata
-    {
-     "collapsed": false
-    }
 code 67
     type({42})
   execute_result
   - text/plain
     set
-  metadata
-    {
-     "collapsed": false
-    }
 markdown
     Sets do have a few special operators: *union* ...
 code 68
@@ -917,10 +653,6 @@ code 68
   execute_result
   - text/plain
     {1, 2, 3, 4}
-  metadata
-    {
-     "collapsed": false
-    }
 markdown
     ... *intersection* ...
 code 69
@@ -928,10 +660,6 @@ code 69
   execute_result
   - text/plain
     {2, 3}
-  metadata
-    {
-     "collapsed": false
-    }
 markdown
     ... *difference* ...
 code 70
@@ -939,19 +667,11 @@ code 70
   execute_result
   - text/plain
     {1}
-  metadata
-    {
-     "collapsed": false
-    }
 code 71
     {2, 3, 4} - {1, 2, 3}
   execute_result
   - text/plain
     {4}
-  metadata
-    {
-     "collapsed": false
-    }
 markdown
     ... *exclusive difference* ...
 code 72
@@ -959,10 +679,6 @@ code 72
   execute_result
   - text/plain
     {1, 4}
-  metadata
-    {
-     "collapsed": false
-    }
 markdown
     ... and a few more.
     
@@ -972,10 +688,6 @@ code 73
   execute_result
   - text/plain
     True
-  metadata
-    {
-     "collapsed": false
-    }
 markdown
     Any *iterable* can be turned into a `set` ...
 code 74
@@ -983,10 +695,6 @@ code 74
   execute_result
   - text/plain
     {' ', '!', ',', 'H', 'd', 'e', 'l', 'o', 'r', 'w'}
-  metadata
-    {
-     "collapsed": false
-    }
 markdown
     ... and a `set` is itself iterable and can be turned into, e.g. a `list`:
 code 75
@@ -994,10 +702,6 @@ code 75
   execute_result
   - text/plain
     [42, 3.1415, 'Ni!']
-  metadata
-    {
-     "collapsed": false
-    }
 markdown
     For more information about sets, have a look at the [official docs](https://docs.python.org/3/library/stdtypes.html#set-types-set-frozenset).
 markdown
@@ -1031,10 +735,6 @@ code 76
   execute_result
   - text/plain
     42
-  metadata
-    {
-     "collapsed": false
-    }
 markdown
     As you see, there are several *expressions* in the code cell above; all of them are evaluated, but only the result of the last one is shown.
     
@@ -1059,10 +759,6 @@ code 77
   execute_result
   - text/plain
     42
-  metadata
-    {
-     "collapsed": false
-    }
 markdown
     The string `'Hello, world!'` which is printed by the `print()` function, is *not* the *return value* of the function!
     What we see here is the so-called *standard output* which, in a Jupyter/IPython notebook, is displayed just below the code cell, but above the actual output values (marked by `Out[...]:`).
@@ -1076,10 +772,6 @@ code 78
     print('Hello, world!')
   stream stdout
     Hello, world!
-  metadata
-    {
-     "collapsed": false
-    }
 markdown
     As you can see, there is no `Out[...]:` section above.
     Does this mean that the line isn't an expression?
@@ -1095,10 +787,6 @@ markdown
     Let's check:
 code 79
     None
-  metadata
-    {
-     "collapsed": false
-    }
 markdown
     Really, we see nothing.
     
@@ -1110,10 +798,6 @@ code 80
   execute_result
   - text/plain
     True
-  metadata
-    {
-     "collapsed": false
-    }
 markdown
     Now we can see that the `print()` function prints its argument to the standard output and returns `None`.
     
@@ -1126,10 +810,6 @@ code 81
   execute_result
   - text/plain
     4
-  metadata
-    {
-     "collapsed": false
-    }
 markdown
     Most of the time, however, this is not necessary.
     Others will understand your code better if you start each statement on a new line.
@@ -1139,10 +819,6 @@ code 82
     7 * 6
     3.1415
     2 + 2;
-  metadata
-    {
-     "collapsed": false
-    }
 markdown
     In a "normal" Python program this is never necessary, because the return value of expressions in *expression statements* is always ignored.
     
@@ -1181,10 +857,6 @@ markdown
     An *identifier* may only contain letters, numbers and underscores and it must not start with a number.
 code 83
     answer = 7 * 6
-  metadata
-    {
-     "collapsed": false
-    }
 markdown
     In this example, the expression to the right of the equals sign is evaluated, creating a new object (of type `int`) with the value `42`.
     The assignment statement *binds* the identifier `answer` to this new object.
@@ -1198,10 +870,6 @@ code 84
   execute_result
   - text/plain
     False
-  metadata
-    {
-     "collapsed": false
-    }
 markdown
     Some Python beginners use the wrong mental image when thinking of Python *variables*/*identifiers*.
     In some other programming languages, a *variable* can be thought of "a box where we can store a certain type of value in".
@@ -1243,10 +911,6 @@ code 85
   execute_result
   - text/plain
     int
-  metadata
-    {
-     "collapsed": false
-    }
 markdown
     It looks like the *identifier* `answer` has a *type* after all!
     
@@ -1265,10 +929,6 @@ markdown
     But what happens if we assign to a name that has already been used?
 code 86
     answer = 'Sir Lancelot of Camelot'
-  metadata
-    {
-     "collapsed": false
-    }
 markdown
     Well, nothing special.
     The name `answer` is just *re-bound* to the object at the right side of the equals sign.
@@ -1280,10 +940,6 @@ code 87
   execute_result
   - text/plain
     str
-  metadata
-    {
-     "collapsed": false
-    }
 markdown
     So what happened to the `int` object with the value `42`?
     
@@ -1294,16 +950,8 @@ markdown
     The right side of the assignment statement is just a normal expression which can contain other identifiers (or even the same identifier that is going to be re-bound on the left).
 code 88
     greeting = answer + ', nice to meet you!'
-  metadata
-    {
-     "collapsed": false
-    }
 code 89
     greeting = 'My name is ' + greeting
-  metadata
-    {
-     "collapsed": false
-    }
 markdown
     Since assignment is a statement (and statements don't return values), we don't see the value of the new object where `greeting` is bound to.
     Let's have a look:
@@ -1312,27 +960,15 @@ code 90
   execute_result
   - text/plain
     'My name is Sir Lancelot of Camelot, nice to meet you!'
-  metadata
-    {
-     "collapsed": false
-    }
 markdown
     Of course, one object can have multiple labels stuck to it:
 code 91
     the_same_greeting = greeting
-  metadata
-    {
-     "collapsed": false
-    }
 code 92
     the_same_greeting
   execute_result
   - text/plain
     'My name is Sir Lancelot of Camelot, nice to meet you!'
-  metadata
-    {
-     "collapsed": false
-    }
 markdown
     Obviously, the returned string has exactly the same characters.
     In other words, it's *equal* to `greeting`.
@@ -1342,10 +978,6 @@ code 93
   execute_result
   - text/plain
     True
-  metadata
-    {
-     "collapsed": false
-    }
 markdown
     But the two are more than equal!
     They are actually two different names for the same object.
@@ -1356,19 +988,11 @@ code 94
   execute_result
   - text/plain
     140272767112880
-  metadata
-    {
-     "collapsed": false
-    }
 code 95
     id(the_same_greeting)
   execute_result
   - text/plain
     140272767112880
-  metadata
-    {
-     "collapsed": false
-    }
 markdown
     As we can see, the two objects have the same ID, so it's actually just one object that happens to have two names bound to it.
     
@@ -1378,20 +1002,12 @@ code 96
   execute_result
   - text/plain
     True
-  metadata
-    {
-     "collapsed": false
-    }
 markdown
     We normally don't care about the actual IDs, if we want to see if two objects are *identical* (which is not the same as *equal*!), we use the `is`-operator.
     
     If you want to bind several names to the same object in one go, you can use a special form of the assignment statement that uses multiple equals signs:
 code 97
     one = two = three = 'data'
-  metadata
-    {
-     "collapsed": false
-    }
 markdown
     Now all of the identifiers `one`, `two` and `three` are bound to the same `str` object.
     You may not need that very often, but it's still good to know.
@@ -1410,10 +1026,6 @@ code 98
   execute_result
   - text/plain
     True
-  metadata
-    {
-     "collapsed": false
-    }
 markdown
     Another misconception that comes with the "box"-analogy, is that an assignment puts the new data at the same memory location where the old data was before, effectively overwriting the old object.
     
@@ -1429,20 +1041,12 @@ code 99
   execute_result
   - text/plain
     10686080
-  metadata
-    {
-     "collapsed": false
-    }
 code 100
     number = 1
     id(number)
   execute_result
   - text/plain
     10686112
-  metadata
-    {
-     "collapsed": false
-    }
 markdown
     If the second assignment would overwrite the memory area of the old data, `id()` would return the same value as before.
     But we see that the IDs are different, therefore, `0` and `1` must be different objects.
@@ -1457,6 +1061,8 @@ markdown
     
     By the way, if you want to use more technical terms instead of "box" and "label", you can use the terms *value semantics* and *reference semantics*, respectively.
     Python has *reference semantics*.
+    
+    See also [Python Names and Values](https://nedbatchelder.com/text/names1.html), a nice presentation by Ned Batchelder.
 markdown
     ### Multiple Identifiers (And Other Stuff)
     
@@ -1466,27 +1072,15 @@ markdown
     Some people also call this *tuple unpacking* or *sequence unpacking*.
 code 101
     a, b, c = 42, 3.1415, 'Ni!'
-  metadata
-    {
-     "collapsed": false
-    }
 markdown
     This can also be used to easily swap things (again, in a single statement):
 code 102
     b, c = c, b
-  metadata
-    {
-     "collapsed": false
-    }
 code 103
     b
   execute_result
   - text/plain
     'Ni!'
-  metadata
-    {
-     "collapsed": false
-    }
 markdown
     On the right side, there can be any *iterable* object.
     We already know a few iterable things: a tuple, a list, a string; but there are many more iterable objects out there, just waiting to be discovered!
@@ -1500,19 +1094,11 @@ markdown
     Maybe this is best shown in an example:
 code 104
     first, *middle, last = 'hello'
-  metadata
-    {
-     "collapsed": false
-    }
 code 105
     middle
   execute_result
   - text/plain
     ['e', 'l', 'l']
-  metadata
-    {
-     "collapsed": false
-    }
 markdown
     That's great, isn't it? By the way, this is sometimes called *extended unpacking*.
     
@@ -1549,10 +1135,6 @@ markdown
     This is normally available for some kind of collection, like for example a `list`.
 code 106
     mylist = ['one', 'two', 'five']
-  metadata
-    {
-     "collapsed": false
-    }
 markdown
     In case of a `list`, the subscript (the expression inside of the brackets) must be a single integer.
     
@@ -1560,10 +1142,6 @@ markdown
     So if we want to address the third element of a list, we have to use the subscript `2`:
 code 107
     mylist[2] = 'three'
-  metadata
-    {
-     "collapsed": false
-    }
 markdown
     Again, since this is a *statement*, no value is returned.
 code 108
@@ -1571,20 +1149,12 @@ code 108
   execute_result
   - text/plain
     ['one', 'two', 'three']
-  metadata
-    {
-     "collapsed": false
-    }
 markdown
     Note that when assigning to a list element, as always, the value is not copied, but merely a reference inside of the list is bound to the object on the right of the equals sign.
     
     To show this, we can assign a single object to multiple list elements:
 code 109
     mylist[0] = mylist[2]
-  metadata
-    {
-     "collapsed": false
-    }
 markdown
     The *thing* on the left of the equals sign is again treated specially (because the specified list element is bound to another object).
     The *thing* on the right side of the equals sign is just a normal expression, consisting of an *identifier* with the *subscript operator*.
@@ -1598,10 +1168,6 @@ code 110
   execute_result
   - text/plain
     ['three', 'two', 'three']
-  metadata
-    {
-     "collapsed": false
-    }
 markdown
     ... but the `is`-operator tells us that those are just two references to the same single object:
 code 111
@@ -1609,28 +1175,16 @@ code 111
   execute_result
   - text/plain
     True
-  metadata
-    {
-     "collapsed": false
-    }
 markdown
     Negative subscripts are also allowed, which let us index a sequence from the end to the beginning.
     The last element corresponds to the index `-1`.
 code 112
     mylist[-1] = 'one'
-  metadata
-    {
-     "collapsed": false
-    }
 code 113
     mylist
   execute_result
   - text/plain
     ['three', 'two', 'one']
-  metadata
-    {
-     "collapsed": false
-    }
 markdown
     Note that assignment to elements of a `tuple` or to characters of a `str` is not possible, since both types are *immutable*!
     
@@ -1647,10 +1201,6 @@ markdown
     First, let's re-bind the *identifier* we used before.
 code 114
     mylist = ['one', 'two', 'three', 'four', 'five']
-  metadata
-    {
-     "collapsed": false
-    }
 markdown
     Instead of specifying a single integer as subscript, we use a colon to specify a range of indices.
 code 115
@@ -1664,10 +1214,6 @@ code 116
   execute_result
   - text/plain
     ['one', 2, 3, 4, 'five']
-  metadata
-    {
-     "collapsed": false
-    }
 markdown
     As mentioned before, Python starts indexing at `0`.
     
@@ -1690,10 +1236,6 @@ code 118
   execute_result
   - text/plain
     ['1', '2', '3', 4, 'five']
-  metadata
-    {
-     "collapsed": false
-    }
 code 119
     mylist[3:] = 'IV', 'V', 'VI'
   metadata
@@ -1705,10 +1247,6 @@ code 120
   execute_result
   - text/plain
     ['1', '2', '3', 'IV', 'V', 'VI']
-  metadata
-    {
-     "collapsed": false
-    }
 markdown
     As you see here, the number of elements on the left of the equals sign doesn't have to be the same as on the right (except when you use a step size other than one, see below).
     
@@ -1724,48 +1262,28 @@ code 122
   execute_result
   - text/plain
     [0, 1, 2, 3, 4, 5, 6, 7]
-  metadata
-    {
-     "collapsed": false
-    }
 markdown
     Note that in this case, the actual `list` object is mutated, whereas if an *identifier* is merely re-bound (`mylist = ...`), the original `list` object is *not* mutated.
     
     In addition to `start` and `stop`, a slice object can also have a `step` size (specified after a second colon).
 code 123
     mylist[3::2] = '357'
-  metadata
-    {
-     "collapsed": false
-    }
 code 124
     mylist
   execute_result
   - text/plain
     [0, 1, 2, '3', 4, '5', 6, '7']
-  metadata
-    {
-     "collapsed": false
-    }
 markdown
     The default `step` size is, not surprisingly, `1`.
     
     Like `start` and `stop`, the `step` size can also be negative, meaning a reversed order from the end to the beginning:
 code 125
     mylist[::-2] = 'seven', 'five', 'three', 'one'
-  metadata
-    {
-     "collapsed": false
-    }
 code 126
     mylist
   execute_result
   - text/plain
     [0, 'one', 2, 'three', 4, 'five', 6, 'seven']
-  metadata
-    {
-     "collapsed": false
-    }
 markdown
     Note that the colon-operator is only allowed within the brackets of a *subscript*.
     If you want to create a slice object at a different place, you have to use [slice()](http://docs.python.org/3/library/functions.html#slice).
@@ -1774,10 +1292,6 @@ code 127
   execute_result
   - text/plain
     slice(None, 4, None)
-  metadata
-    {
-     "collapsed": false
-    }
 markdown
     If one of `start`, `stop`, `step` is not specified, it is set to `None`.
     Like in the colon-notation, each of them is optional.
@@ -1786,28 +1300,16 @@ code 128
   execute_result
   - text/plain
     slice(None, None, None)
-  metadata
-    {
-     "collapsed": false
-    }
 code 129
     slice(1, 4)
   execute_result
   - text/plain
     slice(1, 4, None)
-  metadata
-    {
-     "collapsed": false
-    }
 code 130
     slice(1, None, 2)
   execute_result
   - text/plain
     slice(1, None, 2)
-  metadata
-    {
-     "collapsed": false
-    }
 markdown
     ## Assignment Recap
     
@@ -1845,10 +1347,6 @@ code 133
   execute_result
   - text/plain
     7
-  metadata
-    {
-     "collapsed": false
-    }
 markdown
     ... but it's quite annoying that we have to type the variable's name twice, isn't it?
     
@@ -1866,10 +1364,6 @@ code 135
   execute_result
   - text/plain
     4
-  metadata
-    {
-     "collapsed": false
-    }
 markdown
     Note, however, that this is only true for *immutable* data types (e.g. numbers, strings, tuples).
     
@@ -1892,10 +1386,6 @@ code 137
   execute_result
   - text/plain
     [1, 2, 3, 4, 5, 6]
-  metadata
-    {
-     "collapsed": false
-    }
 markdown
     In this case there is no difference between mutable and immutable types.
     A new object is created and the original object remains untouched:
@@ -1904,10 +1394,6 @@ code 138
   execute_result
   - text/plain
     [1, 2, 3]
-  metadata
-    {
-     "collapsed": false
-    }
 markdown
     Now let's see what happens with augmented assignment:
 code 139
@@ -1924,10 +1410,6 @@ code 140
   execute_result
   - text/plain
     [1, 2, 3, 4, 5, 6]
-  metadata
-    {
-     "collapsed": false
-    }
 markdown
     But notice what happened to the original list object:
 code 141
@@ -1935,19 +1417,11 @@ code 141
   execute_result
   - text/plain
     [1, 2, 3, 4, 5, 6]
-  metadata
-    {
-     "collapsed": false
-    }
 code 142
     new_list is original_list
   execute_result
   - text/plain
     True
-  metadata
-    {
-     "collapsed": false
-    }
 markdown
     Obviously, the original `list` object was mutated and no new `list` object was created.
     
@@ -1956,10 +1430,6 @@ code 143
     original_tuple = 1, 2, 3
     new_tuple = original_tuple
     new_tuple += 4, 5, 6
-  metadata
-    {
-     "collapsed": false
-    }
 markdown
     At first, it looks the same ...
 code 144
@@ -1967,10 +1437,6 @@ code 144
   execute_result
   - text/plain
     (1, 2, 3, 4, 5, 6)
-  metadata
-    {
-     "collapsed": false
-    }
 markdown
     ... but the original `tuple` object is unchanged (obviously, because it's *immutable*!):
 code 145
@@ -1978,10 +1444,6 @@ code 145
   execute_result
   - text/plain
     (1, 2, 3)
-  metadata
-    {
-     "collapsed": false
-    }
 markdown
     This difference of behavior of the augmented assignment statement for mutable and immutable objects is often the cause for confusion and possibly also for bugs, so be aware!
     
@@ -2049,10 +1511,6 @@ code 147
   execute_result
   - text/plain
     {'name': 'Sir Galahad', 'quest': 'To seek the Grail'}
-  metadata
-    {
-     "collapsed": false
-    }
 markdown
     Note that the displayed order of key/value pairs is not necessarily the same as when creating the `dict`.
     The order may even change when key/value pairs are added or removed.
@@ -2063,10 +1521,6 @@ code 148
   execute_result
   - text/plain
     dict
-  metadata
-    {
-     "collapsed": false
-    }
 markdown
     Yes, it is a `dict` indeed.
     
@@ -2076,10 +1530,6 @@ code 149
   execute_result
   - text/plain
     'Sir Galahad'
-  metadata
-    {
-     "collapsed": false
-    }
 markdown
     We can create a new key/value pair by assigning an object to a new key:
 code 150
@@ -2093,18 +1543,10 @@ code 151
   execute_result
   - text/plain
     {'favorite color': 'Blue', 'name': 'Sir Galahad', 'quest': 'To seek the Grail'}
-  metadata
-    {
-     "collapsed": false
-    }
 markdown
     We can also re-bind an existing key to a new object:
 code 152
     knight['favorite color'] = 'Yellow'
-  metadata
-    {
-     "collapsed": false
-    }
 code 153
     knight
   execute_result
@@ -2112,10 +1554,6 @@ code 153
     {'favorite color': 'Yellow',
      'name': 'Sir Galahad',
      'quest': 'To seek the Grail'}
-  metadata
-    {
-     "collapsed": false
-    }
 markdown
     We can query all the keys in a `dict` ...
 code 154
@@ -2123,10 +1561,6 @@ code 154
   execute_result
   - text/plain
     dict_keys(['name', 'favorite color', 'quest'])
-  metadata
-    {
-     "collapsed": false
-    }
 markdown
     ... all the values ...
 code 155
@@ -2134,10 +1568,6 @@ code 155
   execute_result
   - text/plain
     dict_values(['Sir Galahad', 'Yellow', 'To seek the Grail'])
-  metadata
-    {
-     "collapsed": false
-    }
 markdown
     ... and all key/value pairs:
 code 156
@@ -2145,10 +1575,6 @@ code 156
   execute_result
   - text/plain
     dict_items([('name', 'Sir Galahad'), ('favorite color', 'Yellow'), ('quest', 'To seek the Grail')])
-  metadata
-    {
-     "collapsed": false
-    }
 markdown
     We can use the `in`-operator to check if a certain key is available in a given `dict`:
 code 157
@@ -2156,10 +1582,6 @@ code 157
   execute_result
   - text/plain
     True
-  metadata
-    {
-     "collapsed": false
-    }
 markdown
     A `dict` object is *iterable*, but if we iterate over it (e.g. while building a `list`), it only yields the keys (and no values):
 code 158
@@ -2167,10 +1589,6 @@ code 158
   execute_result
   - text/plain
     ['name', 'favorite color', 'quest']
-  metadata
-    {
-     "collapsed": false
-    }
 markdown
     To add the contents of one dictionary to another dictionary, you can use the `update()` method:
 code 159
@@ -2188,10 +1606,6 @@ code 160
      'name': 'Sir Galahad',
      'nickname': 'The Pure',
      'quest': 'To seek the Grail'}
-  metadata
-    {
-     "collapsed": false
-    }
 markdown
     Until now, we only have used strings as keys and values, but both can have arbitrary types (except that keys must not be mutable objects or rather - more correctly speaking - keys have to be *hashable*).
     
@@ -2207,28 +1621,16 @@ code 162
   execute_result
   - text/plain
     42
-  metadata
-    {
-     "collapsed": false
-    }
 code 163
     stuff[23]
   execute_result
   - text/plain
     [1, 2, 3]
-  metadata
-    {
-     "collapsed": false
-    }
 code 164
     stuff[9, 8, 7]
   execute_result
   - text/plain
     'tuple'
-  metadata
-    {
-     "collapsed": false
-    }
 markdown
     To create an empty dictionary, just use empty braces:
 code 165
@@ -2236,19 +1638,11 @@ code 165
   execute_result
   - text/plain
     {}
-  metadata
-    {
-     "collapsed": false
-    }
 code 166
     type({})
   execute_result
   - text/plain
     dict
-  metadata
-    {
-     "collapsed": false
-    }
 markdown
     In many cases, a `dict` literal (= the thing with the curly braces) is the easiest way to create a `dict` ...
 code 167
@@ -2256,10 +1650,6 @@ code 167
   execute_result
   - text/plain
     {'name': 'Sir Galahad', 'quest': 'To seek the Grail'}
-  metadata
-    {
-     "collapsed": false
-    }
 markdown
     ... but you can also use the `dict()` constructor with an iterable of pairs ...
 code 168
@@ -2267,10 +1657,6 @@ code 168
   execute_result
   - text/plain
     {'name': 'Sir Galahad', 'quest': 'To seek the Grail'}
-  metadata
-    {
-     "collapsed": false
-    }
 markdown
     ... or (if your keys are valid Python identifiers) you can use `dict()` with keyword arguments:
 code 169
@@ -2278,10 +1664,6 @@ code 169
   execute_result
   - text/plain
     {'name': 'Sir Galahad', 'quest': 'To seek the Grail'}
-  metadata
-    {
-     "collapsed": false
-    }
 markdown
     If you want to know more about dictionaries, have a look at [the official docs](https://docs.python.org/3/library/stdtypes.html#mapping-types-dict).
 markdown
@@ -2290,16 +1672,8 @@ markdown
     ## Functions
 code 170
     # docstrings
-  metadata
-    {
-     "collapsed": false
-    }
 code 171
     # built-in functions
-  metadata
-    {
-     "collapsed": false
-    }
 markdown
     ## `if` Statements
 markdown
@@ -2363,6 +1737,6 @@ metadata
       "name": "python",
       "nbconvert_exporter": "python",
       "pygments_lexer": "ipython3",
-      "version": "3.5.1+"
+      "version": "3.5.4"
      }
     }

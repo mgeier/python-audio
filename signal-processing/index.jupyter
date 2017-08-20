@@ -49,6 +49,17 @@ markdown
     https://github.com/ronnyandersson/zignal
     
     https://github.com/crabl/HeadSpace
+    
+    http://willdrevo.com/fingerprinting-and-audio-recognition-with-python/
+    
+    https://github.com/Parisson/TimeSide/  
+    http://files.parisson.com/timeside/doc/index.html  
+    https://github.com/thomasfillon/Timeside-demos
+    
+    https://github.com/pierre-rouanet/dtw  
+    https://github.com/pierre-rouanet/aupyom
+    
+    https://github.com/micknoise/Maximilian (C++)
 markdown
     ### Filter Design
     
@@ -61,6 +72,14 @@ markdown
     http://scipy-cookbook.readthedocs.org/items/FIRFilter.html
     
     http://scipy-cookbook.readthedocs.org/items/FiltFilt.html
+    
+    https://github.com/chipmuenk/pyFDA
+markdown
+    ### IIR
+    
+    http://www.earlevel.com/main/2012/11/26/biquad-c-source-code/
+    
+    http://www.earlevel.com/main/2013/10/13/biquad-calculator-v2/
 markdown
     ### Fixed Point
     
@@ -77,6 +96,9 @@ markdown
     ### Time-Frequency Transforms
     
     https://en.wikipedia.org/wiki/Constant_Q_transform
+    
+    https://grrrr.org/research/software/nsgt/  
+    https://github.com/grrrr/nsgt
 markdown
     ### Voice Activity Detection (VAD)
     
@@ -110,6 +132,6 @@ metadata
       "name": "python",
       "nbconvert_exporter": "python",
       "pygments_lexer": "ipython3",
-      "version": "3.5.2+"
+      "version": "3.5.4"
      }
     }

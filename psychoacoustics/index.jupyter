@@ -1,17 +1,15 @@
 nbformat 4
 nbformat_minor 1
 markdown
-    # Fast Fourier Transform (FFT)
+    # Psychoacoustics
     
-    [back to main page](index.ipynb)
+    [back to main page](../index.ipynb)
+    
+    [Loudness](loudness.ipynb)
 markdown
     ## External Links
     
-    https://jakevdp.github.io/blog/2013/08/28/understanding-the-fft/
-    
-    http://www.cbcity.de/die-fft-mit-python-einfach-erklaert
-    
-    https://jakevdp.github.io/blog/2015/02/24/optimizing-python-with-numpy-and-numba/
+    https://github.com/boisgera/audio.psychoacoustics
 markdown
     <p xmlns:dct="http://purl.org/dc/terms/">
       <a rel="license"

@@ -17,6 +17,10 @@ code 1
     %matplotlib inline
     import matplotlib.pyplot as plt
     import numpy as np
+  metadata
+    {
+     "collapsed": true
+    }
 markdown
     ... and a special class for our animation:
 code 2
@@ -52,6 +56,10 @@ markdown
     By default, the data structure obtained from a `.mat` file is quite clunky, the options `struct_as_record=False` and `squeeze_me=True` make it somewhat easier to handle.
 code 5
     irs = loadmat(file, struct_as_record=False, squeeze_me=True)['irs']
+  metadata
+    {
+     "collapsed": true
+    }
 code 6
     irs._fieldnames
   execute_result
@@ -3139,6 +3147,10 @@ markdown
     The x-axis shows the time in samples, to get the time in milliseconds, we have to specify an array of time instants:
 code 14
     t = np.arange(len(left)) * 1000 / fs  # time in milliseconds
+  metadata
+    {
+     "collapsed": true
+    }
 markdown
     The left impulse response shall appear above the right one, so we shift the left one a bit towards the top and the right one towards the bottom:
 code 15
@@ -3444,9 +3456,17 @@ code 17
         line2.set_ydata(right[:, idx])
         text.set_text('{:g}°'.format(np.rad2deg(irs.apparent_azimuth[idx])))
         return line1, line2, text  # only necessary for blit=True
+  metadata
+    {
+     "collapsed": true
+    }
 code 18
     ani = FuncAnimation(fig, animation_func, frames=left.shape[1],
                         blit=True, interval=60)
+  metadata
+    {
+     "collapsed": true
+    }
 markdown
     Note that the option `blit=True` can be used to make the display in a plot window more efficient.
     For that to work, the animation function has to return all plot objects that it manipulates.
@@ -3457,6 +3477,10 @@ markdown
     However, within a Jupyter notebook this doesn't really work well, so it might be better to save the animation to a video file:
 code 19
     ani.save('hrir.mp4', codec='h264')
+  metadata
+    {
+     "collapsed": true
+    }
 markdown
     The [generated video](hrir.mp4) can be shown within the notebook using the HTML5 `<video>` tag like this:
     
@@ -3471,6 +3495,10 @@ markdown
     {
      "collapsed": true
     }
+markdown
+    ## Further Reading
+    
+    http://jakevdp.github.io/blog/2017/03/08/triple-pendulum-chaos/
 markdown
     <p xmlns:dct="http://purl.org/dc/terms/">
       <a rel="license"
@@ -3500,6 +3528,6 @@ metadata
       "name": "python",
       "nbconvert_exporter": "python",
       "pygments_lexer": "ipython3",
-      "version": "3.6.0"
+      "version": "3.5.4"
      }
     }

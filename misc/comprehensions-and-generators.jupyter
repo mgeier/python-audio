@@ -332,7 +332,7 @@ markdown
     
     For completeness' sake, let me mention `set` and `dict` comprehensions here.
     
-    Set comprehensions look very much like `list` comprehensions, except that the are enclosed in a pair of braces instead of brackets.
+    Set comprehensions look very much like `list` comprehensions, except that they are enclosed in a pair of braces instead of brackets.
     
     And of course they create a `set`, i.e. there are no duplicates and you shouldn't rely on the order of items.
 code 26

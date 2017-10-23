@@ -71,6 +71,12 @@ markdown
     https://github.com/maartenbreddels/ipyvolume  
     https://pypi.python.org/pypi/ipyvolume
 markdown
+    ### Brunel
+    
+    https://github.com/Brunel-Visualization/Brunel
+    
+    http://brunelvis.org/
+markdown
     <p xmlns:dct="http://purl.org/dc/terms/">
       <a rel="license"
          href="http://creativecommons.org/publicdomain/zero/1.0/">
@@ -99,6 +105,6 @@ metadata
       "name": "python",
       "nbconvert_exporter": "python",
       "pygments_lexer": "ipython3",
-      "version": "3.5.4"
+      "version": "3.6.3"
      }
     }

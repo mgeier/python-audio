@@ -922,7 +922,7 @@ markdown
     Whenever we use an *identifier*, it is as if we were using the actual referenced object instead.
     This is why the previous statement returned `int`, which isn't the type of the *identifier* but the type of the object it's currently bound to.
     
-    The only place where an identifier is *not* treated like the object it's bound to, is on the left side of an *assignment statement*.
+    The only place where an identifier is *not* treated like the object it's bound to, is on the left side of an *assignment statement* (and inside a [del](https://docs.python.org/3/reference/simple_stmts.html#del) statement, but let's not worry about that right now).
     That's also the reason why assignment is not (and cannot be) an *operator* and why it cannot be used as part of an expression.
     
     We learned that a new identifier can be created by just using a name that hasn't been used before in an assignment statement.
@@ -1703,6 +1703,7 @@ markdown
     * bytes
     * `*args`, `**kwargs`
     * globals()/locals()
+    * del
     * static methods, class methods
     * "special" methods, operator overloading
     * properties, descriptors
@@ -1737,6 +1738,6 @@ metadata
       "name": "python",
       "nbconvert_exporter": "python",
       "pygments_lexer": "ipython3",
-      "version": "3.5.4"
+      "version": "3.6.3"
      }
     }

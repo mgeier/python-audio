@@ -91,6 +91,9 @@ markdown
     http://matthew-brett.github.io/teaching/
     
     http://jakevdp.github.io/blog/2017/03/03/reproducible-data-analysis-in-jupyter/
+    
+    Python Data Science Handbook: full text in Jupyter Notebooks  
+    https://github.com/jakevdp/PythonDataScienceHandbook
 markdown
     ### Python in General
     
@@ -119,6 +122,9 @@ markdown
     Programming with Python (MATH20622): http://www.maths.manchester.ac.uk/~vsego/teaching.php
     
     https://github.com/justmarkham/python-reference
+    
+    pytudes: Python programs for perfecting programming skills  
+    https://github.com/norvig/pytudes
 markdown
     ### Python Trivia
     
@@ -170,6 +176,6 @@ metadata
       "name": "python",
       "nbconvert_exporter": "python",
       "pygments_lexer": "ipython3",
-      "version": "3.5.4"
+      "version": "3.6.3"
      }
     }

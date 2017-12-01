@@ -373,6 +373,8 @@ code 18
     ⎣x⋅sin(θ) + y⋅cos(θ)  x⋅cos(θ) - y⋅sin(θ) ⎦
 markdown
     quaternions ...
+    
+    Note: quaternions could also be represented as complex 2x2 matrices, see https://gitlab.com/certik/ijk/blob/master/mul.py.
 code 19
     qw = sp.eye(4)
     qw

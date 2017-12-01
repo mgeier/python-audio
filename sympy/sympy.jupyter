@@ -1,5 +1,5 @@
 nbformat 4
-nbformat_minor 0
+nbformat_minor 1
 markdown
     # Some Random SymPy Stuff
 code 1
@@ -11,16 +11,8 @@ code 1
     
     # for even older IPython/SymPy versions:
     #%load_ext sympyprinting
-  metadata
-    {
-     "collapsed": false
-    }
 code 2
     x, y = sp.symbols("x y")
-  metadata
-    {
-     "collapsed": false
-    }
 code 3
     (sp.pi + x) ** 2
   execute_result
@@ -41,10 +33,6 @@ code 3
   - text/plain
            2
     (x + π) 
-  metadata
-    {
-     "collapsed": false
-    }
 code 4
     expr = ((x + y)**2 * (x + 1))
     expr
@@ -69,10 +57,6 @@ code 4
   - text/plain
                    2
     (x + 1)⋅(x + y) 
-  metadata
-    {
-     "collapsed": false
-    }
 code 5
     sp.expand(expr)
   execute_result
@@ -101,10 +85,6 @@ code 5
   - text/plain
      3      2      2      2            2
     x  + 2⋅x ⋅y + x  + x⋅y  + 2⋅x⋅y + y 
-  metadata
-    {
-     "collapsed": false
-    }
 code 6
     sp.diff(sp.cos(x**2)**2 / (1 + x), x)
   execute_result
@@ -148,10 +128,6 @@ code 6
     - ─────────────────── - ────────
              x + 1                 2
                             (x + 1) 
-  metadata
-    {
-     "collapsed": false
-    }
 code 7
     x = sp.symbols('x', positive=True)
     x > 0
@@ -169,10 +145,6 @@ code 7
     $$\mathrm{True}$$
   - text/plain
     True
-  metadata
-    {
-     "collapsed": false
-    }
 code 8
     sp.exp(sp.I * sp.pi)
   execute_result
@@ -186,10 +158,6 @@ code 8
     $$-1$$
   - text/plain
     -1
-  metadata
-    {
-     "collapsed": false
-    }
 code 9
     sp.oo
   execute_result
@@ -204,16 +172,8 @@ code 9
     $$\infty$$
   - text/plain
     ∞
-  metadata
-    {
-     "collapsed": false
-    }
 code 10
     a, b, c = sp.symbols("a, b, c")
-  metadata
-    {
-     "collapsed": false
-    }
 code 11
     sp.expand(sp.sin(a + b))
   execute_result
@@ -234,10 +194,6 @@ code 11
     $$\sin{\left (a + b \right )}$$
   - text/plain
     sin(a + b)
-  metadata
-    {
-     "collapsed": false
-    }
 code 12
     sp.expand(sp.sin(a + b), trig=True)
   execute_result
@@ -269,10 +225,6 @@ code 12
     $$\sin{\left (a \right )} \cos{\left (b \right )} + \sin{\left (b \right )} \cos{\left (a \right )}$$
   - text/plain
     sin(a)⋅cos(b) + sin(b)⋅cos(a)
-  metadata
-    {
-     "collapsed": false
-    }
 code 13
     sp.simplify(sp.sin(x)**2 + sp.cos(x)**2)
   execute_result
@@ -285,10 +237,6 @@ code 13
     $$1$$
   - text/plain
     1
-  metadata
-    {
-     "collapsed": false
-    }
 code 14
     sp.factor(x**3 + 6 * x**2 + 11*x + 6)
   execute_result
@@ -314,10 +262,6 @@ code 14
     $$\left(x + 1\right) \left(x + 2\right) \left(x + 3\right)$$
   - text/plain
     (x + 1)⋅(x + 2)⋅(x + 3)
-  metadata
-    {
-     "collapsed": false
-    }
 code 15
     sp.simplify(sp.cos(x) / sp.sin(x))
   execute_result
@@ -339,10 +283,6 @@ code 15
       1   
     ──────
     tan(x)
-  metadata
-    {
-     "collapsed": false
-    }
 code 16
     expr1 = 1 / ((a + 1) * (a + 2))
     expr1
@@ -367,10 +307,6 @@ code 16
            1       
     ───────────────
     (a + 1)⋅(a + 2)
-  metadata
-    {
-     "collapsed": false
-    }
 code 17
     sp.apart(expr1)
   execute_result
@@ -393,10 +329,6 @@ code 17
         1       1  
     - ───── + ─────
       a + 2   a + 1
-  metadata
-    {
-     "collapsed": false
-    }
 code 18
     z = sp.symbols('z')
   metadata
@@ -429,10 +361,6 @@ code 19
     $$\sin{\left (x y \right )} + \cos{\left (y z \right )}$$
   - text/plain
     sin(x⋅y) + cos(y⋅z)
-  metadata
-    {
-     "collapsed": false
-    }
 code 20
     sp.integrate(f, x)
   execute_result
@@ -480,10 +408,6 @@ code 20
     x⋅cos(y⋅z) + ⎜⎨-cos(x⋅y)            ⎟
                  ⎜⎪──────────  otherwise⎟
                  ⎝⎩    y                ⎠
-  metadata
-    {
-     "collapsed": false
-    }
 code 21
     sp.integrate(f, y)
   execute_result
@@ -532,10 +456,6 @@ code 21
     ⎜⎨sin(y⋅z)           ⎟ - ────────
     ⎜⎪────────  otherwise⎟      x    
     ⎝⎩   z               ⎠           
-  metadata
-    {
-     "collapsed": false
-    }
 code 22
     sp.integrate(sp.exp(-x**2), x)
   execute_result
@@ -562,10 +482,6 @@ code 22
     ╲╱ π ⋅erf(x)
     ────────────
          2      
-  metadata
-    {
-     "collapsed": false
-    }
 code 23
     sp.integrate(sp.exp(-x**2), (x, -sp.oo, sp.oo))
   execute_result
@@ -582,10 +498,6 @@ code 23
   - text/plain
       ___
     ╲╱ π 
-  metadata
-    {
-     "collapsed": false
-    }
 code 24
     sp.integrate(x + sp.sinh(x), x)
   execute_result
@@ -612,10 +524,6 @@ code 24
     x           
     ── + cosh(x)
     2           
-  metadata
-    {
-     "collapsed": false
-    }
 code 25
     sp.diff(_, x)
   execute_result
@@ -635,10 +543,6 @@ code 25
     $$x + \sinh{\left (x \right )}$$
   - text/plain
     x + sinh(x)
-  metadata
-    {
-     "collapsed": false
-    }
 code 26
     sp.limit(sp.sin(sp.pi * x) / x, x, 0)
   execute_result
@@ -652,10 +556,6 @@ code 26
     $$\pi$$
   - text/plain
     π
-  metadata
-    {
-     "collapsed": false
-    }
 code 27
     4 * sp.atan(1)
   execute_result
@@ -669,10 +569,6 @@ code 27
     $$\pi$$
   - text/plain
     π
-  metadata
-    {
-     "collapsed": false
-    }
 code 28
     n = sp.symbols('n')
   metadata
@@ -703,10 +599,6 @@ code 29
      (-1)  
     ───────
     2⋅n + 1
-  metadata
-    {
-     "collapsed": false
-    }
 code 30
     sp.summation(expr, (n, 0, sp.oo))
   execute_result
@@ -724,10 +616,6 @@ code 30
     π
     ─
     4
-  metadata
-    {
-     "collapsed": false
-    }
 code 31
     sp.series(sp.atan(x), x, n=13)
   execute_result
@@ -768,10 +656,6 @@ code 31
         x    x    x    x    x      ⎛ 13⎞
     x - ── + ── - ── + ── - ─── + O⎝x  ⎠
         3    5    7    9     11         
-  metadata
-    {
-     "collapsed": false
-    }
 code 32
     expr = 1 / (x + y)
     expr
@@ -791,10 +675,6 @@ code 32
       1  
     ─────
     x + y
-  metadata
-    {
-     "collapsed": false
-    }
 code 33
     expr.series(x)
   execute_result
@@ -838,10 +718,6 @@ code 33
     ─ - ── + ── - ── + ── - ── + O⎝x ⎠
     y    2    3    4    5    6        
         y    y    y    y    y         
-  metadata
-    {
-     "collapsed": false
-    }
 code 34
     sp.series(sp.exp(x), x)
   execute_result
@@ -882,10 +758,6 @@ code 34
             x    x    x     x     ⎛ 6⎞
     1 + x + ── + ── + ── + ─── + O⎝x ⎠
             2    6    24   120        
-  metadata
-    {
-     "collapsed": false
-    }
 code 35
     sp.summation(1 / sp.factorial(n), (n, 0, sp.oo))
   execute_result
@@ -899,10 +771,6 @@ code 35
     $$e$$
   - text/plain
     ℯ
-  metadata
-    {
-     "collapsed": false
-    }
 code 36
     expr = (1 + 1/n) ** n
     expr
@@ -930,10 +798,6 @@ code 36
     ⎛    1⎞ 
     ⎜1 + ─⎟ 
     ⎝    n⎠ 
-  metadata
-    {
-     "collapsed": false
-    }
 code 37
     sp.limit(expr, n, sp.oo)
   execute_result
@@ -947,10 +811,6 @@ code 37
     $$e$$
   - text/plain
     ℯ
-  metadata
-    {
-     "collapsed": false
-    }
 code 38
     sp.pi.evalf(100)
   execute_result
@@ -1014,10 +874,6 @@ code 38
   - text/plain
     3.1415926535897932384626433832795028841971693993751058209749445923078164062862
     08998628034825342117068
-  metadata
-    {
-     "collapsed": false
-    }
 code 39
     sp.solve(x**4 - x**2 - 1, x)
   execute_result
@@ -1050,10 +906,6 @@ code 39
     ⎢   ╱  1   ╲╱ 5  ⎥
     ⎢  ╱   ─ + ───── ⎥
     ⎣╲╱    2     2   ⎦
-  metadata
-    {
-     "collapsed": false
-    }
 code 40
     sp.solve([x + y - 1, x - y - 1], [x,y])
   execute_result
@@ -1074,10 +926,6 @@ code 40
     $$\left \{ x : 1, \quad y : 0\right \}$$
   - text/plain
     {x: 1, y: 0}
-  metadata
-    {
-     "collapsed": false
-    }
 code 41
     sp.solve([x + y - a, x - y - c], [x,y])
   execute_result
@@ -1109,10 +957,6 @@ code 41
     ⎧   a   c     a   c⎫
     ⎨x: ─ + ─, y: ─ - ─⎬
     ⎩   2   2     2   2⎭
-  metadata
-    {
-     "collapsed": false
-    }
 code 42
     sp.symbols('m:q')
   execute_result
@@ -1134,10 +978,6 @@ code 42
     $$\left ( m, \quad n, \quad o, \quad p, \quad q\right )$$
   - text/plain
     (m, n, o, p, q)
-  metadata
-    {
-     "collapsed": false
-    }
 code 43
     sp.symbols('r:5')
   execute_result
@@ -1160,10 +1000,6 @@ code 43
     $$\left ( r_{0}, \quad r_{1}, \quad r_{2}, \quad r_{3}, \quad r_{4}\right )$$
   - text/plain
     (r₀, r₁, r₂, r₃, r₄)
-  metadata
-    {
-     "collapsed": false
-    }
 code 44
     m = sp.symbols('m')
     M = sp.Matrix([[1, m], [3, 4]])
@@ -1186,10 +1022,6 @@ code 44
     ⎡1  m⎤
     ⎢    ⎥
     ⎣3  4⎦
-  metadata
-    {
-     "collapsed": false
-    }
 code 45
     M.inv()
   execute_result
@@ -1224,10 +1056,6 @@ code 45
     ⎢    -3           1    ⎥
     ⎢  ────────    ────────⎥
     ⎣  -3⋅m + 4    -3⋅m + 4⎦
-  metadata
-    {
-     "collapsed": false
-    }
 code 46
     A = sp.Matrix(sp.symbols("m:2:2")).reshape(2, 2)
     A
@@ -1250,10 +1078,6 @@ code 46
     ⎡m₀₀  m₀₁⎤
     ⎢        ⎥
     ⎣m₁₀  m₁₁⎦
-  metadata
-    {
-     "collapsed": false
-    }
 code 47
     A[1, 0]
   execute_result
@@ -1269,10 +1093,6 @@ code 47
     $$m_{10}$$
   - text/plain
     m₁₀
-  metadata
-    {
-     "collapsed": false
-    }
 code 48
     b = sp.Matrix(sp.symbols("b:2"))
     b
@@ -1293,10 +1113,6 @@ code 48
     ⎡b₀⎤
     ⎢  ⎥
     ⎣b₁⎦
-  metadata
-    {
-     "collapsed": false
-    }
 code 49
     A**2
   execute_result
@@ -1339,10 +1155,6 @@ code 49
     ⎢                                    ⎥
     ⎢                                 2  ⎥
     ⎣m₀₀⋅m₁₀ + m₁₀⋅m₁₁   m₀₁⋅m₁₀ + m₁₁   ⎦
-  metadata
-    {
-     "collapsed": false
-    }
 code 50
     A * b
   execute_result
@@ -1369,10 +1181,6 @@ code 50
     ⎡b₀⋅m₀₀ + b₁⋅m₀₁⎤
     ⎢               ⎥
     ⎣b₀⋅m₁₀ + b₁⋅m₁₁⎦
-  metadata
-    {
-     "collapsed": false
-    }
 code 51
     A.det()
   execute_result
@@ -1393,10 +1201,6 @@ code 51
     $$m_{00} m_{11} - m_{01} m_{10}$$
   - text/plain
     m₀₀⋅m₁₁ - m₀₁⋅m₁₀
-  metadata
-    {
-     "collapsed": false
-    }
 code 52
     A.inv()
   execute_result
@@ -1460,10 +1264,6 @@ code 52
     ⎢       ⎛      m₀₁⋅m₁₀⎞               m₀₁⋅m₁₀   ⎥
     ⎢   m₀₀⋅⎜m₁₁ - ───────⎟         m₁₁ - ───────   ⎥
     ⎣       ⎝        m₀₀  ⎠                 m₀₀     ⎦
-  metadata
-    {
-     "collapsed": false
-    }
 markdown
     from https://github.com/sympy/sympy/wiki/Matrices-eigenvalues
 code 53
@@ -1505,10 +1305,6 @@ code 53
     ⎢1  3  5  7 ⎥
     ⎢           ⎥
     ⎣1  4  7  10⎦
-  metadata
-    {
-     "collapsed": false
-    }
 code 54
     M.eigenvals()
   execute_result
@@ -1544,10 +1340,6 @@ code 54
     ⎧          ____           ____       ⎫
     ⎨0: 2, - ╲╱ 61  + 9: 1, ╲╱ 61  + 9: 1⎬
     ⎩                                    ⎭
-  metadata
-    {
-     "collapsed": false
-    }
 code 55
     M = sp.Matrix(4, 4, lambda i, j: i * j + 2)
     M
@@ -1590,10 +1382,6 @@ code 55
     ⎢2  4  6  8 ⎥
     ⎢           ⎥
     ⎣2  5  8  11⎦
-  metadata
-    {
-     "collapsed": false
-    }
 code 56
     M.eigenvals()
   execute_result
@@ -1617,10 +1405,6 @@ code 56
     $$\left \{ 0 : 2, \quad 2 : 1, \quad 20 : 1\right \}$$
   - text/plain
     {0: 2, 2: 1, 20: 1}
-  metadata
-    {
-     "collapsed": false
-    }
 code 57
     M = sp.Matrix(4, 4, lambda i, j: i * j + 3)
     M
@@ -1664,10 +1448,6 @@ code 57
     ⎢3  5  7  9 ⎥
     ⎢           ⎥
     ⎣3  6  9  12⎦
-  metadata
-    {
-     "collapsed": false
-    }
 code 58
     M.eigenvals()
   execute_result
@@ -1703,10 +1483,6 @@ code 58
     ⎧          _____            _____        ⎫
     ⎨0: 2, - ╲╱ 109  + 13: 1, ╲╱ 109  + 13: 1⎬
     ⎩                                        ⎭
-  metadata
-    {
-     "collapsed": false
-    }
 code 59
     x = sp.symbols('x')
     M = sp.Matrix(4, 4, lambda i, j: i * j + x)
@@ -1758,10 +1534,6 @@ code 59
     ⎢x  x + 2  x + 4  x + 6⎥
     ⎢                      ⎥
     ⎣x  x + 3  x + 6  x + 9⎦
-  metadata
-    {
-     "collapsed": false
-    }
 code 60
     M.eigenvals()
   execute_result
@@ -1813,10 +1585,6 @@ code 60
     ⎧               _________________                  _________________       ⎫
     ⎨              ╱    2                             ╱    2                   ⎬
     ⎩0: 2, 2⋅x - ╲╱  4⋅x  + 8⋅x + 49  + 7: 1, 2⋅x + ╲╱  4⋅x  + 8⋅x + 49  + 7: 1⎭
-  metadata
-    {
-     "collapsed": false
-    }
 markdown
     from https://groups.google.com/forum/#!topic/sympy/mISLFQcEUIM
 code 61
@@ -1862,16 +1630,8 @@ code 61
     ⎨1/2  for x < 1 
     ⎪               
     ⎩ 0   otherwise 
-  metadata
-    {
-     "collapsed": false
-    }
 code 62
     #sp.integrate(f.subs(x, x - y) * f(x), y)
-  metadata
-    {
-     "collapsed": false
-    }
 code 63
     sp.integrate(sp.Heaviside(x + 1) / 2 - sp.Heaviside(x - 1) / 2, (x, -10, -5))
   execute_result
@@ -1888,10 +1648,6 @@ code 63
     $$- \frac{5}{2}$$
   - text/plain
     -5/2
-  metadata
-    {
-     "collapsed": false
-    }
 code 64
     q = sp.Piecewise((0, x < 0), (x, x < 1), (0, True))
     q
@@ -1933,10 +1689,6 @@ code 64
     ⎨x  for x < 1
     ⎪            
     ⎩0  otherwise
-  metadata
-    {
-     "collapsed": false
-    }
 code 65
     q.args
   execute_result
@@ -1969,10 +1721,6 @@ code 65
     $$\left ( \left ( 0, \quad x < 0\right ), \quad \left ( x, \quad x < 1\right ), \quad \left ( 0, \quad \mathrm{True}\right )\right )$$
   - text/plain
     ((0, x < 0), (x, x < 1), (0, True))
-  metadata
-    {
-     "collapsed": false
-    }
 markdown
     from https://groups.google.com/forum/#!topic/sympy/tt8IA3y2sfQ
 code 66
@@ -2001,10 +1749,6 @@ code 66
            2
          -x 
     x ↦ ℯ   
-  metadata
-    {
-     "collapsed": false
-    }
 code 67
     conv = sp.Integral(f(x-y)*f(y), (y, -sp.oo, sp.oo))
     conv
@@ -2041,10 +1785,6 @@ code 67
     ⎮  ℯ   ⋅ℯ          dy
     ⌡                    
     -∞                   
-  metadata
-    {
-     "collapsed": false
-    }
 code 68
     conv.subs(x, 0)
   execute_result
@@ -2076,10 +1816,6 @@ code 68
     ⎮  ℯ      dy
     ⌡           
     -∞          
-  metadata
-    {
-     "collapsed": false
-    }
 code 69
     l = sp.lambdify(x, sp.Integral(f(x), (x, -sp.oo, sp.oo)))
     #l(3) # doesn't work!
@@ -2087,20 +1823,12 @@ code 69
   execute_result
   - text/plain
     <function numpy.<lambda>>
-  metadata
-    {
-     "collapsed": false
-    }
 code 70
     l = sp.lambdify(x, sp.Integral(f(x), (x, -sp.oo, sp.oo)), "sympy")
     l
   execute_result
   - text/plain
     <function <lambda>>
-  metadata
-    {
-     "collapsed": false
-    }
 code 71
     l(x)
   execute_result
@@ -2131,10 +1859,6 @@ code 71
     ⎮  ℯ    dx
     ⌡         
     -∞        
-  metadata
-    {
-     "collapsed": false
-    }
 markdown
     from http://www.mare.ee/indrek/misc/convolution.pdf
 code 72
@@ -2200,18 +1924,10 @@ code 73
     $$\left [ \left ( 0.025 x + 0.275, \quad -11, \quad -9\right ), \quad \left ( 0.05, \quad -9, \quad 9\right ), \quad \left ( - 0.025 x + 0.275, \quad 9, \quad 11\right )\right ]$$
   - text/plain
     [(0.025⋅x + 0.275, -11, -9), (0.05, -9, 9), (-- -0.025⋅x + 0.275, 9, 11)]
-  metadata
-    {
-     "collapsed": false
-    }
 markdown
     from https://github.com/fperez/sympy/blob/master/sympy/solvers/tests/test_pde.py
 code 74
     from sympy import Derivative as D
-  metadata
-    {
-     "collapsed": false
-    }
 code 75
     x, y, z, t = sp.symbols("x y z t")
     c = sp.symbols("c", real=True)
@@ -2268,10 +1984,6 @@ code 76
     ∂                ∂                ∂                 
     ──(F(x, y, z)) + ──(F(x, y, z)) + ──(F(x, y, z)) = 0
     ∂x               ∂y               ∂z                
-  metadata
-    {
-     "collapsed": false
-    }
 code 77
     sp.pde_separate_mul(eq, F(x, y, z), [Y(y), u(x, z)])
   execute_result
@@ -2324,10 +2036,6 @@ code 77
     ⎢dy          ∂x            ∂z         ⎥
     ⎢────────, - ─────────── - ───────────⎥
     ⎣  Y(y)        u(x, z)       u(x, z)  ⎦
-  metadata
-    {
-     "collapsed": false
-    }
 code 78
     sp.pde_separate_mul(eq, F(x, y, z), [X(x), Y(y), Z(z)])
   execute_result
@@ -2378,10 +2086,6 @@ code 78
     ⎢dx          dz         dy      ⎥
     ⎢────────, - ──────── - ────────⎥
     ⎣  X(x)        Z(z)       Y(y)  ⎦
-  metadata
-    {
-     "collapsed": false
-    }
 code 79
     # wave equation
     wave = sp.Eq(D(u(x, t), t, t), c**2*D(u(x, t), x, x))
@@ -2424,10 +2128,6 @@ code 79
     ───(u(x, t)) = c ⋅───(u(x, t))
       2                 2         
     ∂t                ∂x          
-  metadata
-    {
-     "collapsed": false
-    }
 code 80
     sp.pde_separate_mul(wave, u(x, t), [X(x), T(t)])
   execute_result
@@ -2474,10 +2174,6 @@ code 80
     ⎢─────────, ─────────⎥
     ⎢   X(x)      2      ⎥
     ⎣            c ⋅T(t) ⎦
-  metadata
-    {
-     "collapsed": false
-    }
 code 81
     # Laplace equation in cylindrical coords
     eq = sp.Eq(1/r * D(Phi(r, theta, z), r) + D(Phi(r, theta, z), r, 2) +
@@ -2541,10 +2237,6 @@ code 81
     ───(Φ(r, θ, z)) + ───(Φ(r, θ, z)) + ────────────── + ─────────────── = 0
       2                 2                     r                  2          
     ∂r                ∂z                                        r           
-  metadata
-    {
-     "collapsed": false
-    }
 code 82
     # Separate z
     sp.pde_separate_mul(eq, Phi(r, theta, z), [Z(z), u(theta, r)])
@@ -2610,10 +2302,6 @@ code 82
     ⎢─────────, - ──────────── - ─────────── - ────────────⎥
     ⎢   Z(z)        u(θ, r)       r⋅u(θ, r)      2         ⎥
     ⎣                                           r ⋅u(θ, r) ⎦
-  metadata
-    {
-     "collapsed": false
-    }
 code 83
     # Lets use the result to create a new equation...
     eq = sp.Eq(_[1], c)
@@ -2666,10 +2354,6 @@ code 83
     - ──────────── - ─────────── - ──────────── = c
         u(θ, r)       r⋅u(θ, r)      2             
                                     r ⋅u(θ, r)     
-  metadata
-    {
-     "collapsed": false
-    }
 code 84
     # ...and separate theta...
     sp.pde_separate_mul(eq, u(theta, r), [T(theta), R(r)])
@@ -2726,10 +2410,6 @@ code 84
     ⎢dθ              2      dr            dr      ⎥
     ⎢─────────, - c⋅r  - ──────────── - ──────────⎥
     ⎣   T(θ)                 R(r)          R(r)   ⎦
-  metadata
-    {
-     "collapsed": false
-    }
 code 85
     # ...or r...
     sp.pde_separate_mul(eq, u(theta, r), [R(r), T(theta)])
@@ -2788,16 +2468,8 @@ code 85
     ⎢   2      dr            dr         dθ        ⎥
     ⎢c⋅r  + ──────────── + ──────────, ───────────⎥
     ⎣           R(r)          R(r)         T(θ)   ⎦
-  metadata
-    {
-     "collapsed": false
-    }
 code
     
-  metadata
-    {
-     "collapsed": false
-    }
 markdown
     <p xmlns:dct="http://purl.org/dc/terms/">
       <a rel="license"
@@ -2827,6 +2499,6 @@ metadata
       "name": "python",
       "nbconvert_exporter": "python",
       "pygments_lexer": "ipython3",
-      "version": "3.4.3+"
+      "version": "3.6.3"
      }
     }

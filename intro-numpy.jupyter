@@ -1,5 +1,5 @@
 nbformat 4
-nbformat_minor 0
+nbformat_minor 1
 markdown
     # A Short Introduction to NumPy
     
@@ -8,14 +8,12 @@ markdown
     TODO: everything!
 code
     
-  metadata
-    {
-     "collapsed": false
-    }
 markdown
     ## External Links
     
     http://www.loria.fr/~rougier/teaching/numpy/numpy.html
+    
+    https://github.com/rougier/numpy-100
     
     http://nbviewer.ipython.org/github/rasbt/python_reference/blob/master/tutorials/numpy_nan_quickguide.ipynb
     
@@ -49,6 +47,6 @@ metadata
       "name": "python",
       "nbconvert_exporter": "python",
       "pygments_lexer": "ipython3",
-      "version": "3.4.3+"
+      "version": "3.6.3"
      }
     }

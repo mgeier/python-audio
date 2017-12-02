@@ -1,0 +1,7 @@
+libsndfile1
+sndfile-programs
+sox
+libsox-fmt-all
+vorbis-tools
+fonts-humor-sans
+ffmpeg

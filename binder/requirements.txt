@@ -4,3 +4,4 @@ matplotlib
 soundfile
 mpld3
 audioread
+colorspacious

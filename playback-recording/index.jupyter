@@ -83,6 +83,12 @@ markdown
     
     Debian package: python-pygame
 markdown
+    ### Audiostream
+    
+    https://github.com/kivy/audiostream
+    
+    https://audiostream.readthedocs.io/
+markdown
     ## OpenAL Wrappers
 markdown
     ### pyglet
@@ -238,6 +244,6 @@ metadata
       "name": "python",
       "nbconvert_exporter": "python",
       "pygments_lexer": "ipython3",
-      "version": "3.5.2+"
+      "version": "3.6.4"
      }
     }

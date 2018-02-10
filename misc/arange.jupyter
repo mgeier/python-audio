@@ -1,5 +1,5 @@
 nbformat 4
-nbformat_minor 0
+nbformat_minor 1
 markdown
     # `numpy.arange()` with floats considered harmful
     
@@ -10,10 +10,6 @@ markdown
     If the step size is a floating-point number, however, the result might not be what you expect.
 code 1
     import numpy as np
-  metadata
-    {
-     "collapsed": false
-    }
 markdown
     ## But when I last tried it worked as expected ...
     
@@ -24,37 +20,21 @@ code 2
   execute_result
   - text/plain
     array([0, 1, 2, 3, 4, 5, 6])
-  metadata
-    {
-     "collapsed": false
-    }
 code 3
     np.arange(1, 7)
   execute_result
   - text/plain
     array([1, 2, 3, 4, 5, 6])
-  metadata
-    {
-     "collapsed": false
-    }
 code 4
     np.arange(1, 7, 2)
   execute_result
   - text/plain
     array([1, 3, 5])
-  metadata
-    {
-     "collapsed": false
-    }
 code 5
     np.arange(1, 7, 6)
   execute_result
   - text/plain
     array([1])
-  metadata
-    {
-     "collapsed": false
-    }
 markdown
     The `start` value is always part of the returned range, the `stop` value is never part of it.
     
@@ -64,10 +44,6 @@ code 6
   execute_result
   - text/plain
     array([ 0.4,  0.5,  0.6,  0.7,  0.8,  0.9,  1. ])
-  metadata
-    {
-     "collapsed": false
-    }
 markdown
     Also here, as expected, the `stop` value is not part of the range.
 markdown
@@ -81,10 +57,6 @@ code 7
   execute_result
   - text/plain
     array([ 0.5,  0.6,  0.7,  0.8,  0.9,  1. ,  1.1])
-  metadata
-    {
-     "collapsed": false
-    }
 markdown
     Wow, now `stop` is suddenly included in the range! We didn't expect that!
     
@@ -100,10 +72,6 @@ code 8
   execute_result
   - text/plain
     array([ 0.5,  0.6,  0.7,  0.8,  0.9,  1. ,  1.1])
-  metadata
-    {
-     "collapsed": false
-    }
 markdown
     In contrast to `np.arange()`, the resulting range includes the last value.
     
@@ -113,10 +81,6 @@ code 9
   execute_result
   - text/plain
     array([ 0.5,  0.6,  0.7,  0.8,  0.9,  1. ])
-  metadata
-    {
-     "collapsed": false
-    }
 markdown
     If you, however, want to create a range with a given *spacing*, you'd have to manually calculate the *number of values* before being able to use `numpy.linspace()`.
     
@@ -130,18 +94,10 @@ code 10
   execute_result
   - text/plain
     array([ 0.5,  0.6,  0.7,  0.8,  0.9,  1. ])
-  metadata
-    {
-     "collapsed": false
-    }
 markdown
     This yields the expected result, but it only works if you know that the distance between `start` and `stop` is (approximately) an integer multiple of the spacing.
 code 11
     assert np.isclose((1.1 - 0.5) % step, 0.0)
-  metadata
-    {
-     "collapsed": false
-    }
 markdown
     If you want to include the `stop` value, you can do something like this:
 code 12
@@ -149,18 +105,10 @@ code 12
   execute_result
   - text/plain
     array([ 0.5,  0.6,  0.7,  0.8,  0.9,  1. ,  1.1])
-  metadata
-    {
-     "collapsed": false
-    }
 markdown
     Again, you have to make sure that the spacing fits to the distance:
 code 13
     assert np.isclose((1.1 + 0.5) % step, 0.0)
-  metadata
-    {
-     "collapsed": false
-    }
 markdown
     ## Can't this be done automatically?
     
@@ -169,19 +117,11 @@ code 14
     def myrange(start, stop, step=1):
         # Don't use this function, see below!
         return np.arange(start, stop - step*0.5, step)
-  metadata
-    {
-     "collapsed": false
-    }
 code 15
     myrange(0.5, 1.1, 0.1)
   execute_result
   - text/plain
     array([ 0.5,  0.6,  0.7,  0.8,  0.9,  1. ])
-  metadata
-    {
-     "collapsed": false
-    }
 markdown
     OK, the problematic case from above works. But let's change the `stop` value a little bit:
 code 16
@@ -189,10 +129,6 @@ code 16
   execute_result
   - text/plain
     array([ 0.5,  0.6,  0.7,  0.8,  0.9,  1. ])
-  metadata
-    {
-     "collapsed": false
-    }
 markdown
     Here, we would expect `1.1` to be part of the range, because it's clearly smaller than `1.11`. So let's modify our function:
 code 17
@@ -200,19 +136,11 @@ code 17
         if np.isclose((stop - start) % step, 0.0):
             stop -= step * 0.5
         return np.arange(start, stop, step)
-  metadata
-    {
-     "collapsed": false
-    }
 code 18
     myrange(0.5, 1.11, 0.1)
   execute_result
   - text/plain
     array([ 0.5,  0.6,  0.7,  0.8,  0.9,  1. ,  1.1])
-  metadata
-    {
-     "collapsed": false
-    }
 markdown
     OK, now `1.1` is part of the range, as expected.
 code 19
@@ -220,10 +148,6 @@ code 19
   execute_result
   - text/plain
     array([ 0.5,  0.6,  0.7,  0.8,  0.9,  1. ])
-  metadata
-    {
-     "collapsed": false
-    }
 markdown
     The previous example still works. Good.
     
@@ -233,10 +157,6 @@ code 20
         if np.isclose((stop - start) % step, 0.0, **kwargs):
             stop -= step * 0.5
         return np.arange(start, stop, step, dtype)
-  metadata
-    {
-     "collapsed": false
-    }
 markdown
     Note that we also enabled the `dtype` argument from `numpy.arange()`.
 code 21
@@ -244,19 +164,11 @@ code 21
   execute_result
   - text/plain
     array([ 0.5,  0.6,  0.7,  0.8,  0.9,  1. ,  1.1])
-  metadata
-    {
-     "collapsed": false
-    }
 code 22
     myrange(0.5, 1.11, 0.1, atol=0.02)
   execute_result
   - text/plain
     array([ 0.5,  0.6,  0.7,  0.8,  0.9,  1. ])
-  metadata
-    {
-     "collapsed": false
-    }
 markdown
     This is a quite constructed example, but it should show that setting the tolerance works
     
@@ -266,10 +178,6 @@ code 23
   execute_result
   - text/plain
     array([ 1.,  2.,  3.,  4.,  5.,  6.])
-  metadata
-    {
-     "collapsed": false
-    }
 markdown
     We could add this as branch to our function implementation, but I think it isn't that important. And if we really want integers, we can still force them with `dtype`:
 code 24
@@ -277,10 +185,6 @@ code 24
   execute_result
   - text/plain
     array([1, 2, 3, 4, 5, 6])
-  metadata
-    {
-     "collapsed": false
-    }
 markdown
     OK, that doesn't look that bad, does it?
 markdown
@@ -296,19 +200,11 @@ code 25
             else:
                 stop -= step * 0.5
         return np.arange(start, stop, step, dtype)
-  metadata
-    {
-     "collapsed": false
-    }
 code 26
     myrange(0.5, 1.1, 0.1, endpoint=True)
   execute_result
   - text/plain
     array([ 0.5,  0.6,  0.7,  0.8,  0.9,  1. ,  1.1])
-  metadata
-    {
-     "collapsed": false
-    }
 markdown
     OK, this seems to work. Let's try another example ...
 code 27
@@ -316,10 +212,6 @@ code 27
   execute_result
   - text/plain
     array([ 1. ,  1.2,  1.4,  1.6,  1.8])
-  metadata
-    {
-     "collapsed": false
-    }
 markdown
     What? The endpoint clearly isn't part of the range!
     
@@ -336,19 +228,11 @@ code 28
             else:
                 stop -= step * 0.5
         return np.arange(start, stop, step, dtype)
-  metadata
-    {
-     "collapsed": false
-    }
 code 29
     myrange(1, 2, 0.2, endpoint=True)
   execute_result
   - text/plain
     array([ 1. ,  1.2,  1.4,  1.6,  1.8,  2. ])
-  metadata
-    {
-     "collapsed": false
-    }
 markdown
     Good, that's settled. Let's try another one:
 code 30
@@ -356,10 +240,6 @@ code 30
   execute_result
   - text/plain
     array([ 0.5,  0.6,  0.7,  0.8,  0.9,  1. ,  1.1])
-  metadata
-    {
-     "collapsed": false
-    }
 markdown
     Now this is a little strange, because `1.11` is not included. But on the other hand, it isn't even part of the series!
     
@@ -376,19 +256,11 @@ code 31
         elif endpoint:
             raise ValueError("Invalid stop value for endpoint=True")
         return np.arange(start, stop, step, dtype)
-  metadata
-    {
-     "collapsed": false
-    }
 code 32
     myrange(0.5, 1.1, 0.1, endpoint=True)
   execute_result
   - text/plain
     array([ 0.5,  0.6,  0.7,  0.8,  0.9,  1. ,  1.1])
-  metadata
-    {
-     "collapsed": false
-    }
 code 33
     myrange(0.5, 1.11, 0.1, endpoint=True)
   error
@@ -412,10 +284,6 @@ code 33
     [0m[0;32m     10[0m     [1;32mreturn[0m [0mnp[0m[1;33m.[0m[0marange[0m[1;33m([0m[0mstart[0m[1;33m,[0m [0mstop[0m[1;33m,[0m [0mstep[0m[1;33m,[0m [0mdtype[0m[1;33m)[0m[1;33m[0m[0m
    ~
     [1;31mValueError[0m: Invalid stop value for endpoint=True
-  metadata
-    {
-     "collapsed": false
-    }
 markdown
     OK, I guess I'll leave it at that for now.
     This is also more or less what I implemented as helper function in the [Sound Field Synthesis Toolbox](http://sfs-python.readthedocs.io/#sfs.util.strict_arange).
@@ -452,6 +320,6 @@ metadata
       "name": "python",
       "nbconvert_exporter": "python",
       "pygments_lexer": "ipython3",
-      "version": "3.4.3+"
+      "version": "3.6.4"
      }
     }

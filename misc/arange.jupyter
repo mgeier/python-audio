@@ -5,7 +5,7 @@ markdown
     
     A few examples used in this notebook are taken from http://quantumwise.com/forum/index.php?topic=110.0#.VIVgyIctjRZ.
     
-    We often need series of regularly spaced numbers. [numpy.arange()](http://docs.scipy.org/doc/numpy/reference/generated/numpy.arange.html) is great for that, as long as the step size is an integer.
+    We often need series of regularly spaced numbers. [numpy.arange()](https://docs.scipy.org/doc/numpy/reference/generated/numpy.arange.html) is great for that, as long as the step size is an integer.
     
     If the step size is a floating-point number, however, the result might not be what you expect.
 code 1
@@ -17,7 +17,7 @@ code 1
 markdown
     ## But when I last tried it worked as expected ...
     
-    [numpy.arange()](http://docs.scipy.org/doc/numpy/reference/generated/numpy.arange.html) is NumPy's extension of Python's built-in [range()](https://docs.python.org/3/library/functions.html#func-range) function.
+    [numpy.arange()](https://docs.scipy.org/doc/numpy/reference/generated/numpy.arange.html) is NumPy's extension of Python's built-in [range()](https://docs.python.org/3/library/functions.html#func-range) function.
     The latter only works with integers, which are also no problem for the former:
 code 2
     np.arange(7)  # defaults: start=0, step=1
@@ -94,7 +94,7 @@ markdown
     
     Well, there isn't a single solution for all use cases, it depends on what you need.
     
-    If you know the first and the last value that should be in your range and the total number of values, you should use [`numpy.linspace()`](http://docs.scipy.org/doc/numpy/reference/generated/numpy.linspace.html).
+    If you know the first and the last value that should be in your range and the total number of values, you should use [numpy.linspace()](https://docs.scipy.org/doc/numpy/reference/generated/numpy.linspace.html).
 code 8
     np.linspace(0.5, 1.1, 7)
   execute_result
@@ -121,7 +121,7 @@ markdown
     If you, however, want to create a range with a given *spacing*, you'd have to manually calculate the *number of values* before being able to use `numpy.linspace()`.
     
     It would be great if there were a feature of either `numpy.linspace()` or `numpy.arange()` that would allow specifying a *spacing* but would also avoid the above-mentioned problem.
-    This was discussed years ago on the NumPy mailing list. Sadly, nobody could come up with a good solution.
+    This was discussed [years ago on the NumPy mailing list](https://mail.python.org/pipermail/numpy-discussion/2007-September/029129.html). Sadly, nobody could come up with a good solution.
     
     So for now, you're stuck with adding or subtracting small amounts to/from the `stop` value to get the desired behavior.
 code 10
@@ -227,7 +227,7 @@ code 19
 markdown
     The previous example still works. Good.
     
-    This isn't a very elegant solution, though. The behavior depends on the tolerances used in [numpy.isclose()](http://docs.scipy.org/doc/numpy/reference/generated/numpy.isclose.html), namely `rtol` and `atol`. Let's add those to our function!
+    This isn't a very elegant solution, though. The behavior depends on the tolerances used in [numpy.isclose()](https://docs.scipy.org/doc/numpy/reference/generated/numpy.isclose.html), namely `rtol` and `atol`. Let's add those to our function!
 code 20
     def myrange(start, stop, step=1, dtype=None, **kwargs):
         if np.isclose((stop - start) % step, 0.0, **kwargs):
@@ -418,7 +418,7 @@ code 33
     }
 markdown
     OK, I guess I'll leave it at that for now.
-    This is also more or less what I implemented as helper function in the [Sound Field Synthesis Toolbox](http://sfs.readthedocs.org/#sfs.util.strict_arange).
+    This is also more or less what I implemented as helper function in the [Sound Field Synthesis Toolbox](http://sfs-python.readthedocs.io/#sfs.util.strict_arange).
     
     It's not a perfect solution, but probably it works for your use case.
     

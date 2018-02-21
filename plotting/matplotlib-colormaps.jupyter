@@ -1,5 +1,5 @@
 nbformat 4
-nbformat_minor 0
+nbformat_minor 2
 markdown
     # Colormaps in `matplotlib`
     
@@ -12,6 +12,8 @@ markdown
     * tool for analyzing and creating colormaps: [viscm](https://github.com/BIDS/viscm)
     
     * tool for colorspace conversions: [colorspacious](http://colorspacious.readthedocs.org/)
+    
+    * another tool [colour](http://colour-science.org/), [repo](https://github.com/colour-science/colour)
 code 1
     %matplotlib inline
     import matplotlib.pyplot as plt
@@ -57,10 +59,6 @@ markdown
     The first 4 colormaps are new in matplotlib 1.5, `viridis` will become the default colormap starting with matplotlib 2.0.
     
     Have a look at the [webpage documenting the colormap contest](http://bids.github.io/colormap/) and watch this video for details: [How We Designed Matplotlib's New Default Colormap (and You Can Too)](https://youtu.be/TojFwkglCKs).
-  metadata
-    {
-     "collapsed": true
-    }
 code 3
     show_colormap_with_lightness('viridis')
   display_data
@@ -15955,6 +15953,6 @@ metadata
       "name": "python",
       "nbconvert_exporter": "python",
       "pygments_lexer": "ipython3",
-      "version": "3.4.4rc1"
+      "version": "3.6.4+"
      }
     }

@@ -1,5 +1,5 @@
 nbformat 4
-nbformat_minor 1
+nbformat_minor 2
 markdown
     # Audio Playback and Recording
     
@@ -216,6 +216,17 @@ markdown
     
     (outdated?) Python bindings: https://github.com/thestk/rtaudio/tree/master/contrib/python/pyrtaudio
 markdown
+    ### SoundCard
+    
+    https://github.com/bastibe/SoundCard
+markdown
+    ### libsoundio
+    
+    https://github.com/andrewrk/libsoundio  
+    http://libsound.io/
+    
+    Python wrappers?
+markdown
     <p xmlns:dct="http://purl.org/dc/terms/">
       <a rel="license"
          href="http://creativecommons.org/publicdomain/zero/1.0/">
@@ -244,6 +255,6 @@ metadata
       "name": "python",
       "nbconvert_exporter": "python",
       "pygments_lexer": "ipython3",
-      "version": "3.6.4"
+      "version": "3.6.4+"
      }
     }

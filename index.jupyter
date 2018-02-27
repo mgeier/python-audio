@@ -1,5 +1,5 @@
 nbformat 4
-nbformat_minor 1
+nbformat_minor 2
 markdown
     # Audio Signal Processing in Python
     
@@ -65,6 +65,14 @@ markdown
     https://sites.google.com/site/sigsys15/
     
     A Journey in Signal processing with IPython: https://github.com/jfbercher/LecturesSignalProcessing
+markdown
+    ### Systems and Control Theory
+    
+    https://github.com/python-control/python-control
+    
+    http://harold.readthedocs.io/, https://github.com/ilayn/harold
+    
+    https://github.com/alchemyst/Skogestad-Python
 markdown
     ### Other Scientific Topics and Scientific Python in General
     
@@ -178,6 +186,6 @@ metadata
       "name": "python",
       "nbconvert_exporter": "python",
       "pygments_lexer": "ipython3",
-      "version": "3.6.4"
+      "version": "3.6.4+"
      }
     }

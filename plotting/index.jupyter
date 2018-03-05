@@ -57,6 +57,12 @@ markdown
     
     https://realpython.com/blog/python/python-matplotlib-guide/
 markdown
+    ### Interactive Plots
+    
+    `ipywidgets.interact`: https://ipywidgets.readthedocs.io/en/latest/examples/Using%20Interact.html
+    
+    https://www.nbinteract.com/
+markdown
     ### seaborn
     
     http://stanford.edu/~mwaskom/software/seaborn/

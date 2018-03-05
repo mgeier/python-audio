@@ -1,5 +1,5 @@
 nbformat 4
-nbformat_minor 1
+nbformat_minor 2
 markdown
     # Available Measurement Data
     
@@ -17,7 +17,7 @@ markdown
     
     https://github.com/IoSR-Surrey/RealRoomBRIRs
     
-    http://hrtf.ircam.fr
+    http://hrtf.ircam.fr = http://recherche.ircam.fr/equipes/salles/listen/
     
     http://audiogroup.web.th-koeln.de/wdr_irc.html  
     http://audiogroup.web.th-koeln.de/ku100hrir.html  
@@ -26,6 +26,12 @@ markdown
     Binaural room impulse responses of an apartment-like environment: http://dx.doi.org/10.5281/zenodo.49357
     
     The Salford BBC Spatially-sampled Binaural Room Impulse Response dataset: http://usir.salford.ac.uk/30868/, http://rdata.salford.ac.uk/sbsbrir/
+    
+    The ITA HRTF-database: A high-resolution head-related transfer function (HRTF) and three-dimensional (3D) ear model database: http://www.akustik.rwth-aachen.de/cms/Technische-Akustik/Forschung/~lsly/HRTF-Datenbank/?lidx=1
+    
+    The CIPIC HRTF Database: https://www.ece.ucdavis.edu/cipic/spatial-sound/hrtf-data/
+    
+    https://steinhardt.nyu.edu/marl/research/head_related_impulse_responses_repository
     
     More links: http://www.soundfieldsynthesis.org/other-resources/#impulse-responses
 markdown
@@ -57,7 +63,7 @@ metadata
       "name": "python",
       "nbconvert_exporter": "python",
       "pygments_lexer": "ipython3",
-      "version": "3.6.4rc1"
+      "version": "3.6.4+"
      },
      "widgets": {
       "state": {},

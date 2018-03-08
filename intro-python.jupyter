@@ -1,5 +1,5 @@
 nbformat 4
-nbformat_minor 1
+nbformat_minor 2
 markdown
     # An Introduction to Python
     
@@ -1070,6 +1070,7 @@ markdown
     
     But Python has a very nice additional feature that not many other languages have, that allows to bind *multiple* identifiers to a sequence of objects in a single statement.
     Some people also call this *tuple unpacking* or *sequence unpacking*.
+    See also [Multiple assignment and tuple unpacking improve Python code readability](http://treyhunner.com/2018/03/tuple-unpacking-improves-python-code-readability/), a blog post by Trey Hunner.
 code 101
     a, b, c = 42, 3.1415, 'Ni!'
 markdown
@@ -1738,6 +1739,6 @@ metadata
       "name": "python",
       "nbconvert_exporter": "python",
       "pygments_lexer": "ipython3",
-      "version": "3.6.3"
+      "version": "3.6.4+"
      }
     }

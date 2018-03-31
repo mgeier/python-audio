@@ -108,6 +108,8 @@ markdown
     https://github.com/ml4a/ml4a-guides
     
     Notes on Artificial Intelligence: https://frnsys.com/ai_notes/
+    
+    IPython Cookbook, Second Edition (2018): http://ipython-books.github.io/
 markdown
     ### Python in General
     
@@ -192,6 +194,6 @@ metadata
       "name": "python",
       "nbconvert_exporter": "python",
       "pygments_lexer": "ipython3",
-      "version": "3.6.4+"
+      "version": "3.6.5"
      }
     }

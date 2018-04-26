@@ -1,5 +1,5 @@
 nbformat 4
-nbformat_minor 0
+nbformat_minor 1
 markdown
     # Acoustics
     
@@ -30,6 +30,8 @@ markdown
     https://en.wikibooks.org/wiki/Acoustics
     
     http://www.acs.psu.edu/drussell/Demos/doppler/doppler.html
+    
+    Haiopy Acoustics Input and Output in Python: https://github.com/kleinjc/haiopy
 markdown
     <p xmlns:dct="http://purl.org/dc/terms/">
       <a rel="license"
@@ -59,6 +61,6 @@ metadata
       "name": "python",
       "nbconvert_exporter": "python",
       "pygments_lexer": "ipython3",
-      "version": "3.5.2+"
+      "version": "3.6.5"
      }
     }

@@ -72,6 +72,8 @@ markdown
     https://github.com/everdrone/libsnd (C++)
     
     https://github.com/LancePutnam/Gamma (C++)
+    
+    https://madmom.readthedocs.io/, https://github.com/CPJKU/madmom (Python audio and music signal processing library)
 markdown
     ### Filter Design
     
@@ -155,6 +157,6 @@ metadata
       "name": "python",
       "nbconvert_exporter": "python",
       "pygments_lexer": "ipython3",
-      "version": "3.6.4+"
+      "version": "3.6.5+"
      }
     }

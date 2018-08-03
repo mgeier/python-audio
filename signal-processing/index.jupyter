@@ -74,6 +74,8 @@ markdown
     https://github.com/LancePutnam/Gamma (C++)
     
     https://madmom.readthedocs.io/, https://github.com/CPJKU/madmom (Python audio and music signal processing library)
+    
+    Automatic headphone equalization: https://github.com/jaakkopasanen/AutoEq
 markdown
     ### Filter Design
     
@@ -157,6 +159,6 @@ metadata
       "name": "python",
       "nbconvert_exporter": "python",
       "pygments_lexer": "ipython3",
-      "version": "3.6.5+"
+      "version": "3.6.6"
      }
     }

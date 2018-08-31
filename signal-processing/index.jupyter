@@ -79,6 +79,10 @@ markdown
     
     Introduction to Digital Filters (with Audio Applications): https://ccrma.stanford.edu/~jos/filters/  
     Jupyter Notebooks: https://github.com/khiner/notebooks/tree/master/introduction_to_digital_filters
+    
+    C++ Library for Audio Analysis: http://www.adamstark.co.uk/project/gist/, https://github.com/adamstark/Gist
+    
+    The Synthesis ToolKit in C++ (STK): https://ccrma.stanford.edu/software/stk/, https://github.com/thestk/stk
 markdown
     ### Filter Design
     

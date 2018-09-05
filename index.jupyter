@@ -110,6 +110,8 @@ markdown
     Notes on Artificial Intelligence: https://frnsys.com/ai_notes/
     
     IPython Cookbook, Second Edition (2018): http://ipython-books.github.io/
+    
+    Learning Python for Social Scientists: https://nealcaren.github.io/python-tutorials/
 markdown
     ### Python in General
     
@@ -194,6 +196,6 @@ metadata
       "name": "python",
       "nbconvert_exporter": "python",
       "pygments_lexer": "ipython3",
-      "version": "3.6.5"
+      "version": "3.6.6+"
      }
     }

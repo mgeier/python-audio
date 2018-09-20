@@ -83,6 +83,8 @@ markdown
     C++ Library for Audio Analysis: http://www.adamstark.co.uk/project/gist/, https://github.com/adamstark/Gist
     
     The Synthesis ToolKit in C++ (STK): https://ccrma.stanford.edu/software/stk/, https://github.com/thestk/stk
+    
+    Fast, modern C++ DSP framework, FFT, Audio Sample Rate Conversion, FIR/IIR/Biquad Filters (SSE, AVX, ARM NEON): https://github.com/kfrlib/kfr (GPL-3.0)
 markdown
     ### Filter Design
     

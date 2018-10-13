@@ -119,6 +119,19 @@ markdown
     In Jupyter/IPython, there is even a simpler way: just append (or prepend) a question mark:
 code 3
     print?
+  display_data
+  - text/plain
+    [0;31mDocstring:[0m
+    print(value, ..., sep=' ', end='\n', file=sys.stdout, flush=False)
+    
+    Prints the values to a stream, or to sys.stdout by default.
+    Optional keyword arguments:
+    file:  a file-like object (stream); defaults to the current sys.stdout.
+    sep:   string inserted between values, default a space.
+    end:   string appended after the last value, default a newline.
+    flush: whether to forcibly flush the stream.
+    [0;31mType:[0m      builtin_function_or_method
+    
   metadata
     {
      "collapsed": true
@@ -619,7 +632,7 @@ code 63
     {42, 3.1415, 'Ni!', 42}
   execute_result
   - text/plain
-    {42, 3.1415, 'Ni!'}
+    {3.1415, 42, 'Ni!'}
 markdown
     An empty set cannot be created with an empty pair of braces, because this would create an empty dictionary (see [below](#Dictionaries)):
 code 64
@@ -987,12 +1000,12 @@ code 94
     id(greeting)
   execute_result
   - text/plain
-    140272767112880
+    140384094503896
 code 95
     id(the_same_greeting)
   execute_result
   - text/plain
-    140272767112880
+    140384094503896
 markdown
     As we can see, the two objects have the same ID, so it's actually just one object that happens to have two names bound to it.
     
@@ -1040,13 +1053,13 @@ code 99
     id(number)
   execute_result
   - text/plain
-    10686080
+    8825824
 code 100
     number = 1
     id(number)
   execute_result
   - text/plain
-    10686112
+    8825856
 markdown
     If the second assignment would overwrite the memory area of the old data, `id()` would return the same value as before.
     But we see that the IDs are different, therefore, `0` and `1` must be different objects.
@@ -1543,7 +1556,7 @@ code 151
     knight
   execute_result
   - text/plain
-    {'favorite color': 'Blue', 'name': 'Sir Galahad', 'quest': 'To seek the Grail'}
+    {'name': 'Sir Galahad', 'quest': 'To seek the Grail', 'favorite color': 'Blue'}
 markdown
     We can also re-bind an existing key to a new object:
 code 152
@@ -1552,30 +1565,30 @@ code 153
     knight
   execute_result
   - text/plain
-    {'favorite color': 'Yellow',
-     'name': 'Sir Galahad',
-     'quest': 'To seek the Grail'}
+    {'name': 'Sir Galahad',
+     'quest': 'To seek the Grail',
+     'favorite color': 'Yellow'}
 markdown
     We can query all the keys in a `dict` ...
 code 154
     knight.keys()
   execute_result
   - text/plain
-    dict_keys(['name', 'favorite color', 'quest'])
+    dict_keys(['name', 'quest', 'favorite color'])
 markdown
     ... all the values ...
 code 155
     knight.values()
   execute_result
   - text/plain
-    dict_values(['Sir Galahad', 'Yellow', 'To seek the Grail'])
+    dict_values(['Sir Galahad', 'To seek the Grail', 'Yellow'])
 markdown
     ... and all key/value pairs:
 code 156
     knight.items()
   execute_result
   - text/plain
-    dict_items([('name', 'Sir Galahad'), ('favorite color', 'Yellow'), ('quest', 'To seek the Grail')])
+    dict_items([('name', 'Sir Galahad'), ('quest', 'To seek the Grail'), ('favorite color', 'Yellow')])
 markdown
     We can use the `in`-operator to check if a certain key is available in a given `dict`:
 code 157
@@ -1589,7 +1602,7 @@ code 158
     list(knight)
   execute_result
   - text/plain
-    ['name', 'favorite color', 'quest']
+    ['name', 'quest', 'favorite color']
 markdown
     To add the contents of one dictionary to another dictionary, you can use the `update()` method:
 code 159
@@ -1602,11 +1615,11 @@ code 160
     knight
   execute_result
   - text/plain
-    {'favorite color': 'Yellow',
-     'home castle': 'Camelot',
-     'name': 'Sir Galahad',
+    {'name': 'Sir Galahad',
+     'quest': 'To seek the Grail',
+     'favorite color': 'Yellow',
      'nickname': 'The Pure',
-     'quest': 'To seek the Grail'}
+     'home castle': 'Camelot'}
 markdown
     Until now, we only have used strings as keys and values, but both can have arbitrary types (except that keys must not be mutable objects or rather - more correctly speaking - keys have to be *hashable*).
     
@@ -1669,11 +1682,13 @@ markdown
     If you want to know more about dictionaries, have a look at [the official docs](https://docs.python.org/3/library/stdtypes.html#mapping-types-dict).
 markdown
     ## Comments
+code 170
+    # no comment
 markdown
     ## Functions
-code 170
-    # docstrings
 code 171
+    # docstrings
+code 172
     # built-in functions
 markdown
     ## `if` Statements
@@ -1739,6 +1754,6 @@ metadata
       "name": "python",
       "nbconvert_exporter": "python",
       "pygments_lexer": "ipython3",
-      "version": "3.6.4+"
+      "version": "3.6.7rc1"
      }
     }

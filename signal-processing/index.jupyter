@@ -100,6 +100,22 @@ markdown
     
     https://github.com/chipmuenk/pyFDA
 markdown
+    ### Fourier Transform
+    
+    #### Relation of Fourier Transform with Epicycles
+    
+    https://www.youtube.com/watch?v=QVuU2YCwHjw
+    
+    https://www.youtube.com/watch?v=qS4H6PEcCCA
+    
+    https://mathematica.stackexchange.com/questions/118834/how-to-graph-the-contour-of-a-resulting-manipulate-curve
+    
+    https://mathematica.stackexchange.com/questions/171755/how-can-i-draw-a-homer-with-epicycloids
+    
+    https://bl.ocks.org/jinroh/7524988
+    
+    Drawing an elephant with four complex parameters: https://doi.org/10.1119/1.3254017
+markdown
     ### IIR
     
     http://www.earlevel.com/main/2012/11/26/biquad-c-source-code/
@@ -168,6 +184,6 @@ metadata
       "name": "python",
       "nbconvert_exporter": "python",
       "pygments_lexer": "ipython3",
-      "version": "3.6.6+"
+      "version": "3.6.7"
      }
     }

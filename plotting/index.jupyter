@@ -5,15 +5,17 @@ markdown
     
     [back to main page](../index.ipynb)
     
-    The de-facto standard library for plotting in Python is "matplotlib".
+    The de-facto standard library for plotting in Python is "Matplotlib".
     
-    * [Getting Started with `matplotlib`](matplotlib.ipynb)
+    * [Getting Started with Matplotlib](matplotlib.ipynb)
     
-    * [Colormaps in `matplotlib`](matplotlib-colormaps.ipynb)
+    * [Default Values for Matplotlib's "inline" backend](matplotlib-inline-defaults.ipynb)
     
-    * [Properly Sized Color Bars in `matplotlib`](matplotlib-colorbar.ipynb)
+    * [Colormaps in Matplotlib](matplotlib-colormaps.ipynb)
     
-    * [Creating Animations with `matplotlib`](matplotlib-animation.ipynb)
+    * [Properly Sized Color Bars in Matplotlib](matplotlib-colorbar.ipynb)
+    
+    * [Creating Animations with Matplotlib](matplotlib-animation.ipynb)
     
     * [Using the "notebook" backend](matplotlib-notebook-backend.ipynb)
     
@@ -123,6 +125,6 @@ metadata
       "name": "python",
       "nbconvert_exporter": "python",
       "pygments_lexer": "ipython3",
-      "version": "3.6.4+"
+      "version": "3.6.7"
      }
     }

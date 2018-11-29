@@ -85,6 +85,8 @@ markdown
     The Synthesis ToolKit in C++ (STK): https://ccrma.stanford.edu/software/stk/, https://github.com/thestk/stk
     
     Fast, modern C++ DSP framework, FFT, Audio Sample Rate Conversion, FIR/IIR/Biquad Filters (SSE, AVX, ARM NEON): https://github.com/kfrlib/kfr (GPL-3.0)
+    
+    A Collection of Useful C++ Classes for Digital Signal Processing: https://github.com/vinniefalco/DSPFilters
 markdown
     ### Filter Design
     

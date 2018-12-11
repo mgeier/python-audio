@@ -1,5 +1,5 @@
 nbformat 4
-nbformat_minor 1
+nbformat_minor 2
 markdown
     # Loudness
     
@@ -20,6 +20,8 @@ markdown
     EBU R 128 https://tech.ebu.ch/loudness
     
     -1 dBTP
+    
+    Implementation of ITU-R BS.1770-4 loudness algorithm in Python: https://github.com/csteinmetz1/pyloudnorm
     
     Python library: http://mikrolax.github.io/loudnessPlotter/
     
@@ -58,6 +60,6 @@ metadata
       "name": "python",
       "nbconvert_exporter": "python",
       "pygments_lexer": "ipython3",
-      "version": "3.5.4"
+      "version": "3.7.1"
      }
     }

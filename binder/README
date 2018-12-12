@@ -1,0 +1,7 @@
+This directory holds configuration files for https://mybinder.org/.
+
+The interactive notebooks can be accessed with this link:
+https://mybinder.org/v2/gh/mgeier/python-audio/master?filepath=index.ipynb
+
+To check out a different version, just replace "master" with the desired
+branch/tag name or commit hash.

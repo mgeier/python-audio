@@ -5,3 +5,6 @@ libsox-fmt-all
 vorbis-tools
 fonts-humor-sans
 ffmpeg
+curl
+pypy
+pypy-dev

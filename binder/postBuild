@@ -2,4 +2,7 @@
 
 set -e
 
-# nothing yet
+curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
+pypy get-pip.py --user
+pypy -m pip install numpy --user
+pypy -m pip install soundfile --user

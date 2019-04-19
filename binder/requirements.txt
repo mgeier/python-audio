@@ -5,3 +5,4 @@ soundfile
 mpld3
 audioread
 colorspacious
+sympy

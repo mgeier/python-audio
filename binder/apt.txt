@@ -8,3 +8,4 @@ ffmpeg
 curl
 pypy
 pypy-dev
+ddate

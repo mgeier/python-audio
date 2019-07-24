@@ -6,6 +6,4 @@ vorbis-tools
 fonts-humor-sans
 ffmpeg
 curl
-pypy
-pypy-dev
 ddate

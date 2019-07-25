@@ -7,3 +7,4 @@ fonts-humor-sans
 ffmpeg
 curl
 ddate
+hdf5-tools

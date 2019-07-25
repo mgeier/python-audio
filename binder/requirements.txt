@@ -7,3 +7,4 @@ audioread
 colorspacious
 sympy
 h5py
+git+git://github.com/mkrphys/ipython-tikzmagic

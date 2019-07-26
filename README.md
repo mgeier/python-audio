@@ -18,7 +18,7 @@ The authors waive copyright and related rights in the work through the
 
 [1]: https://codeload.github.com/mgeier/python-audio/zip/master
 [2]: https://nbviewer.jupyter.org/github/mgeier/python-audio/blob/master/index.ipynb
-[3]: https://mybinder.org/v2/gh/mgeier/python-audio/master?filepath=index.ipynb
+[3]: https://mybinder.org/v2/gh/mgeier/python-audio/dev?filepath=index.ipynb
 
 [Jupyter]: https://jupyter.org/
 [IPython]: https://ipython.org/notebook.html

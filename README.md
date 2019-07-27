@@ -15,6 +15,13 @@ You may consume them in different ways:
 
 * [![Launch Binder][badge]][binder] for the ultimate interactive online experience
 
+Please note that the `master` branch contains "executed" notebooks,
+i.e. the outputs from code cells (e.g. plots) are stored within the notebooks.
+The `dev` branch contains the same notebooks, just without those outputs.
+If you want to make a pull request,
+please create a new branch based on the `dev` branch
+and strip all outputs from the notebooks before committing.
+
 The authors waive copyright and related rights in the work through the
 [CC0 1.0 Universal public domain dedication][CC0].
 

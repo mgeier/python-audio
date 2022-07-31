@@ -8,4 +8,4 @@ ffmpeg
 curl
 ddate
 hdf5-tools
-texlive-pictures
+texlive-latex-extra

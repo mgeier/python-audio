@@ -9,3 +9,4 @@ curl
 ddate
 hdf5-tools
 texlive-latex-extra
+pdf2svg

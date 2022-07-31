@@ -8,3 +8,4 @@ ffmpeg
 curl
 ddate
 hdf5-tools
+texlive-latex-base

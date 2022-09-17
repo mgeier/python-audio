@@ -1,6 +1,7 @@
 numpy
 scipy
 matplotlib
+matplotlib-inline >= 0.1.6
 soundfile
 mpld3
 audioread

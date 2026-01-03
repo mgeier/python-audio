@@ -1,13 +1,18 @@
 """Helper functions for working with audio files in NumPy."""
 
-import numpy as np
 import contextlib
+import numpy as np
 
 
-def pcm2float(sig, dtype='float64'):
+def pcm2float(sig, dtype="float64"):
     """Convert PCM signal to floating point with a range from -1 to 1.
 
     Use dtype='float32' for single precision.
+
+    >>> import numpy as np
+    >>> sig = np.array([-32768, 0, 32767], dtype='int16')
+    >>> pcm2float(sig, 'float64')
+    array([-1.        ,  0.        ,  0.99996948])
 
     Parameters
     ----------
@@ -27,10 +32,10 @@ def pcm2float(sig, dtype='float64'):
 
     """
     sig = np.asarray(sig)
-    if sig.dtype.kind not in 'iu':
+    if sig.dtype.kind not in "iu":
         raise TypeError("'sig' must be an array of integers")
     dtype = np.dtype(dtype)
-    if dtype.kind != 'f':
+    if dtype.kind != "f":
         raise TypeError("'dtype' must be a floating point type")
 
     i = np.iinfo(sig.dtype)
@@ -39,16 +44,16 @@ def pcm2float(sig, dtype='float64'):
     return (sig.astype(dtype) - offset) / abs_max
 
 
-def float2pcm(sig, dtype='int16'):
+def float2pcm(sig, dtype="int16"):
     """Convert floating point signal with a range from -1 to 1 to PCM.
 
     Any signal values outside the interval [-1.0, 1.0) are clipped.
     No dithering is used.
 
-    Note that there are different possibilities for scaling floating
-    point numbers to PCM numbers, this function implements just one of
-    them.  For an overview of alternatives see
-    http://blog.bjornroche.com/2009/12/int-float-int-its-jungle-out-there.html
+    >>> import numpy as np
+    >>> sig = np.array([-1.0, 0.0, 0.5], dtype='float64')
+    >>> float2pcm(sig, 'int16')
+    array([-32768,      0,  16384], dtype=int16)
 
     Parameters
     ----------
@@ -69,10 +74,10 @@ def float2pcm(sig, dtype='int16'):
 
     """
     sig = np.asarray(sig)
-    if sig.dtype.kind != 'f':
+    if sig.dtype.kind != "f":
         raise TypeError("'sig' must be a float array")
     dtype = np.dtype(dtype)
-    if dtype.kind not in 'iu':
+    if dtype.kind not in "iu":
         raise TypeError("'dtype' must be an integer type")
 
     i = np.iinfo(dtype)
@@ -108,18 +113,18 @@ def pcm24to32(data, channels=1, normalize=True):
 
     """
     if len(data) % 3 != 0:
-        raise ValueError('Size of data must be a multiple of 3 bytes')
+        raise ValueError("Size of data must be a multiple of 3 bytes")
 
-    out = np.zeros(len(data) // 3, dtype='<i4')
+    out = np.zeros(len(data) // 3, dtype="<i4")
     out.shape = -1, channels
-    temp = out.view('uint8').reshape(-1, 4)
+    temp = out.view("uint8").reshape(-1, 4)
     if normalize:
         # write to last 3 columns, leave LSB at zero
         columns = slice(1, None)
     else:
         # write to first 3 columns, leave MSB at zero
         columns = slice(None, -1)
-    temp[:, columns] = np.frombuffer(data, dtype='uint8').reshape(-1, 3)
+    temp[:, columns] = np.frombuffer(data, dtype="uint8").reshape(-1, 3)
     return out
 
 
@@ -136,3 +141,9 @@ def printoptions(*args, **kwargs):
         yield
     finally:
         np.set_printoptions(**original)
+
+
+if __name__ == "__main__":
+    import doctest
+
+    doctest.testmod()

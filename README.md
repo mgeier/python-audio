@@ -26,9 +26,9 @@ The authors waive copyright and related rights in the work through the
 [CC0 1.0 Universal public domain dedication][CC0].
 
 [zip file]: https://codeload.github.com/mgeier/python-audio/zip/master
-[with outputs]: https://nbviewer.jupyter.org/github/mgeier/python-audio/blob/master/index.ipynb
-[without outputs]: https://nbviewer.jupyter.org/github/mgeier/python-audio/blob/dev/index.ipynb
-[binder]: https://mybinder.org/v2/gh/mgeier/python-audio/dev?filepath=index.ipynb
+[with outputs]: https://nbviewer.org/github/mgeier/python-audio/blob/master/index.ipynb
+[without outputs]: https://nbviewer.org/github/mgeier/python-audio/blob/dev/index.ipynb
+[binder]: https://mybinder.org/v2/gh/mgeier/python-audio/dev?labpath=index.ipynb
 
 [Jupyter]: https://jupyter.org/
 [IPython]: https://ipython.org/notebook.html

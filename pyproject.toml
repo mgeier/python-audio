@@ -14,3 +14,7 @@ dependencies = [
     "soundfile>=0.13.1",
     "sympy>=1.14.0",
 ]
+
+[tool.setuptools]
+# This is needed to make `pip install -e .` work:
+packages = []
